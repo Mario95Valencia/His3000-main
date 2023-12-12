@@ -4082,25 +4082,25 @@ namespace His.Datos
 
         public int ActualizaDescuentoAtencion(Int64 CodigoAtencion)
         {
-            SqlCommand command;
-            SqlConnection connection;
-            SqlDataReader reader;
-            BaseContextoDatos obj1 = new BaseContextoDatos();
-            connection = obj1.ConectarBd();
-            connection.Open();
-            try
-            {
-                command = new SqlCommand("update  HIS3000..CUENTAS_PACIENTES  set PorDescuento = 0, Descuento = 0  where ATE_CODIGO = "+ CodigoAtencion, connection);
-                command.CommandType = CommandType.Text;
-                command.CommandTimeout = 180;
-                reader = command.ExecuteReader();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                connection.Close();
-            }
+            //SqlCommand command;
+            //SqlConnection connection;
+            //SqlDataReader reader;
+            //BaseContextoDatos obj1 = new BaseContextoDatos();
+            //connection = obj1.ConectarBd();
+            //connection.Open();
+            //try
+            //{
+            //    command = new SqlCommand("update  HIS3000..CUENTAS_PACIENTES  set PorDescuento = 0, Descuento = 0  where ATE_CODIGO = "+ CodigoAtencion, connection);
+            //    command.CommandType = CommandType.Text;
+            //    command.CommandTimeout = 180;
+            //    reader = command.ExecuteReader();
+            //    connection.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    connection.Close();
+            //}
 
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
