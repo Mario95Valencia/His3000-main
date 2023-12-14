@@ -1891,8 +1891,8 @@ namespace His.Formulario
                 File.Delete(logEmp.LEM_RUTA); // Elimina el archivo.
                 Console.WriteLine("El archivo fue eliminado con éxito.");
             }
-            // Guardar el gráfico como una imagen JPG
-            chartObject.Chart.Export(@"" + logEmp.LEM_RUTA, "JPG");
+            // Guardar el gráfico como una imagen PNG
+            chartObject.Chart.Export(@"" + logEmp.LEM_RUTA, "PNG");
 
             workbook.Close(false);
             excelApp.Quit();
@@ -1914,8 +1914,16 @@ namespace His.Formulario
             {
                 if (NegSignosVitales.cargaCurvaTermica(CodigoAtencion))
                 {
-                    grabaDatosExcel(8);
-                    grabarImagenExcel(8, 9);
+                    try
+                    {
+                        grabaDatosExcel(8);
+                        grabarImagenExcel(8, 9);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        wf.Close();
+                    }
                 }
                 else
                     MessageBox.Show("No se pudo crear el grafico \r\n de signos vitales", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -2018,24 +2018,24 @@ advertencia 6002: La tabla o vista 'His3000.dbo.HC_INGESTA_ELIMINACION_DETALLE' 
           <Property Name="SV_FECHA" Type="datetime" />
           <Property Name="SV_INTERACCION" Type="varchar" MaxLength="100" />
           <Property Name="SV_POSTQUIRURGICO" Type="varchar" MaxLength="100" />
-          <Property Name="SV_ING_PARENTAL" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ING_ORAL" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ING_TOTAL" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ELM_ORINA" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ELM_DRENAJE" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ELM_OTROS" Type="varchar" MaxLength="10" />
-          <Property Name="SV_ELM_TOTAL" Type="varchar" MaxLength="10" />
-          <Property Name="SV_BAÑO" Type="varchar" MaxLength="20" />
-          <Property Name="SV_PESO" Type="varchar" MaxLength="20" />
-          <Property Name="SV_DIETA_ADMINISTRADA" Type="varchar" MaxLength="20" />
-          <Property Name="SV_NUMERO_COMIDAS" Type="varchar" MaxLength="20" />
-          <Property Name="SV_NUMERO_MEDICIONES" Type="varchar" MaxLength="20" />
-          <Property Name="SV_NUMERO_DEPOSICIONES" Type="varchar" MaxLength="20" />
-          <Property Name="SV_ACTIVIDAD_FISICA" Type="varchar" MaxLength="20" />
-          <Property Name="SV_CAMBIO_SONDA" Type="varchar" MaxLength="20" />
-          <Property Name="SV_RECANALIZACION" Type="varchar" MaxLength="20" />
-          <Property Name="SV_RESPONSABLE" Type="varchar" MaxLength="20" />
-          <Property Name="SV_PORCENTAJE" Type="varchar" MaxLength="10" />
+          <Property Name="SV_ING_PARENTAL" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ING_ORAL" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ING_TOTAL" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ELM_ORINA" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ELM_DRENAJE" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ELM_OTROS" Type="varchar" MaxLength="15" />
+          <Property Name="SV_ELM_TOTAL" Type="varchar" MaxLength="15" />
+          <Property Name="SV_BAÑO" Type="varchar" MaxLength="30" />
+          <Property Name="SV_PESO" Type="varchar" MaxLength="30" />
+          <Property Name="SV_DIETA_ADMINISTRADA" Type="varchar" MaxLength="30" />
+          <Property Name="SV_NUMERO_COMIDAS" Type="varchar" MaxLength="30" />
+          <Property Name="SV_NUMERO_MEDICIONES" Type="varchar" MaxLength="30" />
+          <Property Name="SV_NUMERO_DEPOSICIONES" Type="varchar" MaxLength="30" />
+          <Property Name="SV_ACTIVIDAD_FISICA" Type="varchar" MaxLength="30" />
+          <Property Name="SV_CAMBIO_SONDA" Type="varchar" MaxLength="30" />
+          <Property Name="SV_RECANALIZACION" Type="varchar" MaxLength="30" />
+          <Property Name="SV_RESPONSABLE" Type="varchar" MaxLength="30" />
+          <Property Name="SV_PORCENTAJE" Type="varchar" MaxLength="30" />
           <Property Name="SV_HOJA" Type="int" />
           <Property Name="SV_RESPALDO_DIA" Type="int" />
         </EntityType>
@@ -3018,7 +3018,7 @@ advertencia 6002: La tabla o vista 'His3000.dbo.RECETA_MEDICAMENTOS' no tiene de
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TEMPERATURA" Type="int" />
+          <Property Name="TEMPERATURA" Type="float" />
           <Property Name="HORA" Type="varchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="REPORTE_SV">
@@ -8294,8 +8294,8 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <EntitySet Name="PERFILES_PRODUCTOS" EntityType="HIS3000BDModel.PERFILES_PRODUCTOS" />
           <EntitySet Name="CONTROL_CONSULTA" EntityType="HIS3000BDModel.CONTROL_CONSULTA" />
           <EntitySet Name="ATENCIONES_REINGRESO" EntityType="HIS3000BDModel.ATENCIONES_REINGRESO" />
-          <EntitySet Name="REPORTE_CURVA_TERMICA" EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" />
           <EntitySet Name="REPORTE_SV" EntityType="HIS3000BDModel.REPORTE_SV" />
+          <EntitySet Name="REPORTE_CURVA_TERMICA" EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" />
           </EntityContainer>
 				<EntityType Name="ACCESO_OPCIONES">
 					<Key>
@@ -12700,24 +12700,24 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <Property Name="SV_FECHA" Type="DateTime" Precision="3" />
           <Property Name="SV_INTERACCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SV_POSTQUIRURGICO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ING_PARENTAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ING_ORAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ING_TOTAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ELM_ORINA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ELM_DRENAJE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ELM_OTROS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ELM_TOTAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SV_BAÑO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_PESO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_DIETA_ADMINISTRADA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_NUMERO_COMIDAS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_NUMERO_MEDICIONES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_NUMERO_DEPOSICIONES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_ACTIVIDAD_FISICA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_CAMBIO_SONDA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_RECANALIZACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_RESPONSABLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SV_PORCENTAJE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ING_PARENTAL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ING_ORAL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ING_TOTAL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ELM_ORINA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ELM_DRENAJE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ELM_OTROS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ELM_TOTAL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SV_BAÑO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_PESO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_DIETA_ADMINISTRADA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_NUMERO_COMIDAS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_NUMERO_MEDICIONES" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_NUMERO_DEPOSICIONES" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_ACTIVIDAD_FISICA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_CAMBIO_SONDA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_RECANALIZACION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_RESPONSABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SV_PORCENTAJE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SV_HOJA" Type="Int32" />
           <Property Name="SV_RESPALDO_DIA" Type="Int32" />
         </EntityType>
@@ -12950,14 +12950,6 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <Property Name="FECHA_CREACION" Type="DateTime" Precision="3" />
           <Property Name="ESTADO" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="REPORTE_CURVA_TERMICA">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TEMPERATURA" Type="Int32" />
-          <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="REPORTE_SV">
           <Key>
             <PropertyRef Name="ID" />
@@ -12966,6 +12958,14 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <Property Name="HORA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PULSO" Type="Double" />
           <Property Name="TEMPERATURA" Type="Double" />
+        </EntityType>
+        <EntityType Name="REPORTE_CURVA_TERMICA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TEMPERATURA" Type="Double" />
+          <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
 		</edmx:ConceptualModels>
@@ -18360,21 +18360,21 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="REPORTE_CURVA_TERMICA">
-            <EntityTypeMapping TypeName="HIS3000BDModel.REPORTE_CURVA_TERMICA">
-              <MappingFragment StoreEntitySet="REPORTE_CURVA_TERMICA">
-                <ScalarProperty Name="HORA" ColumnName="HORA" />
-                <ScalarProperty Name="TEMPERATURA" ColumnName="TEMPERATURA" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="REPORTE_SV">
             <EntityTypeMapping TypeName="HIS3000BDModel.REPORTE_SV">
               <MappingFragment StoreEntitySet="REPORTE_SV">
                 <ScalarProperty Name="TEMPERATURA" ColumnName="TEMPERATURA" />
                 <ScalarProperty Name="PULSO" ColumnName="PULSO" />
                 <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTE_CURVA_TERMICA">
+            <EntityTypeMapping TypeName="HIS3000BDModel.REPORTE_CURVA_TERMICA">
+              <MappingFragment StoreEntitySet="REPORTE_CURVA_TERMICA">
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="TEMPERATURA" ColumnName="TEMPERATURA" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -19946,8 +19946,8 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
         <EntityTypeShape EntityType="HIS3000BDModel.PERFILES_PRODUCTOS" Width="1.5" PointX="3.375" PointY="33.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.CONTROL_CONSULTA" Width="1.5" PointX="5.375" PointY="14.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.ATENCIONES_REINGRESO" Width="1.5" PointX="40.375" PointY="31.75" />
-        <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" Width="1.5" PointX="40.375" PointY="34.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_SV" Width="1.5" PointX="40.375" PointY="18.75" />
+        <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" Width="1.5" PointX="40.375" PointY="34.75" />
 			</Diagram>
 		</edmx:Diagrams>
 	</edmx:Designer>

@@ -853,13 +853,13 @@ namespace His.Datos
                         REPORTE_CURVA_TERMICA ct = db.REPORTE_CURVA_TERMICA.FirstOrDefault(x => x.ID == contador);
                         if (ct != null)
                         {
-                            ct.TEMPERATURA = Convert.ToInt32(item.sd.SVD_TEMPERATURA_AM);
+                            ct.TEMPERATURA = Convert.ToDouble(item.sd.SVD_TEMPERATURA_AM);
                             ct.HORA = Convert.ToString(item.sd.SVD_HORA).Substring(0, 5);
                         }
                         else
                         {
                             REPORTE_CURVA_TERMICA rct = new REPORTE_CURVA_TERMICA();
-                            rct.TEMPERATURA = Convert.ToInt32(item.sd.SVD_TEMPERATURA_AM);
+                            rct.TEMPERATURA = Convert.ToDouble(item.sd.SVD_TEMPERATURA_AM);
                             rct.HORA = Convert.ToString(item.sd.SVD_HORA).Substring(0, 5);
                             db.Crear("REPORTE_CURVA_TERMICA", rct);
                         }
