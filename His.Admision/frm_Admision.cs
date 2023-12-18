@@ -8011,19 +8011,11 @@ namespace His.Admision
                 List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
                 foreach (var item in perfilUsuario)
                 {
-                    List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 7);
-                    foreach (var items in accop)
+                    if (item.ID_PERFIL == 29)
                     {
-                        if (items.ID_ACCESO == 71110)// se cambia del perfil  29 a opcion 71110// Mario Valencia 14/11/2023 // cambio en seguridades.
-                        {
+                        if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
                             mushuñan = true;
-                        }
                     }
-                    //if (item.ID_PERFIL == 29)
-                    //{
-                    //    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
-                    //        mushuñan = true;
-                    //}
                 }
             }
             catch (System.Exception err) { MessageBox.Show(err.Message); }
