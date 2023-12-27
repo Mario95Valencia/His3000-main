@@ -478,5 +478,12 @@ namespace His.Maintenance
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void hCEXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_HonorarioConsultaExterna frm = new frm_HonorarioConsultaExterna();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

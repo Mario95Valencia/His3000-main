@@ -116,5 +116,13 @@ namespace His.Negocio
         {
             return new DatProducto().RecuperarProductoIDSIC(codProducto);
         }
+        public static DataTable listaproductosXdescripcion(string descripcion)
+        {
+            return new DatProducto().listaproductosXdescripcion(descripcion);
+        }
+        public static DataTable recuperaProductoSicXcodpro(string codpro)
+        {
+            return new DatProducto().recuperaProductoSicXcodpro(codpro);
+        }
     }
 }

@@ -1910,14 +1910,53 @@ namespace His.Formulario
         {
             WaitForm wf = new WaitForm();
             wf.Show();
-            if (NegSignosVitales.editarReporteCT())
+            DateTime horaCorte = new DateTime(2023, 8, 4, 10, 00, 0);
+            List<HC_SIGNOS_DATOS_ADICIONALES> lsv = NegSignosVitales.listaSVdatos(CodigoAtencion);
+            Int64 contador = 1;
+            Int64 registros = 1;
+            Int32 imagen = 1;
+            DSForm020 frm = new DSForm020();
+            DataRow dr;
+            LOGOS_EMPRESA log = NegParametros.logosEmpresa(9);
+            foreach (var item in lsv)
             {
-                if (NegSignosVitales.cargaCurvaTermica(CodigoAtencion))
+                NegSignosVitales.cargaCurvaTermica(item, contador);
+                if (contador != 1)
+                {
+                    contador++;
+                    if (item.SVD_HORA == horaCorte.TimeOfDay)
+                    {
+                        try
+                        {
+                            contador = 1;
+                            grabaDatosExcel(8);
+                            grabarImagenExcelCT(8, 9, imagen);
+                            dr = frm.Tables["CurvaTermica"].NewRow();
+                            dr["path"] = log.LEM_RUTA + imagen + ".png";
+                            frm.Tables["CurvaTermica"].Rows.Add(dr);
+                            imagen++;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            wf.Close();
+                        }
+                        NegSignosVitales.editarReporteCT();
+                    }
+                }
+                else
+                    contador++;
+                registros++;
+                if (lsv.Count == registros)
                 {
                     try
                     {
                         grabaDatosExcel(8);
-                        grabarImagenExcel(8, 9);
+                        grabarImagenExcelCT(8, 9, imagen);
+                        dr = frm.Tables["CurvaTermica"].NewRow();
+                        dr["path"] = log.LEM_RUTA + imagen + ".png";
+                        frm.Tables["CurvaTermica"].Rows.Add(dr);
+                        imagen++;
                     }
                     catch (Exception ex)
                     {
@@ -1925,21 +1964,67 @@ namespace His.Formulario
                         wf.Close();
                     }
                 }
-                else
-                    MessageBox.Show("No se pudo crear el grafico \r\n de signos vitales", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("No se pudo crear el grafico \r\n de signos vitales", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            LOGOS_EMPRESA logEmp = NegParametros.logosEmpresa(9);
-            DSForm020 frm = new DSForm020();
-            DataRow dr;
-            dr = frm.Tables["CurvaTermica"].NewRow();
-            dr["path"] = logEmp.LEM_RUTA;
-            frm.Tables["CurvaTermica"].Rows.Add(dr);
+            //if (NegSignosVitales.editarReporteCT())
+            //{
+            //    if (NegSignosVitales.cargaCurvaTermica(CodigoAtencion))
+            //    {
+            //        try
+            //        {
+            //            grabaDatosExcel(8);
+            //            grabarImagenExcel(8, 9);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex.Message);
+            //            wf.Close();
+            //        }
+            //    }
+            //    else
+            //        MessageBox.Show("No se pudo crear el grafico \r\n de signos vitales", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //    MessageBox.Show("No se pudo crear el grafico \r\n de signos vitales", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            //LOGOS_EMPRESA logEmp = NegParametros.logosEmpresa(9);
+            //DSForm020 frm = new DSForm020();
+            //DataRow dr;
+            //dr = frm.Tables["CurvaTermica"].NewRow();
+            //dr["path"] = logEmp.LEM_RUTA;
+            //frm.Tables["CurvaTermica"].Rows.Add(dr);
             wf.Close();
             frmReportes x = new frmReportes(1, "CurvaTermica", frm);
             x.Show();
+        }
+        public void grabarImagenExcelCT(int lg, int im, int imagen)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            excelApp.Visible = false;
+            LOGOS_EMPRESA logEmp = NegParametros.logosEmpresa(lg);
+            Excel.Workbook workbook = excelApp.Workbooks.Open(@"" + logEmp.LEM_RUTA);
+            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];
+
+            Excel.ChartObjects chartObjects = (Excel.ChartObjects)worksheet.ChartObjects();
+            Excel.ChartObject chartObject = (Excel.ChartObject)chartObjects.Item(1); // Cambia el índice según el gráfico que desees
+
+            logEmp = NegParametros.logosEmpresa(im);
+            // Eliminar la imagen en la ruta antes de crear la nueva
+            if (File.Exists(logEmp.LEM_RUTA + imagen + ".png"))
+            {
+                File.Delete(logEmp.LEM_RUTA + imagen + ".png"); // Elimina el archivo.
+                Console.WriteLine("El archivo fue eliminado con éxito.");
+            }
+            // Guardar el gráfico como una imagen PNG
+            chartObject.Chart.Export(@"" + logEmp.LEM_RUTA + imagen + ".png", "PNG");
+
+            workbook.Close(false);
+            excelApp.Quit();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+            Console.WriteLine("Grafico exportado como imagen.");
         }
     }
 }

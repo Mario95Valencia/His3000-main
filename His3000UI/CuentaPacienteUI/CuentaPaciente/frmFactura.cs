@@ -1224,7 +1224,7 @@ namespace CuentaPaciente
                                                 }
                                                 //SE AUMATIZA EL REGISTRO DE LIQUIDACION CON HONORARIOS CONSULTA EXTERNA
                                                 int tIngreso = NegTipoIngreso.RecuperarporAtencion(ultimaAtencion.ATE_CODIGO);
-                                                if (tIngreso == 4) //es consulta externa
+                                                //if (tIngreso == 4) //es consulta externa
                                                     LiquidacionHonorarios();
                                                 //facturaToolStripMenuItem.PerformClick();
                                                 //facturaimprime.PerformClick();
@@ -5062,7 +5062,8 @@ namespace CuentaPaciente
                     else
                     {
                         /*impresion*/
-                        frmImpresionPedidos frmPedidos = new frmImpresionPedidos(Pedido, ar.PEA_CODIGO, 1, 1);
+                        PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(68);
+                        frmImpresionPedidos frmPedidos = new frmImpresionPedidos(Pedido, ar.PEA_CODIGO, 1, Convert.ToInt32(pd.PAD_VALOR));
                         frmPedidos.Show();
                     }
 

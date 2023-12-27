@@ -6248,7 +6248,8 @@ namespace His.Datos
                 List<CUENTAS_PACIENTES> h = new List<CUENTAS_PACIENTES>();
 
                 h = (from c in db.CUENTAS_PACIENTES
-                     where c.CUE_DETALLE.Contains("HONORARIOS") && c.ATE_CODIGO == ate_codigo
+                     join hce in db.HONORARIOS_CONSULTA_EXTERNA on c.PRO_CODIGO equals hce.PRO_CODIGO
+                     where c.ATE_CODIGO == ate_codigo
                      select c).ToList();
                 return h;
             }

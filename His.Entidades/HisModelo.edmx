@@ -2039,6 +2039,14 @@ advertencia 6002: La tabla o vista 'His3000.dbo.HC_INGESTA_ELIMINACION_DETALLE' 
           <Property Name="SV_HOJA" Type="int" />
           <Property Name="SV_RESPALDO_DIA" Type="int" />
         </EntityType>
+        <EntityType Name="HONORARIOS_CONSULTA_EXTERNA">
+          <Key>
+            <PropertyRef Name="HCE_ID" />
+          </Key>
+          <Property Name="HCE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRO_CODIGO" Type="varchar" MaxLength="10" />
+          <Property Name="PRO_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="HONORARIOS_MEDICOS">
           <Key>
             <PropertyRef Name="HOM_CODIGO" />
@@ -6067,6 +6075,7 @@ advertencia 6037: La restricción de clave externa 'FK_NOTAS_CR_REFERENCE_TIPO_D
           <EntitySet Name="HC_PROTOCOLO_OPERATORIO" EntityType="Self.HC_PROTOCOLO_OPERATORIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HC_SIGNOS_DATOS_ADICIONALES" EntityType="Self.HC_SIGNOS_DATOS_ADICIONALES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HC_SIGNOS_VITALES" EntityType="Self.HC_SIGNOS_VITALES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HONORARIOS_CONSULTA_EXTERNA" EntityType="Self.HONORARIOS_CONSULTA_EXTERNA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HONORARIOS_MEDICOS" EntityType="Self.HONORARIOS_MEDICOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HONORARIOS_TARIFARIO" EntityType="Self.HONORARIOS_TARIFARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HONORARIOS_TARIFARIO_DETALLE" EntityType="Self.HONORARIOS_TARIFARIO_DETALLE" Schema="dbo" store:Type="Tables" />
@@ -8296,6 +8305,7 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <EntitySet Name="ATENCIONES_REINGRESO" EntityType="HIS3000BDModel.ATENCIONES_REINGRESO" />
           <EntitySet Name="REPORTE_SV" EntityType="HIS3000BDModel.REPORTE_SV" />
           <EntitySet Name="REPORTE_CURVA_TERMICA" EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" />
+          <EntitySet Name="HONORARIOS_CONSULTA_EXTERNA" EntityType="HIS3000BDModel.HONORARIOS_CONSULTA_EXTERNA" />
           </EntityContainer>
 				<EntityType Name="ACCESO_OPCIONES">
 					<Key>
@@ -12966,6 +12976,14 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TEMPERATURA" Type="Double" />
           <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HONORARIOS_CONSULTA_EXTERNA">
+          <Key>
+            <PropertyRef Name="HCE_ID" />
+          </Key>
+          <Property Name="HCE_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="PRO_CODIGO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
 		</edmx:ConceptualModels>
@@ -18379,6 +18397,15 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="HONORARIOS_CONSULTA_EXTERNA">
+            <EntityTypeMapping TypeName="HIS3000BDModel.HONORARIOS_CONSULTA_EXTERNA">
+              <MappingFragment StoreEntitySet="HONORARIOS_CONSULTA_EXTERNA">
+                <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+                <ScalarProperty Name="PRO_CODIGO" ColumnName="PRO_CODIGO" />
+                <ScalarProperty Name="HCE_ID" ColumnName="HCE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
 			</Mapping>
 		</edmx:Mappings>
@@ -19948,6 +19975,7 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
         <EntityTypeShape EntityType="HIS3000BDModel.ATENCIONES_REINGRESO" Width="1.5" PointX="40.375" PointY="31.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_SV" Width="1.5" PointX="40.375" PointY="18.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" Width="1.5" PointX="40.375" PointY="34.75" />
+        <EntityTypeShape EntityType="HIS3000BDModel.HONORARIOS_CONSULTA_EXTERNA" Width="1.5" PointX="40.375" PointY="37.75" />
 			</Diagram>
 		</edmx:Diagrams>
 	</edmx:Designer>

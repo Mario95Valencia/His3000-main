@@ -29,7 +29,7 @@ namespace His.Datos
                                        join hmd in db.HONORARIOS_MEDICOS_DATOSADICIONALES on hm.HOM_CODIGO equals hmd.HOM_CODIGO
                                        join a in db.ATENCIONES on hm.ATE_CODIGO equals a.ATE_CODIGO
                                        where hm.MEDICOS.MED_CODIGO == item.CODIGO && hmd.GENERADO_ASIENTO == 0
-                                       && a.TIPO_INGRESO.TIP_CODIGO == 4 && hmd.HON_FUERA == false
+                                       && hm.HOM_OBSERVACION == "CONSULTA EXTERNA" && hmd.HON_FUERA == false
                                        select new
                                        {
                                            hm,
@@ -316,7 +316,8 @@ namespace His.Datos
                                    join p in db.PACIENTES on a.PACIENTES.PAC_CODIGO equals p.PAC_CODIGO
                                    join hd in db.HONORARIOS_MEDICOS_DATOSADICIONALES on h.HOM_CODIGO equals hd.HOM_CODIGO
                                    where h.MEDICOS.MED_CODIGO == item.m.MED_CODIGO
-                                   && a.TIPO_INGRESO.TIP_CODIGO == 4 && h.HOM_FACTURA_MEDICO == "" && hd.GENERADO_ASIENTO == 1
+                                   //&& a.TIPO_INGRESO.TIP_CODIGO == 4 && h.HOM_FACTURA_MEDICO == "" && hd.GENERADO_ASIENTO == 1 // se modifica por cambio de Consula externa // Mario Valencia // 21-12-2023
+                                   && h.HOM_FACTURA_MEDICO == "" && hd.GENERADO_ASIENTO == 1 && h.HOM_OBSERVACION == "CONSULTA EXTERNA"
                                    select new
                                    {
                                        h,

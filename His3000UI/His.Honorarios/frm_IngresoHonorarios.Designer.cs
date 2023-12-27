@@ -249,7 +249,7 @@
             this.Marco.Controls.Add(this.grp2);
             this.Marco.Controls.Add(this.grpCP);
             this.Marco.Location = new System.Drawing.Point(-3, 2);
-            this.Marco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Marco.Margin = new System.Windows.Forms.Padding(4);
             this.Marco.Name = "Marco";
             this.Marco.Size = new System.Drawing.Size(1360, 538);
             this.Marco.TabIndex = 0;
@@ -276,9 +276,9 @@
             this.grp3.Controls.Add(this.txtRetencionTotal);
             this.grp3.Controls.Add(this.label18);
             this.grp3.Location = new System.Drawing.Point(11, 448);
-            this.grp3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grp3.Margin = new System.Windows.Forms.Padding(4);
             this.grp3.Name = "grp3";
-            this.grp3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grp3.Padding = new System.Windows.Forms.Padding(4);
             this.grp3.Size = new System.Drawing.Size(1328, 86);
             this.grp3.TabIndex = 264;
             this.grp3.TabStop = false;
@@ -341,7 +341,7 @@
             this.ultraGrid.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.ultraGrid.Dock = System.Windows.Forms.DockStyle.Top;
             this.ultraGrid.Location = new System.Drawing.Point(4, 19);
-            this.ultraGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraGrid.Margin = new System.Windows.Forms.Padding(4);
             this.ultraGrid.Name = "ultraGrid";
             this.ultraGrid.Size = new System.Drawing.Size(1320, 154);
             this.ultraGrid.TabIndex = 255;
@@ -355,7 +355,7 @@
             this.txtAporteTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtAporteTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAporteTotal.Location = new System.Drawing.Point(1153, 4);
-            this.txtAporteTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAporteTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtAporteTotal.Name = "txtAporteTotal";
             this.txtAporteTotal.ReadOnly = true;
             this.txtAporteTotal.Size = new System.Drawing.Size(157, 26);
@@ -382,7 +382,7 @@
             this.ultraButton1.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.ultraButton1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ultraButton1.Location = new System.Drawing.Point(25, 47);
-            this.ultraButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraButton1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraButton1.Name = "ultraButton1";
             this.ultraButton1.Size = new System.Drawing.Size(52, 34);
             this.ultraButton1.TabIndex = 254;
@@ -395,7 +395,7 @@
             this.txtValorFacturaPaciente.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtValorFacturaPaciente.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorFacturaPaciente.Location = new System.Drawing.Point(1153, -44);
-            this.txtValorFacturaPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValorFacturaPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorFacturaPaciente.Name = "txtValorFacturaPaciente";
             this.txtValorFacturaPaciente.ReadOnly = true;
             this.txtValorFacturaPaciente.Size = new System.Drawing.Size(157, 26);
@@ -422,7 +422,7 @@
             this.txtComisionTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtComisionTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComisionTotal.Location = new System.Drawing.Point(1153, -21);
-            this.txtComisionTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtComisionTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtComisionTotal.Name = "txtComisionTotal";
             this.txtComisionTotal.ReadOnly = true;
             this.txtComisionTotal.Size = new System.Drawing.Size(157, 26);
@@ -449,7 +449,7 @@
             this.txtHonorariosTotales.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtHonorariosTotales.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHonorariosTotales.Location = new System.Drawing.Point(1153, 56);
-            this.txtHonorariosTotales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHonorariosTotales.Margin = new System.Windows.Forms.Padding(4);
             this.txtHonorariosTotales.Name = "txtHonorariosTotales";
             this.txtHonorariosTotales.ReadOnly = true;
             this.txtHonorariosTotales.Size = new System.Drawing.Size(157, 26);
@@ -464,7 +464,7 @@
             this.progressBar1.BackColor = System.Drawing.Color.Silver;
             this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.progressBar1.Location = new System.Drawing.Point(12, 4);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(174, 21);
             this.progressBar1.TabIndex = 248;
@@ -502,7 +502,7 @@
             this.btnRefresh.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton;
             this.btnRefresh.Enabled = false;
             this.btnRefresh.Location = new System.Drawing.Point(13, -44);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(220, 26);
             this.btnRefresh.TabIndex = 2;
@@ -515,7 +515,7 @@
             this.txtRetencionTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtRetencionTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRetencionTotal.Location = new System.Drawing.Point(1153, 29);
-            this.txtRetencionTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRetencionTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtRetencionTotal.Name = "txtRetencionTotal";
             this.txtRetencionTotal.ReadOnly = true;
             this.txtRetencionTotal.Size = new System.Drawing.Size(157, 26);
@@ -583,7 +583,7 @@
             this.groupBoxPaciente.Controls.Add(this.txtPacienteApellidoPaterno);
             this.groupBoxPaciente.Controls.Add(this.txtPacienteNombre);
             this.groupBoxPaciente.Location = new System.Drawing.Point(11, 34);
-            this.groupBoxPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxPaciente.Name = "groupBoxPaciente";
             this.groupBoxPaciente.Size = new System.Drawing.Size(1323, 139);
             this.groupBoxPaciente.TabIndex = 0;
@@ -609,7 +609,7 @@
             this.ayudaAtenciones.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.ayudaAtenciones.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaAtenciones.Location = new System.Drawing.Point(1260, 2);
-            this.ayudaAtenciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ayudaAtenciones.Margin = new System.Windows.Forms.Padding(4);
             this.ayudaAtenciones.Name = "ayudaAtenciones";
             this.ayudaAtenciones.Size = new System.Drawing.Size(34, 22);
             this.ayudaAtenciones.TabIndex = 253;
@@ -635,7 +635,7 @@
             // 
             this.TXTHOMCOD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TXTHOMCOD.Location = new System.Drawing.Point(1004, 0);
-            this.TXTHOMCOD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TXTHOMCOD.Margin = new System.Windows.Forms.Padding(4);
             this.TXTHOMCOD.Name = "TXTHOMCOD";
             this.TXTHOMCOD.Size = new System.Drawing.Size(137, 22);
             this.TXTHOMCOD.TabIndex = 256;
@@ -660,7 +660,7 @@
             this.fecCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecCaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fecCaja.Location = new System.Drawing.Point(1157, 0);
-            this.fecCaja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fecCaja.Margin = new System.Windows.Forms.Padding(4);
             this.fecCaja.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.fecCaja.Name = "fecCaja";
             this.fecCaja.Size = new System.Drawing.Size(93, 23);
@@ -682,7 +682,7 @@
             // txtnumatencion
             // 
             this.txtnumatencion.Location = new System.Drawing.Point(782, 46);
-            this.txtnumatencion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtnumatencion.Margin = new System.Windows.Forms.Padding(4);
             this.txtnumatencion.Name = "txtnumatencion";
             this.txtnumatencion.ReadOnly = true;
             this.txtnumatencion.Size = new System.Drawing.Size(166, 22);
@@ -694,7 +694,7 @@
             this.chc_fecha.BackColor = System.Drawing.Color.Transparent;
             this.chc_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chc_fecha.Location = new System.Drawing.Point(290, 28);
-            this.chc_fecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chc_fecha.Margin = new System.Windows.Forms.Padding(4);
             this.chc_fecha.Name = "chc_fecha";
             this.chc_fecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chc_fecha.Size = new System.Drawing.Size(106, 21);
@@ -707,7 +707,7 @@
             // txtAtencion
             // 
             this.txtAtencion.Location = new System.Drawing.Point(782, 48);
-            this.txtAtencion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAtencion.Margin = new System.Windows.Forms.Padding(4);
             this.txtAtencion.Name = "txtAtencion";
             this.txtAtencion.ReadOnly = true;
             this.txtAtencion.Size = new System.Drawing.Size(166, 22);
@@ -731,7 +731,7 @@
             this.ayudaHabitacion.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.ayudaHabitacion.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaHabitacion.Location = new System.Drawing.Point(957, 76);
-            this.ayudaHabitacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ayudaHabitacion.Margin = new System.Windows.Forms.Padding(4);
             this.ayudaHabitacion.Name = "ayudaHabitacion";
             this.ayudaHabitacion.Size = new System.Drawing.Size(34, 22);
             this.ayudaHabitacion.TabIndex = 244;
@@ -748,7 +748,7 @@
             this.ayudaPacientes.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.ayudaPacientes.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaPacientes.Location = new System.Drawing.Point(96, 28);
-            this.ayudaPacientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ayudaPacientes.Margin = new System.Windows.Forms.Padding(4);
             this.ayudaPacientes.Name = "ayudaPacientes";
             this.ayudaPacientes.Size = new System.Drawing.Size(34, 22);
             this.ayudaPacientes.TabIndex = 240;
@@ -762,7 +762,7 @@
             this.txtCodigoPaciente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoPaciente.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoPaciente.Location = new System.Drawing.Point(137, 26);
-            this.txtCodigoPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoPaciente.Name = "txtCodigoPaciente";
             this.txtCodigoPaciente.ReadOnly = true;
             this.txtCodigoPaciente.Size = new System.Drawing.Size(129, 26);
@@ -780,7 +780,7 @@
             this.dateTimePickerFechaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaFactura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFechaFactura.Location = new System.Drawing.Point(1083, 50);
-            this.dateTimePickerFechaFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFechaFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFechaFactura.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerFechaFactura.Name = "dateTimePickerFechaFactura";
             this.dateTimePickerFechaFactura.Size = new System.Drawing.Size(144, 23);
@@ -803,7 +803,7 @@
             // txtPacienteCedula
             // 
             this.txtPacienteCedula.Location = new System.Drawing.Point(516, 75);
-            this.txtPacienteCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteCedula.Mask = "0000000000";
             this.txtPacienteCedula.Name = "txtPacienteCedula";
             this.txtPacienteCedula.Size = new System.Drawing.Size(114, 22);
@@ -817,7 +817,7 @@
             this.txtPacienteApellidoMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteApellidoMaterno.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteApellidoMaterno.Location = new System.Drawing.Point(267, 78);
-            this.txtPacienteApellidoMaterno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteApellidoMaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteApellidoMaterno.MaxLength = 20;
             this.txtPacienteApellidoMaterno.Name = "txtPacienteApellidoMaterno";
             this.txtPacienteApellidoMaterno.ReadOnly = true;
@@ -843,7 +843,7 @@
             this.txtPacienteNombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteNombre2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteNombre2.Location = new System.Drawing.Point(267, 53);
-            this.txtPacienteNombre2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteNombre2.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteNombre2.MaxLength = 20;
             this.txtPacienteNombre2.Name = "txtPacienteNombre2";
             this.txtPacienteNombre2.ReadOnly = true;
@@ -879,7 +879,7 @@
             // 
             this.txtFactura.BackColor = System.Drawing.Color.White;
             this.txtFactura.Location = new System.Drawing.Point(782, 20);
-            this.txtFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtFactura.Mask = "000-000-000000000";
             this.txtFactura.Name = "txtFactura";
             this.txtFactura.ReadOnly = true;
@@ -893,7 +893,7 @@
             this.txtNumControl.BackColor = System.Drawing.Color.White;
             this.txtNumControl.BeepOnError = true;
             this.txtNumControl.Location = new System.Drawing.Point(782, 75);
-            this.txtNumControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumControl.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumControl.Mask = "000000";
             this.txtNumControl.Name = "txtNumControl";
             this.txtNumControl.ReadOnly = true;
@@ -908,7 +908,7 @@
             this.txtPacienteTelf.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtPacienteTelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteTelf.Location = new System.Drawing.Point(516, 52);
-            this.txtPacienteTelf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteTelf.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteTelf.Mask = "00-000-0000";
             this.txtPacienteTelf.Name = "txtPacienteTelf";
             this.txtPacienteTelf.ReadOnly = true;
@@ -924,7 +924,7 @@
             this.dateTimePickerFechaAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFechaAlta.Location = new System.Drawing.Point(1083, 106);
-            this.dateTimePickerFechaAlta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFechaAlta.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFechaAlta.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerFechaAlta.Name = "dateTimePickerFechaAlta";
             this.dateTimePickerFechaAlta.Size = new System.Drawing.Size(144, 23);
@@ -939,7 +939,7 @@
             this.dateTimePickerFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFechaIngreso.Location = new System.Drawing.Point(1083, 78);
-            this.dateTimePickerFechaIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFechaIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFechaIngreso.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerFechaIngreso.Name = "dateTimePickerFechaIngreso";
             this.dateTimePickerFechaIngreso.Size = new System.Drawing.Size(144, 23);
@@ -977,7 +977,7 @@
             this.txtHabitacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHabitacion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHabitacion.Location = new System.Drawing.Point(605, 102);
-            this.txtHabitacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHabitacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.ReadOnly = true;
             this.txtHabitacion.Size = new System.Drawing.Size(166, 26);
@@ -1028,7 +1028,7 @@
             this.txtPacienteDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteDireccion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteDireccion.Location = new System.Drawing.Point(137, 103);
-            this.txtPacienteDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteDireccion.MaxLength = 255;
             this.txtPacienteDireccion.Name = "txtPacienteDireccion";
             this.txtPacienteDireccion.ReadOnly = true;
@@ -1054,7 +1054,7 @@
             this.checkBoxReferido.Enabled = false;
             this.checkBoxReferido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxReferido.Location = new System.Drawing.Point(784, 107);
-            this.checkBoxReferido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxReferido.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxReferido.Name = "checkBoxReferido";
             this.checkBoxReferido.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxReferido.Size = new System.Drawing.Size(92, 20);
@@ -1094,7 +1094,7 @@
             this.txtPacienteHCL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteHCL.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteHCL.Location = new System.Drawing.Point(516, 26);
-            this.txtPacienteHCL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteHCL.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteHCL.MaxLength = 7;
             this.txtPacienteHCL.Name = "txtPacienteHCL";
             this.txtPacienteHCL.ReadOnly = true;
@@ -1121,7 +1121,7 @@
             this.txtPacienteApellidoPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteApellidoPaterno.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteApellidoPaterno.Location = new System.Drawing.Point(137, 78);
-            this.txtPacienteApellidoPaterno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteApellidoPaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteApellidoPaterno.MaxLength = 20;
             this.txtPacienteApellidoPaterno.Name = "txtPacienteApellidoPaterno";
             this.txtPacienteApellidoPaterno.ReadOnly = true;
@@ -1135,7 +1135,7 @@
             this.txtPacienteNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacienteNombre.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPacienteNombre.Location = new System.Drawing.Point(137, 52);
-            this.txtPacienteNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPacienteNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtPacienteNombre.MaxLength = 20;
             this.txtPacienteNombre.Name = "txtPacienteNombre";
             this.txtPacienteNombre.ReadOnly = true;
@@ -1150,7 +1150,7 @@
             this.chkHonorarioDirecto.Enabled = false;
             this.chkHonorarioDirecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkHonorarioDirecto.Location = new System.Drawing.Point(25, 564);
-            this.chkHonorarioDirecto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkHonorarioDirecto.Margin = new System.Windows.Forms.Padding(4);
             this.chkHonorarioDirecto.Name = "chkHonorarioDirecto";
             this.chkHonorarioDirecto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkHonorarioDirecto.Size = new System.Drawing.Size(142, 21);
@@ -1186,7 +1186,7 @@
             this.txtBuscarNumControl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarNumControl.ForeColor = System.Drawing.SystemColors.Window;
             this.txtBuscarNumControl.Location = new System.Drawing.Point(1228, -2);
-            this.txtBuscarNumControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarNumControl.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarNumControl.Name = "txtBuscarNumControl";
             this.txtBuscarNumControl.Size = new System.Drawing.Size(105, 26);
             this.txtBuscarNumControl.TabIndex = 2;
@@ -1430,7 +1430,7 @@
             this.grp2.Controls.Add(this.cboFiltroFormaPago);
             this.grp2.Enabled = false;
             this.grp2.Location = new System.Drawing.Point(13, 178);
-            this.grp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grp2.Margin = new System.Windows.Forms.Padding(4);
             this.grp2.Name = "grp2";
             this.grp2.Size = new System.Drawing.Size(1322, 276);
             this.grp2.TabIndex = 0;
@@ -1446,7 +1446,7 @@
             this.btnAnticipos.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.btnAnticipos.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnticipos.Location = new System.Drawing.Point(432, 171);
-            this.btnAnticipos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnticipos.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnticipos.Name = "btnAnticipos";
             this.btnAnticipos.Size = new System.Drawing.Size(40, 27);
             this.btnAnticipos.TabIndex = 276;
@@ -1459,7 +1459,7 @@
             // 
             this.dtpFechaAsiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaAsiento.Location = new System.Drawing.Point(195, 238);
-            this.dtpFechaAsiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaAsiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaAsiento.Name = "dtpFechaAsiento";
             this.dtpFechaAsiento.Size = new System.Drawing.Size(137, 22);
             this.dtpFechaAsiento.TabIndex = 275;
@@ -1493,7 +1493,7 @@
             // 
             this.chkComision.AutoSize = true;
             this.chkComision.Location = new System.Drawing.Point(1228, 46);
-            this.chkComision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkComision.Margin = new System.Windows.Forms.Padding(4);
             this.chkComision.Name = "chkComision";
             this.chkComision.Size = new System.Drawing.Size(122, 21);
             this.chkComision.TabIndex = 272;
@@ -1506,7 +1506,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(1228, 71);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(81, 21);
             this.checkBox1.TabIndex = 271;
@@ -1519,7 +1519,7 @@
             this.txtrecorte.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtrecorte.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrecorte.Location = new System.Drawing.Point(1081, 146);
-            this.txtrecorte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtrecorte.Margin = new System.Windows.Forms.Padding(4);
             this.txtrecorte.Name = "txtrecorte";
             this.txtrecorte.Size = new System.Drawing.Size(141, 26);
             this.txtrecorte.TabIndex = 269;
@@ -1548,7 +1548,7 @@
             this.txtapc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtapc.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtapc.Location = new System.Drawing.Point(1081, 68);
-            this.txtapc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtapc.Margin = new System.Windows.Forms.Padding(4);
             this.txtapc.Name = "txtapc";
             this.txtapc.ReadOnly = true;
             this.txtapc.Size = new System.Drawing.Size(141, 24);
@@ -1574,7 +1574,7 @@
             this.txtcubierto.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtcubierto.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcubierto.Location = new System.Drawing.Point(1081, 121);
-            this.txtcubierto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtcubierto.Margin = new System.Windows.Forms.Padding(4);
             this.txtcubierto.Name = "txtcubierto";
             this.txtcubierto.Size = new System.Drawing.Size(141, 26);
             this.txtcubierto.TabIndex = 266;
@@ -1602,7 +1602,7 @@
             this.ultraButton2.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton;
             this.ultraButton2.ImageSize = new System.Drawing.Size(24, 16);
             this.ultraButton2.Location = new System.Drawing.Point(933, 236);
-            this.ultraButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraButton2.Margin = new System.Windows.Forms.Padding(4);
             this.ultraButton2.Name = "ultraButton2";
             this.ultraButton2.Size = new System.Drawing.Size(149, 27);
             this.ultraButton2.TabIndex = 264;
@@ -1618,9 +1618,9 @@
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.txtNombreMedico);
             this.groupBox1.Location = new System.Drawing.Point(9, 12);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(835, 52);
             this.groupBox1.TabIndex = 263;
             this.groupBox1.TabStop = false;
@@ -1633,7 +1633,7 @@
             this.ayudaMedicos.ButtonStyle = Infragistics.Win.UIElementButtonStyle.VisualStudio2005Button;
             this.ayudaMedicos.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaMedicos.Location = new System.Drawing.Point(94, 12);
-            this.ayudaMedicos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ayudaMedicos.Margin = new System.Windows.Forms.Padding(4);
             this.ayudaMedicos.Name = "ayudaMedicos";
             this.ayudaMedicos.Size = new System.Drawing.Size(34, 27);
             this.ayudaMedicos.TabIndex = 243;
@@ -1646,7 +1646,7 @@
             this.txtTelfMedico.BackColor = System.Drawing.Color.White;
             this.txtTelfMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelfMedico.Location = new System.Drawing.Point(712, 14);
-            this.txtTelfMedico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelfMedico.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelfMedico.Mask = "00-000-0000";
             this.txtTelfMedico.Name = "txtTelfMedico";
             this.txtTelfMedico.ReadOnly = true;
@@ -1659,7 +1659,7 @@
             this.txtCodMedico.BackColor = System.Drawing.Color.White;
             this.txtCodMedico.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodMedico.Location = new System.Drawing.Point(549, 12);
-            this.txtCodMedico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodMedico.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodMedico.Multiline = true;
             this.txtCodMedico.Name = "txtCodMedico";
             this.txtCodMedico.Size = new System.Drawing.Size(80, 26);
@@ -1700,7 +1700,7 @@
             this.txtNombreMedico.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreMedico.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreMedico.Location = new System.Drawing.Point(128, 12);
-            this.txtNombreMedico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreMedico.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreMedico.Name = "txtNombreMedico";
             this.txtNombreMedico.ReadOnly = true;
             this.txtNombreMedico.Size = new System.Drawing.Size(498, 26);
@@ -1716,7 +1716,7 @@
             this.chkXFuera.Enabled = false;
             this.chkXFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkXFuera.Location = new System.Drawing.Point(871, 96);
-            this.chkXFuera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkXFuera.Margin = new System.Windows.Forms.Padding(4);
             this.chkXFuera.Name = "chkXFuera";
             this.chkXFuera.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkXFuera.Size = new System.Drawing.Size(171, 21);
@@ -1730,7 +1730,7 @@
             this.dtpCaducidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCaducidad.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpCaducidad.Location = new System.Drawing.Point(722, 98);
-            this.dtpCaducidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpCaducidad.Margin = new System.Windows.Forms.Padding(4);
             this.dtpCaducidad.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dtpCaducidad.Name = "dtpCaducidad";
             this.dtpCaducidad.Size = new System.Drawing.Size(109, 23);
@@ -1779,7 +1779,7 @@
             this.cmb_empresas.Enabled = false;
             this.cmb_empresas.FormattingEnabled = true;
             this.cmb_empresas.Location = new System.Drawing.Point(139, 118);
-            this.cmb_empresas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_empresas.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_empresas.Name = "cmb_empresas";
             this.cmb_empresas.Size = new System.Drawing.Size(285, 24);
             this.cmb_empresas.TabIndex = 248;
@@ -1792,7 +1792,7 @@
             // 
             this.ch_vale.AutoSize = true;
             this.ch_vale.Location = new System.Drawing.Point(20, 96);
-            this.ch_vale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ch_vale.Margin = new System.Windows.Forms.Padding(4);
             this.ch_vale.Name = "ch_vale";
             this.ch_vale.Size = new System.Drawing.Size(80, 21);
             this.ch_vale.TabIndex = 247;
@@ -1806,7 +1806,7 @@
             this.ch_factura.Checked = true;
             this.ch_factura.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ch_factura.Location = new System.Drawing.Point(20, 70);
-            this.ch_factura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ch_factura.Margin = new System.Windows.Forms.Padding(4);
             this.ch_factura.Name = "ch_factura";
             this.ch_factura.Size = new System.Drawing.Size(100, 21);
             this.ch_factura.TabIndex = 246;
@@ -1818,7 +1818,7 @@
             // 
             this.txt_vale.Enabled = false;
             this.txt_vale.Location = new System.Drawing.Point(139, 92);
-            this.txt_vale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_vale.Margin = new System.Windows.Forms.Padding(4);
             this.txt_vale.Name = "txt_vale";
             this.txt_vale.Size = new System.Drawing.Size(132, 22);
             this.txt_vale.TabIndex = 245;
@@ -1829,7 +1829,7 @@
             this.btnAniadir.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton;
             this.btnAniadir.ImageSize = new System.Drawing.Size(24, 16);
             this.btnAniadir.Location = new System.Drawing.Point(1081, 236);
-            this.btnAniadir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAniadir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAniadir.Name = "btnAniadir";
             this.btnAniadir.Size = new System.Drawing.Size(142, 27);
             this.btnAniadir.TabIndex = 244;
@@ -1843,7 +1843,7 @@
             this.txtObservacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtObservacion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservacion.Location = new System.Drawing.Point(530, 144);
-            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(301, 50);
@@ -1866,7 +1866,7 @@
             // 
             this.txtFacturaMedico.BackColor = System.Drawing.Color.White;
             this.txtFacturaMedico.Location = new System.Drawing.Point(139, 69);
-            this.txtFacturaMedico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFacturaMedico.Margin = new System.Windows.Forms.Padding(4);
             this.txtFacturaMedico.Mask = "000-000-000000000";
             this.txtFacturaMedico.Name = "txtFacturaMedico";
             this.txtFacturaMedico.Size = new System.Drawing.Size(285, 22);
@@ -1878,7 +1878,7 @@
             // 
             this.txtLote.BeepOnError = true;
             this.txtLote.Location = new System.Drawing.Point(530, 121);
-            this.txtLote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLote.Margin = new System.Windows.Forms.Padding(4);
             this.txtLote.Mask = "0000000000";
             this.txtLote.Name = "txtLote";
             this.txtLote.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1943,7 +1943,7 @@
             this.txtValorTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtValorTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorTotal.Location = new System.Drawing.Point(1081, 197);
-            this.txtValorTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValorTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(141, 26);
@@ -1969,7 +1969,7 @@
             this.txtRetencion.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtRetencion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRetencion.Location = new System.Drawing.Point(1081, 171);
-            this.txtRetencion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRetencion.Margin = new System.Windows.Forms.Padding(4);
             this.txtRetencion.Name = "txtRetencion";
             this.txtRetencion.ReadOnly = true;
             this.txtRetencion.Size = new System.Drawing.Size(141, 26);
@@ -1995,7 +1995,7 @@
             this.txtAporteMedLLam.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtAporteMedLLam.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAporteMedLLam.Location = new System.Drawing.Point(1081, 68);
-            this.txtAporteMedLLam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAporteMedLLam.Margin = new System.Windows.Forms.Padding(4);
             this.txtAporteMedLLam.Name = "txtAporteMedLLam";
             this.txtAporteMedLLam.ReadOnly = true;
             this.txtAporteMedLLam.Size = new System.Drawing.Size(141, 26);
@@ -2021,7 +2021,7 @@
             this.txtComisionClinica.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtComisionClinica.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComisionClinica.Location = new System.Drawing.Point(1081, 43);
-            this.txtComisionClinica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtComisionClinica.Margin = new System.Windows.Forms.Padding(4);
             this.txtComisionClinica.Name = "txtComisionClinica";
             this.txtComisionClinica.ReadOnly = true;
             this.txtComisionClinica.Size = new System.Drawing.Size(141, 26);
@@ -2036,13 +2036,14 @@
             this.txtAutSri.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAutSri.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAutSri.Location = new System.Drawing.Point(530, 71);
-            this.txtAutSri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAutSri.Margin = new System.Windows.Forms.Padding(4);
             this.txtAutSri.MaxLength = 49;
             this.txtAutSri.Name = "txtAutSri";
             this.txtAutSri.Size = new System.Drawing.Size(301, 26);
             this.txtAutSri.TabIndex = 133;
             this.txtAutSri.TabStop = false;
             this.txtAutSri.TextChanged += new System.EventHandler(this.txtAutSri_TextChanged);
+            this.txtAutSri.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAutSri_KeyPress);
             // 
             // label20
             // 
@@ -2073,7 +2074,7 @@
             this.txtValorNeto.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtValorNeto.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorNeto.Location = new System.Drawing.Point(1081, 18);
-            this.txtValorNeto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValorNeto.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorNeto.Name = "txtValorNeto";
             this.txtValorNeto.Size = new System.Drawing.Size(141, 26);
             this.txtValorNeto.TabIndex = 8;
@@ -2102,7 +2103,7 @@
             this.dateTimePickerFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerFecha.Location = new System.Drawing.Point(530, 98);
-            this.dateTimePickerFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFecha.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerFecha.Name = "dateTimePickerFecha";
             this.dateTimePickerFecha.Size = new System.Drawing.Size(109, 23);
@@ -2125,7 +2126,7 @@
             // txt_codigoFormaspago
             // 
             this.txt_codigoFormaspago.Location = new System.Drawing.Point(777, 206);
-            this.txt_codigoFormaspago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_codigoFormaspago.Margin = new System.Windows.Forms.Padding(4);
             this.txt_codigoFormaspago.Name = "txt_codigoFormaspago";
             this.txt_codigoFormaspago.Size = new System.Drawing.Size(54, 22);
             this.txt_codigoFormaspago.TabIndex = 257;
@@ -2138,7 +2139,7 @@
             this.txt_nombre_pagos.BackColor = System.Drawing.Color.White;
             this.txt_nombre_pagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txt_nombre_pagos.Location = new System.Drawing.Point(546, 206);
-            this.txt_nombre_pagos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_nombre_pagos.Margin = new System.Windows.Forms.Padding(4);
             this.txt_nombre_pagos.Name = "txt_nombre_pagos";
             this.txt_nombre_pagos.ReadOnly = true;
             this.txt_nombre_pagos.Size = new System.Drawing.Size(285, 22);
@@ -2159,7 +2160,7 @@
             this.btn_ayuda_pagos.Enabled = false;
             this.btn_ayuda_pagos.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ayuda_pagos.Location = new System.Drawing.Point(507, 208);
-            this.btn_ayuda_pagos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_ayuda_pagos.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ayuda_pagos.Name = "btn_ayuda_pagos";
             this.btn_ayuda_pagos.Size = new System.Drawing.Size(34, 22);
             this.btn_ayuda_pagos.TabIndex = 249;
@@ -2174,7 +2175,7 @@
             this.cboFiltroTipoFormaPago.Enabled = false;
             this.cboFiltroTipoFormaPago.FormattingEnabled = true;
             this.cboFiltroTipoFormaPago.Location = new System.Drawing.Point(139, 146);
-            this.cboFiltroTipoFormaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboFiltroTipoFormaPago.Margin = new System.Windows.Forms.Padding(4);
             this.cboFiltroTipoFormaPago.Name = "cboFiltroTipoFormaPago";
             this.cboFiltroTipoFormaPago.Size = new System.Drawing.Size(285, 24);
             this.cboFiltroTipoFormaPago.TabIndex = 4;
@@ -2189,7 +2190,7 @@
             this.cboFiltroFormaPago.Enabled = false;
             this.cboFiltroFormaPago.FormattingEnabled = true;
             this.cboFiltroFormaPago.Location = new System.Drawing.Point(139, 171);
-            this.cboFiltroFormaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboFiltroFormaPago.Margin = new System.Windows.Forms.Padding(4);
             this.cboFiltroFormaPago.Name = "cboFiltroFormaPago";
             this.cboFiltroFormaPago.Size = new System.Drawing.Size(285, 24);
             this.cboFiltroFormaPago.TabIndex = 5;
@@ -2205,7 +2206,7 @@
             this.grpCP.Controls.Add(this.bttnCancelar);
             this.grpCP.Controls.Add(this.gridCP);
             this.grpCP.Location = new System.Drawing.Point(14, 172);
-            this.grpCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCP.Margin = new System.Windows.Forms.Padding(4);
             this.grpCP.Name = "grpCP";
             this.grpCP.Size = new System.Drawing.Size(1323, 494);
             this.grpCP.TabIndex = 248;
@@ -2232,7 +2233,7 @@
             this.bttnCancelar.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton;
             this.bttnCancelar.ImageSize = new System.Drawing.Size(24, 16);
             this.bttnCancelar.Location = new System.Drawing.Point(1147, 446);
-            this.bttnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.bttnCancelar.Name = "bttnCancelar";
             this.bttnCancelar.Size = new System.Drawing.Size(142, 27);
             this.bttnCancelar.TabIndex = 257;
@@ -2299,7 +2300,7 @@
             this.gridCP.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.gridCP.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.gridCP.Location = new System.Drawing.Point(23, 38);
-            this.gridCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridCP.Margin = new System.Windows.Forms.Padding(4);
             this.gridCP.Name = "gridCP";
             this.gridCP.Size = new System.Drawing.Size(1285, 398);
             this.gridCP.TabIndex = 256;
@@ -2341,7 +2342,7 @@
             this.frm_IngresoHonorarios_Fill_Panel.Cursor = System.Windows.Forms.Cursors.Default;
             this.frm_IngresoHonorarios_Fill_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.frm_IngresoHonorarios_Fill_Panel.Location = new System.Drawing.Point(4, 34);
-            this.frm_IngresoHonorarios_Fill_Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frm_IngresoHonorarios_Fill_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.frm_IngresoHonorarios_Fill_Panel.Name = "frm_IngresoHonorarios_Fill_Panel";
             this.frm_IngresoHonorarios_Fill_Panel.Size = new System.Drawing.Size(1391, 561);
             this.frm_IngresoHonorarios_Fill_Panel.TabIndex = 0;
@@ -2355,7 +2356,7 @@
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
-            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.Name = "_frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left";
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 561);
             // 
@@ -2368,7 +2369,7 @@
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1395, 34);
-            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.Name = "_frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right";
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 561);
             // 
@@ -2380,7 +2381,7 @@
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.Name = "_frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top";
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1399, 34);
             // 
@@ -2393,7 +2394,7 @@
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 4;
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 595);
-            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.Name = "_frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom";
             this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1399, 4);
             // 
@@ -2413,7 +2414,7 @@
             this.Controls.Add(this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Top);
             this.Controls.Add(this._frm_IngresoHonorarios_UltraFormManager_Dock_Area_Bottom);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_IngresoHonorarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso de Honorarios";

@@ -112,9 +112,13 @@ namespace His.Negocio
         {
             return new DatHC_SignosVitales().editarReporteCT();
         }
-        public static bool cargaCurvaTermica(Int64 ATE_CODIGO)
+        public static bool cargaCurvaTermica(HC_SIGNOS_DATOS_ADICIONALES sv, Int64 contador)
         {
-            return new DatHC_SignosVitales().cargaCurvaTermica(ATE_CODIGO);
+            return new DatHC_SignosVitales().cargaCurvaTermica(sv,contador);
+        }
+        public static List<HC_SIGNOS_DATOS_ADICIONALES> listaSVdatos(Int64 ATE_CODIGO)
+        {
+            return new DatHC_SignosVitales().listaSVdatos(ATE_CODIGO);
         }
     }
 }

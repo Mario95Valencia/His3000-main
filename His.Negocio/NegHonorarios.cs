@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using His.Entidades;
+using His.Datos;
 
 namespace His.Negocio
 {
     public class NegHonorarios
     {
-        
+
         #region Afectaciones
         /// <summary>
         /// Inserta usuarios
@@ -31,5 +32,21 @@ namespace His.Negocio
         //    datCliente.ModificaMedicos(procedimietno, medicos);
         //}
         #endregion
+        public static List<DtoHCEX> listaHCEX()
+        {
+            return new DatHonorarios().listaHCEX();
+        }
+        public static bool insertarHCEX(HONORARIOS_CONSULTA_EXTERNA hcex)
+        {
+            return new DatHonorarios().insertarHCEX(hcex);
+        }
+        public static bool eliminarHCEX(string PRO_CODIGO)
+        {
+            return new DatHonorarios().eliminarHCEX(PRO_CODIGO);
+        }
+        public static HONORARIOS_CONSULTA_EXTERNA existeProductoHonorarrio(string PRO_CODIGO)
+        {
+            return new DatHonorarios().existeProductoHonorarrio(PRO_CODIGO);
+        }
     }
 }

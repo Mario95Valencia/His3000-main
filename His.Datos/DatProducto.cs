@@ -46,19 +46,19 @@ namespace His.Datos
 
                 //if (buscar != string.Empty && buscar != null)
                 //{
-                    if (criterio == 2)
-                        result = contexto.PRODUCTO.Where(p => p.PRO_NOMBRE_COMERCIAL.Contains(buscar)).ToList();
+                if (criterio == 2)
+                    result = contexto.PRODUCTO.Where(p => p.PRO_NOMBRE_COMERCIAL.Contains(buscar)).ToList();
 
-                    if (criterio == 3)
-                        result = contexto.PRODUCTO.Where(p => p.PRO_NOMBRE_GENERICO.Contains(buscar)).ToList();
+                if (criterio == 3)
+                    result = contexto.PRODUCTO.Where(p => p.PRO_NOMBRE_GENERICO.Contains(buscar)).ToList();
 
-                    if (criterio == 4)
-                        result = contexto.PRODUCTO.Where(p => p.PRO_DESCRIPCION.Contains(buscar)).ToList();
+                if (criterio == 4)
+                    result = contexto.PRODUCTO.Where(p => p.PRO_DESCRIPCION.Contains(buscar)).ToList();
 
-                    if (criterio == 5)
-                        result = contexto.PRODUCTO.Where(p => p.PRO_CODIGO_BARRAS.StartsWith(buscar)).ToList();
+                if (criterio == 5)
+                    result = contexto.PRODUCTO.Where(p => p.PRO_CODIGO_BARRAS.StartsWith(buscar)).ToList();
                 //}
-                
+
                 //if (descripcion != string.Empty)
                 //{
                 //    string[] cadena = nombre.Split();
@@ -83,7 +83,7 @@ namespace His.Datos
                 return (from p in contexto.PRODUCTO
                         orderby p.PRO_NOMBRE_COMERCIAL
                         select p
-                        ).ToList(); 
+                        ).ToList();
             }
         }
         /// <summary>
@@ -92,22 +92,22 @@ namespace His.Datos
         /// <param name="desde">registro desde el cual se empieza la seleccion</param>
         /// <param name="cantidad">cantidad de registros que se seleccionaran</param>
         /// <returns></returns>
-        public List<PRODUCTO> RecuperarProductosLista(int desde,int cantidad,string busqueda)
+        public List<PRODUCTO> RecuperarProductosLista(int desde, int cantidad, string busqueda)
         {
             using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
                 if (busqueda != null)
                 {
-                    if(isNumeric(busqueda))  
+                    if (isNumeric(busqueda))
                     {
-                        Int64  codigo = Convert.ToInt64(busqueda);
+                        Int64 codigo = Convert.ToInt64(busqueda);
                         return contexto.PRODUCTO.Where(p => p.PRO_CODIGO == codigo).OrderBy(p => p.PRO_NOMBRE_COMERCIAL).Skip(desde).Take(cantidad).ToList();
                     }
                     else
                     {
-                        return  contexto.PRODUCTO.Where(p => (p.PRO_DESCRIPCION.Contains(busqueda) 
-                            || p.PRO_NOMBRE_GENERICO.Contains(busqueda))
-                            || p.PRO_NOMBRE_COMERCIAL.Contains(busqueda)).OrderBy(p => p.PRO_NOMBRE_COMERCIAL).Skip(desde).Take(cantidad).ToList();
+                        return contexto.PRODUCTO.Where(p => (p.PRO_DESCRIPCION.Contains(busqueda)
+                           || p.PRO_NOMBRE_GENERICO.Contains(busqueda))
+                           || p.PRO_NOMBRE_COMERCIAL.Contains(busqueda)).OrderBy(p => p.PRO_NOMBRE_COMERCIAL).Skip(desde).Take(cantidad).ToList();
                     }
                 }
                 else
@@ -192,8 +192,8 @@ namespace His.Datos
         //<param name="codigoArea">Codigo del Area a la que esta relacionada la estructura</param>
         //<returns></returns>
 
-        
-public DataTable RecuperarProductosListaSPPedidosAreas(int Opcion, string Filtro, int Division, int Bodega, Int32 CodigoEmpresa, Int32 CodigoConvenio, Int32 PedidoAreas)
+
+        public DataTable RecuperarProductosListaSPPedidosAreas(int Opcion, string Filtro, int Division, int Bodega, Int32 CodigoEmpresa, Int32 CodigoConvenio, Int32 PedidoAreas)
         {
 
             // VERIFICA SI UN USUARIO TIENES LOS PERMISOS NECESARIOS PARA CAMBIAR EL ESTADO DE UNA CUENTA / GIOVANNY TAPIA / 07/08/2012
@@ -420,7 +420,7 @@ public DataTable RecuperarProductosListaSPPedidosAreas(int Opcion, string Filtro
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
             SqlDataAdapter Sqldap;
-            DataTable Dts= new DataTable();
+            DataTable Dts = new DataTable();
             BaseContextoDatos obj = new BaseContextoDatos();
             Sqlcon = obj.ConectarBd();
             try
@@ -688,7 +688,7 @@ public DataTable RecuperarProductosListaSPPedidosAreas(int Opcion, string Filtro
             {
                 return (from p in contexto.PRODUCTO
                         join pe in contexto.PRODUCTO_ESTRUCTURA on p.PRODUCTO_ESTRUCTURA.PRE_CODIGO equals pe.PRE_CODIGO
-                        where pe.PRE_CODIGO == codProductoEst 
+                        where pe.PRE_CODIGO == codProductoEst
                         orderby p.PRO_DESCRIPCION
                         select p).ToList();
             }
@@ -798,6 +798,70 @@ public DataTable RecuperarProductosListaSPPedidosAreas(int Opcion, string Filtro
             command.Parameters.Clear();
             connection.Close();
             return numdoc;
+        }
+        public DataTable listaproductosXdescripcion(string descripcion)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                Sqlcmd = new SqlCommand("SELECT codpro,despro FROM Sic3000..Producto WHERE despro like '%" + descripcion + "%' and activo = 1 order by despro", Sqlcon);
+                Sqlcmd.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                Sqlcmd.CommandTimeout = 180;
+                Sqldap.SelectCommand = Sqlcmd;
+                Sqldap.Fill(Dts);
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
+        }
+        public DataTable recuperaProductoSicXcodpro(string codpro)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                Sqlcmd = new SqlCommand("select codpro,despro from Sic3000..Producto where codpro =  " + codpro, Sqlcon);
+                Sqlcmd.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                Sqlcmd.CommandTimeout = 180;
+                Sqldap.SelectCommand = Sqlcmd;
+                Sqldap.Fill(Dts);
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
         }
     }
 }

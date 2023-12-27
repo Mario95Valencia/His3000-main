@@ -834,7 +834,7 @@ namespace His.Datos
 
             }
         }
-        public bool cargaCurvaTermica(Int64 ATE_CODIGO)
+        public bool cargaCurvaTermica(HC_SIGNOS_DATOS_ADICIONALES sv, Int64 contador)
         {
             using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
@@ -842,28 +842,28 @@ namespace His.Datos
                 DbTransaction transac = ConexionEntidades.ConexionEDM.BeginTransaction();
                 try
                 {
-                    var sv = (from s in db.HC_SIGNOS_VITALES
-                              join sd in db.HC_SIGNOS_DATOS_ADICIONALES on s.SV_CODIGO equals sd.SV_CODIGO
-                              where s.ATE_CODIGO == ATE_CODIGO
-                              select new { s, sd }).OrderBy(y => y.sd.SVD_HORA).OrderBy(x => x.s.SV_FECHA).ToList();
-                    int contador = 1;
-                    foreach (var item in sv)
+                    //var sv = (from s in db.HC_SIGNOS_VITALES
+                    //          join sd in db.HC_SIGNOS_DATOS_ADICIONALES on s.SV_CODIGO equals sd.SV_CODIGO
+                    //          where s.ATE_CODIGO == ATE_CODIGO
+                    //          select new { s, sd }).OrderBy(y => y.sd.SVD_HORA).OrderBy(x => x.s.SV_FECHA).ToList();
+                    //int contador = 1;
+                    //foreach (var item in sv)
+                    //{
+                    REPORTE_CURVA_TERMICA ct = db.REPORTE_CURVA_TERMICA.FirstOrDefault(x => x.ID == contador);
+                    if (ct != null)
                     {
-                        REPORTE_CURVA_TERMICA ct = db.REPORTE_CURVA_TERMICA.FirstOrDefault(x => x.ID == contador);
-                        if (ct != null)
-                        {
-                            ct.TEMPERATURA = Convert.ToDouble(item.sd.SVD_TEMPERATURA_AM);
-                            ct.HORA = Convert.ToString(item.sd.SVD_HORA).Substring(0, 5);
-                        }
-                        else
-                        {
-                            REPORTE_CURVA_TERMICA rct = new REPORTE_CURVA_TERMICA();
-                            rct.TEMPERATURA = Convert.ToDouble(item.sd.SVD_TEMPERATURA_AM);
-                            rct.HORA = Convert.ToString(item.sd.SVD_HORA).Substring(0, 5);
-                            db.Crear("REPORTE_CURVA_TERMICA", rct);
-                        }
-                        contador++;
+                        ct.TEMPERATURA = Convert.ToDouble(sv.SVD_TEMPERATURA_AM);
+                        ct.HORA = Convert.ToString(sv.SVD_HORA).Substring(0, 5);
                     }
+                    else
+                    {
+                        REPORTE_CURVA_TERMICA rct = new REPORTE_CURVA_TERMICA();
+                        rct.TEMPERATURA = Convert.ToDouble(sv.SVD_TEMPERATURA_AM);
+                        rct.HORA = Convert.ToString(sv.SVD_HORA).Substring(0, 5);
+                        db.Crear("REPORTE_CURVA_TERMICA", rct);
+                    }
+                    //contador++;
+                    //}
 
                     db.SaveChanges();
                     transac.Commit();
@@ -879,6 +879,37 @@ namespace His.Datos
                 }
 
             }
+        }
+        public List<HC_SIGNOS_DATOS_ADICIONALES> listaSVdatos(Int64 ATE_CODIGO)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                List<HC_SIGNOS_DATOS_ADICIONALES> lsv = new List<HC_SIGNOS_DATOS_ADICIONALES>();
+                var sv = (from s in db.HC_SIGNOS_VITALES
+                          join sd in db.HC_SIGNOS_DATOS_ADICIONALES on s.SV_CODIGO equals sd.SV_CODIGO
+                          where s.ATE_CODIGO == ATE_CODIGO
+                          orderby s.SV_FECHA, sd.SVD_HORA
+                          select new { sd }).ToList();
+
+                foreach (var item in sv)
+                {
+                    HC_SIGNOS_DATOS_ADICIONALES svd = new HC_SIGNOS_DATOS_ADICIONALES();
+                    svd.SVD_CODIGO = item.sd.SVD_CODIGO;
+                    svd.SV_CODIGO = item.sd.SV_CODIGO;
+                    svd.SVD_HORA = item.sd.SVD_HORA;
+                    svd.SVD_PULSO_AM = item.sd.SVD_PULSO_AM;
+                    svd.SVD_TEMPERATURA_AM = item.sd.SVD_TEMPERATURA_AM;
+                    svd.SVD_FRESPIRATORIA = item.sd.SVD_FRESPIRATORIA;
+                    svd.SVD_SISTONICA = item.sd.SVD_SISTONICA;
+                    svd.SVD_DIASTONICA = item.sd.SVD_DIASTONICA;
+                    svd.SVD_SATURACION = item.sd.SVD_SATURACION;
+                    svd.ID_USUARIO = item.sd.ID_USUARIO;
+                    svd.ID_FRECUENCIA = item.sd.ID_FRECUENCIA;
+                    lsv.Add(svd);
+                }
+                return lsv;
+            }
+
         }
     }
 }

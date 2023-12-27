@@ -133,6 +133,7 @@
     <Compile Include="DtoHabitacionesOcupadas.cs" />
     <Compile Include="DtoHcCatalogoSubNivel.cs" />
     <Compile Include="DtoHcEmergencias.cs" />
+    <Compile Include="DtoHCEX.cs" />
     <Compile Include="DtoHonorariosMedicos.cs" />
     <Compile Include="DtoHonorariosNotasDebito.cs" />
     <Compile Include="DtoIess.cs" />

@@ -309,6 +309,12 @@
     <Compile Include="frm_HcCatalogo.designer.cs">
       <DependentUpon>frm_HcCatalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_HonorarioConsultaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HonorarioConsultaExterna.Designer.cs">
+      <DependentUpon>frm_HonorarioConsultaExterna.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_local.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_HcCatalogo.resx">
       <DependentUpon>frm_HcCatalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HonorarioConsultaExterna.resx">
+      <DependentUpon>frm_HonorarioConsultaExterna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_local.resx">
       <DependentUpon>frm_local.cs</DependentUpon>
