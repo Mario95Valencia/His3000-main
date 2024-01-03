@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Epicrisis));
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
@@ -132,9 +131,9 @@
             this.txt_pacHCL = new System.Windows.Forms.MaskedTextBox();
             this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.error = new System.Windows.Forms.ErrorProvider();
+            this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager();
             this.frm_Epicrisis_Fill_Panel = new Infragistics.Win.Misc.UltraPanel();
             this.panelInfPaciente = new System.Windows.Forms.Panel();
             this._frm_Epicrisis_UltraFormManager_Dock_Area_Left = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
@@ -149,7 +148,6 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label17 = new System.Windows.Forms.Label();
             this.ultraTabPageContro1.SuspendLayout();
             this.panellResumenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tratamiento)).BeginInit();
@@ -184,6 +182,7 @@
             // 
             // ultraTabPageContro1
             // 
+            this.ultraTabPageContro1.AutoScroll = true;
             this.ultraTabPageContro1.Controls.Add(this.panellResumenes);
             this.ultraTabPageContro1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageContro1.Margin = new System.Windows.Forms.Padding(4);
@@ -615,8 +614,8 @@
             // dtg_DIngreso
             // 
             this.dtg_DIngreso.AllowUserToDeleteRows = false;
-            this.dtg_DIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtg_DIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dtg_DIngreso.BackgroundColor = System.Drawing.Color.White;
             this.dtg_DIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_DIngreso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -926,7 +925,6 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox10.Controls.Add(this.label17);
             this.groupBox10.Controls.Add(this.txtRealizadoPor);
             this.groupBox10.Controls.Add(this.label14);
             this.groupBox10.Controls.Add(this.txt_profesional);
@@ -965,7 +963,7 @@
             // 
             // txt_profesional
             // 
-            this.txt_profesional.Location = new System.Drawing.Point(588, 28);
+            this.txt_profesional.Location = new System.Drawing.Point(554, 28);
             this.txt_profesional.Margin = new System.Windows.Forms.Padding(4);
             this.txt_profesional.Name = "txt_profesional";
             this.txt_profesional.ReadOnly = true;
@@ -1503,16 +1501,6 @@
             this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn10.Width = 150;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(559, 31);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(26, 17);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "F1";
-            // 
             // frm_Epicrisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1691,7 +1679,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cod_medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn resp_medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn cod_cedula_med;
-        private System.Windows.Forms.Label label17;
     }
 }
 

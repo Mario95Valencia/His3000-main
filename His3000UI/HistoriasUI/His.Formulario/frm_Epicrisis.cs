@@ -2045,6 +2045,7 @@ namespace His.Formulario
 
         private bool validarFormulario()
         {
+            error.Clear();
             bool flag = false;
             if (txt_cuadro.Text.ToString() == string.Empty)
             {
@@ -2568,7 +2569,7 @@ namespace His.Formulario
                 txt_profesional.Text = medicoTratante.MED_APELLIDO_PATERNO.Trim() + " " + medicoTratante.MED_APELLIDO_MATERNO.Trim()
                     + " " + medicoTratante.MED_NOMBRE1.Trim() + " " + medicoTratante.MED_NOMBRE2.Trim();
                 if (medicoTratante.MED_RUC != null)
-                    med_codigo = medicoTratante.MED_RUC;
+                    med_codigo = medicoTratante.MED_RUC.Substring(0, 10);
                 else
                     med_codigo = "0";
                 //if (medicoTratante.MED_CODIGO_MEDICO != null)
