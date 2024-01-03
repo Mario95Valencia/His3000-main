@@ -739,16 +739,20 @@ namespace His.Formulario
                         }
                         if (aux == 0)
                         {
-                            vectorMedicos[vec] = item.MED_TRATANTE;
-                            cargarMedico(item.MED_TRATANTE);
-                            DataTable periodo = new DataTable();
-                            periodo = NegEvolucionDetalle.FechasResponsabilidad(evo.EVO_CODIGO, medico.MED_CODIGO);
-                            string ped = periodo.Rows[0][0].ToString().Substring(0, 10) + " / " + periodo.Rows[1][0].ToString().Substring(0, 10);
-                            esp = especialidad.FirstOrDefault(m => m.EntityKey == medico.ESPECIALIDADES_MEDICASReference.EntityKey).ESP_NOMBRE;
-                            if (esp != "MEDICINA GENERAL")
-                                dtg_medicos.Rows.Add(medico.MED_RUC, medico.MED_APELLIDO_PATERNO.Trim() + " " + medico.MED_APELLIDO_MATERNO.Trim()
-                                                    + " " + medico.MED_NOMBRE1.Trim() + " " + medico.MED_NOMBRE2.Trim(), esp, medico.MED_RUC.Substring(0, 10), ped, medico.MED_CODIGO);
-                            vec++;
+                            if (codigoMedico != item.MED_TRATANTE)
+                            {
+                                vectorMedicos[vec] = item.MED_TRATANTE;
+                                cargarMedico(item.MED_TRATANTE);
+                                DataTable periodo = new DataTable();
+                                periodo = NegEvolucionDetalle.FechasResponsabilidad(evo.EVO_CODIGO, medico.MED_CODIGO);
+                                string ped = periodo.Rows[0][0].ToString().Substring(0, 10) + " / " + periodo.Rows[1][0].ToString().Substring(0, 10);
+                                esp = especialidad.FirstOrDefault(m => m.EntityKey == medico.ESPECIALIDADES_MEDICASReference.EntityKey).ESP_NOMBRE;
+                                if (esp != "MEDICINA GENERAL")
+                                    dtg_medicos.Rows.Add(medico.MED_RUC, medico.MED_APELLIDO_PATERNO.Trim() + " " + medico.MED_APELLIDO_MATERNO.Trim()
+                                                        + " " + medico.MED_NOMBRE1.Trim() + " " + medico.MED_NOMBRE2.Trim(), esp, medico.MED_RUC.Substring(0, 10), ped, medico.MED_CODIGO);
+                                vec++;
+
+                            }
                         }
                     }
                 }
@@ -1041,7 +1045,7 @@ namespace His.Formulario
                     //dtg_medicos.Rows[fila].Cells[2].Value = esp;
                     //dtg_medicos.Rows[fila].Cells[3].Value = medicoTratante.MED_CODIGO;
                     dtg_medicos.Rows.Add(codmedAdmision, medicoTratante.MED_APELLIDO_PATERNO.Trim() + " " + medicoTratante.MED_APELLIDO_MATERNO.Trim()
-                        + " " + medicoTratante.MED_NOMBRE1.Trim() + " " + medicoTratante.MED_NOMBRE2.Trim(), esp, medicoTratante.MED_RUC, "", medicoTratante.MED_CODIGO);
+                        + " " + medicoTratante.MED_NOMBRE1.Trim() + " " + medicoTratante.MED_NOMBRE2.Trim(), esp, medicoTratante.MED_RUC.Substring(0,10), "", medicoTratante.MED_CODIGO);
                 }
                 else
                     MessageBox.Show("No se puede agregar mas de 4 medicos tratantes.", "HIS300", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

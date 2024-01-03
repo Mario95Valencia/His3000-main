@@ -149,6 +149,7 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label17 = new System.Windows.Forms.Label();
             this.ultraTabPageContro1.SuspendLayout();
             this.panellResumenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tratamiento)).BeginInit();
@@ -184,7 +185,7 @@
             // ultraTabPageContro1
             // 
             this.ultraTabPageContro1.Controls.Add(this.panellResumenes);
-            this.ultraTabPageContro1.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageContro1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageContro1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageContro1.Name = "ultraTabPageContro1";
             this.ultraTabPageContro1.Size = new System.Drawing.Size(1310, 490);
@@ -326,10 +327,11 @@
             this.panelDiagnosticos.BackColor = System.Drawing.Color.Transparent;
             this.panelDiagnosticos.Controls.Add(this.groupBox6);
             this.panelDiagnosticos.Controls.Add(this.groupBox5);
-            this.panelDiagnosticos.Location = new System.Drawing.Point(4, 5);
+            this.panelDiagnosticos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDiagnosticos.Location = new System.Drawing.Point(0, 0);
             this.panelDiagnosticos.Margin = new System.Windows.Forms.Padding(4);
             this.panelDiagnosticos.Name = "panelDiagnosticos";
-            this.panelDiagnosticos.Size = new System.Drawing.Size(1004, 503);
+            this.panelDiagnosticos.Size = new System.Drawing.Size(1310, 490);
             this.panelDiagnosticos.TabIndex = 3;
             // 
             // groupBox6
@@ -351,7 +353,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox6.Size = new System.Drawing.Size(978, 238);
+            this.groupBox6.Size = new System.Drawing.Size(1284, 238);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "6. Diagnosticos Egresos";
@@ -370,7 +372,7 @@
             // btnBajar6
             // 
             this.btnBajar6.Image = ((System.Drawing.Image)(resources.GetObject("btnBajar6.Image")));
-            this.btnBajar6.Location = new System.Drawing.Point(916, 182);
+            this.btnBajar6.Location = new System.Drawing.Point(1232, 184);
             this.btnBajar6.Margin = new System.Windows.Forms.Padding(4);
             this.btnBajar6.Name = "btnBajar6";
             this.btnBajar6.Size = new System.Drawing.Size(52, 50);
@@ -381,7 +383,7 @@
             // btnSubir6
             // 
             this.btnSubir6.Image = ((System.Drawing.Image)(resources.GetObject("btnSubir6.Image")));
-            this.btnSubir6.Location = new System.Drawing.Point(916, 57);
+            this.btnSubir6.Location = new System.Drawing.Point(1232, 59);
             this.btnSubir6.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubir6.Name = "btnSubir6";
             this.btnSubir6.Size = new System.Drawing.Size(52, 50);
@@ -460,7 +462,7 @@
             this.dtg_DEgresos.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_DEgresos.Name = "dtg_DEgresos";
             this.dtg_DEgresos.RowHeadersWidth = 62;
-            this.dtg_DEgresos.Size = new System.Drawing.Size(850, 192);
+            this.dtg_DEgresos.Size = new System.Drawing.Size(1153, 192);
             this.dtg_DEgresos.TabIndex = 5;
             this.dtg_DEgresos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtg_DEgresos_CellBeginEdit);
             this.dtg_DEgresos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DEgresos_CellContentClick);
@@ -517,7 +519,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(978, 226);
+            this.groupBox5.Size = new System.Drawing.Size(1284, 226);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "5. Diagnosticos Ingresos";
@@ -536,7 +538,7 @@
             // btnBajar5
             // 
             this.btnBajar5.Image = ((System.Drawing.Image)(resources.GetObject("btnBajar5.Image")));
-            this.btnBajar5.Location = new System.Drawing.Point(915, 169);
+            this.btnBajar5.Location = new System.Drawing.Point(1232, 168);
             this.btnBajar5.Margin = new System.Windows.Forms.Padding(4);
             this.btnBajar5.Name = "btnBajar5";
             this.btnBajar5.Size = new System.Drawing.Size(52, 50);
@@ -547,7 +549,7 @@
             // btnSubir5
             // 
             this.btnSubir5.Image = ((System.Drawing.Image)(resources.GetObject("btnSubir5.Image")));
-            this.btnSubir5.Location = new System.Drawing.Point(915, 41);
+            this.btnSubir5.Location = new System.Drawing.Point(1232, 40);
             this.btnSubir5.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubir5.Name = "btnSubir5";
             this.btnSubir5.Size = new System.Drawing.Size(52, 50);
@@ -626,7 +628,7 @@
             this.dtg_DIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_DIngreso.Name = "dtg_DIngreso";
             this.dtg_DIngreso.RowHeadersWidth = 62;
-            this.dtg_DIngreso.Size = new System.Drawing.Size(845, 178);
+            this.dtg_DIngreso.Size = new System.Drawing.Size(1151, 178);
             this.dtg_DIngreso.TabIndex = 14;
             this.dtg_DIngreso.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dtg_DIngreso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -677,10 +679,11 @@
             this.panelCondiciones.BackColor = System.Drawing.Color.Transparent;
             this.panelCondiciones.Controls.Add(this.groupBox8);
             this.panelCondiciones.Controls.Add(this.groupBox7);
-            this.panelCondiciones.Location = new System.Drawing.Point(9, 14);
+            this.panelCondiciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCondiciones.Location = new System.Drawing.Point(0, 0);
             this.panelCondiciones.Margin = new System.Windows.Forms.Padding(4);
             this.panelCondiciones.Name = "panelCondiciones";
-            this.panelCondiciones.Size = new System.Drawing.Size(936, 494);
+            this.panelCondiciones.Size = new System.Drawing.Size(1310, 490);
             this.panelCondiciones.TabIndex = 4;
             // 
             // groupBox8
@@ -700,7 +703,7 @@
             this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox8.Size = new System.Drawing.Size(919, 231);
+            this.groupBox8.Size = new System.Drawing.Size(1293, 231);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "8. Medicos Tratantes";
@@ -785,7 +788,7 @@
             this.dtg_medicos.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_medicos.Name = "dtg_medicos";
             this.dtg_medicos.RowHeadersWidth = 62;
-            this.dtg_medicos.Size = new System.Drawing.Size(839, 142);
+            this.dtg_medicos.Size = new System.Drawing.Size(1213, 142);
             this.dtg_medicos.TabIndex = 0;
             this.dtg_medicos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtg_medicos_CellBeginEdit);
             this.dtg_medicos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -807,7 +810,7 @@
             this.nom_medico.MinimumWidth = 8;
             this.nom_medico.Name = "nom_medico";
             this.nom_medico.ReadOnly = true;
-            this.nom_medico.Width = 210;
+            this.nom_medico.Width = 310;
             // 
             // esp_medico
             // 
@@ -832,7 +835,7 @@
             this.resp_medico.Name = "resp_medico";
             this.resp_medico.ReadOnly = true;
             this.resp_medico.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.resp_medico.Width = 150;
+            this.resp_medico.Width = 350;
             // 
             // cod_cedula_med
             // 
@@ -853,7 +856,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(919, 162);
+            this.groupBox7.Size = new System.Drawing.Size(1293, 162);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "7. Condiciones de Egreso y Pronostico";
@@ -866,7 +869,7 @@
             this.txt_condiciones.Location = new System.Drawing.Point(29, 30);
             this.txt_condiciones.Margin = new System.Windows.Forms.Padding(4);
             this.txt_condiciones.Name = "txt_condiciones";
-            this.txt_condiciones.Size = new System.Drawing.Size(866, 106);
+            this.txt_condiciones.Size = new System.Drawing.Size(1240, 106);
             this.txt_condiciones.TabIndex = 0;
             this.txt_condiciones.Text = "";
             this.txt_condiciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_condiciones_KeyPress);
@@ -875,7 +878,7 @@
             // 
             this.ultraTabPageControl4.Controls.Add(this.panelEgreso);
             this.ultraTabPageControl4.Controls.Add(this.label6);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl4.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(1310, 490);
@@ -890,10 +893,11 @@
             this.panelEgreso.Controls.Add(this.label25);
             this.panelEgreso.Controls.Add(this.cmb_tipoEgreso);
             this.panelEgreso.Controls.Add(this.label24);
-            this.panelEgreso.Location = new System.Drawing.Point(16, 14);
+            this.panelEgreso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEgreso.Location = new System.Drawing.Point(0, 0);
             this.panelEgreso.Margin = new System.Windows.Forms.Padding(4);
             this.panelEgreso.Name = "panelEgreso";
-            this.panelEgreso.Size = new System.Drawing.Size(908, 421);
+            this.panelEgreso.Size = new System.Drawing.Size(1310, 490);
             this.panelEgreso.TabIndex = 14;
             // 
             // dtpHoraRegistro
@@ -922,6 +926,7 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox10.Controls.Add(this.label17);
             this.groupBox10.Controls.Add(this.txtRealizadoPor);
             this.groupBox10.Controls.Add(this.label14);
             this.groupBox10.Controls.Add(this.txt_profesional);
@@ -935,7 +940,7 @@
             this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox10.Size = new System.Drawing.Size(888, 115);
+            this.groupBox10.Size = new System.Drawing.Size(1278, 115);
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             // 
@@ -960,11 +965,11 @@
             // 
             // txt_profesional
             // 
-            this.txt_profesional.Location = new System.Drawing.Point(565, 27);
+            this.txt_profesional.Location = new System.Drawing.Point(588, 28);
             this.txt_profesional.Margin = new System.Windows.Forms.Padding(4);
             this.txt_profesional.Name = "txt_profesional";
             this.txt_profesional.ReadOnly = true;
-            this.txt_profesional.Size = new System.Drawing.Size(301, 23);
+            this.txt_profesional.Size = new System.Drawing.Size(499, 23);
             this.txt_profesional.TabIndex = 5;
             this.txt_profesional.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_profesional_KeyDown);
             // 
@@ -1498,6 +1503,16 @@
             this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn10.Width = 150;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(559, 31);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(26, 17);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "F1";
+            // 
             // frm_Epicrisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1657,12 +1672,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodMedHEM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_medico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn esp_medico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_medico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resp_medico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_cedula_med;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label lbl_aseguradora;
         private System.Windows.Forms.Label lbl_medico;
@@ -1676,6 +1685,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFechaRegistro;
         private System.Windows.Forms.DateTimePicker dtpHoraRegistro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodMedHEM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom_medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn esp_medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resp_medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_cedula_med;
+        private System.Windows.Forms.Label label17;
     }
 }
 

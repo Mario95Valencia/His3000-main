@@ -89,7 +89,7 @@ namespace His.Honorarios
             this.ultraExplorerBarContainerControl1.Location = new System.Drawing.Point(6, 32);
             this.ultraExplorerBarContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraExplorerBarContainerControl1.Name = "ultraExplorerBarContainerControl1";
-            this.ultraExplorerBarContainerControl1.Size = new System.Drawing.Size(307, 201);
+            this.ultraExplorerBarContainerControl1.Size = new System.Drawing.Size(307, 231);
             this.ultraExplorerBarContainerControl1.TabIndex = 0;
             // 
             // ultraPanelInfPaciente
@@ -117,7 +117,7 @@ namespace His.Honorarios
             this.ultraPanelInfPaciente.Location = new System.Drawing.Point(0, 0);
             this.ultraPanelInfPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.ultraPanelInfPaciente.Name = "ultraPanelInfPaciente";
-            this.ultraPanelInfPaciente.Size = new System.Drawing.Size(307, 201);
+            this.ultraPanelInfPaciente.Size = new System.Drawing.Size(307, 231);
             this.ultraPanelInfPaciente.TabIndex = 0;
             // 
             // lblInfPacienteHCL
@@ -311,7 +311,7 @@ namespace His.Honorarios
             this.ultraExplorerBarPaciente.Location = new System.Drawing.Point(4, 4);
             this.ultraExplorerBarPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.ultraExplorerBarPaciente.Name = "ultraExplorerBarPaciente";
-            this.ultraExplorerBarPaciente.Size = new System.Drawing.Size(319, 265);
+            this.ultraExplorerBarPaciente.Size = new System.Drawing.Size(319, 295);
             this.ultraExplorerBarPaciente.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar;
             this.ultraExplorerBarPaciente.TabIndex = 13;
             this.ultraExplorerBarPaciente.ViewStyle = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarViewStyle.Office2007;
@@ -356,10 +356,10 @@ namespace His.Honorarios
             ultraExplorerBarGroup2,
             ultraExplorerBarGroup3});
             this.ultraExplorerBar1.GroupSettings.Style = Infragistics.Win.UltraWinExplorerBar.GroupStyle.LargeImagesWithTextBelow;
-            this.ultraExplorerBar1.Location = new System.Drawing.Point(4, 277);
+            this.ultraExplorerBar1.Location = new System.Drawing.Point(4, 307);
             this.ultraExplorerBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraExplorerBar1.Name = "ultraExplorerBar1";
-            this.ultraExplorerBar1.Size = new System.Drawing.Size(319, 307);
+            this.ultraExplorerBar1.Size = new System.Drawing.Size(319, 342);
             this.ultraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.OutlookNavigationPane;
             this.ultraExplorerBar1.TabIndex = 15;
             this.ultraExplorerBar1.ViewStyle = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarViewStyle.Office2007;
@@ -368,16 +368,16 @@ namespace His.Honorarios
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.ultraExplorerBarPaciente, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ultraExplorerBar1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 315F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(327, 588);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(327, 653);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // gbxProtocolos
@@ -435,7 +435,7 @@ namespace His.Honorarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 588);
+            this.ClientSize = new System.Drawing.Size(1142, 653);
             this.Controls.Add(this.gbxProtocolos);
             this.Controls.Add(this.tableLayoutPanel1);
             this.IsMdiContainer = true;
