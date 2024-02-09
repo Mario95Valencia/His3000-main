@@ -27,6 +27,7 @@ namespace His.Admision
         USUARIOS Usuario = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
         String DepartamentoUser = "";
         bool auditoria = false;
+        DtoPacientesAud pacienteAud = null;
         PACIENTES pacEditar = null;
         PACIENTES_DATOS_ADICIONALES datosPacienteActual = null;
         List<TIPO_REFERIDO> tipoReferido = new List<TIPO_REFERIDO>();
@@ -97,11 +98,19 @@ namespace His.Admision
             List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
             foreach (var item in perfilUsuario)
             {
-                if (item.ID_PERFIL == 29)
+                List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 7);
+                foreach (var items in accop)
                 {
-                    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                    if (items.ID_ACCESO == 71110)// se cambia del perfil  29 a opcion 71110// Mario Valencia 14/11/2023 // cambio en seguridades.
+                    {
                         mushuñanAte = true;
+                    }
                 }
+                //if (item.ID_PERFIL == 29)
+                //{
+                //    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                //        mushuñanAte = true;
+                //}
             }
         }
 
@@ -862,7 +871,7 @@ namespace His.Admision
             {
                 pacEditar = NegPacientes.pacientePorIdentificacion(txtRuc.Text);
                 Paciente.PAC_CODIGO = pacEditar.PAC_CODIGO;
-                Paciente.PAC_HISTORIA_CLINICA = pacEditar.PAC_HISTORIA_CLINICA;
+                Paciente.PAC_HISTORIA_CLINICA = Convert.ToString(pacHistoraClinica);
                 Paciente.USUARIOSReference.EntityKey = Usuario.EntityKey;
                 Paciente.DIPO_CODIINEC = "17";
                 Paciente.PAC_FECHA_CREACION = Convert.ToDateTime(DateTime.Now.ToString());
@@ -950,7 +959,7 @@ namespace His.Admision
                 if (NegAccesoOpciones.ParametroBodega())
                 {
                     His.Parametros.FacturaPAR.BodegaPorDefecto = 10;
-                    if (mushuñan)
+                    if (mushuñanAte)
                         FacturaPAR.BodegaPorDefecto = 61;
                 }
             }
@@ -1970,6 +1979,67 @@ namespace His.Admision
             //    MessageBox.Show("No se pudo registrar el cambio en auditoria", "His 3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
         }
+        public void cargarDatosPacienteAud()
+        {
+            pacienteAud = new DtoPacientesAud();
+            pacienteAud.ID_USUARIO = Sesion.codUsuario;
+            pacienteAud.DIPO_CODIINEC = "17";
+            pacienteAud.PAC_NOMBRE1 = this.txtNombre1.Text;
+            pacienteAud.PAC_NOMBRE2 = this.txtNombre2.Text;
+            pacienteAud.PAC_APELLIDO_PATERNO = this.txtApellidoPaterno.Text;
+            pacienteAud.PAC_APELLIDO_MATERNO = this.txtApellidoMaterno.Text;
+            pacienteAud.PAC_FECHA_NACIMIENTO = dtp_fecnac.Value;
+            pacienteAud.PAC_NACIONALIDAD = "ECUATORIANO";
+
+            // verifico el tipo de identificacion del paciente / Giovanny Tapia / 05/11/2012
+            if (rbCedula.Checked == true)
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "C";
+            }
+            else if (rbPasaporte.Checked == true)
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "P";
+            }
+            else if (rbRuc.Checked == true)
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "R";
+            }
+            else if (rbtCarnet.Checked == true)
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "R";
+            }
+            else if (rbtCedulaExt.Checked == true)
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "E";
+            }
+            else
+            {
+                pacienteAud.PAC_TIPO_IDENTIFICACION = "S";
+            }
+
+            pacienteAud.PAC_IDENTIFICACION = this.txtRuc.Text;
+
+            pacienteAud.PAC_EMAIL = (this.txt_email.Text).Trim();
+            if (this.rbn_h.Checked == true)
+            {
+                pacienteAud.PAC_GENERO = "M";
+            }
+            if (this.rbn_m.Checked == true)
+            {
+                pacienteAud.PAC_GENERO = "F";
+            }
+            pacienteAud.PAC_ESTADO = true;
+            pacienteAud.PAC_REFERENTE_NOMBRE = "";
+            pacienteAud.PAC_REFERENTE_PARENTESCO = "";
+            string telefono = txtCelular.Text;
+            telefono = telefono.Replace("-", "");
+            pacienteAud.PAC_REFERENTE_TELEFONO = telefono;
+            pacienteAud.PAC_ALERGIAS = "";
+            pacienteAud.PAC_OBSERVACIONES = "";
+            pacienteAud.PAC_REFERENTE_DIRECCION = "";
+            pacienteAud.PAC_DATOS_INCOMPLETOS = false;
+        }
+
         private void btnEDITAR_Click(object sender, EventArgs e)
         {
             gbDatos.Enabled = true;

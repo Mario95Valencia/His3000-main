@@ -144,6 +144,38 @@ namespace His.Dietetica
                         }
                     }
                 }
+                pedidosToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Dietetica;
+                dieteticaToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Pedido;
+
+                gastroenterologiaToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Gastroenterologia;
+                agregarProductoToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.GagergarProducto;
+                agregarProcedimientoToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.GagregarProcedimiento;
+                pedidoPacienteToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.GpedidoPaciente;
+                reposicionToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.GreposicionProducto;
+
+                mnuImagen.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Imagen;
+                agendamientoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Agendamiento;
+                examenesRealizadosToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.ExamenesAgendados;
+                informeToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Informe;
+                exploradorDePedidosToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.ExplPedidos;
+                horarioDeMédicosToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.HorarioMedico;
+
+                laboratorioToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.LabClinico;
+                crearToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.CrearPerfiles;
+                exploradorDePedidosToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.CexplPedidos;
+                pacientesToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Pacientes;
+                examenesPorPerfilesToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.ExamenesPerfiles;
+
+                mnuLabPat.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.LabPatologico;
+                exploradorPedidosToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.PexplPedidos;
+
+                quirofanoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.Quirofano;
+                agregarProductoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.QagergarProducto;
+                agregarProcedimientoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.QagregarProcedimiento;
+                pedidoPacienteToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.QpedidoPaciente;
+                exploradorToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.QreposicionProducto;
+                exploradorProcedimientoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.ExpProcedimiento;
+                exploradorDeProcedimientoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloPedidosEspeciales.ExpRubros;
 
                 //smnu_formularioshcu.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
                 //mnu_Explorador.Enabled = His.Parametros.AccesosModuloAdmision.ExploradorPacientes;
@@ -180,16 +212,16 @@ namespace His.Dietetica
                 return;
             }
             InicializarForma();
-            gastroenterologiaToolStripMenuItem.Visible = false;
-            List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
-            foreach (var item in perfilUsuario)
-            {
-                if (item.ID_PERFIL == 30)
-                {
-                    if (item.DESCRIPCION.Contains("GASTRO")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
-                        gastroenterologiaToolStripMenuItem.Visible = true;
-                }
-            }
+            //gastroenterologiaToolStripMenuItem.Visible = false; // Mario // se comenta por que se empieza a trabajar con seguridades // 07/11/2023
+            //List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
+            //foreach (var item in perfilUsuario)
+            //{
+            //    if (item.ID_PERFIL == 30)
+            //    {
+            //        if (item.DESCRIPCION.Contains("GASTRO")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+            //            gastroenterologiaToolStripMenuItem.Visible = true;
+            //    }
+            //}
         }
         #region CodBin
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

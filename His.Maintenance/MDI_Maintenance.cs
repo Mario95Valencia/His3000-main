@@ -132,6 +132,44 @@ namespace His.Maintenance
                     }
                 }
 
+                mnu_archivo.Enabled = His.Parametros.AccesosModuloMantenimiento.Archivo;
+                toolStripMenuItem1.Enabled = His.Parametros.AccesosModuloMantenimiento.Empresas;
+                toolStripMenuItem2.Enabled = His.Parametros.AccesosModuloMantenimiento.ZonasLocales;
+                toolStripMenuItem3.Enabled = His.Parametros.AccesosModuloMantenimiento.Departamento;
+                toolStripMenuItem4.Enabled = His.Parametros.AccesosModuloMantenimiento.Cajas;
+
+                preciosYPorcentajesConveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.PreciosPorcentaje;
+                tiposDeCostosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoCosto;
+                catalogoDeCostosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloMantenimiento.CatalogoCosto;
+                conveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Convenios;
+                preciosPorConvenioToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.PrecioConvenio;
+
+                mantenimientoDeTablasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.MantenimientoTablas;
+                divisionPoliticaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.DivisionPolitica;
+                Nacionalidadmenu.Enabled = His.Parametros.AccesosModuloMantenimiento.Nacionalidad;
+                bancosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Bancos;
+                tipoDeNegocioToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoNegocio;
+                toolStripMenuItem5.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoMedico;
+                toolStripMenuItem6.Enabled = His.Parametros.AccesosModuloMantenimiento.NumeroControl;
+                tiposDeAtencionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoAtenciones;
+                tiposDeIngresosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoIngreso;
+                tiposDeCiudadanosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.TipoCiudadano;
+                pisoMaquinaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.PisoMaquina;
+                pisoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Piso;
+                productosSubToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.GrupoProductos;
+                habitacionesToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloMantenimiento.Habitaciones;
+                cambioTipoAtenciónToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.CambioAtencion;
+                honorariosConsultaExternaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.HonorarioCEX;
+
+                seguridadesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Seguridades;
+                usuariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Usuarios;
+                perfilesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Perfiles;
+                permisosUsuariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.ExpUsuariosAccesos;
+
+                exploradoresToolStripMenuItem.Enabled = His.Parametros.AccesosModuloMantenimiento.Exploradores;
+                consultasWebToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloMantenimiento.ConsultasSRI;
+                preIngresosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloMantenimiento.PreIngresos;
+                
                 //smnu_formularioshcu.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
                 //mnu_Explorador.Enabled = His.Parametros.AccesosModuloAdmision.ExploradorPacientes;
                 //mnu_admision.Enabled = His.Parametros.AccesosModuloAdmision.Admision;
@@ -479,9 +517,16 @@ namespace His.Maintenance
             frm.Show();
         }
 
-        private void hCEXToolStripMenuItem_Click(object sender, EventArgs e)
+        private void honorariosConsultaExternaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_HonorarioConsultaExterna frm = new frm_HonorarioConsultaExterna();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void honorariosAutomaticosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHonorarioAutomaticos frm = new frmHonorarioAutomaticos();
             frm.MdiParent = this;
             frm.Show();
         }

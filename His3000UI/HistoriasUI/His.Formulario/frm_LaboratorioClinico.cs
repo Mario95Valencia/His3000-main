@@ -870,7 +870,7 @@ namespace His.Formulario
                 {
                     switch (item.ID_ACCESO)
                     {
-                        case 100007:
+                        case 43000:
                             btnEditar.Visible = true;
                             break;
                     }

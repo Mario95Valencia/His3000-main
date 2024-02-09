@@ -19,7 +19,7 @@ namespace TarifariosUI
         public frmAdministrarAseguradoras()
         {
             InitializeComponent();
-            menu.Enabled = His.Parametros.AccesosModuloTarifario.AseguradorasEmpresasCRUD;
+            //menu.Enabled = His.Parametros.AccesosModuloTarifario.AseguradorasEmpresasCRUD;
             conexion = new HIS3000BDEntities(ConexionEntidades.ConexionEDM); 
         }
 

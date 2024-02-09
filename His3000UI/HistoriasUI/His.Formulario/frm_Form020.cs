@@ -1891,8 +1891,8 @@ namespace His.Formulario
                 File.Delete(logEmp.LEM_RUTA); // Elimina el archivo.
                 Console.WriteLine("El archivo fue eliminado con éxito.");
             }
-            // Guardar el gráfico como una imagen PNG
-            chartObject.Chart.Export(@"" + logEmp.LEM_RUTA, "PNG");
+            // Guardar el gráfico como una imagen JPG
+            chartObject.Chart.Export(@"" + logEmp.LEM_RUTA, "JPG");
 
             workbook.Close(false);
             excelApp.Quit();

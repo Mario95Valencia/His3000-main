@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using His.Entidades;
 using Core.Datos;
+using System.Data.Common;
+
 namespace His.Datos
 {
     public class DatPerfilesAcceso
@@ -95,6 +97,68 @@ namespace His.Datos
                                                  where a.MODULO.ID_MODULO == id_modulo
                                                  select p).ToList();
                 return peracc;
+            }
+        }
+        public bool EliminarPerfiAcceso(Int64 id_ferfil, Int64 id_acceso)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                ConexionEntidades.ConexionEDM.Open();
+                DbTransaction transac = ConexionEntidades.ConexionEDM.BeginTransaction();
+                try
+                {
+                    PERFILES_ACCESOS peracc = db.PERFILES_ACCESOS.FirstOrDefault(x => x.ID_PERFIL == id_ferfil && x.ID_ACCESO == id_acceso);
+                    if (peracc == null)
+                    {
+                        ConexionEntidades.ConexionEDM.Close();
+                        return true;
+                    }
+                    db.Eliminar(peracc);
+                    db.SaveChanges();
+                    transac.Commit();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    transac.Rollback();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return false;
+                }
+            }
+        }
+        public bool crearPerfilesAccessoXlista(List<ACCESO_OPCIONES> accop, Int32 id_perfil)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                ConexionEntidades.ConexionEDM.Open();
+                DbTransaction transac = ConexionEntidades.ConexionEDM.BeginTransaction();
+                try
+                {                    
+                    PERFILES perfil = db.PERFILES.FirstOrDefault(x => x.ID_PERFIL == id_perfil);
+                    foreach (var item in accop)
+                    {
+                        ACCESO_OPCIONES acceso = db.ACCESO_OPCIONES.FirstOrDefault(x => x.ID_ACCESO == item.ID_ACCESO);
+                        PERFILES_ACCESOS peracc = new PERFILES_ACCESOS();
+                        peracc.PERFILESReference.EntityKey = perfil.EntityKey;
+                        peracc.ID_PERFIL = (short)id_perfil;
+                        peracc.ACCESO_OPCIONESReference.EntityKey = acceso.EntityKey;
+                        peracc.ID_ACCESO = item.ID_ACCESO;
+                        db.Crear("PERFILES_ACCESOS", peracc);
+                    }
+                    db.SaveChanges();
+                    transac.Commit();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    transac.Rollback();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return false;
+                }
             }
         }
     }

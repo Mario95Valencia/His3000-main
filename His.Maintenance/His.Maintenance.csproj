@@ -165,6 +165,18 @@
     <Compile Include="frmCreacionPerfiles.Designer.cs">
       <DependentUpon>frmCreacionPerfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHonorarioAutomaticos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHonorarioAutomaticos.Designer.cs">
+      <DependentUpon>frmHonorarioAutomaticos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHonorarioConsultaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHonorarioConsultaExterna.Designer.cs">
+      <DependentUpon>frmHonorarioConsultaExterna.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNivelPiso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,12 +321,6 @@
     <Compile Include="frm_HcCatalogo.designer.cs">
       <DependentUpon>frm_HcCatalogo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_HonorarioConsultaExterna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_HonorarioConsultaExterna.Designer.cs">
-      <DependentUpon>frm_HonorarioConsultaExterna.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_local.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +436,12 @@
     <EmbeddedResource Include="frmCreacionPerfiles.resx">
       <DependentUpon>frmCreacionPerfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHonorarioAutomaticos.resx">
+      <DependentUpon>frmHonorarioAutomaticos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHonorarioConsultaExterna.resx">
+      <DependentUpon>frmHonorarioConsultaExterna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNivelPiso.resx">
       <DependentUpon>frmNivelPiso.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,9 +513,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_HcCatalogo.resx">
       <DependentUpon>frm_HcCatalogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_HonorarioConsultaExterna.resx">
-      <DependentUpon>frm_HonorarioConsultaExterna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_local.resx">
       <DependentUpon>frm_local.cs</DependentUpon>

@@ -425,6 +425,36 @@ namespace His.Datos
             conexion.Close();
             return Tabla;
         }
+        public DataTable CargarDatosCertificadoN(int ate_codigo,int cer_codigo)
+        {
+            SqlConnection conexion;
+            SqlCommand command = new SqlCommand();
+            SqlDataReader reader;
+            BaseContextoDatos obj = new BaseContextoDatos();
+            DataTable Tabla = new DataTable();
+            conexion = obj.ConectarBd();
+            try
+            {
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            command.Connection = conexion;
+            command.CommandText = "sp_Certificado_MostrarN";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@ate_codigo", ate_codigo);
+            command.Parameters.AddWithValue("@cer_codigo", cer_codigo);
+            command.CommandTimeout = 180;
+            reader = command.ExecuteReader();
+            Tabla.Load(reader);
+            command.Parameters.Clear();
+            reader.Close();
+            conexion.Close();
+            return Tabla;
+        }
+        
         public DataTable CargarDatosCertificadoIESS(int ate_codigo, int CMI_CODIGO)
         {
             SqlConnection conexion;
@@ -815,7 +845,7 @@ namespace His.Datos
             return Tabla;
         }
 
-        public DataTable ReimpresionCertificado(int cer_codigo)
+        public DataTable ReimpresionCertificado(Int32 cer_codigo)
         {
             SqlConnection conexion;
             SqlCommand command = new SqlCommand();
@@ -842,6 +872,7 @@ namespace His.Datos
             conexion.Close();
             return Tabla;
         }
+       
         public DataTable ReimpresionCertificadoIESS(int cer_codigo)
         {
             SqlConnection conexion;

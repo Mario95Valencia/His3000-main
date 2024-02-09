@@ -7,6 +7,7 @@ using Core.Datos;
 using System.Data.SqlClient;
 using Core.Entidades;
 using System.Data;
+using System.Data.Common;
 
 namespace His.Datos
 {
@@ -93,7 +94,7 @@ namespace His.Datos
         /// <param name="codigoPerfil">Codigo del perfil</param>
         /// <param name="codigoModulo">Codigo del modulo</param>
         /// <returns>Retorna ul listado de Acceso_opciones</returns>
-        public List<ACCESO_OPCIONES> ListaAccesoOpcionesPorPerfil(Int16 codigoPerfil, Int16 codigoModulo)
+        public List<ACCESO_OPCIONES> ListaAccesoOpcionesPorPerfil(Int32 codigoPerfil, Int32 codigoModulo)
         {
             using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
@@ -175,6 +176,161 @@ namespace His.Datos
                 }
             }
             return AccOpc;
+        }
+        public List<ACCESO_OPCIONES> accesosXModulo(Int32 id_modulo)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                return (from a in db.ACCESO_OPCIONES
+                        where a.MODULO.ID_MODULO == id_modulo
+                        select a).OrderBy(x => x.ID_ACCESO).ToList();
+            }
+        }
+        public List<ACCESO_OPCIONES> accesosXPerfil(Int32 id_modulo, Int64 id_perfil)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                return (from p in db.PERFILES
+                        join pa in db.PERFILES_ACCESOS on p.ID_PERFIL equals pa.PERFILES.ID_PERFIL
+                        join ac in db.ACCESO_OPCIONES on pa.ACCESO_OPCIONES.ID_ACCESO equals ac.ID_ACCESO
+                        join m in db.MODULO on ac.MODULO.ID_MODULO equals m.ID_MODULO
+                        where m.ID_MODULO == id_modulo && p.ID_PERFIL == id_perfil
+                        select ac).OrderBy(x => x.ID_ACCESO).ToList();
+            }
+        }
+        public DataTable accesosXModuloSic(Int32 id_modulo)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Sqlcmd = new SqlCommand("select * from Sic3000..SeguridadOpciones where codmod = "+id_modulo+" and estopc = 1 ", Sqlcon);
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqldap = new SqlDataAdapter();
+            Sqlcmd.CommandTimeout = 180;
+            Sqldap.SelectCommand = Sqlcmd;
+            Sqldap.Fill(Dts);
+            try
+            {
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
+        }
+        public DataTable accesosXPerfilSic(Int32 id_modulo, Int64 id_perfil)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Sqlcmd = new SqlCommand("select * from Sic3000..SeguridadGrupoOpciones sgo inner join Sic3000..SeguridadOpciones \n" +
+                " so on sgo.codopc = so.codopc where codmod = "+id_modulo+" and estopc = 1  and codgru = "+id_perfil+" and staopc = 'S'", Sqlcon);
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqldap = new SqlDataAdapter();
+            Sqlcmd.CommandTimeout = 180;
+            Sqldap.SelectCommand = Sqlcmd;
+            Sqldap.Fill(Dts);
+            try
+            {
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
+        }
+        public DataTable accesosXModuloCg(Int32 id_modulo)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Sqlcmd = new SqlCommand("select * from Cg3000..Cgopcion where codmod = " + id_modulo + " and estopc = 1 ", Sqlcon);
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqldap = new SqlDataAdapter();
+            Sqlcmd.CommandTimeout = 180;
+            Sqldap.SelectCommand = Sqlcmd;
+            Sqldap.Fill(Dts);
+            try
+            {
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
+        }
+        public DataTable accesosXPerfilCg(Int32 id_modulo, Int64 id_perfil)
+        {
+            SqlConnection Sqlcon;
+            SqlCommand Sqlcmd;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            Sqlcon = obj.ConectarBd();
+            try
+            {
+                Sqlcon.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Sqlcmd = new SqlCommand("select * from Cg3000..Cggruopc gop inner join  Cg3000..Cgopcion op on gop.codopc = op.codopc \n" +
+                " where codmod = " + id_modulo + " and estopc = 1  and codgru = " + id_perfil + " and staopc = 'S'", Sqlcon);
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqldap = new SqlDataAdapter();
+            Sqlcmd.CommandTimeout = 180;
+            Sqldap.SelectCommand = Sqlcmd;
+            Sqldap.Fill(Dts);
+            try
+            {
+                Sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Dts;
         }
         public DataTable ExploradorUsrAccSic()
         {
@@ -410,6 +566,13 @@ namespace His.Datos
                     ach.Add(ac);
                 }
                 return ach;
+            }
+        }
+        public PERFILES_ACCESOS accesosModulosXperfiles(Int64 id_perfil, Int64 id_acceso)
+        {
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                return db.PERFILES_ACCESOS.FirstOrDefault(x => x.ID_PERFIL == id_perfil && x.ACCESO_OPCIONES.ID_ACCESO == id_acceso);
             }
         }
     }

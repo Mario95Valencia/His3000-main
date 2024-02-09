@@ -214,9 +214,12 @@ namespace His.Honorarios
                 UltraGridRow fila = this.UltraGridCertificados.ActiveRow;
                 DataTable Tabla = new DataTable();
                 DataTable TablaIESS = new DataTable();
+                ATENCIONES atencion = new ATENCIONES();
                 if (fila.Cells["TIPO CERTIFICADO"].Value.ToString() == "CM")
                 {
                     Tabla = NegCertificadoMedico.ReimpresionCertificado(Convert.ToInt32(fila.Cells["NRO CERTIFICADO"].Value.ToString()));
+                   
+                    
                 }
                 if (fila.Cells["TIPO CERTIFICADO"].Value.ToString() == "CME")
                 {
@@ -227,8 +230,7 @@ namespace His.Honorarios
                     MessageBox.Show("No se puede reimprimir un certificado de una atencion de Servicios Externos \r\n consulte con el administrador", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                    
-                ATENCIONES atencion = new ATENCIONES();
+
                 //atencion = NegAtenciones.RecuperarAtencionPorNumero(fila.Cells["NRO ATENCION"].Value.ToString().Trim());
                 if (Tabla.Rows.Count != 0)
                     atencion = NegAtenciones.RecuperarAtencionID(Convert.ToInt64(Tabla.Rows[0][1].ToString()));
@@ -237,7 +239,9 @@ namespace His.Honorarios
                 DataTable reporteDatos = new DataTable();
                 DataTable detalleReporteDatos = new DataTable();
                 if (Tabla.Rows.Count != 0)
-                    reporteDatos = Certificado.CargarDatosCertificado(atencion.ATE_CODIGO.ToString());
+                    //reporteDatos = Certificado.CargarDatosCertificado(atencion.ATE_CODIGO.ToString());
+                    reporteDatos = Certificado.CargarDatosCertificadoN(atencion.ATE_CODIGO.ToString(), Tabla.Rows[0][0].ToString());
+
                 else
                     reporteDatos = Certificado.CargarDatosCertificadoIESS(atencion.ATE_CODIGO.ToString(), TablaIESS.Rows[0][0].ToString());
                 if (Tabla.Rows.Count != 0)
@@ -298,7 +302,7 @@ namespace His.Honorarios
                                     FechadeAlta = Fecha_Larga_En_Palabra(FechaHoy.ToString());
                                     FechaHoy = FechaHoy.AddDays(Convert.ToInt32(reporteDatos.Rows[0][5].ToString()) - 1);
                                     drCertificado["FechaAlta"] = FechadeAlta;
-                                    FechaAlta2 = FechaHoy.AddDays(Convert.ToInt32(reporteDatos.Rows[0][5].ToString()) + 1);
+                                    FechaAlta2 = FechaHoy.AddDays(Convert.ToInt32(reporteDatos.Rows[0][5].ToString())+1 );
                                     if (dias_reposo == "CERO")
                                     {
                                         drCertificado["Dias_FinReposo"] = FechaAlta2.ToString("dd") + " (" + Dia_En_Palabras(FechaAlta2.ToString("dd")) + ")" + " de " + FechaAlta2.ToString("MMMM") + " del " + FechaAlta2.ToString("yyyy");
@@ -325,7 +329,7 @@ namespace His.Honorarios
                                     {
                                         drCertificado["Identificacion_Medico"] = medico.MED_RUC;
                                     }
-
+                                  
                                     drCertificado["telefonoMedico"] = medico.MED_TELEFONO_CONSULTORIO;
                                     drCertificado["espMedica"] = NegEspecialidades.Especialidad(medico.MED_CODIGO);
                                     //}
@@ -410,7 +414,7 @@ namespace His.Honorarios
                                         {
                                             drCertificado["Identificacion_Medico"] = medico.MED_RUC;
                                         }
-
+                                        
                                         drCertificado["telefonoMedico"] = medico.MED_TELEFONO_CONSULTORIO;
                                         drCertificado["espMedica"] = NegEspecialidades.Especialidad(medico.MED_CODIGO);
 
@@ -500,7 +504,7 @@ namespace His.Honorarios
                                         {
                                             drCertificado["Identificacion_Medico"] = medico.MED_RUC;
                                         }
-
+                                        
                                         drCertificado["telefonoMedico"] = medico.MED_TELEFONO_CONSULTORIO;
                                         drCertificado["espMedica"] = NegEspecialidades.Especialidad(medico.MED_CODIGO);
 
@@ -578,7 +582,7 @@ namespace His.Honorarios
                                     {
                                         drCertificado["Identificacion_Medico"] = medico.MED_RUC;
                                     }
-
+                                   
                                     drCertificado["telefonoMedico"] = medico.MED_TELEFONO_CONSULTORIO;
                                     drCertificado["espMedica"] = NegEspecialidades.Especialidad(medico.MED_CODIGO);
                                     //string fechaAyuda = Fecha_En_Palabra(Convert.ToDateTime(atencion.ATE_FECHA_ALTA).ToShortDateString());
@@ -1016,16 +1020,16 @@ namespace His.Honorarios
 
                                     drCertificado["Nombre_Medico"] = medico.MED_APELLIDO_PATERNO + ' ' + medico.MED_APELLIDO_MATERNO + ' ' + medico.MED_NOMBRE1 + ' ' + medico.MED_NOMBRE2;
                                     drCertificado["Email_Medico"] = medico.MED_EMAIL;
-                                    if (medico.MED_RUC.Length > 10)
+                                    if (medico.MED_RUC.Length>10 )
                                     {
-                                        drCertificado["Identificacion_Medico"] = medico.MED_RUC.Substring(0, 10);
+                                        drCertificado["Identificacion_Medico"] = medico.MED_RUC.Substring(0,10);
                                     }
                                     else
                                     {
                                         drCertificado["Identificacion_Medico"] = medico.MED_RUC;
                                     }
 
-
+                                                                            
                                     drCertificado["telefonoMedico"] = medico.MED_TELEFONO_CONSULTORIO;
                                     drCertificado["espMedica"] = NegEspecialidades.Especialidad(medico.MED_CODIGO);
                                     if (atencion.ATE_FECHA_ALTA != null)

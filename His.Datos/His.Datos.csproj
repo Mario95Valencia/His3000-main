@@ -80,6 +80,7 @@
     <Compile Include="DatAtencionDetalleSeguros.cs" />
     <Compile Include="DatAtenciones.cs" />
     <Compile Include="DatAtencionesFormasLlegada.cs" />
+    <Compile Include="DatAuditoria.cs" />
     <Compile Include="DatBancos.cs" />
     <Compile Include="DatCadenaConexion.cs" />
     <Compile Include="DatCajas.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="DatHC_Consentimiento.cs" />
     <Compile Include="DatHC_SignosVitales.cs" />
     <Compile Include="DatHonorario.cs" />
+    <Compile Include="DatHonorarioAutomatico.cs" />
     <Compile Include="DatHonorarios.cs" />
     <Compile Include="DatHonorariosMedicos.cs" />
     <Compile Include="DatIess.cs" />

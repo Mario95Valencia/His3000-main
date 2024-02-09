@@ -34,5 +34,13 @@ namespace His.Negocio
         {
             return new DatPerfilesAcceso().ListaPerfilesAccesosXmodulo(id_modulo);
         }
+        public static bool EliminarPerfiAcceso(Int64 id_ferfil, Int64 id_acceso)
+        {
+            return new DatPerfilesAcceso().EliminarPerfiAcceso(id_ferfil, id_acceso);
+        }
+        public static bool crearPerfilesAccessoXlista(List<ACCESO_OPCIONES> accop, Int32 id_perfil)
+        {
+            return new DatPerfilesAcceso().crearPerfilesAccessoXlista(accop, id_perfil);
+        }
     }
 }

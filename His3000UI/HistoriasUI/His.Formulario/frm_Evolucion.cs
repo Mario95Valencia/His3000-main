@@ -279,25 +279,44 @@ namespace His.Formulario
             {
                 List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(Sesion.codUsuario);
                 bool valido = false;
+                //if (estado != "1")// por cambio a seguridades // Mario Valencia 21/12/2023 // cambio en seguridades.
+                //{
+                //    foreach (var item in perfilUsuario)
+                //    {
+                //        if (item.ID_PERFIL == 31) //validara con codigo
+                //        {
+                //            if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+                //            {
+                //                valido = true;
+                //                break;
+                //            }
+                //        }
+                //        else
+                //        {
+                //            if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
+                //            {
+                //                valido = true;
+                //                break;
+                //            }
+                //        }
+                //    }
+                //    if (!valido)
+                //        Bloquear();
+                //}
                 if (estado != "1")
                 {
                     foreach (var item in perfilUsuario)
                     {
-                        if (item.ID_PERFIL == 31) //validara con codigo
+                        List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 4);
+                        foreach (var items in accop)
                         {
-                            if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+                            if (items.ID_ACCESO == 42000) // Mario Valencia 21/12/2023 // cambio en seguridades.
                             {
                                 valido = true;
                                 break;
                             }
-                        }
-                        else
-                        {
-                            if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
-                            {
+                            else
                                 valido = true;
-                                break;
-                            }
                         }
                     }
                     if (!valido)
@@ -1805,16 +1824,17 @@ namespace His.Formulario
             int hora = DateTime.Now.Hour - dtpFechaNota.Value.Hour;
 
             Editar = true;
+            Int64 dia = NegUtilitarios.validaDiasEpicrisis(66);
             if (NegParametros.EditarEvolucion())
             {
-                if (span.TotalHours <= 24)
+                if (span.Days <= dia)
                 {
                     habilitarCampos2();
                     ingresanuevomedico = 0;
                 }
                 else
                 {
-                    MessageBox.Show("No se puede editar despues de 24 horas.", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se puede editar despues de " + span.TotalHours + " horas.", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
@@ -1822,6 +1842,24 @@ namespace His.Formulario
                 habilitarCampos2();
                 ingresanuevomedico = 0;
             }
+                
+            //if (NegParametros.EditarEvolucion()) // se cambia el parametro estaba quemado a 24 horas por que no hay un parametro definido correctamente // Mario Valencia 20/12/2023 
+            //{
+            //    if (span.TotalHours <= 24)
+            //    {
+            //        habilitarCampos2();
+            //        ingresanuevomedico = 0;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("No se puede editar despues de 24 horas.", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    }
+            //}
+            //else
+            //{
+            //    habilitarCampos2();
+            //    ingresanuevomedico = 0;
+            //}
 
         }
 

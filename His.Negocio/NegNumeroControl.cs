@@ -33,7 +33,7 @@ namespace His.Negocio
             new DatNumeroControl().CrearNumeroControl(numerocontrol);
         }
         public static bool CreaControlConsulta(CONTROL_CONSULTA obj)
-        {
+            {
             return new DatNumeroControl().CreaControlConsulta(obj);
         }
         public static void GrabarNumeroControl(NUMERO_CONTROL numerocontrolModificada, NUMERO_CONTROL numerocontrolOriginal)

@@ -3004,10 +3004,10 @@ namespace CuentaPaciente
                 }
                 NegCertificadoMedico Certificado = new NegCertificadoMedico();
                 atencion.ESC_CODIGO = ((ESTADOS_CUENTA)cmb_EstadoCuenta.SelectedItem).ESC_CODIGO;
+                NegAtenciones.CrearCAMBIO_ESTADO_ATENCIONES(atencion.ATE_CODIGO, Convert.ToInt32(cmb_EstadoCuenta.SelectedValue), Sesion.codUsuario,"AUDITORIA");
                 NegAtenciones.EditarAtencionAdmision(atencion, 1);
                 CodigoEstadoCuenta = Convert.ToInt32(atencion.ESC_CODIGO);
                 MessageBox.Show("Estado Guardado Exitosamente");
-                NegAtenciones.CrearCAMBIO_ESTADO_ATENCIONES(atencion.ATE_CODIGO, Convert.ToInt32(cmb_EstadoCuenta.SelectedValue), Sesion.codUsuario,"AUDITORIA");
                 ReporteAuditoria dataSet = new ReporteAuditoria();
                 DataRow dataRow;
                 dataRow = dataSet.Tables["Paciente"].NewRow();

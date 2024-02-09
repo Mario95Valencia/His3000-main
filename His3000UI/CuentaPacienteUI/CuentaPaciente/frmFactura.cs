@@ -1224,8 +1224,8 @@ namespace CuentaPaciente
                                                 }
                                                 //SE AUMATIZA EL REGISTRO DE LIQUIDACION CON HONORARIOS CONSULTA EXTERNA
                                                 int tIngreso = NegTipoIngreso.RecuperarporAtencion(ultimaAtencion.ATE_CODIGO);
-                                                //if (tIngreso == 4) //es consulta externa
-                                                    LiquidacionHonorarios();
+                                                //if (tIngreso == 4) //es consulta externa// se coementa por que se va a trabajar por codigo de producto mas no por tipo de ingreso y honorario // Mario Valencia // 21-12-2023
+                                                LiquidacionHonorarios();
                                                 //facturaToolStripMenuItem.PerformClick();
                                                 //facturaimprime.PerformClick();
                                                 if (facturaPrefactura == 1)
@@ -1620,7 +1620,7 @@ namespace CuentaPaciente
 
                     txtfacturaelectronica.AppendText("      <identificacionComprador>" + txt_Ruc.Text.Trim() + "</identificacionComprador>\r\n");
 
-                    txtfacturaelectronica.AppendText("      <direccionComprador>" + txt_Direc_Cliente.Text.Trim() + "</direccionComprador>\r\n");
+                    txtfacturaelectronica.AppendText("      <direccionComprador>" + txt_Direc_Cliente.Text.Trim().Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ") + "</direccionComprador>\r\n");
                     decimal valor = 0, subTotal = 0, totalConIva = 0, totalSinIva = 0, descuentoTotal = 0, ivaTotal = 0, totalFactura = 0;
 
                     if (dgvDivideFactura.Rows.Count > 0)
@@ -2819,7 +2819,7 @@ namespace CuentaPaciente
                 DtoPacientes pac = new DtoPacientes();
                 pac = NegPacientes.RecuperarDtoPacienteID(Convert.ToInt32(ultimaAtencion.PACIENTESReference.EntityKey.EntityKeyValues[0].Value));
                 txt_Ruc.Text = pac.PAC_IDENTIFICACION;
-                txt_Direc_Cliente.Text = pac.PAC_DIRECCION;
+                txt_Direc_Cliente.Text = pac.PAC_DIRECCION.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ");
                 txt_Cliente.Text = pac.PAC_APELLIDO_PATERNO + " " + pac.PAC_APELLIDO_MATERNO + " " + pac.PAC_NOMBRE1 + " " + pac.PAC_NOMBRE2;
                 txt_telef_Cliente.Text = pac.PAC_TELEFONO2;
                 txtEmailFactura.Text = pac.PAC_EMAIL;
@@ -2831,7 +2831,7 @@ namespace CuentaPaciente
                 if (ultimaAtencion.ATE_ACOMPANANTE_CEDULA != "")
                 {
                     txt_Ruc.Text = ultimaAtencion.ATE_ACOMPANANTE_CEDULA;
-                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_DIRECCION;
+                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_DIRECCION.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ");
                     txt_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_NOMBRE;
                     txt_telef_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_TELEFONO;
                     estado = true;
@@ -2847,7 +2847,7 @@ namespace CuentaPaciente
                 if (ultimaAtencion.ATE_GARANTE_CEDULA != "")
                 {
                     txt_Ruc.Text = ultimaAtencion.ATE_GARANTE_CEDULA;
-                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_GARANTE_DIRECCION;
+                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_GARANTE_DIRECCION.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ");
                     txt_Cliente.Text = ultimaAtencion.ATE_GARANTE_NOMBRE;
                     txt_telef_Cliente.Text = ultimaAtencion.ATE_GARANTE_TELEFONO;
                     estado = true;
@@ -2887,7 +2887,7 @@ namespace CuentaPaciente
                 if (ultimaAtencion.ATE_ACOMPANANTE_CEDULA != "")
                 {
                     txt_Ruc.Text = ultimaAtencion.ATE_ACOMPANANTE_CEDULA;
-                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_DIRECCION;
+                    txt_Direc_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_DIRECCION.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ");
                     txt_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_NOMBRE;
                     txt_telef_Cliente.Text = ultimaAtencion.ATE_ACOMPANANTE_TELEFONO;
                     txtEmailFactura.Text = NegAtenciones.PacienteDatosAdicionales(ultimaAtencion.ATE_CODIGO);
@@ -4568,11 +4568,19 @@ namespace CuentaPaciente
 
             foreach (var item in perfilUsuario)
             {
-                if (item.ID_PERFIL == 29)
+                List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 7);
+                foreach (var items in accop)
                 {
-                    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                    if (items.ID_ACCESO == 71110)// se cambia del perfil  29 a opcion 71110// Mario Valencia 14/11/2023 // cambio en seguridades.
+                    {
                         mushuñan = true;
+                    }
                 }
+                //if (item.ID_PERFIL == 29)
+                //{
+                //    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                //        mushuñan = true;
+                //}
             }
             if (NegParametros.ParametroFacturaFecha())
                 dtpFechaFacturacion.Enabled = true;
@@ -5062,7 +5070,7 @@ namespace CuentaPaciente
                     else
                     {
                         /*impresion*/
-                        PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(68);  // se aumenta por parametro para impresion con valores y sin valores // Mario Valencia // 04-01-2024
+                        PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(68); // se aumenta por parametro para impresion con valores y sin valores // Mario Valencia // 04-01-2024
                         frmImpresionPedidos frmPedidos = new frmImpresionPedidos(Pedido, ar.PEA_CODIGO, 1, Convert.ToInt32(pd.PAD_VALOR));
                         frmPedidos.Show();
                     }

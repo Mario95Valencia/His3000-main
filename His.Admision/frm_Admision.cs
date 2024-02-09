@@ -8011,11 +8011,19 @@ namespace His.Admision
                 List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
                 foreach (var item in perfilUsuario)
                 {
-                    if (item.ID_PERFIL == 29)
+                    List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 7);
+                    foreach (var items in accop)
                     {
-                        if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                        if (items.ID_ACCESO == 71110)// se cambia del perfil  29 a opcion 71110// Mario Valencia 14/11/2023 // cambio en seguridades.
+                        {
                             mushuñan = true;
+                        }
                     }
+                    //if (item.ID_PERFIL == 29) 
+                    //{
+                    //    if (item.DESCRIPCION.Contains("SUCURSALES")) //se debe tomar en cuenta que si es 29 en otra empresa no actuara de la forma como en la pasteur.
+                    //        mushuñan = true;
+                    //}
                 }
             }
             catch (System.Exception err) { MessageBox.Show(err.Message); }
@@ -9639,7 +9647,7 @@ namespace His.Admision
             using (StreamWriter sw = File.AppendText(rutaCompleta))         //se crea el archivo
             {
                 sw.WriteLine(txt_apellido1.Text + ' ' + txt_apellido2.Text + ' ' + txt_nombre1.Text + ' ' + txt_nombre2.Text);
-                sw.WriteLine("EDAD:" + edadAnos + " AÑOS, " + edadMeses + " MESES, " + diasDiferencia+ " DIAS"); // se cambian a nuevas variables
+                sw.WriteLine("EDAD:" + edadAnos + " AÑOS, " + edadMeses + " MESES, " + diasDiferencia + " DIAS");
                 sw.WriteLine("GENERO: " + xgenero + "  HAB.:" + txt_habitacion.Text.ToString().Trim());
                 sw.WriteLine("HC : " + txt_historiaclinica.Text.Trim() + " CEDULA:" + txt_cedula.Text.Trim());
                 sw.WriteLine("INGRESO : " + dateTimeFecIngreso.Value.ToString());

@@ -126,6 +126,14 @@ namespace His.Pedidos
                     }
                 }
             }
+            herramientasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.Herramienta;
+            controlDeDespachoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.ControlDespscho;
+            exploradorDePedidosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.ExploradorPedidos;
+            monitoreoDeDevolucionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.MonitoreoDevoluciones;
+            monitoreoDePedidosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.MonitoreoPedidos;
+
+            reportesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.Reportes;
+            consultaPedidosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloPedidos.ConsultaPedidos;
         }
         #endregion
 

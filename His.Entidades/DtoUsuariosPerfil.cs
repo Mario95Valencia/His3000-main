@@ -9,6 +9,6 @@ namespace His.Entidades
     {
         public int ID_PERFIL { get; set; }
         public string DESCRIPCION { get; set; }
-        public bool TIENEACCESO { get; set; }
+        public bool TIENE_ACCESO { get; set; }
     }
 }

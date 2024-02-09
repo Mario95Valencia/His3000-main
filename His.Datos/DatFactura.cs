@@ -55,13 +55,13 @@ namespace His.Datos
         {
             try
             {
-                using (var constexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+                using(var constexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
                 {
                     List<AGRUPACION_CUENTAS> obj = (from a in constexto.AGRUPACION_CUENTAS
-                                                    where a.ate_codigo_madre == ateCodigo
-                                                    select a).ToList();
+                                              where a.ate_codigo_madre == ateCodigo
+                                              select a).ToList();
 
-                    if (obj != null)
+                    if(obj != null)
                     {
                         return true;
                     }
@@ -491,7 +491,7 @@ namespace His.Datos
 
                 Sqlcmd.Parameters.Add("@CodigoAtencion", SqlDbType.BigInt);
                 Sqlcmd.Parameters["@CodigoAtencion"].Value = (CodigoAtencion);
-
+                
                 Sqlcmd.Parameters.Add("@tipoIdentificacion", SqlDbType.NVarChar);
                 Sqlcmd.Parameters["@tipoIdentificacion"].Value = (identificador);
 
@@ -937,7 +937,7 @@ namespace His.Datos
 
                 Sqlcmd = new SqlCommand("sp_GuardaCambiosCuentasAgrupadas", Sqlcon);
                 Sqlcmd.CommandType = CommandType.StoredProcedure;
-                Sqlcmd.Transaction = transaction;
+                Sqlcmd.Transaction = transaction;                
 
                 Sqlcmd.Parameters.Add("@Ate_codigo", SqlDbType.BigInt);
                 Sqlcmd.Parameters["@Ate_codigo"].Value = (ateCodigo);
@@ -4082,25 +4082,6 @@ namespace His.Datos
 
         public int ActualizaDescuentoAtencion(Int64 CodigoAtencion)
         {
-            //SqlCommand command;
-            //SqlConnection connection;
-            //SqlDataReader reader;
-            //BaseContextoDatos obj1 = new BaseContextoDatos();
-            //connection = obj1.ConectarBd();
-            //connection.Open();
-            //try
-            //{
-            //    command = new SqlCommand("update  HIS3000..CUENTAS_PACIENTES  set PorDescuento = 0, Descuento = 0  where ATE_CODIGO = "+ CodigoAtencion, connection);
-            //    command.CommandType = CommandType.Text;
-            //    command.CommandTimeout = 180;
-            //    reader = command.ExecuteReader();
-            //    connection.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    connection.Close();
-            //}
 
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
@@ -5170,8 +5151,8 @@ namespace His.Datos
                             Sqlcmd.CommandType = CommandType.StoredProcedure;
 
                             Sqlcmd.Parameters.Add("@p_CUE_CODIGO", SqlDbType.BigInt);
-                            Sqlcmd.Parameters["@p_CUE_CODIGO"].Value = (Item1["ID"].ToString());
-
+                            Sqlcmd.Parameters["@p_CUE_CODIGO"].Value = (Item1["ID"].ToString()); 
+                            
                             Sqlcmd.Parameters.Add("@CUE_CANTIDAD", SqlDbType.Decimal);
                             Sqlcmd.Parameters["@CUE_CANTIDAD"].Value = (Item1["CANTIDAD"].ToString());
 
@@ -6080,7 +6061,7 @@ namespace His.Datos
             catch (Exception err) { throw err; }
             return ok;
         }
-        public void EliminaMEDICOS_ALTA(Int64 codigo)
+        public void EliminaMEDICOS_ALTA( Int64 codigo)
         {
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
@@ -6210,7 +6191,7 @@ namespace His.Datos
 
             command = new SqlCommand("sp_ValidarPEmision", connection);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@caja", Convert.ToInt32(numcaja));
+            command.Parameters.AddWithValue("@caja",Convert.ToInt32(numcaja));
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -6249,6 +6230,7 @@ namespace His.Datos
 
                 h = (from c in db.CUENTAS_PACIENTES
                      join hce in db.HONORARIOS_CONSULTA_EXTERNA on c.PRO_CODIGO equals hce.PRO_CODIGO
+                     //where c.CUE_DETALLE.Contains("HONORARIOS") && c.ATE_CODIGO == ate_codigo // se cambia por cambio de proceso a rubros por la tabla // Mario Valencia // 21-12-2023
                      where c.ATE_CODIGO == ate_codigo
                      select c).ToList();
                 return h;
@@ -6318,7 +6300,7 @@ namespace His.Datos
             connection = obj.ConectarBd();
             connection.Open();
 
-            command = new SqlCommand("select * from Sic3000..Nota where numfac = '" + numfac + "'", connection);
+            command = new SqlCommand("select * from Sic3000..Nota where numfac = '"+numfac+"'", connection);
             command.CommandType = CommandType.Text;
             reader = command.ExecuteReader();
             DataTable Tabla = new DataTable();

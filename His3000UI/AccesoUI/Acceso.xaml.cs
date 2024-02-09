@@ -346,8 +346,8 @@ namespace AccesoUI
                 img_CE.IsEnabled = AccesosModuloAcceso.ModuloConsultaExterna;
                 btnMedicos.IsEnabled = AccesosModuloAcceso.ModuloMedicos;
                 img_Medico.IsEnabled = AccesosModuloAcceso.ModuloMedicos;
-                btnEmergencia_Copy1.IsEnabled = AccesosModuloAcceso.ModuloEmergencia;
-                img_Emergencia.IsEnabled = AccesosModuloAcceso.ModuloEmergencia;
+                btnEmergencia_Copy1.IsEnabled = His.Parametros.AccesosModuloAcceso.getModuloEmergencias();
+                img_Emergencia.IsEnabled = His.Parametros.AccesosModuloAcceso.getModuloEmergencias();
 
                 //
                 lblUsuario.Content = His.Entidades.Clases.Sesion.nomUsuario;

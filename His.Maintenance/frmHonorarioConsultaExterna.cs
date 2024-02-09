@@ -82,7 +82,7 @@ namespace His.Maintenance
             UltraGridRow fila = UltraGridHCEX.ActiveRow;
             if (UltraGridHCEX.Selected.Rows.Count > 0)
             {
-                if (MessageBox.Show("Esta seguro de eliminar el producto " + fila.Cells["DESCRIPCION"].Value.ToString(), "His3000", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Esta seguro de eliminar el producto" + fila.Cells["DESCRIPCION"].Value.ToString(), "His3000", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     bloquear(false, false, true, false);
                     producto = NegProducto.recuperaProductoSicXcodpro(fila.Cells["COD_PRODUCTO"].Value.ToString());

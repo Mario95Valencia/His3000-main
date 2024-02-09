@@ -38,11 +38,27 @@ namespace His.Negocio
         /// <returns>Objeto PERFILES</returns>
         public List<PERFILES> RecuperarPerfil(int codigoUsuario)
         {
-            return new DatPerfiles().RecuperarPerfil(codigoUsuario); 
+            return new DatPerfiles().RecuperarPerfil(codigoUsuario);
         }
         public static PERFILES RecuperaPerfil(Int64 perfil)
         {
             return new DatPerfiles().RecuperaPerfil(perfil);
+        }
+        public static void borrarPerfiles(Int64 ID_PERFIL, Int64 ID_MODULO)
+        {
+            new DatPerfiles().borrarPerfiles(ID_PERFIL, ID_MODULO);
+        }
+        public static void BorraPerfilesSic(Int64 id_perfil, Int64 id_modulo)
+        {
+            new DatPerfiles().BorraPerfilesSic(id_perfil, id_modulo);
+        }
+        public static void BorraPerfilesCg(Int64 id_perfil, Int64 id_modulo)
+        {
+            new DatPerfiles().BorraPerfilesCg(id_perfil, id_modulo);
+        }
+        public static PERFILES recuperaPerfilesXUsuario(Int64 id_usuario)
+        {
+            return new DatPerfiles().recuperaPerfilesXUsuario(id_usuario);
         }
     }
 }

@@ -415,6 +415,9 @@ namespace His.Negocio
                 return null;
             }
         }
-
+        public static List<ACCESO_OPCIONES> ListaAccesoOpcionesPorPerfil(Int32 codigoPerfil, Int32 codigoModulo)
+        {
+            return new DatAccesoOpciones().ListaAccesoOpcionesPorPerfil(codigoPerfil, codigoModulo);
+        }
     }
 }

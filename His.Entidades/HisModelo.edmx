@@ -77,6 +77,15 @@
           <Property Name="ANI_COD_PADRE" Type="varchar" MaxLength="50" />
           <Property Name="ANI_ESTADO" Type="bit" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'His3000.dbo.ARE_ASIGNADA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ARE_ASIGNADA">
+          <Key>
+            <PropertyRef Name="AS_ID" />
+          </Key>
+          <Property Name="AS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AS_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="AREAS_MEDICAS">
           <Key>
             <PropertyRef Name="ARE_CODIGO" />
@@ -6171,6 +6180,12 @@ advertencia 6037: La restricción de clave externa 'FK_NOTAS_CR_REFERENCE_TIPO_D
           <EntitySet Name="USUARIOS_PERFILES" EntityType="Self.USUARIOS_PERFILES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VIA_ADMINISTRACION_MEDICAMENTO" EntityType="Self.VIA_ADMINISTRACION_MEDICAMENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZONAS" EntityType="Self.ZONAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARE_ASIGNADA" EntityType="Self.ARE_ASIGNADA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ARE_ASIGNADA].[AS_ID] AS [AS_ID], 
+[ARE_ASIGNADA].[AS_DESCRIPCION] AS [AS_DESCRIPCION]
+FROM [dbo].[ARE_ASIGNADA] AS [ARE_ASIGNADA]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="CERTIFICADO_MEDICO_IESS" EntityType="Self.CERTIFICADO_MEDICO_IESS" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [CERTIFICADO_MEDICO_IESS].[CMI_CODIGO] AS [CMI_CODIGO], 
@@ -8306,6 +8321,7 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <EntitySet Name="REPORTE_SV" EntityType="HIS3000BDModel.REPORTE_SV" />
           <EntitySet Name="REPORTE_CURVA_TERMICA" EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" />
           <EntitySet Name="HONORARIOS_CONSULTA_EXTERNA" EntityType="HIS3000BDModel.HONORARIOS_CONSULTA_EXTERNA" />
+          <EntitySet Name="ARE_ASIGNADA" EntityType="HIS3000BDModel.ARE_ASIGNADA" />
           </EntityContainer>
 				<EntityType Name="ACCESO_OPCIONES">
 					<Key>
@@ -12984,6 +13000,13 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
           <Property Name="HCE_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="PRO_CODIGO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ARE_ASIGNADA">
+          <Key>
+            <PropertyRef Name="AS_ID" />
+          </Key>
+          <Property Name="AS_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AS_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
 		</edmx:ConceptualModels>
@@ -18406,6 +18429,14 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ARE_ASIGNADA">
+            <EntityTypeMapping TypeName="HIS3000BDModel.ARE_ASIGNADA">
+              <MappingFragment StoreEntitySet="ARE_ASIGNADA">
+                <ScalarProperty Name="AS_DESCRIPCION" ColumnName="AS_DESCRIPCION" />
+                <ScalarProperty Name="AS_ID" ColumnName="AS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
 			</Mapping>
 		</edmx:Mappings>
@@ -19976,6 +20007,7 @@ FROM [dbo].[Vista_HonorariosCxE] AS [Vista_HonorariosCxE]</DefiningQuery>
         <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_SV" Width="1.5" PointX="40.375" PointY="18.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.REPORTE_CURVA_TERMICA" Width="1.5" PointX="40.375" PointY="34.75" />
         <EntityTypeShape EntityType="HIS3000BDModel.HONORARIOS_CONSULTA_EXTERNA" Width="1.5" PointX="40.375" PointY="37.75" />
+        <EntityTypeShape EntityType="HIS3000BDModel.ARE_ASIGNADA" Width="1.5" PointX="40.375" PointY="40.75" />
 			</Diagram>
 		</edmx:Diagrams>
 	</edmx:Designer>

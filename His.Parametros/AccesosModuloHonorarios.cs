@@ -10,43 +10,48 @@ namespace His.Parametros
         #region Variables       
 
         //archivo
-	        private static bool medicos=false;
-	        private static bool especialidades=false;
-	        private static bool tipo_documento=false;
-	        private static bool comision_clinica_referido=false;
-	        private static bool tipo_retencion=false;
-	        private static bool tipo_honorario=false;
+        private static bool archivo = false;
+        private static bool medicos = false;
+        private static bool especialidades = false;
+        private static bool vendedores = false;
+        private static bool tipo_documento = false;
+        private static bool comision_clinica_referido = false;
+        private static bool tipo_retencion = false;
+        private static bool tipo_honorario = false;
+        private static bool salir = false;
 
         //procesos_diarios
-	        private static bool ingreso_facturas=false;
-	        private static bool honorarios_por_medico=false;
+        private static bool proceso_diario = false;
+        private static bool ingreso_facturas = false;
+        private static bool honorarios_por_medico = false;
+        private static bool ingreso_honorario = false;
+        private static bool facturas_anulacion = false;
+        private static bool asiento_honorario = false;
 
+        //liquidacion_honorario
+        private static bool liquidacionHonorario = false;
+        private static bool asignar_facturas_liquidaciones = false;
+        private static bool explorador_liquidaciones = false;
+        private static bool liquidacion = false;
+
+        //explorador
         private static bool explorador = false;
-
-        //notas_retenciones
-	        private static bool emision_retenciones=false;
-
-            //notas
-		        private static bool notas_credito=false;
-		        private static bool notas_debito=false;
-		        private static bool notasd_valores_no_cubiertos=false;
-		        private static bool notasd_comisiones=false;
-
-        //private static bool correos
-	        private static bool nuevoCorreo=false;
-	        private static bool opcionesCorreo=false;
+        private static bool expl_general = false;
+        private static bool expl_medicos = false;
 
         //reportes
-	        private static bool r_medicos=false;
-	        private static bool r_notas=false;
-	        private static bool r_retenciones=false;
-	        private static bool r_contables=false;
+        private static bool reportes = false;
+        private static bool rep_medicos = false;
+        private static bool rep_notas = false;
+        private static bool rep_retenciones = false;
+        private static bool rep_contables = false;
+        private static bool rep_comisiones = false;
 
         //balances
-	        private static bool honorarios_pend_pago=false;
-	        private static bool honorarios_pend_cancelar=false;
-	        private static bool honorarios_cancelados=false;
-	        private static bool balance_gerencial=false;
+        private static bool honorarios_pend_pago = false;
+        private static bool honorarios_pend_cancelar = false;
+        private static bool honorarios_cancelados = false;
+        private static bool balance_gerencial = false;
 
         ////estadisticas
         //    private static bool honorarios_por_medico=false;
@@ -58,7 +63,7 @@ namespace His.Parametros
         //    private static bool t_medicos=false;
         //    private static bool t_pacientes=false;
         //    private static bool actualizacion_tarifarios = false;
-        
+
 
         #endregion
 
@@ -72,7 +77,7 @@ namespace His.Parametros
             }
             set
             {
-                medicos= value;
+                medicos = value;
             }
         }
 
@@ -84,7 +89,7 @@ namespace His.Parametros
             }
             set
             {
-                especialidades= value;
+                especialidades = value;
             }
         }
 
@@ -175,87 +180,87 @@ namespace His.Parametros
             }
         }
 
-        public static bool EmisionRetenciones
+        public static bool Archivo
         {
             get
             {
-                return emision_retenciones;
+                return archivo;
             }
             set
             {
-                emision_retenciones = value;
+                archivo = value;
             }
         }
 
-        public static bool NotasCredito
+        public static bool Salir
         {
             get
             {
-                return notas_credito;
+                return salir;
             }
             set
             {
-                notas_credito = value;
+                salir = value;
             }
         }
 
-        public static bool NotasDebito
+        public static bool ProcesoDiario
         {
             get
             {
-                return notas_debito;
+                return proceso_diario;
             }
             set
             {
-                notas_debito = value;
+                proceso_diario = value;
             }
         }
 
-        public static bool NotasValoresNoCubiertos
+        public static bool IngresoHonorarios
         {
             get
             {
-                return notasd_valores_no_cubiertos;
+                return ingreso_honorario;
             }
             set
             {
-                notasd_valores_no_cubiertos = value;
+                ingreso_honorario = value;
             }
         }
 
-        public static bool NotasComisiones
+        public static bool FacturasAnulacion
         {
             get
             {
-                return notasd_comisiones;
+                return facturas_anulacion;
             }
             set
             {
-                notasd_comisiones = value;
+                facturas_anulacion = value;
             }
         }
 
-        public static bool NuevoCorreo
+        public static bool AsientoHonorario
         {
             get
             {
-                return nuevoCorreo;
+                return asiento_honorario;
             }
             set
             {
-                nuevoCorreo = value;
+                asiento_honorario = value;
             }
         }
 
-        public static bool OpcionesCorreo
+        public static bool ReporteComisiones
         {
             get
             {
-                return opcionesCorreo;
+                return rep_comisiones;
             }
             set
             {
-                opcionesCorreo = value;
+                rep_comisiones = value;
             }
         }
 
@@ -263,11 +268,11 @@ namespace His.Parametros
         {
             get
             {
-                return r_medicos;
+                return rep_medicos;
             }
             set
             {
-                r_medicos = value;
+                rep_medicos = value;
             }
         }
 
@@ -275,11 +280,11 @@ namespace His.Parametros
         {
             get
             {
-                return r_notas;
+                return rep_notas;
             }
             set
             {
-                r_notas = value;
+                rep_notas = value;
             }
         }
 
@@ -287,11 +292,11 @@ namespace His.Parametros
         {
             get
             {
-                return r_retenciones;
+                return rep_retenciones;
             }
             set
             {
-                r_retenciones = value;
+                rep_retenciones = value;
             }
         }
 
@@ -299,11 +304,11 @@ namespace His.Parametros
         {
             get
             {
-                return r_contables;
+                return rep_contables;
             }
             set
             {
-                r_contables = value;
+                rep_contables = value;
             }
         }
 
@@ -352,6 +357,105 @@ namespace His.Parametros
             set
             {
                 balance_gerencial = value;
+            }
+        }
+        public static bool Vendedores
+        {
+            get
+            {
+                return vendedores;
+            }
+            set
+            {
+                vendedores = value;
+            }
+        }
+        public static bool LiquidacionHonorario
+        {
+            get
+            {
+                return liquidacionHonorario;
+            }
+            set
+            {
+                liquidacionHonorario = value;
+            }
+        }
+        public static bool AsignarFacturasLiquidacion
+        {
+            get
+            {
+                return asignar_facturas_liquidaciones;
+            }
+            set
+            {
+                asignar_facturas_liquidaciones = value;
+            }
+        }
+        public static bool ExploradorLiquidaciones
+        {
+            get
+            {
+                return explorador_liquidaciones;
+            }
+            set
+            {
+                explorador_liquidaciones = value;
+            }
+        }
+        public static bool Liquidaciones
+        {
+            get
+            {
+                return liquidacion;
+            }
+            set
+            {
+                liquidacion = value;
+            }
+        }
+        public static bool ReporteComision
+        {
+            get
+            {
+                return rep_comisiones;
+            }
+            set
+            {
+                rep_comisiones = value;
+            }
+        }
+        public static bool ExploradorGeneral
+        {
+            get
+            {
+                return expl_general;
+            }
+            set
+            {
+                expl_general = value;
+            }
+        }
+        public static bool ExploradorMedicos
+        {
+            get
+            {
+                return expl_medicos;
+            }
+            set
+            {
+                expl_medicos = value;
+            }
+        }
+        public static bool Reporte
+        {
+            get
+            {
+                return reportes;
+            }
+            set
+            {
+                reportes = value;
             }
         }
 

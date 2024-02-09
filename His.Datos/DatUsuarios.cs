@@ -7,13 +7,14 @@ using Core.Datos;
 using Core.Entidades;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace His.Datos
 {
     public class DatUsuarios
     {
 
-        public USUARIOS RecuperaUsuario(Int32 codusu)
+        public USUARIOS RecuperaUsuario(Int64 codusu)
         {
             using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
@@ -128,7 +129,7 @@ namespace His.Datos
                     bool valor = true;
                     if (usuarioperfil.Where(per => per.ID_PERFIL == acceso.ID_PERFIL).FirstOrDefault() == null)
                         valor = false;
-                    datos.Add(new DtoUsuariosPerfil() { DESCRIPCION = acceso.DESCRIPCION, ID_PERFIL = acceso.ID_PERFIL, TIENEACCESO = valor });
+                    datos.Add(new DtoUsuariosPerfil() { DESCRIPCION = acceso.DESCRIPCION, ID_PERFIL = acceso.ID_PERFIL, TIENE_ACCESO = valor });
                 }
             }
 
@@ -255,38 +256,12 @@ namespace His.Datos
             }
             return Dts;
         }
-        public DataTable cargarAreaAsignada()
+        public List<ARE_ASIGNADA> cargarAreaAsignada()
         {
-            SqlConnection Sqlcon;
-            SqlCommand Sqlcmd;
-            SqlDataAdapter Sqldap;
-            DataTable Dts = new DataTable();
-            BaseContextoDatos obj = new BaseContextoDatos();
-            Sqlcon = obj.ConectarBd();
-            try
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
-                Sqlcon.Open();
+                return db.ARE_ASIGNADA.OrderBy(x => x.AS_DESCRIPCION).ToList();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            Sqlcmd = new SqlCommand("select * from ARE_ASIGNADA", Sqlcon);
-            Sqlcmd.CommandType = CommandType.Text;
-            Sqldap = new SqlDataAdapter();
-            Sqlcmd.CommandTimeout = 180;
-            Sqldap.SelectCommand = Sqlcmd;
-            Sqldap.Fill(Dts);
-            try
-            {
-                Sqlcon.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return Dts;
         }
         public Int32 insertarUsuario(Usuarios usuarios)
         {
@@ -481,11 +456,28 @@ namespace His.Datos
                 throw err;
             }
         }
-        public void EliminarUsuario(USUARIOS usuario)
+        public bool EliminarUsuario(Int64 id_usuario)
         {
             using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
-                contexto.Eliminar(usuario);
+                ConexionEntidades.ConexionEDM.Open();
+                DbTransaction transac = ConexionEntidades.ConexionEDM.BeginTransaction();
+                try
+                {
+                    USUARIOS usu = contexto.USUARIOS.FirstOrDefault(x => x.ID_USUARIO == id_usuario);
+                    contexto.Eliminar(usu);
+                    contexto.SaveChanges();
+                    transac.Commit();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    transac.Rollback();
+                    ConexionEntidades.ConexionEDM.Close();
+                    return false;
+                }
             }
         }
         public List<USUARIOS_PERFILES> ListaUsuarioPerfiles()
@@ -638,71 +630,19 @@ namespace His.Datos
             return Tabla;
         }
 
-        public DataTable ConsultaDepartamento(int dep)
+        public DEPARTAMENTOS ConsultaDepartamento(int dep)
         {
-            SqlConnection Sqlcon;
-            SqlCommand Sqlcmd;
-            SqlDataAdapter Sqldap;
-            DataTable Dts = new DataTable();
-            BaseContextoDatos obj = new BaseContextoDatos();
-            Sqlcon = obj.ConectarBd();
-            try
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
-                Sqlcon.Open();
+                return db.DEPARTAMENTOS.FirstOrDefault(x => x.DEP_CODIGO == dep);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            Sqlcmd = new SqlCommand("select DEP_NOMBRE from DEPARTAMENTOS where DEP_CODIGO = " + dep, Sqlcon);
-            Sqlcmd.CommandType = CommandType.Text;
-            Sqldap = new SqlDataAdapter();
-            Sqlcmd.CommandTimeout = 180;
-            Sqldap.SelectCommand = Sqlcmd;
-            Sqldap.Fill(Dts);
-            try
-            {
-                Sqlcon.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return Dts;
         }
-        public DataTable ConsultaArea(int area)
+        public ARE_ASIGNADA ConsultaArea(int area)
         {
-            SqlConnection Sqlcon;
-            SqlCommand Sqlcmd;
-            SqlDataAdapter Sqldap;
-            DataTable Dts = new DataTable();
-            BaseContextoDatos obj = new BaseContextoDatos();
-            Sqlcon = obj.ConectarBd();
-            try
+            using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
             {
-                Sqlcon.Open();
+                return db.ARE_ASIGNADA.FirstOrDefault(x => x.AS_ID == area);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            Sqlcmd = new SqlCommand("select AS_DESCRIPCION from ARE_ASIGNADA where AS_ID = " + area, Sqlcon);
-            Sqlcmd.CommandType = CommandType.Text;
-            Sqldap = new SqlDataAdapter();
-            Sqlcmd.CommandTimeout = 180;
-            Sqldap.SelectCommand = Sqlcmd;
-            Sqldap.Fill(Dts);
-            try
-            {
-                Sqlcon.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return Dts;
         }
         public int ConsultaUsuario(string cedula)
         {
@@ -817,6 +757,38 @@ namespace His.Datos
             }
 
         }
+        public List<object> RecuperaListaUsuario()
+        {
+
+            List<object> usuariogrid = new List<object>();
+            using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+            {
+                var usuariosConDireccion = contexto.USUARIOS.ToList().Select(u => new{Usuario = u,DireccionConvertida = int.TryParse(u.DIRECCION, out int dir) ? dir : 1}).ToList();
+
+                var resultado = from u in usuariosConDireccion
+                                join up in contexto.USUARIOS_PERFILES on u.Usuario.ID_USUARIO equals up.ID_USUARIO into userProfiles
+                                from userProfile in userProfiles.DefaultIfEmpty()
+                                join p in contexto.PERFILES on userProfile?.ID_PERFIL equals p.ID_PERFIL into profiles
+                                from profile in profiles.DefaultIfEmpty()
+                                join d in contexto.DEPARTAMENTOS on u.Usuario.DEPARTAMENTOS.DEP_CODIGO equals d.DEP_CODIGO
+                                select new
+                                {
+                                    CODIGO = u.Usuario.ID_USUARIO,
+                                    NOMBRE = u.Usuario.APELLIDOS + " " + u.Usuario.NOMBRES,
+                                    u.Usuario.IDENTIFICACION,
+                                    DEPARATAMENTO = d.DEP_NOMBRE,
+                                    AREA_ASIGNADA = (from a in contexto.ARE_ASIGNADA
+                                                     where a.AS_ID == u.DireccionConvertida
+                                                     select a.AS_DESCRIPCION).FirstOrDefault(),
+                                    PERFIL = profile != null ? profile.DESCRIPCION : "SIN PERFIL",
+                                    ESTADO = u.Usuario.ESTADO,
+                                    u.Usuario.FECHA_VENCIMIENTO
+                                };
+
+                usuariogrid = resultado.Cast<object>().ToList();
+                return usuariogrid;
+            }
+        }
         #region Usuarios Sic-300
         public DataTable PerfilesSic()
         {
@@ -885,7 +857,7 @@ namespace His.Datos
             }
             return Dts;
         }
-        public DataTable ModuloSic()
+        public List<DtoModulo> ModuloSic()
         {
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
@@ -901,7 +873,7 @@ namespace His.Datos
             {
                 Console.WriteLine(ex.Message);
             }
-
+            List<DtoModulo> mod = new List<DtoModulo>();
             Sqlcmd = new SqlCommand("select codmod as 'ID', nommod as 'MODULO' from Sic3000..SeguridadesModulo where estmod = 1 ", Sqlcon);
             Sqlcmd.CommandType = CommandType.Text;
             Sqldap = new SqlDataAdapter();
@@ -911,12 +883,19 @@ namespace His.Datos
                 Sqldap.SelectCommand = Sqlcmd;
                 Sqldap.Fill(Dts);
                 Sqlcon.Close();
+                DtoModulo dto = new DtoModulo();
+                foreach (DataRow row in Dts.Rows)
+                {
+                    mod.Add(new DtoModulo() { ID = Convert.ToInt32(row["ID"].ToString()), MODULO = row["MODULO"].ToString(), TODO = false });
+                }
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return Dts;
+            return mod;
+
         }
         public List<DtoAccesosSic> BuscaPerfilesSic(Int64 codmod, Int64 id_usu)
         {
@@ -954,7 +933,7 @@ namespace His.Datos
                 "inner join Sic3000..SeguridadGrupoOpciones gr on g.codgru = gr.codgru \n" +
                 "inner join Sic3000..SeguridadOpciones o on gr.codopc = o.codopc \n" +
                 "inner join Sic3000..SeguridadesModulo m on o.codmod = m.codmod \n" +
-                "where g.codgru = @id_usu and m.codmod = @codmod and gr.staopc = 'S' order by gr.codgru ", Sqlcon);
+                "where g.codgru = @id_usu and m.codmod = @codmod and gr.staopc = 'S' and o.estopc = 1 order by gr.codgru ", Sqlcon);
                 Sqlcmd.Parameters.AddWithValue("@codmod", codmod);
                 Sqlcmd.Parameters.AddWithValue("@id_usu", id_usu);
                 Sqlcmd.CommandType = CommandType.Text;
@@ -1129,7 +1108,7 @@ namespace His.Datos
             }
 
         }
-        public bool CrearPerfilSicUsu(Int64 codusu, Int64 codopc, bool staopc)
+        public bool CrearPerfilSicUsu(Int64 codusu, Int64 codgrup, bool staopc)
         {
             try
             {
@@ -1145,9 +1124,7 @@ namespace His.Datos
                 connection.Open();
 
                 //command = new SqlCommand("select * from Sic3000..SeguridadUsuarioOpciones where codusu = @codusu and codopc = @codopc", connection);
-                command = new SqlCommand("select * from Sic3000..SeguridadesUsuarioGrupo where codusu = @codusu and codgru = @codopc", connection);
-                command.Parameters.AddWithValue("@codusu", codusu);
-                command.Parameters.AddWithValue("@codopc", codopc);
+                command = new SqlCommand("select * from Sic3000..SeguridadesUsuarioGrupo where codusu = " + codusu, connection);
                 command.CommandType = CommandType.Text;
                 Sqldap = new SqlDataAdapter();
                 command.CommandTimeout = 180;
@@ -1159,33 +1136,37 @@ namespace His.Datos
                     command = new SqlCommand("INSERT INTO Sic3000..SeguridadesUsuarioGrupo(codusu,codgru,staopc)VALUES(@codusu,@codopc,@staopc)", connection);
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@codusu", codusu);
-                    command.Parameters.AddWithValue("@codopc", codopc);
+                    command.Parameters.AddWithValue("@codopc", codgrup);
                     command.Parameters.AddWithValue("@staopc", staopc);
                     reader = command.ExecuteReader();
-                   
+
                     con = obj.ConectarBd();
                     con.Open();
                     cmd = new SqlCommand("sp_ActualizarUsuarioGrupo", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CODUSU", codusu);
-                    cmd.Parameters.AddWithValue("@CODGRU", codopc);
-                   
+                    cmd.Parameters.AddWithValue("@CODGRU", codgrup);
+
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
                 else
                 {
                     //command = new SqlCommand("update Sic3000..SeguridadesUsuarioGrupo set staopc = @staopc where codusu = @codusu and coddep = @codopc", connection);
-                    command = new SqlCommand("delete from  Sic3000..SeguridadesUsuarioGrupo  where codusu = @codusu and codgru = @codopc", connection);
+                    command = new SqlCommand("update Sic3000..SeguridadesUsuarioGrupo set codgru = " + codgrup + " where codusu = " + codusu, connection);
                     command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("@codusu", codusu);
-                    command.Parameters.AddWithValue("@codopc", codopc);
-                    command.Parameters.AddWithValue("@staopc", staopc);
                     reader = command.ExecuteReader();
-                }
-                connection.Close();
-                
+                    connection.Close();
 
+                    con = obj.ConectarBd();
+                    con.Open();
+                    cmd = new SqlCommand("sp_ActualizarUsuarioGrupo", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CODUSU", codusu);
+                    cmd.Parameters.AddWithValue("@CODGRU", codgrup);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
 
 
                 return true;
@@ -1209,15 +1190,10 @@ namespace His.Datos
                 connection = obj.ConectarBd();
                 connection.Open();
 
-                //command = new SqlCommand("select * from Sic3000..SeguridadUsuarioOpciones where codusu = @codusu and codopc = @codopc", connection);
-                command = new SqlCommand("delete from Sic3000..SeguridadesUsuarioGrupo where codusu = @codusu", connection);
-                command.Parameters.AddWithValue("@codusu", codusu);
+                command = new SqlCommand("update Sic3000..SeguridadUsuarioOpciones set staopc = 'N' where codusu = " + codusu, connection);
                 reader = command.ExecuteReader();
+
                 connection.Close();
-
-
-
-
                 return true;
             }
             catch (Exception ex)
@@ -1238,15 +1214,9 @@ namespace His.Datos
                 BaseContextoDatos obj = new BaseContextoDatos();
                 connection = obj.ConectarBd();
                 connection.Open();
-
-                //command = new SqlCommand("select * from Sic3000..SeguridadUsuarioOpciones where codusu = @codusu and codopc = @codopc", connection);
-                command = new SqlCommand("delete from Cg3000..Cgusugrup where codusu = @codusu", connection);
-                command.Parameters.AddWithValue("@codusu", codusu);
+                command = new SqlCommand("update Cg3000..Cgopciusu set staopc = 'N' where codusu = " + codusu, connection);
                 reader = command.ExecuteReader();
                 connection.Close();
-
-
-
 
                 return true;
             }
@@ -1257,7 +1227,7 @@ namespace His.Datos
             }
 
         }
-        public bool CrearPerfilCgUsu(Int64 codusu, Int64 codopc, bool staopc)
+        public bool CrearPerfilCgUsu(Int64 codusu, Int64 codgru, bool staopc)
         {
             try
             {
@@ -1272,10 +1242,7 @@ namespace His.Datos
                 connection = obj.ConectarBd();
                 connection.Open();
 
-                //command = new SqlCommand("select * from Sic3000..SeguridadUsuarioOpciones where codusu = @codusu and codopc = @codopc", connection);
-                command = new SqlCommand("select * from Cg3000..Cgusugrup where codusu = @codusu and codgru = @codopc", connection);
-                command.Parameters.AddWithValue("@codusu", codusu);
-                command.Parameters.AddWithValue("@codopc", codopc);
+                command = new SqlCommand("select * from Cg3000..Cgusugrup where codusu = " + codusu, connection);
                 command.CommandType = CommandType.Text;
                 Sqldap = new SqlDataAdapter();
                 command.CommandTimeout = 180;
@@ -1287,7 +1254,7 @@ namespace His.Datos
                     command = new SqlCommand("INSERT INTO Cg3000..Cgusugrup(codusu,codgru,staopc)VALUES(@codusu,@codopc,@staopc)", connection);
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@codusu", codusu);
-                    command.Parameters.AddWithValue("@codopc", codopc);
+                    command.Parameters.AddWithValue("@codopc", codgru);
                     command.Parameters.AddWithValue("@staopc", staopc);
                     reader = command.ExecuteReader();
                     con = obj.ConectarBd();
@@ -1295,21 +1262,28 @@ namespace His.Datos
                     cmd = new SqlCommand("sp_ActualizarUsuarioGrupoCg", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CODUSU", codusu);
-                    cmd.Parameters.AddWithValue("@CODGRU", codopc);
+                    cmd.Parameters.AddWithValue("@CODGRU", codgru);
 
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
                 else
                 {
-                    command = new SqlCommand("delete from Cg3000..Cgusugrup  where codusu = @codusu and codgru = @codopc", connection);
+                    command = new SqlCommand("update Cg3000..Cgusugrup  set codgru = " + codgru + " where codusu = " + codusu, connection);
                     command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("@codusu", codusu);
-                    command.Parameters.AddWithValue("@codopc", codopc);
-                    command.Parameters.AddWithValue("@staopc", staopc);
                     reader = command.ExecuteReader();
+                    connection.Close();
+
+                    con = obj.ConectarBd();
+                    con.Open();
+                    cmd = new SqlCommand("sp_ActualizarUsuarioGrupoCg", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CODUSU", codusu);
+                    cmd.Parameters.AddWithValue("@CODGRU", codgru);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                 }
-                connection.Close();
                 return true;
             }
             catch (Exception ex)
@@ -1423,7 +1397,7 @@ namespace His.Datos
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
             SqlDataAdapter Sqldap;
-         
+
             DataTable Opciones = new DataTable();
             List<DtoUsuariosPerfilesSic> perSic = new List<DtoUsuariosPerfilesSic>();
             BaseContextoDatos obj = new BaseContextoDatos();
@@ -1438,8 +1412,8 @@ namespace His.Datos
             }
             try
             {
-                
-                
+
+
                 Sqlcmd = new SqlCommand("select * from Sic3000..SeguridadDepartamento order by coddep", Sqlcon);
                 Sqlcmd.CommandType = CommandType.Text;
                 Sqldap = new SqlDataAdapter();
@@ -1453,8 +1427,8 @@ namespace His.Datos
 
                     try
                     {
-                        
-                            perSic.Add(new DtoUsuariosPerfilesSic() { ID_PERFIL = Convert.ToInt32(row[0].ToString()), DESCRIPCION = row[1].ToString(),TIENEACCESO= false });
+
+                        perSic.Add(new DtoUsuariosPerfilesSic() { ID_PERFIL = Convert.ToInt32(row[0].ToString()), DESCRIPCION = row[1].ToString(), TIENEACCESO = false });
                     }
                     catch (Exception ex)
                     {
@@ -1472,7 +1446,61 @@ namespace His.Datos
             }
             return perSic;
         }
+        public DataTable opcionesXModuloSic(Int64 codmod)
+        {
+            SqlCommand command;
+            SqlConnection connection;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            connection = obj.ConectarBd();
+            connection.Open();
+            try
+            {
+                command = new SqlCommand("select * from Sic3000..SeguridadOpciones where codmod = " + codmod + " and estopc = 1", connection);
+                command.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                command.CommandTimeout = 180;
+                Sqldap.SelectCommand = command;
+                Sqldap.Fill(Dts);
+                connection.Close();
+                return Dts;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                connection.Close();
+                return Dts;
+            }
 
+        }
+        public DataTable usuarioXCedulaSic(string cedula)
+        {
+            SqlCommand command;
+            SqlConnection connection;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            connection = obj.ConectarBd();
+            connection.Open();
+            try
+            {
+                command = new SqlCommand("select * from Sic3000..SeguridadUsuario where CEDULA = '" + cedula + "'", connection);
+                command.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                command.CommandTimeout = 180;
+                Sqldap.SelectCommand = command;
+                Sqldap.Fill(Dts);
+                connection.Close();
+                return Dts;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                connection.Close();
+                return Dts;
+            }
+        }
         #endregion
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         #region Usuarios Cg-300
@@ -1543,7 +1571,7 @@ namespace His.Datos
             }
             return Dts;
         }
-        public DataTable ModuloCG()
+        public List<DtoModulo> ModuloCG()
         {
             SqlConnection Sqlcon;
             SqlCommand Sqlcmd;
@@ -1559,7 +1587,7 @@ namespace His.Datos
             {
                 Console.WriteLine(ex.Message);
             }
-
+            List<DtoModulo> mod = new List<DtoModulo>();
             Sqlcmd = new SqlCommand("select codmod as 'ID', nommod as 'MODULO' from Cg3000..cgmodulo where estmod = 1 ", Sqlcon);
             Sqlcmd.CommandType = CommandType.Text;
             Sqldap = new SqlDataAdapter();
@@ -1569,12 +1597,17 @@ namespace His.Datos
                 Sqldap.SelectCommand = Sqlcmd;
                 Sqldap.Fill(Dts);
                 Sqlcon.Close();
+                DtoModulo dto = new DtoModulo();
+                foreach (DataRow row in Dts.Rows)
+                {
+                    mod.Add(new DtoModulo() { ID = Convert.ToInt32(row["ID"].ToString()), MODULO = row["MODULO"].ToString(), TODO = false });
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return Dts;
+            return mod;
         }
         public List<DtoAccesosSic> BuscaPerfilesCg(Int64 codmod, Int64 id_usu)
         {
@@ -1703,7 +1736,7 @@ namespace His.Datos
             try
             {
                 //Sqlcmd = new SqlCommand("select * from Cg3000..Cgopcion where codopc in(select codopc from Cg3000..Cgopciusu where codusu = @codusu and staopc = 'S') order by nomopc", Sqlcon);
-                Sqlcmd = new SqlCommand("select * from Cg3000..Cgusugrup where codusu = "+codusu+" and staopc = 1 order by codgru ", Sqlcon);
+                Sqlcmd = new SqlCommand("select * from Cg3000..Cgusugrup where codusu = " + codusu + " and staopc = 1 order by codgru ", Sqlcon);
                 //Sqlcmd.Parameters.AddWithValue("@codusu", codusu);
                 Sqlcmd.CommandType = CommandType.Text;
                 Sqldap = new SqlDataAdapter();
@@ -1785,7 +1818,7 @@ namespace His.Datos
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@codopc", codopc);
                     command.Parameters.AddWithValue("@codgru", codusu);
-                    reader= command.ExecuteReader();
+                    reader = command.ExecuteReader();
                     connection.Close();
 
 
@@ -1801,7 +1834,7 @@ namespace His.Datos
                     reader = command.ExecuteReader();
                     connection.Close();
                     connection.Open();
-                    command = new SqlCommand("update Cg3000..Cgopciusu set staopc='"+ staopc + "' WHERE codusu IN (select codusu from Cg3000..Cgusugrup WHERE codgru=@codgru ) and codopc=@codopc", connection);
+                    command = new SqlCommand("update Cg3000..Cgopciusu set staopc='" + staopc + "' WHERE codusu IN (select codusu from Cg3000..Cgusugrup WHERE codgru=@codgru ) and codopc=@codopc", connection);
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@codopc", codopc);
                     command.Parameters.AddWithValue("@codgru", codusu);
@@ -1897,12 +1930,22 @@ namespace His.Datos
                 BaseContextoDatos obj = new BaseContextoDatos();
                 connection = obj.ConectarBd();
                 connection.Open();
-                command = new SqlCommand("delete from Cg3000..Cggruopc where codgru =" + codgru , connection);
+                command = new SqlCommand("update Cg3000..Cgopciusu set staopc = 'N' where codusu in(select codusu from Cg3000..Cgusugrup where codgru = " + codgru + " )", connection);
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
                 connection.Close();
                 connection.Open();
-                command = new SqlCommand("delete from Cg3000..Cggrupusu where codgru =" + codgru , connection);
+                command = new SqlCommand("delete from Cg3000..Cgusugrup where codgru = " + codgru, connection);
+                command.CommandType = CommandType.Text;
+                reader = command.ExecuteReader();
+                connection.Close();
+                connection.Open();
+                command = new SqlCommand("delete from Cg3000..Cggruopc where codgru =" + codgru, connection);
+                command.CommandType = CommandType.Text;
+                reader = command.ExecuteReader();
+                connection.Close();
+                connection.Open();
+                command = new SqlCommand("delete from Cg3000..Cggrupusu where codgru =" + codgru, connection);
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
                 connection.Close();
@@ -2003,6 +2046,61 @@ namespace His.Datos
             {
                 return false;
                 //throw;
+            }
+        }
+        public DataTable opcionesXModuloCg(Int64 codmod)
+        {
+            SqlCommand command;
+            SqlConnection connection;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            connection = obj.ConectarBd();
+            connection.Open();
+            try
+            {
+                command = new SqlCommand("select * from Cg3000..Cgopcion where codmod = " + codmod + " and estopc = 1", connection);
+                command.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                command.CommandTimeout = 180;
+                Sqldap.SelectCommand = command;
+                Sqldap.Fill(Dts);
+                connection.Close();
+                return Dts;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                connection.Close();
+                return Dts;
+            }
+
+        }
+        public DataTable usuarioXCedulaCg(string cedula)
+        {
+            SqlCommand command;
+            SqlConnection connection;
+            SqlDataAdapter Sqldap;
+            DataTable Dts = new DataTable();
+            BaseContextoDatos obj = new BaseContextoDatos();
+            connection = obj.ConectarBd();
+            connection.Open();
+            try
+            {
+                command = new SqlCommand("select * from Cg3000..Cgusuario where cedula = '" + cedula + "'", connection);
+                command.CommandType = CommandType.Text;
+                Sqldap = new SqlDataAdapter();
+                command.CommandTimeout = 180;
+                Sqldap.SelectCommand = command;
+                Sqldap.Fill(Dts);
+                connection.Close();
+                return Dts;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                connection.Close();
+                return Dts;
             }
         }
         #endregion

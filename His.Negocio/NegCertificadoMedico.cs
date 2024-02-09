@@ -71,6 +71,12 @@ namespace His.Negocio
             Tabla = Certificado.CargarDatosCertificado(Convert.ToInt32(ate_codigo));
             return Tabla;
         }
+        public DataTable CargarDatosCertificadoN(string ate_codigo,string cer_codigo="")
+        {
+            DataTable Tabla = new DataTable();
+            Tabla = Certificado.CargarDatosCertificadoN(Convert.ToInt32(ate_codigo),Convert.ToInt32(cer_codigo));
+            return Tabla;
+        }
         public DataTable CargarDatosCertificadoIESS(string ate_codigo, string CMI_CODIGO = "")
         {
             DataTable Tabla = new DataTable();
@@ -151,6 +157,7 @@ namespace His.Negocio
         {
             return new DatCertificadoMedico().ReimpresionCertificado(cer_codigo);
         }
+        
         public static DataTable ReimpresionCertificadoIESS(int cer_codigo)
         {
             return new DatCertificadoMedico().ReimpresionCertificadoIESS(cer_codigo);

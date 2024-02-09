@@ -249,6 +249,7 @@ namespace His.Admision
             {
                 grid.DataSource = NegPacientes.BuscaPacienteEmergencia();
                 grid.DisplayLayout.Bands[0].Columns["NOMBRE"].Width = 350;
+                grid.DisplayLayout.Bands[0].Columns["ATE_CODIGO"].Hidden = true;
                 //pongo el foco en el campo
                 txt_busqNom.Focus();
             }

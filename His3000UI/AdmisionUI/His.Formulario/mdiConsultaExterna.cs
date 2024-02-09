@@ -12,6 +12,7 @@ using His.Entidades.Clases;
 using His.Admision;
 using CuentaPaciente;
 using System.Diagnostics;
+using His.Entidades;
 
 namespace His.ConsultaExterna
 {
@@ -35,6 +36,7 @@ namespace His.ConsultaExterna
                 MessageBox.Show("Está maquina no tiene asignada una bodega, por lo que no se puede abrir el modulo", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            InicializarForma();
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             DatosUsuario();
@@ -42,7 +44,42 @@ namespace His.ConsultaExterna
             this.DoubleBuffered = true;
             oculta();
         }
+        private void InicializarForma()
+        {
+            if (Sesion.codUsuario != 0)
+            {
+                USUARIOS usuario = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
 
+                List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(usuario.ID_USUARIO);
+
+                if (perfilUsuario != null)
+                {
+                    foreach (var Perfil in perfilUsuario)
+                    {
+                        if (perfilUsuario != null)
+                            NegAccesoOpciones.asignarAccesosPorPerfil(Perfil.ID_PERFIL);
+                        else
+                        {
+                            MessageBox.Show("No se asignado un perfil al usuario", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.Close();
+                        }
+                    }
+                }
+                btnAgenda.Enabled = His.Parametros.AccesosModuloConsultaExterna.Agendamiento;
+                btnAgendaConsulta.Enabled = His.Parametros.AccesosModuloConsultaExterna.AgendaPacientes;
+                button4.Enabled = His.Parametros.AccesosModuloConsultaExterna.ExpCitasMedicas;
+                btnConsultaExterna.Enabled = His.Parametros.AccesosModuloConsultaExterna.ConsultaExterna;
+                btnAdmisionCE.Enabled = His.Parametros.AccesosModuloConsultaExterna.Admision;
+                btnTriaje.Enabled = His.Parametros.AccesosModuloConsultaExterna.Triaje;
+                btnIngresaOrden.Enabled = His.Parametros.AccesosModuloConsultaExterna.SignosVitales;
+                button3.Enabled = His.Parametros.AccesosModuloConsultaExterna.Habitaciones;
+                btnConsultaEx.Enabled = His.Parametros.AccesosModuloConsultaExterna.Consulta;
+                btnFacturaCE.Enabled = His.Parametros.AccesosModuloConsultaExterna.Facturacion;
+                btnReportes.Enabled = His.Parametros.AccesosModuloConsultaExterna.ExpConsultaExterna;
+                button1.Enabled = His.Parametros.AccesosModuloConsultaExterna.ExpCertificado;
+                button2.Enabled = His.Parametros.AccesosModuloConsultaExterna.ExpReceta;
+            }
+        }
         #region REDIMENCIONAR EL FORMULARIO Y ARRASTRAR
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -365,11 +402,12 @@ namespace His.ConsultaExterna
 
         private void mdiConsultaExterna_Load(object sender, EventArgs e)
         {
-            if (!NegUtilitarios.IpBodegas())
-            {
-                this.Close();
-                return;
-            }
+            //if (!NegUtilitarios.IpBodegas())
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            InicializarForma();
         }
 
         private void muestraSubMenu(Panel submenu)

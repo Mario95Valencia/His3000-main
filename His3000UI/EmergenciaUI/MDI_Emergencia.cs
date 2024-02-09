@@ -129,36 +129,66 @@ namespace His.Emergencia
             Sesion.porIva = decimal.Parse(parametrosGenerales.PAD_VALOR);
 
             Sesion.TipoAcceso = His.Entidades.Acceso.DIRECTO;
-            List<ACCESO_OPCIONES> perfilesAccesos = new NegPerfilesAcceso().AccesosUsuarios(Sesion.codUsuario, Constantes.ADMISION);
-            foreach (var acceso in perfilesAccesos)
+            #region codigoAntiguo no estaba en funcionamineto Mario  06/11/2023 
+            //List<ACCESO_OPCIONES> perfilesAccesos = new NegPerfilesAcceso().AccesosUsuarios(Sesion.codUsuario, Constantes.ADMISION);
+            //foreach (var acceso in perfilesAccesos)
+            //{
+            //    //if (acceso.ID_ACCESO == 200002)
+            //    //    mnu_archivo.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200003)
+            //    //    mnu_procesosdiarios.Enabled = true;
+
+            //    ////if (acceso.ID_ACCESO == 200004)
+            //    ////    mnu_estadocuenta.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200005)
+            //    //    mnu_pagos.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200006)
+            //    //    mnu_reportescontables.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200007)
+            //    //    mnu_balances.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200008)
+            //    //    mnu_estadisticas.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200009)
+            //    //    mnu_transferencias.Enabled = true;
+
+            //    //if (acceso.ID_ACCESO == 200010)
+            //    //    smnu_medicos.Enabled = true;
+            //}
+            #endregion
+            #region codigo actual
+            if (Sesion.codUsuario != 0)
             {
-                //if (acceso.ID_ACCESO == 200002)
-                //    mnu_archivo.Enabled = true;
+                USUARIOS usuario1 = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
 
-                //if (acceso.ID_ACCESO == 200003)
-                //    mnu_procesosdiarios.Enabled = true;
+                List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(usuario1.ID_USUARIO);
 
-                ////if (acceso.ID_ACCESO == 200004)
-                ////    mnu_estadocuenta.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200005)
-                //    mnu_pagos.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200006)
-                //    mnu_reportescontables.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200007)
-                //    mnu_balances.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200008)
-                //    mnu_estadisticas.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200009)
-                //    mnu_transferencias.Enabled = true;
-
-                //if (acceso.ID_ACCESO == 200010)
-                //    smnu_medicos.Enabled = true;
+                if (perfilUsuario != null)
+                {
+                    foreach (var Perfil in perfilUsuario)
+                    {
+                        if (perfilUsuario != null)
+                            NegAccesoOpciones.asignarAccesosPorPerfil(Perfil.ID_PERFIL);
+                        else
+                        {
+                            //System.Windows.MessageBox.Show("No se asignado un perfil al usuario", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            this.Close();
+                        }
+                    }
+                }
             }
+            mnu_admision.Enabled = His.Parametros.AccesosModuloEmergencia.Emergencia;
+            triajeYSignosVitalesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloEmergencia.Triaje;
+            ingresoFormO8ToolStripMenuItem.Enabled = His.Parametros.AccesosModuloEmergencia.Formulario;
+            evoluciónMedicosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloEmergencia.Evolucion;
+            certificadoMedicoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloEmergencia.Certificado;
+            recetaMedicaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloEmergencia.Receta;
+            #endregion
 
             txtFecha.Text = "FECHA: " + DateTime.Now.ToString("D");
 
@@ -323,7 +353,7 @@ namespace His.Emergencia
             {
                 MessageBox.Show("Ud. No tiene acceso a generar certificados medicos ya que no esta registrado como un usuario medico", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+
         }
 
         private void recetaMedicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -340,12 +370,6 @@ namespace His.Emergencia
                 receta.MdiParent = this;
                 receta.Show();
             }
-        }
-
-        private void habitacionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Epicrisis));
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
@@ -131,9 +132,9 @@
             this.txt_pacHCL = new System.Windows.Forms.MaskedTextBox();
             this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.error = new System.Windows.Forms.ErrorProvider();
-            this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager(this.components);
             this.frm_Epicrisis_Fill_Panel = new Infragistics.Win.Misc.UltraPanel();
             this.panelInfPaciente = new System.Windows.Forms.Panel();
             this._frm_Epicrisis_UltraFormManager_Dock_Area_Left = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
@@ -184,7 +185,7 @@
             // 
             this.ultraTabPageContro1.AutoScroll = true;
             this.ultraTabPageContro1.Controls.Add(this.panellResumenes);
-            this.ultraTabPageContro1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageContro1.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageContro1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageContro1.Name = "ultraTabPageContro1";
             this.ultraTabPageContro1.Size = new System.Drawing.Size(1310, 490);
@@ -371,7 +372,7 @@
             // btnBajar6
             // 
             this.btnBajar6.Image = ((System.Drawing.Image)(resources.GetObject("btnBajar6.Image")));
-            this.btnBajar6.Location = new System.Drawing.Point(1232, 184);
+            this.btnBajar6.Location = new System.Drawing.Point(1223, 180);
             this.btnBajar6.Margin = new System.Windows.Forms.Padding(4);
             this.btnBajar6.Name = "btnBajar6";
             this.btnBajar6.Size = new System.Drawing.Size(52, 50);
@@ -382,7 +383,7 @@
             // btnSubir6
             // 
             this.btnSubir6.Image = ((System.Drawing.Image)(resources.GetObject("btnSubir6.Image")));
-            this.btnSubir6.Location = new System.Drawing.Point(1232, 59);
+            this.btnSubir6.Location = new System.Drawing.Point(1223, 55);
             this.btnSubir6.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubir6.Name = "btnSubir6";
             this.btnSubir6.Size = new System.Drawing.Size(52, 50);
@@ -537,7 +538,7 @@
             // btnBajar5
             // 
             this.btnBajar5.Image = ((System.Drawing.Image)(resources.GetObject("btnBajar5.Image")));
-            this.btnBajar5.Location = new System.Drawing.Point(1232, 168);
+            this.btnBajar5.Location = new System.Drawing.Point(1223, 169);
             this.btnBajar5.Margin = new System.Windows.Forms.Padding(4);
             this.btnBajar5.Name = "btnBajar5";
             this.btnBajar5.Size = new System.Drawing.Size(52, 50);
@@ -548,7 +549,7 @@
             // btnSubir5
             // 
             this.btnSubir5.Image = ((System.Drawing.Image)(resources.GetObject("btnSubir5.Image")));
-            this.btnSubir5.Location = new System.Drawing.Point(1232, 40);
+            this.btnSubir5.Location = new System.Drawing.Point(1223, 41);
             this.btnSubir5.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubir5.Name = "btnSubir5";
             this.btnSubir5.Size = new System.Drawing.Size(52, 50);
@@ -698,18 +699,18 @@
             this.groupBox8.Controls.Add(this.btnMedico);
             this.groupBox8.Controls.Add(this.dtg_medicos);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(9, 244);
+            this.groupBox8.Location = new System.Drawing.Point(9, 224);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox8.Size = new System.Drawing.Size(1293, 231);
+            this.groupBox8.Size = new System.Drawing.Size(1269, 236);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "8. Medicos Tratantes";
             // 
             // btnagregar
             // 
-            this.btnagregar.Location = new System.Drawing.Point(542, 23);
+            this.btnagregar.Location = new System.Drawing.Point(542, 30);
             this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(100, 28);
@@ -721,7 +722,7 @@
             // dtpFin
             // 
             this.dtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFin.Location = new System.Drawing.Point(396, 26);
+            this.dtpFin.Location = new System.Drawing.Point(393, 32);
             this.dtpFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFin.Name = "dtpFin";
             this.dtpFin.Size = new System.Drawing.Size(120, 23);
@@ -741,7 +742,7 @@
             // dtpInicio
             // 
             this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicio.Location = new System.Drawing.Point(153, 26);
+            this.dtpInicio.Location = new System.Drawing.Point(149, 33);
             this.dtpInicio.Margin = new System.Windows.Forms.Padding(4);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(120, 23);
@@ -783,11 +784,11 @@
             this.cod_medico,
             this.resp_medico,
             this.cod_cedula_med});
-            this.dtg_medicos.Location = new System.Drawing.Point(59, 68);
+            this.dtg_medicos.Location = new System.Drawing.Point(59, 78);
             this.dtg_medicos.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_medicos.Name = "dtg_medicos";
             this.dtg_medicos.RowHeadersWidth = 62;
-            this.dtg_medicos.Size = new System.Drawing.Size(1213, 142);
+            this.dtg_medicos.Size = new System.Drawing.Size(1189, 135);
             this.dtg_medicos.TabIndex = 0;
             this.dtg_medicos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtg_medicos_CellBeginEdit);
             this.dtg_medicos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -877,7 +878,7 @@
             // 
             this.ultraTabPageControl4.Controls.Add(this.panelEgreso);
             this.ultraTabPageControl4.Controls.Add(this.label6);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(1310, 490);
@@ -938,7 +939,7 @@
             this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox10.Size = new System.Drawing.Size(1278, 115);
+            this.groupBox10.Size = new System.Drawing.Size(1107, 115);
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             // 
@@ -948,7 +949,7 @@
             this.txtRealizadoPor.Location = new System.Drawing.Point(141, 71);
             this.txtRealizadoPor.Margin = new System.Windows.Forms.Padding(4);
             this.txtRealizadoPor.Name = "txtRealizadoPor";
-            this.txtRealizadoPor.Size = new System.Drawing.Size(363, 23);
+            this.txtRealizadoPor.Size = new System.Drawing.Size(430, 23);
             this.txtRealizadoPor.TabIndex = 7;
             // 
             // label14
@@ -963,11 +964,11 @@
             // 
             // txt_profesional
             // 
-            this.txt_profesional.Location = new System.Drawing.Point(554, 28);
+            this.txt_profesional.Location = new System.Drawing.Point(553, 27);
             this.txt_profesional.Margin = new System.Windows.Forms.Padding(4);
             this.txt_profesional.Name = "txt_profesional";
             this.txt_profesional.ReadOnly = true;
-            this.txt_profesional.Size = new System.Drawing.Size(499, 23);
+            this.txt_profesional.Size = new System.Drawing.Size(528, 23);
             this.txt_profesional.TabIndex = 5;
             this.txt_profesional.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_profesional_KeyDown);
             // 

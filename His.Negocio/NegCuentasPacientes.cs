@@ -86,7 +86,7 @@ namespace His.Negocio
         }
 
 
-        public static List<CUENTAS_PACIENTES> RecuperarCuenta(int codAtencion)
+        public static List<CUENTAS_PACIENTES> RecuperarCuenta(Int64 codAtencion)
         {
             try
             {

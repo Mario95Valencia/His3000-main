@@ -29,7 +29,7 @@ namespace His.Datos
                                        join hmd in db.HONORARIOS_MEDICOS_DATOSADICIONALES on hm.HOM_CODIGO equals hmd.HOM_CODIGO
                                        join a in db.ATENCIONES on hm.ATE_CODIGO equals a.ATE_CODIGO
                                        where hm.MEDICOS.MED_CODIGO == item.CODIGO && hmd.GENERADO_ASIENTO == 0
-                                       && hm.HOM_OBSERVACION == "CONSULTA EXTERNA" && hmd.HON_FUERA == false
+                                       && a.TIPO_INGRESO.TIP_CODIGO == 4 && hmd.HON_FUERA == false
                                        select new
                                        {
                                            hm,

@@ -77,31 +77,50 @@ namespace His.Formulario
             string estado = atenciones.EstadoCuenta(Convert.ToString(codigoAtencion));
             List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(Sesion.codUsuario);
             bool valido = false;
+            //if (estado != "1") // por cambio a seguridades // Mario Valencia 18/12/2023 // cambio en seguridades.
+            //{
+            //    foreach (var item in perfilUsuario)
+            //    {
+            //        if (item.ID_PERFIL == 31) //validara con codigo
+            //        {
+            //            if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+            //            {
+            //                valido = true;
+            //                break;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
+            //            {
+            //                valido = true;
+            //                break;
+            //            }
+            //        }
+            //    }
+            //    if (!valido)
+            //        Bloquear();
+            //}
             if (estado != "1")
             {
                 foreach (var item in perfilUsuario)
                 {
-                    if (item.ID_PERFIL == 31) //validara con codigo
+                    List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 4);
+                    foreach (var items in accop)
                     {
-                        if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+                        if (items.ID_ACCESO == 41000) // Mario Valencia 18/12/2023 // cambio en seguridades.
                         {
+                            btnModificar.Enabled = true;
                             valido = true;
                             break;
                         }
-                    }
-                    else
-                    {
-                        if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
-                        {
+                        else
                             valido = true;
-                            break;
-                        }
                     }
                 }
                 if (!valido)
                     Bloquear();
             }
-
             //Cambios Edgar 20210303    Requerimientos de la pasteur por Alex
             if (Sesion.codDepartamento == 6 && !valido)
             {
@@ -751,7 +770,6 @@ namespace His.Formulario
                                     dtg_medicos.Rows.Add(medico.MED_RUC, medico.MED_APELLIDO_PATERNO.Trim() + " " + medico.MED_APELLIDO_MATERNO.Trim()
                                                         + " " + medico.MED_NOMBRE1.Trim() + " " + medico.MED_NOMBRE2.Trim(), esp, medico.MED_RUC.Substring(0, 10), ped, medico.MED_CODIGO);
                                 vec++;
-
                             }
                         }
                     }
@@ -1045,7 +1063,7 @@ namespace His.Formulario
                     //dtg_medicos.Rows[fila].Cells[2].Value = esp;
                     //dtg_medicos.Rows[fila].Cells[3].Value = medicoTratante.MED_CODIGO;
                     dtg_medicos.Rows.Add(codmedAdmision, medicoTratante.MED_APELLIDO_PATERNO.Trim() + " " + medicoTratante.MED_APELLIDO_MATERNO.Trim()
-                        + " " + medicoTratante.MED_NOMBRE1.Trim() + " " + medicoTratante.MED_NOMBRE2.Trim(), esp, medicoTratante.MED_RUC.Substring(0,10), "", medicoTratante.MED_CODIGO);
+                        + " " + medicoTratante.MED_NOMBRE1.Trim() + " " + medicoTratante.MED_NOMBRE2.Trim(), esp, medicoTratante.MED_RUC, "", medicoTratante.MED_CODIGO);
                 }
                 else
                     MessageBox.Show("No se puede agregar mas de 4 medicos tratantes.", "HIS300", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -2045,7 +2063,6 @@ namespace His.Formulario
 
         private bool validarFormulario()
         {
-            error.Clear();
             bool flag = false;
             if (txt_cuadro.Text.ToString() == string.Empty)
             {

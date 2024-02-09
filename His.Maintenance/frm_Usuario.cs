@@ -11,6 +11,7 @@ using His.Entidades.Clases;
 using His.Negocio;
 using Core.Entidades;
 using Infragistics.Win.UltraWinGrid;
+using System.Threading;
 
 namespace His.Maintenance
 {
@@ -18,7 +19,7 @@ namespace His.Maintenance
     {
         #region variables
         public DtoUsuarios usuarioOriginal = new DtoUsuarios();
-        public DtoUsuarios usuarioModificada = new DtoUsuarios();
+        //public DtoUsuarios usuarioModificada = new DtoUsuarios();
         public USUARIOS usuOrigen = new USUARIOS();
         public USUARIOS usuModificada = new USUARIOS();
         public USUARIOS usuarioDTs = new USUARIOS();
@@ -31,6 +32,7 @@ namespace His.Maintenance
         public int columnabuscada;
         private bool inicio = true;
         MEDICOS medico = new MEDICOS();
+        Int64 id_usuario;
         #endregion
 
         #region constructor
@@ -57,13 +59,8 @@ namespace His.Maintenance
                 cmb_departamento.ValueMember = "DEP_CODIGO";
                 cmb_departamento.DisplayMember = "DEP_NOMBRE";
                 txt_fecing.Enabled = false;
-                List<DTOArea> lisarea = new List<DTOArea>();
-                DataTable areaAsig = NegUsuarios.cargarAreaAsignada();
-                for (int i = 0; i < areaAsig.Rows.Count; i++)
-                {
-                    lisarea.Add(new DTOArea() { AS_ID = Convert.ToInt32(areaAsig.Rows[i][0].ToString()), AS_DESCRIPCION = areaAsig.Rows[i][1].ToString() });
-                }
-                cmbArea.DataSource = lisarea;
+                
+                cmbArea.DataSource = NegUsuarios.cargarAreaAsignada();
                 cmbArea.DisplayMember = "AS_DESCRIPCION";
                 cmbArea.ValueMember = "AS_ID";
             }
@@ -77,7 +74,7 @@ namespace His.Maintenance
         {
             try
             {
-                GrabarDatos();
+                //GrabarDatos();
 
             }
             catch (Exception ex)
@@ -120,28 +117,31 @@ namespace His.Maintenance
                 if (resultado == DialogResult.Yes)
                 {
 
-                    usuModificada.ID_USUARIO = usuarioModificada.ID_USUARIO;
-                    DEPARTAMENTOS depModificado = cmb_departamento.SelectedItem as DEPARTAMENTOS;
-                    usuModificada.DEPARTAMENTOSReference.EntityKey = depModificado.EntityKey;
-                    usuModificada.NOMBRES = usuarioModificada.NOMBRES;
-                    usuModificada.APELLIDOS = usuarioModificada.APELLIDOS;
-                    usuModificada.IDENTIFICACION = usuarioModificada.IDENTIFICACION;
-                    usuModificada.FECHA_INGRESO = usuarioModificada.FECHA_INGRESO;
-                    usuModificada.FECHA_VENCIMIENTO = usuarioModificada.FECHA_VENCIMIENTO;
-                    usuModificada.DIRECCION = usuarioModificada.DIRECCION;
-                    usuModificada.ESTADO = usuarioModificada.ESTADO;
-                    usuModificada.USR = usuarioModificada.USR;
-                    usuModificada.PWD = usuarioModificada.PWD;
-                    usuModificada.LOGEADO = usuarioModificada.LOGEADO;
-                    usuModificada.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME
-                            , usuario.First().ENTITYID, usuarioModificada.ID_USUARIO);
+                    //usuModificada.ID_USUARIO = usuarioModificada.ID_USUARIO; // se comenta para mejorar el proceso tardaba demasiado// MarioValencia // 22-01-2024
+                    //DEPARTAMENTOS depModificado = cmb_departamento.SelectedItem as DEPARTAMENTOS;
+                    //usuModificada.DEPARTAMENTOSReference.EntityKey = depModificado.EntityKey;
+                    //usuModificada.NOMBRES = usuarioModificada.NOMBRES;
+                    //usuModificada.APELLIDOS = usuarioModificada.APELLIDOS;
+                    //usuModificada.IDENTIFICACION = usuarioModificada.IDENTIFICACION;
+                    //usuModificada.FECHA_INGRESO = usuarioModificada.FECHA_INGRESO;
+                    //usuModificada.FECHA_VENCIMIENTO = usuarioModificada.FECHA_VENCIMIENTO;
+                    //usuModificada.DIRECCION = usuarioModificada.DIRECCION;
+                    //usuModificada.ESTADO = usuarioModificada.ESTADO;
+                    //usuModificada.USR = usuarioModificada.USR;
+                    //usuModificada.PWD = usuarioModificada.PWD;
+                    //usuModificada.LOGEADO = usuarioModificada.LOGEADO;
+                    //usuModificada.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME
+                    //        , usuario.First().ENTITYID, usuarioModificada.ID_USUARIO);
 
-                    NegUsuarios.EliminarUsuario(usuModificada.ClonarEntidad());
-                    RecuperaUsuarios();
-                    ResetearControles();
+                    if (NegUsuarios.EliminarUsuario(id_usuario))
+                    {
+                        RecuperaUsuarios();
+                        ResetearControles();
 
-                    HalitarControles(false, false, false, false, false, true, false, false, false, false);
-                    MessageBox.Show("Datos Eliminados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        HalitarControles(false, false, false, false, false, true, false, false, false, false);
+                        MessageBox.Show("Datos Eliminados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -158,7 +158,7 @@ namespace His.Maintenance
             {
                 HalitarControles(true, true, false, true, false, false, true, false, false, false);
                 usuarioOriginal = new DtoUsuarios();
-                usuarioModificada = new DtoUsuarios();
+                //usuarioModificada = new DtoUsuarios();
 
                 ResetearControles();
                 limpiar();
@@ -168,8 +168,8 @@ namespace His.Maintenance
                 else
                     txt_id.ReadOnly = false;
 
-                usuarioModificada.FECHA_INGRESO = DateTime.Now;
-                usuarioModificada.ESTADO = true;
+                //usuarioModificada.FECHA_INGRESO = DateTime.Now;
+                //usuarioModificada.ESTADO = true;
                 //AgregarBindigControles();
                 txt_fecing.Text = DateTime.Now.ToString("d");
                 DateTime oPrimerDiaDelMes = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -201,7 +201,7 @@ namespace His.Maintenance
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            RecuperaUsuarios();
+            //RecuperaUsuarios();
             HalitarControles(false, false, false, false, false, true, false, false, false, false);
             habilitarTab(false, false, false);
             controlErrores.Clear();
@@ -213,24 +213,24 @@ namespace His.Maintenance
         {
             this.Close();
         }
-        private void txt_usuario_Leave(object sender, EventArgs e)
-        {
+        //private void txt_usuario_Leave(object sender, EventArgs e) // se comenta por que no se ocupa // Mario Valencia // 22-01-2023
+        //{
 
-            if (txt_usuario.Text != string.Empty)
-            {
-                //valido si el usr ya existe en otro usuario
+        //    if (txt_usuario.Text != string.Empty)
+        //    {
+        //        //valido si el usr ya existe en otro usuario
 
-                List<DtoUsuarios> usr = new List<DtoUsuarios>();
-                usr = usuario.Where(us => us.USR == txt_usuario.Text).ToList();
-                if (usr.Count > 0)
-                {
-                    MessageBox.Show("Usuario ya existente, porfavor cambie en nombre del usuario", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_usuario.Text = "";
-                    txt_usuario.Focus();
-                }
+        //        List<DtoUsuarios> usr = new List<DtoUsuarios>();
+        //        usr = usuario.Where(us => us.USR == txt_usuario.Text).ToList();
+        //        if (usr.Count > 0)
+        //        {
+        //            MessageBox.Show("Usuario ya existente, porfavor cambie en nombre del usuario", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            txt_usuario.Text = "";
+        //            txt_usuario.Focus();
+        //        }
 
-            }
-        }
+        //    }
+        //}
         public void GrabaPerfilSic()
         {
 
@@ -283,7 +283,7 @@ namespace His.Maintenance
             try
             {
                 //DialogResult resultado;
-                if (usuarioOriginal.ID_USUARIO != 0)
+                if (id_usuario != 0)
                 {
                     List<USUARIOS_PERFILES> upOriginal = NegUsuarios.ListaUsuarioPerfiles().Where(p => p.ID_USUARIO == Int16.Parse(txt_id.Text)).ToList().ClonarEntidad();
                     List<USUARIOS_PERFILES> upModificada = new List<USUARIOS_PERFILES>();
@@ -292,7 +292,7 @@ namespace His.Maintenance
                     NegUsuarios.EliminaUsuarioPerfiles(upModificada, upOriginal);
 
 
-                    for (int i = 0; i <= grid_perfiles.RowCount - 1; i++)
+                    for (int i = 0; i <= grid_perfiles.Rows.Count - 1; i++)
                     {
                         upNuevo = new USUARIOS_PERFILES();
                         if (grid_perfiles.Rows[i].Cells[2].Value.ToString() == true.ToString())
@@ -316,38 +316,38 @@ namespace His.Maintenance
 
                     //}
                 }
-                else
-                {
-                    if (usuarioModificada.ID_USUARIO != 0)
-                    {
-                        List<USUARIOS_PERFILES> upOriginal = NegUsuarios.ListaUsuarioPerfiles().Where(p => p.ID_USUARIO == Int16.Parse(txt_id.Text)).ToList().ClonarEntidad();
-                        List<USUARIOS_PERFILES> upModificada = new List<USUARIOS_PERFILES>();
-                        USUARIOS_PERFILES upNuevo = new USUARIOS_PERFILES();
+                //else // se comenta se cambia el proceso// MarioValencia // 22-01-2024
+                //{
+                //    if (usuarioModificada.ID_USUARIO != 0)
+                //    {
+                //        List<USUARIOS_PERFILES> upOriginal = NegUsuarios.ListaUsuarioPerfiles().Where(p => p.ID_USUARIO == Int16.Parse(txt_id.Text)).ToList().ClonarEntidad();
+                //        List<USUARIOS_PERFILES> upModificada = new List<USUARIOS_PERFILES>();
+                //        USUARIOS_PERFILES upNuevo = new USUARIOS_PERFILES();
 
-                        NegUsuarios.EliminaUsuarioPerfiles(upModificada, upOriginal);
+                //        NegUsuarios.EliminaUsuarioPerfiles(upModificada, upOriginal);
 
-                        ActualizaMedico();
+                //        ActualizaMedico();
 
-                        for (int i = 0; i <= grid_perfiles.RowCount - 1; i++)
-                        {
-                            upNuevo = new USUARIOS_PERFILES();
-                            if (grid_perfiles.Rows[i].Cells[2].Value.ToString() == true.ToString())
-                            {
-                                USUARIOS nusuario = NegUsuarios.RecuperaUsuarios().Where(p => p.ID_USUARIO == Int16.Parse(txt_id.Text)).FirstOrDefault();
-                                upNuevo.USUARIOSReference.EntityKey = nusuario.EntityKey;
-                                upNuevo.ID_USUARIO = Int16.Parse(txt_id.Text);
-                                PERFILES nperfil = NegPerfil.RecuperaPerfiles().Where(a => a.ID_PERFIL == Int16.Parse(grid_perfiles.Rows[i].Cells[0].Value.ToString())).FirstOrDefault();
-                                upNuevo.PERFILESReference.EntityKey = nperfil.EntityKey;
-                                upNuevo.ID_PERFIL = Int16.Parse(grid_perfiles.Rows[i].Cells[0].Value.ToString());
+                //        for (int i = 0; i <= grid_perfiles.Rows.Count - 1; i++)
+                //        {
+                //            upNuevo = new USUARIOS_PERFILES();
+                //            if (grid_perfiles.Rows[i].Cells[2].Value.ToString() == true.ToString())
+                //            {
+                //                USUARIOS nusuario = NegUsuarios.RecuperaUsuarios().Where(p => p.ID_USUARIO == Int16.Parse(txt_id.Text)).FirstOrDefault();
+                //                upNuevo.USUARIOSReference.EntityKey = nusuario.EntityKey;
+                //                upNuevo.ID_USUARIO = Int16.Parse(txt_id.Text);
+                //                PERFILES nperfil = NegPerfil.RecuperaPerfiles().Where(a => a.ID_PERFIL == Int16.Parse(grid_perfiles.Rows[i].Cells[0].Value.ToString())).FirstOrDefault();
+                //                upNuevo.PERFILESReference.EntityKey = nperfil.EntityKey;
+                //                upNuevo.ID_PERFIL = Int16.Parse(grid_perfiles.Rows[i].Cells[0].Value.ToString());
 
-                                NegUsuarios.CrearUsuarioPerfiles(upNuevo);
+                //                NegUsuarios.CrearUsuarioPerfiles(upNuevo);
 
-                            }
-                        }
-                    }
-                    else
-                        MessageBox.Show("Antes de Grabar el perfil del Usuario, ud debe Grabar el Usuario");
-                }
+                //            }
+                //        }
+                //    }
+                //    else
+                //        MessageBox.Show("Antes de Grabar el perfil del Usuario, ud debe Grabar el Usuario");
+                //}
 
             }
             catch (Exception ex)
@@ -373,7 +373,7 @@ namespace His.Maintenance
                         NegUsuarios.EliminaUsuarioPerfiles(upModificada, upOriginal);
 
 
-                        for (int i = 0; i <= grid_perfiles.RowCount - 1; i++)
+                        for (int i = 0; i <= grid_perfiles.Rows.Count - 1; i++)
                         {
                             upNuevo = new USUARIOS_PERFILES();
                             if (grid_perfiles.Rows[i].Cells[2].Value.ToString() == true.ToString())
@@ -469,7 +469,7 @@ namespace His.Maintenance
                         else
                         {
                             MessageBox.Show("Ya se registro a un usuario con este numero de cédula", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecuperaUsuarios();
+                            //RecuperaUsuarios();
                             HalitarControles(false, false, false, false, false, true, false, false, false, false);
                             ResetearControles();
                         }
@@ -539,18 +539,18 @@ namespace His.Maintenance
         #region metodos privados
         private void AgregarBindigControles()
         {
-            Binding ID_USUARIO = new Binding("Text", usuarioModificada, "ID_USUARIO", true);
-            Binding DEP_CODIGO = new Binding("SelectedValue", usuarioModificada, "DEP_CODIGO", true);
-            Binding NOMBRES = new Binding("Text", usuarioModificada, "NOMBRES", true);
-            Binding APELLIDOS = new Binding("Text", usuarioModificada, "APELLIDOS", true);
-            Binding IDENTIFICACION = new Binding("Text", usuarioModificada, "IDENTIFICACION", true);
-            Binding FECHA_INGRESO = new Binding("Text", usuarioModificada, "FECHA_INGRESO", true);
-            Binding FECHA_VENCIMIENTO = new Binding("Text", usuarioModificada, "FECHA_VENCIMIENTO", true);
-            Binding DIRECCION = new Binding("Text", usuarioModificada, "DIRECCION", true);
-            Binding ESTADO = new Binding("Checked", usuarioModificada, "ESTADO", true);
-            Binding USR = new Binding("Text", usuarioModificada, "USR", true);
-            Binding PWD = new Binding("Text", usuarioModificada, "PWD", true);
-            //Binding PWD1 = new Binding("Text", usuarioModificada, "PWD", true);
+            Binding ID_USUARIO = new Binding("Text", usuarioDTs, "ID_USUARIO", true);
+            //Binding DEP_CODIGO = new Binding("SelectedValue", usuarioModificada, "DEP_CODIGO", true);
+            Binding NOMBRES = new Binding("Text", usuarioDTs, "NOMBRES", true);
+            Binding APELLIDOS = new Binding("Text", usuarioDTs, "APELLIDOS", true);
+            Binding IDENTIFICACION = new Binding("Text", usuarioDTs, "IDENTIFICACION", true);
+            Binding FECHA_INGRESO = new Binding("Text", usuarioDTs, "FECHA_INGRESO", true);
+            Binding FECHA_VENCIMIENTO = new Binding("Text", usuarioDTs, "FECHA_VENCIMIENTO", true);
+            //Binding DIRECCION = new Binding("Text", usuarioModificada, "DIRECCION", true);
+            Binding ESTADO = new Binding("Checked", usuarioDTs, "ESTADO", true);
+            Binding USR = new Binding("Text", usuarioDTs, "USR", true);
+            Binding PWD = new Binding("Text", usuarioDTs, "PWD", true);
+            Binding PWD1 = new Binding("Text", usuarioDTs, "PWD", true);
 
             txt_id.DataBindings.Clear();
             cmb_departamento.DataBindings.Clear();
@@ -566,13 +566,13 @@ namespace His.Maintenance
             //txt_conclave.DataBindings.Clear();
 
             txt_id.DataBindings.Add(ID_USUARIO);
-            cmb_departamento.DataBindings.Add(DEP_CODIGO);
+            //cmb_departamento.DataBindings.Add(DEP_CODIGO);
             txt_nombres.DataBindings.Add(NOMBRES);
             txt_apellidos.DataBindings.Add(APELLIDOS);
             txt_identificacion.DataBindings.Add(IDENTIFICACION);
             txt_fecing.DataBindings.Add(FECHA_INGRESO);
             txt_fecven.DataBindings.Add(FECHA_VENCIMIENTO);
-            txt_direccion.DataBindings.Add(DIRECCION);
+            //txt_direccion.DataBindings.Add(DIRECCION);
             chk_activo.DataBindings.Add(ESTADO);
             txt_usuario.DataBindings.Add(USR);
             txt_clave.DataBindings.Add(PWD);
@@ -584,7 +584,7 @@ namespace His.Maintenance
         /// </summary>
         private void ResetearControles()
         {
-            usuarioModificada = new DtoUsuarios();
+            //usuarioModificada = new DtoUsuarios();
             usuarioOriginal = new DtoUsuarios();
             usuModificada = new USUARIOS();
             usuOrigen = new USUARIOS();
@@ -666,150 +666,149 @@ namespace His.Maintenance
             }
             return valida;
         }
-        private bool ValidarFormulario()
-        {
-            bool valido = true;
-            controlErrores.Clear();
-            if (usuarioModificada.ID_USUARIO == 0)
-            {
-                AgregarError(txt_id);
-                valido = false;
-            }
-            if (usuarioModificada.DEP_CODIGO == null)
-            {
-                AgregarError(cmb_departamento);
-                valido = false;
-            }
-            if (usuarioModificada.NOMBRES == null || usuarioModificada.NOMBRES == string.Empty)
-            {
-                AgregarError(txt_nombres);
-                valido = false;
-            }
-            if (usuarioModificada.APELLIDOS == null || usuarioModificada.APELLIDOS == string.Empty)
-            {
-                AgregarError(txt_apellidos);
-                valido = false;
-            }
-            if (usuarioModificada.IDENTIFICACION == null || usuarioModificada.APELLIDOS == string.Empty)
-            {
-                AgregarError(txt_identificacion);
-                valido = false;
-            }
-            if (usuarioModificada.USR == null || usuarioModificada.USR == string.Empty)
-            {
-                AgregarError(txt_usuario);
-                valido = false;
-            }
-            if (usuarioModificada.PWD == null || usuarioModificada.PWD == string.Empty)
-            {
-                AgregarError(txt_clave);
-                AgregarError(txt_conclave);
-                valido = false;
-            }
-            if (Convert.ToDateTime(txt_fecing.Text) > Convert.ToDateTime(txt_fecven.Text))
-            {
-                controlErrores.SetError(txt_fecing, "Fecha de ingreso no puede ser mayor a la de vencimiento");
-                valido = false;
-            }
-            if (Convert.ToDateTime(txt_fecven.Text) < Convert.ToDateTime(txt_fecing.Text))
-            {
-                controlErrores.SetError(txt_fecven, "Fecha de vencimiento no puede ser menor a la de ingreso");
-                valido = false;
-            }
-            if ((Convert.ToDateTime(txt_fecing.Text)).Date > DateTime.Now.Date)
-            {
-                controlErrores.SetError(txt_fecing, "Fecha de ingreso no puede ser mayor a la fecha actual.");
-                valido = false;
-            }
-            if (txt_clave.Text != txt_conclave.Text)
-            {
-                controlErrores.SetError(txt_conclave, "La clave no es igual a la de confirmación");
-                valido = false;
-            }
+        //private bool ValidarFormulario()// se comenta no se esta utilizando// MarioValencia // 22-01-2024
+        //{
+        //    bool valido = true;
+        //    controlErrores.Clear();
+        //    if (usuarioModificada.ID_USUARIO == 0)
+        //    {
+        //        AgregarError(txt_id);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.DEP_CODIGO == null)
+        //    {
+        //        AgregarError(cmb_departamento);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.NOMBRES == null || usuarioModificada.NOMBRES == string.Empty)
+        //    {
+        //        AgregarError(txt_nombres);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.APELLIDOS == null || usuarioModificada.APELLIDOS == string.Empty)
+        //    {
+        //        AgregarError(txt_apellidos);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.IDENTIFICACION == null || usuarioModificada.APELLIDOS == string.Empty)
+        //    {
+        //        AgregarError(txt_identificacion);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.USR == null || usuarioModificada.USR == string.Empty)
+        //    {
+        //        AgregarError(txt_usuario);
+        //        valido = false;
+        //    }
+        //    if (usuarioModificada.PWD == null || usuarioModificada.PWD == string.Empty)
+        //    {
+        //        AgregarError(txt_clave);
+        //        AgregarError(txt_conclave);
+        //        valido = false;
+        //    }
+        //    if (Convert.ToDateTime(txt_fecing.Text) > Convert.ToDateTime(txt_fecven.Text))
+        //    {
+        //        controlErrores.SetError(txt_fecing, "Fecha de ingreso no puede ser mayor a la de vencimiento");
+        //        valido = false;
+        //    }
+        //    if (Convert.ToDateTime(txt_fecven.Text) < Convert.ToDateTime(txt_fecing.Text))
+        //    {
+        //        controlErrores.SetError(txt_fecven, "Fecha de vencimiento no puede ser menor a la de ingreso");
+        //        valido = false;
+        //    }
+        //    if ((Convert.ToDateTime(txt_fecing.Text)).Date > DateTime.Now.Date)
+        //    {
+        //        controlErrores.SetError(txt_fecing, "Fecha de ingreso no puede ser mayor a la fecha actual.");
+        //        valido = false;
+        //    }
+        //    if (txt_clave.Text != txt_conclave.Text)
+        //    {
+        //        controlErrores.SetError(txt_conclave, "La clave no es igual a la de confirmación");
+        //        valido = false;
+        //    }
 
-            return valido;
+        //    return valido;
 
-        }
-        public void QuitarEspacios()
-        {
+        //}
+        //public void QuitarEspacios()
+        //{
 
-        }
-        private void GrabarDatos()
-        {
-            try
-            {
-                DialogResult resultado;
-                gridUsuarios.Focus();
+        //}
+        //private void GrabarDatos()// se comenta no se esta utilizando// MarioValencia // 22-01-2024
+        //{
+        //    try
+        //    {
+        //        DialogResult resultado;
+        //        gridUsuarios.Focus();
 
-                if (ValidarFormulario())
-                {
-                    resultado = MessageBox.Show("Desea nodificar los Datos?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (resultado == DialogResult.Yes)
-                    {
+        //        if (ValidarFormulario())
+        //        {
+        //            resultado = MessageBox.Show("Desea nodificar los Datos?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //            if (resultado == DialogResult.Yes)
+        //            {
 
-                        usuModificada.ID_USUARIO = usuarioModificada.ID_USUARIO;
-                        DEPARTAMENTOS depModificado = cmb_departamento.SelectedItem as DEPARTAMENTOS;
-                        usuModificada.DEPARTAMENTOSReference.EntityKey = depModificado.EntityKey;
-                        usuModificada.NOMBRES = usuarioModificada.NOMBRES.Trim();
-                        usuModificada.APELLIDOS = usuarioModificada.APELLIDOS.Trim();
-                        usuModificada.IDENTIFICACION = usuarioModificada.IDENTIFICACION.Trim();
-                        usuModificada.FECHA_INGRESO = usuarioModificada.FECHA_INGRESO;
-                        usuModificada.FECHA_VENCIMIENTO = usuarioModificada.FECHA_VENCIMIENTO;
-                        usuModificada.DIRECCION = usuarioModificada.DIRECCION.Trim();
-                        usuModificada.ESTADO = usuarioModificada.ESTADO;
-                        usuModificada.USR = usuarioModificada.USR.Trim();
-                        usuModificada.PWD = usuarioModificada.PWD.Trim();
-                        usuModificada.LOGEADO = usuarioModificada.LOGEADO;
-                        usuModificada.Codigo_Rol = usuarioModificada.Codigo_Rol;
-                        if (usuarioOriginal.ID_USUARIO == 0)
-                        {
-                            if (NegNumeroControl.NumerodeControlAutomatico(2))
-                                usuModificada.ID_USUARIO = Int16.Parse((NegUsuarios.RecuperaMaximoUsuario() + 1).ToString());
-                            NegUsuarios.CrearUsuario(usuModificada);
-                        }
-                        else
-                        {
+        //                usuModificada.ID_USUARIO = usuarioModificada.ID_USUARIO;
+        //                DEPARTAMENTOS depModificado = cmb_departamento.SelectedItem as DEPARTAMENTOS;
+        //                usuModificada.DEPARTAMENTOSReference.EntityKey = depModificado.EntityKey;
+        //                usuModificada.NOMBRES = usuarioModificada.NOMBRES.Trim();
+        //                usuModificada.APELLIDOS = usuarioModificada.APELLIDOS.Trim();
+        //                usuModificada.IDENTIFICACION = usuarioModificada.IDENTIFICACION.Trim();
+        //                usuModificada.FECHA_INGRESO = usuarioModificada.FECHA_INGRESO;
+        //                usuModificada.FECHA_VENCIMIENTO = usuarioModificada.FECHA_VENCIMIENTO;
+        //                usuModificada.DIRECCION = usuarioModificada.DIRECCION.Trim();
+        //                usuModificada.ESTADO = usuarioModificada.ESTADO;
+        //                usuModificada.USR = usuarioModificada.USR.Trim();
+        //                usuModificada.PWD = usuarioModificada.PWD.Trim();
+        //                usuModificada.LOGEADO = usuarioModificada.LOGEADO;
+        //                usuModificada.Codigo_Rol = usuarioModificada.Codigo_Rol;
+        //                if (usuarioOriginal.ID_USUARIO == 0)
+        //                {
+        //                    if (NegNumeroControl.NumerodeControlAutomatico(2))
+        //                        usuModificada.ID_USUARIO = Int16.Parse((NegUsuarios.RecuperaMaximoUsuario() + 1).ToString());
+        //                    NegUsuarios.CrearUsuario(usuModificada);
+        //                }
+        //                else
+        //                {
 
-                            usuModificada.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME
-                                , usuario.First().ENTITYID, usuarioModificada.ID_USUARIO);
 
-                            usuOrigen.ID_USUARIO = usuarioOriginal.ID_USUARIO;
-                            DEPARTAMENTOS depOriginal = departamento.Where(dep => dep.DEP_CODIGO == usuarioOriginal.DEP_CODIGO).FirstOrDefault();
-                            usuOrigen.DEPARTAMENTOSReference.EntityKey = depOriginal.EntityKey;
-                            usuOrigen.NOMBRES = usuarioOriginal.NOMBRES.Trim();
-                            usuOrigen.APELLIDOS = usuarioOriginal.APELLIDOS.Trim();
-                            usuOrigen.IDENTIFICACION = usuarioOriginal.IDENTIFICACION.Trim();
-                            usuOrigen.FECHA_INGRESO = usuarioOriginal.FECHA_INGRESO;
-                            usuOrigen.FECHA_VENCIMIENTO = usuarioOriginal.FECHA_VENCIMIENTO;
-                            usuOrigen.DIRECCION = usuarioOriginal.DIRECCION;
-                            usuOrigen.ESTADO = usuarioOriginal.ESTADO;
-                            usuOrigen.USR = usuarioOriginal.USR.Trim();
-                            usuOrigen.PWD = usuarioOriginal.PWD.Trim();
-                            usuOrigen.LOGEADO = usuarioOriginal.LOGEADO;
-                            usuOrigen.Codigo_Rol = usuarioOriginal.Codigo_Rol;
-                            usuOrigen.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME
-                                , usuario.First().ENTITYID, usuarioOriginal.ID_USUARIO);
+        //                    //usuModificada.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME, usuario.First().ENTITYID, usuarioModificada.ID_USUARIO);
 
-                            NegUsuarios.GrabarUsuario(usuModificada, usuOrigen);
-                        }
-                        GrabarPerfil();
-                        RecuperaUsuarios();
-                        ActualizaMedico();
-                        MessageBox.Show("Datos Almacenados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        HalitarControles(false, false, false, false, false, true, false, false, false, false);
-                        ResetearControles();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Datos incompletos, por favor ingrese información en los campos obligatorios", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Err", err.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                    usuOrigen.ID_USUARIO = usuarioOriginal.ID_USUARIO;
+        //                    DEPARTAMENTOS depOriginal = departamento.Where(dep => dep.DEP_CODIGO == usuarioOriginal.DEP_CODIGO).FirstOrDefault();
+        //                    usuOrigen.DEPARTAMENTOSReference.EntityKey = depOriginal.EntityKey;
+        //                    usuOrigen.NOMBRES = usuarioOriginal.NOMBRES.Trim();
+        //                    usuOrigen.APELLIDOS = usuarioOriginal.APELLIDOS.Trim();
+        //                    usuOrigen.IDENTIFICACION = usuarioOriginal.IDENTIFICACION.Trim();
+        //                    usuOrigen.FECHA_INGRESO = usuarioOriginal.FECHA_INGRESO;
+        //                    usuOrigen.FECHA_VENCIMIENTO = usuarioOriginal.FECHA_VENCIMIENTO;
+        //                    usuOrigen.DIRECCION = usuarioOriginal.DIRECCION;
+        //                    usuOrigen.ESTADO = usuarioOriginal.ESTADO;
+        //                    usuOrigen.USR = usuarioOriginal.USR.Trim();
+        //                    usuOrigen.PWD = usuarioOriginal.PWD.Trim();
+        //                    usuOrigen.LOGEADO = usuarioOriginal.LOGEADO;
+        //                    usuOrigen.Codigo_Rol = usuarioOriginal.Codigo_Rol;
+        //                    //usuOrigen.EntityKey = new EntityKey(usuario.First().ENTITYSETNAME, usuario.First().ENTITYID, usuarioOriginal.ID_USUARIO);
+
+        //                    NegUsuarios.GrabarUsuario(usuModificada, usuOrigen);
+        //                }
+        //                //GrabarPerfil();
+        //                RecuperaUsuarios();
+        //                ActualizaMedico();
+        //                MessageBox.Show("Datos Almacenados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                HalitarControles(false, false, false, false, false, true, false, false, false, false);
+        //                ResetearControles();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Datos incompletos, por favor ingrese información en los campos obligatorios", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        MessageBox.Show("Err", err.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
         private void GuardarDatosNuevo()
         {
             try
@@ -890,9 +889,9 @@ namespace His.Maintenance
                         {
                             usuarios.IdUsuario = Convert.ToInt64(txt_codigoUsuario.Text);
                             resp = usuariosBLL.actualizar(usuarios);
-                            usuarioModificada.ID_USUARIO = Convert.ToInt16(usuarios.IdUsuario);
+                            //usuarioModificada.ID_USUARIO = Convert.ToInt16(usuarios.IdUsuario);
                         }
-                        GrabarPerfil();
+                        //GrabarPerfil();
                         RecuperaUsuarios();
                         MessageBox.Show("Datos Guardados correctamente !!!!!");
                         tabControl1.SelectedTab = tabControl1.Tabs[0];
@@ -912,7 +911,95 @@ namespace His.Maintenance
                 MessageBox.Show(ex.InnerException.Message);
             }
         }
+        //private void GuardarDatosOtro()
+        //{
+        //    try
+        //    {
+        //        Int32 resp;
 
+        //        string ced;
+        //        DataTable buscaCed = new DataTable();
+        //        buscaCed = NegUsuarios.BuscaCedula(txt_identificacion.Text);
+        //        if (usuarioNuevo == true)
+        //        {
+        //            if (buscaCed.Rows.Count > 0)
+        //            {
+        //                ced = buscaCed.Rows[0]["identificacion"].ToString();
+
+        //                if (ced != "")
+        //                {
+        //                    MessageBox.Show("El No. Cedula ya esta registrada ", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                    txt_identificacion.Focus();
+        //                    usuarioNuevo = true;
+        //                    return;
+        //                }
+        //            }
+        //            string nomUsuario;
+        //            DataTable buscaUsr = new DataTable();
+        //            buscaUsr = NegUsuarios.BuscaUsuario(txt_usuario.Text);
+
+        //            if (buscaUsr.Rows.Count > 0)
+        //            {
+        //                nomUsuario = buscaUsr.Rows[0]["nombreusu"].ToString();
+
+        //                if (nomUsuario != "")
+        //                {
+        //                    MessageBox.Show("El usuarios ya esta registrado ", "Ingreso Usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                    txt_usuario.Focus();
+        //                    usuarioNuevo = true;
+        //                    return;
+        //                }
+        //            }
+
+        //        }
+        //        Usuarios usuarios = new Usuarios();
+
+        //        usuarios.Nombre = Convert.ToString(txt_nombres.Text);
+        //        usuarios.Apellidos = Convert.ToString(txt_apellidos.Text);
+        //        usuarios.Identificacion = Convert.ToString(txt_identificacion.Text);
+        //        usuarios.Nombreusu = Convert.ToString(txt_usuario.Text);
+        //        usuarios.Codusu = Convert.ToInt32(txt_id.Text);
+        //        usuarios.Clave = Convert.ToString(txt_clave.Text);
+        //        usuarios.Codigo_c = 0;
+        //        usuarios.FechaIngreso = Convert.ToDateTime(txt_fecing.Text);
+        //        usuarios.FechaCaducidad = Convert.ToDateTime(txt_fecven.Text);
+        //        usuarios.TipoUsuario = 0;
+        //        if (chk_activo.Checked == true)
+        //            usuarios.Estado = 1;
+        //        else
+        //            usuarios.Estado = 0;
+        //        usuarios.CodDep = Convert.ToDouble(cmb_departamento.SelectedValue);
+        //        usuarios.Direccion = cmbArea.SelectedValue.ToString();
+
+        //        NegUsuarios usuariosBLL = new NegUsuarios();
+
+        //        if (usuarioNuevo == true)
+        //        {
+        //            resp = usuariosBLL.insertarUsuario(usuarios);
+        //            txt_id.Text = usuarios.IdUsuario.ToString();
+        //            usuarioNuevo = false;
+        //            usuarioOriginal.ID_USUARIO = Convert.ToInt16(usuarios.IdUsuario);
+        //        }
+        //        else
+        //        {
+        //            usuarios.IdUsuario = Convert.ToInt64(txt_codigoUsuario.Text);
+        //            resp = usuariosBLL.actualizar(usuarios);
+        //            usuarioModificada.ID_USUARIO = Convert.ToInt16(usuarios.IdUsuario);
+        //        }
+        //        GrabarPerfil();
+        //        // RecuperaUsuarios();
+
+        //        //HalitarControles(false, false, false, false, false, true, false, false, false, false);
+        //        //ResetearControles();
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        MessageBox.Show(ex.InnerException.Message);
+        //    }
+        //}
         protected virtual void HalitarControles(bool datosPrincipales, bool datosSecundarios, bool Modificar, bool Grabar, bool Eliminar, bool Nuevo, bool Cancelar, bool perfileshis, bool perfilSic, bool perfilCg)
         {
             btnNuevo.Enabled = Nuevo;
@@ -929,31 +1016,42 @@ namespace His.Maintenance
         }
         private void RecuperaUsuarios()
         {
-            DataTable usu = new DataTable();
-            usu.Columns.Add("CODIGO");
-            usu.Columns.Add("NOMBRE");
-            usu.Columns.Add("CI");
-            usu.Columns.Add("ACTIVO");
-            usu.Columns.Add("DEPARTAMENTO");
-            usu.Columns.Add("AREA_ASIGNADA");
-            usuario = NegUsuarios.RecuperaUsuariosFormulario();
-            bool parse;
-            foreach (var item in usuario)
+            try
             {
-                Int32 ValorArea = 1;
-                DataTable dep = new DataTable();
-                dep = NegUsuarios.ConsultaDepartamento(item.DEP_CODIGO);
-                DataTable AreaAsignada = new DataTable();
-                parse = Int32.TryParse(item.DIRECCION, out ValorArea);
-                if (parse)
-                    AreaAsignada = NegUsuarios.ConsultaArea(ValorArea);
-                else
-                    AreaAsignada = NegUsuarios.ConsultaArea(1);
-                usu.Rows.Add(new object[] { item.ID_USUARIO, item.APELLIDOS + ' ' + item.NOMBRES, item.IDENTIFICACION, item.ESTADO, dep.Rows[0][0].ToString(), AreaAsignada.Rows[0][0].ToString() });
+                //ARE_ASIGNADA AreaAsignada = new ARE_ASIGNADA(); // se comenta por que tardaba demasiado // Mario Valencia // 22-01-2024
+                //string perfil;
+                //DataTable usu = new DataTable();
+                //usu.Columns.Add("CODIGO");
+                //usu.Columns.Add("NOMBRE");
+                //usu.Columns.Add("CI");
+                //usu.Columns.Add("ACTIVO");
+                //usu.Columns.Add("DEPARTAMENTO");
+                //usu.Columns.Add("AREA_ASIGNADA");
+                //usu.Columns.Add("PERFIL");
+                //usuario = NegUsuarios.RecuperaUsuariosFormulario();
+                //bool parse;
+                //foreach (var item in usuario)
+                //{
+                //    Int32 ValorArea = 1;
+                //    DEPARTAMENTOS dep = NegUsuarios.ConsultaDepartamento(item.DEP_CODIGO);
+                //    PERFILES per = NegPerfil.recuperaPerfilesXUsuario(item.ID_USUARIO);
+                //    if (per != null)
+                //        perfil = per.DESCRIPCION;
+                //    else
+                //        perfil = "SIN PERFIL";
+                //    parse = Int32.TryParse(item.DIRECCION, out ValorArea);
+                //    if (parse)
+                //        AreaAsignada = NegUsuarios.ConsultaArea(ValorArea);
+                //    else
+                //        AreaAsignada = NegUsuarios.ConsultaArea(1);
+                //    usu.Rows.Add(new object[] { item.ID_USUARIO, item.APELLIDOS + ' ' + item.NOMBRES, item.IDENTIFICACION, item.ESTADO, dep.DEP_NOMBRE, AreaAsignada.AS_DESCRIPCION, perfil });
+                //}
+                gridUsuarios.DataSource = NegUsuarios.RecuperaListaUsuario();
             }
-
-            gridUsuarios.DataSource = usu;
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ultraGrid1_DoubleClickRow(object sender, Infragistics.Win.UltraWinGrid.DoubleClickRowEventArgs e)
@@ -965,9 +1063,9 @@ namespace His.Maintenance
                     UltraGridRow fila = gridUsuarios.ActiveRow;
                     if (gridUsuarios.Selected.Rows.Count > 0)
                     {
-                        usuario = NegUsuarios.RecuperaUsuariosFormulario();
-                        int codUsuario = Convert.ToInt16(gridUsuarios.ActiveRow.Cells["CODIGO"].Value.ToString());
-                        usuarioModificada = usuario.FirstOrDefault(u => u.ID_USUARIO == codUsuario);
+                        //usuario = NegUsuarios.RecuperaUsuariosFormulario();
+                        id_usuario = Convert.ToInt64(gridUsuarios.ActiveRow.Cells["CODIGO"].Value.ToString());
+                        usuarioDTs = NegUsuarios.RecuperaUsuario(id_usuario);
                         HalitarControles(true, true, true, true, true, false, true, true, true, true);
                         habilitarTab(true, true, true);
                         txt_id.Text = fila.Cells[0].Value.ToString();
@@ -1006,7 +1104,7 @@ namespace His.Maintenance
                 List<DtoUsuariosPerfil> usuariosperfiles = new List<DtoUsuariosPerfil>();
                 usuariosperfiles = NegUsuarios.ListaConsultaTablasOpciones(codusu);
                 grid_perfiles.DataSource = usuariosperfiles;
-                grid_perfiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                // grid_perfiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
                 #region CargarGridSic
 
@@ -1238,9 +1336,9 @@ namespace His.Maintenance
                 bandUno.Columns["NOMBRE"].MaxWidth = 250;
                 bandUno.Columns["NOMBRE"].MinWidth = 250;
 
-
                 inicio = false;
             }
+            e.Layout.PerformAutoResizeColumns(true, PerformAutoSizeType.AllRowsInBand);
         }
         public void habilitarTab(bool pg1, bool pg2, bool pg3)
         {
@@ -1335,7 +1433,6 @@ namespace His.Maintenance
                     foreach (var item in ultraGridSic.Rows)
                     {
 
-                        
                         if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
                         {
                             if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
@@ -1421,6 +1518,121 @@ namespace His.Maintenance
         private void dtg_PerfilesCg_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
 
+        }
+
+        private void grid_perfiles_CellChange(object sender, CellEventArgs e)
+        {
+            try
+            {
+                bool estado;
+                if (bool.TryParse(e.Cell.Value.ToString(), out estado))
+                {
+                    foreach (var item in grid_perfiles.Rows)
+                    {
+
+                        if (item.Cells["ID_PERFIL"].Value.ToString() == e.Cell.Row.Cells["ID_PERFIL"].Value.ToString())
+                        {
+                            DataTable usuSic = NegUsuarios.usuarioXCedulaSic(txt_identificacion.Text.Substring(0, 10));
+                            DataTable usuCg = NegUsuarios.usuarioXCedulaSic(txt_identificacion.Text.Substring(0, 10));
+                            if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
+                            {
+                                if (usuSic.Rows.Count != 0)
+                                {
+                                    NegUsuarios.BorrarPerfilSicUsu(Int64.Parse(usuSic.Rows[0]["codusu"].ToString()));
+                                    if (!NegUsuarios.CrearPerfilSicUsu(Int64.Parse(usuSic.Rows[0]["codusu"].ToString()), Convert.ToInt64(e.Cell.Row.Cells["ID_PERFIL"].Value.ToString()), true))
+                                    {
+                                        MessageBox.Show("No se ha podido crear el acceso ", "Sic-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                if (usuCg.Rows.Count != 0)
+                                {
+                                    NegUsuarios.BorrarPerfilCgUsu(Int64.Parse(usuCg.Rows[0]["codusu"].ToString()));
+                                    if (!NegUsuarios.CrearPerfilCgUsu(Int64.Parse(usuCg.Rows[0]["codusu"].ToString()), Convert.ToInt64(e.Cell.Row.Cells["ID_PERFIL"].Value.ToString()), true))
+                                    {
+                                        MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (usuSic.Rows.Count != 0)
+                                {
+                                    NegUsuarios.BorrarPerfilSicUsu(Int64.Parse(usuSic.Rows[0]["codusu"].ToString()));
+                                    if (!NegUsuarios.CrearPerfilSicUsu(Int64.Parse(usuSic.Rows[0]["codusu"].ToString()), Convert.ToInt64(e.Cell.Row.Cells["ID_PERFIL"].Value.ToString()), false))
+                                    {
+                                        MessageBox.Show("No se ha podido crear el acceso ", "Sic-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                if (usuCg.Rows.Count != 0)
+                                {
+                                    NegUsuarios.BorrarPerfilCgUsu(Int64.Parse(usuCg.Rows[0]["codusu"].ToString()));
+                                    if (!NegUsuarios.CrearPerfilCgUsu(Int64.Parse(usuCg.Rows[0]["codusu"].ToString()), Convert.ToInt64(e.Cell.Row.Cells["ID_PERFIL"].Value.ToString()), false))
+                                    {
+                                        MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+            }
+            try
+            {
+                int fila;
+                fila = grid_perfiles.ActiveRow.Index;
+                UltraGridBand band = grid_perfiles.DisplayLayout.Bands[0];
+
+                UltraGridColumn checkBoxColumn = band.Columns["TIENE_ACCESO"];
+
+
+                foreach (UltraGridRow row in band.GetRowEnumerator(GridRowType.DataRow))
+                {
+                    row.Cells[checkBoxColumn].Value = false;
+
+                }
+
+
+                grid_perfiles.Rows[fila].Cells["TIENE_ACCESO"].Value = true;
+                GrabarPerfil();
+                MensajeGuardarConPausa("PERFIL GUARDADO");
+                RecuperaUsuarios();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void grid_perfiles_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            e.Layout.PerformAutoResizeColumns(true, PerformAutoSizeType.AllRowsInBand);
+        }
+        private void MensajeGuardarConPausa(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+
+            // Iniciar un hilo para la pausa en segundo plano
+            Thread thread = new Thread(() =>
+            {
+                // Pausa de 3 segundos
+                Thread.Sleep(6000);
+
+                // Limpiar el texto después de la pausa
+                lblMensaje.Invoke((MethodInvoker)delegate
+                {
+                    lblMensaje.Text = "-";
+                });
+            });
+
+            // Iniciar el hilo
+            thread.Start();
         }
     }
 }

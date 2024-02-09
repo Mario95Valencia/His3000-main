@@ -57,7 +57,7 @@ namespace His.Honorarios
          private void smnu_salir_Click(object sender, EventArgs e)
          {
              this.Close();
-             Application.Exit();
+             //Application.Exit();
          }
          private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
          {
@@ -84,7 +84,7 @@ namespace His.Honorarios
          }
          private void MDI_Honorarios_FormClosed(object sender, FormClosedEventArgs e)
          {
-             Application.Exit();
+             //Application.Exit();
          }
          private void smnu_medicos_Click(object sender, EventArgs e)
          {
@@ -288,32 +288,31 @@ namespace His.Honorarios
                 smnu_ComisionAportes.Enabled = His.Parametros.AccesosModuloHonorarios.ComisionesClinicaReferido;
                 smnu_TipoRetencion.Enabled = His.Parametros.AccesosModuloHonorarios.TipoRetencion;
                 smnu_TipoHonorario.Enabled = His.Parametros.AccesosModuloHonorarios.TipoHonorario;
-
-                smnu_ingresofacturas.Enabled = His.Parametros.AccesosModuloHonorarios.IngresoFacturas;
+                smnu_ingresofacturas.Enabled = His.Parametros.AccesosModuloHonorarios.IngresoHonorarios;
                 smnu_honorariosPorMedico.Enabled = His.Parametros.AccesosModuloHonorarios.HonorariosPorMedico;
-
-                mnu_explorador.Enabled = His.Parametros.AccesosModuloHonorarios.Explorador;
-
-                smnu_emisionDeRetenciones.Enabled = His.Parametros.AccesosModuloHonorarios.EmisionRetenciones;
-
-                smnu_notaCredito.Enabled = His.Parametros.AccesosModuloHonorarios.NotasCredito;
-                smnu_notasdebito.Enabled = His.Parametros.AccesosModuloHonorarios.NotasDebito;
-                smnu_nD.Enabled = His.Parametros.AccesosModuloHonorarios.NotasValoresNoCubiertos;
-                smnu_ndcomisionreferido.Enabled = His.Parametros.AccesosModuloHonorarios.NotasComisiones;
-
-                smnu_nuevoCorreo.Enabled = His.Parametros.AccesosModuloHonorarios.NuevoCorreo;
-                smnu_opciones.Enabled = His.Parametros.AccesosModuloHonorarios.OpcionesCorreo;
-
                 smnu_repmedico.Enabled = His.Parametros.AccesosModuloHonorarios.ReporteMedicos;
                 smnu_repnotacd.Enabled = His.Parametros.AccesosModuloHonorarios.ReporteNotas;
                 smnu_repretenciones.Enabled = His.Parametros.AccesosModuloHonorarios.ReporteRetenciones;
                 smnu_rContables.Enabled = His.Parametros.AccesosModuloHonorarios.ReporteContable;
-
                 smnu_h_pagar.Enabled = His.Parametros.AccesosModuloHonorarios.HonorariosPendientesPago;
                 smnu_Honorariospagados.Enabled = His.Parametros.AccesosModuloHonorarios.HonorariosPendientesCancelar;
                 smnu_pagosrealizdos.Enabled = His.Parametros.AccesosModuloHonorarios.HonorariosCancelados;
                 smnu_balanceGerencial.Enabled = His.Parametros.AccesosModuloHonorarios.BalanceGerencial;
-
+                mnuVendedores.Enabled = His.Parametros.AccesosModuloHonorarios.Vendedores;
+                ingresoDeFacturasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.IngresoFacturas;
+                facturasCambiadasPorAnulacionToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.FacturasAnulacion;
+                asientoContableHonorariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.AsientoHonorario;
+                asignarFacturasLiquidacionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.AsignarFacturasLiquidacion;
+                exploradorDeLiquidacionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.ExploradorLiquidaciones;
+                liquidaciónToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.Liquidaciones;
+                reporteDeComisionesVendedoresToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.ReporteComision;
+                mnu_archivo.Enabled = His.Parametros.AccesosModuloHonorarios.Archivo;
+                mnu_procesosdiarios.Enabled = His.Parametros.AccesosModuloHonorarios.ProcesoDiario;
+                liquidacion.Enabled = His.Parametros.AccesosModuloHonorarios.LiquidacionHonorario;
+                mnu_explorador.Enabled = His.Parametros.AccesosModuloHonorarios.Explorador;
+                mnu_reportescontables.Enabled = His.Parametros.AccesosModuloHonorarios.Reporte;
+                smnu_salir.Enabled = His.Parametros.AccesosModuloHonorarios.Salir;
+                exploradorPorMédicosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloHonorarios.ExploradorMedicos;
             }
 
 

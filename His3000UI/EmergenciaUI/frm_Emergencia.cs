@@ -1896,7 +1896,7 @@ namespace His.Emergencia
             // Traduzco los mensajes al espa¤ol en la ventana de correcci¢n ortogr fica
             Infragistics.Shared.ResourceCustomizer rc = new Infragistics.Shared.ResourceCustomizer();
 
-            ////rc = Infragistics.Win.UltraWinSpellChecker.Resources.Customizer;
+            //rc = Infragistics.Win.UltraWinSpellChecker.Resources.Customizer;
             rc.SetCustomizedString("LS_SpellCheckForm", "Ortograf¡a");
             rc.SetCustomizedString("LS_SpellCheckForm_btChange", "&Cambiar");
             rc.SetCustomizedString("LS_SpellCheckForm_btChangeAll", "Cam&biar Todas");
@@ -6542,7 +6542,7 @@ namespace His.Emergencia
             reIng = NegAtenciones.atencionReIngreso(Convert.ToInt64(txt_Atencion.Text));
             if (reIng.Count != 0)
             {
-                MessageBox.Show("Paciente de Re Consulta  \r\n no se requiere Formulario 008", "His 3000 - Re Consulta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Paciente de Reingreso  \r\n no se requiere Formulario 008", "His 3000 - Re Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
             }
             else

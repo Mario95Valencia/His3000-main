@@ -31,7 +31,7 @@ namespace TarifariosUI
         {
             frmAdministrarTarifario adminTarifario = new frmAdministrarTarifario();
             adminTarifario.MdiParent = this;
-            adminTarifario.Show();  
+            adminTarifario.Show();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace TarifariosUI
         {
             frmBusquedaTarifario consulta = new frmBusquedaTarifario();
             consulta.MdiParent = this;
-            consulta.Show();  
+            consulta.Show();
         }
 
         private void aseguradorasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,34 +57,34 @@ namespace TarifariosUI
         {
             frmAdministrarEstructura estructura = new frmAdministrarEstructura();
             estructura.MdiParent = this;
-            estructura.Show(); 
+            estructura.Show();
         }
 
         private void aseguradorasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAdministrarAseguradoras aseguradoras = new frmAdministrarAseguradoras();
             aseguradoras.MdiParent = this;
-            aseguradoras.Show();  
+            aseguradoras.Show();
         }
 
         private void conveniosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAdministrarConvenios convenios = new frmAdministrarConvenios();
             convenios.MdiParent = this;
-            convenios.Show(); 
+            convenios.Show();
         }
 
         private void creacionDeHonorariosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                frmCrearHonorarios honorarios = new frmCrearHonorarios(0,0, codUsuario);
+                frmCrearHonorarios honorarios = new frmCrearHonorarios(0, 0, codUsuario);
                 honorarios.MdiParent = this;
                 honorarios.Show();
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message)  ;
+                MessageBox.Show(err.Message);
             }
         }
 
@@ -92,7 +92,7 @@ namespace TarifariosUI
         {
             frmAdministrarTipoEmpresa tipoEmpresas = new frmAdministrarTipoEmpresa();
             tipoEmpresas.MdiParent = this;
-            tipoEmpresas.Show();  
+            tipoEmpresas.Show();
         }
 
         private void empresasYAseguradorasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace TarifariosUI
                 //this.BackgroundImage = Recursos.Archivo.logoEmpresa;
                 this.Icon = Recursos.Archivo.IconoTarifario;
                 //cargo la barra de estado
-                
+
                 ultraStatusBarTarifario.Panels["empresa"].Text = Sesion.nomEmpresa;
                 ultraStatusBarTarifario.Panels["usuario"].Text = Sesion.nomUsuario;
                 codUsuario = Sesion.codUsuario;
@@ -136,7 +136,7 @@ namespace TarifariosUI
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmControlesWPF acerca = new frmControlesWPF();
-            acerca.ShowDialog(); 
+            acerca.ShowDialog();
         }
 
         private void DeshabilitarMenu()
@@ -147,17 +147,17 @@ namespace TarifariosUI
             estructuraEspToolStripMenuItem.Enabled = false;
             tarifarioToolStripMenuItem1.Enabled = false;
             procedimientosToolStripMenuItem.Enabled = false;
-            creacionDeHonorariosToolStripMenuItem.Enabled = false; 
+            creacionDeHonorariosToolStripMenuItem.Enabled = false;
             reportesToolStripMenuItem.Enabled = false;
         }
         private void InicializarForma()
         {
-             try
-                {
-            DeshabilitarMenu();
-            //cargo usuario
-            if (Sesion.codUsuario == 0)
+            try
             {
+                DeshabilitarMenu();
+                //cargo usuario
+                if (Sesion.codUsuario == 0)
+                {
 
                     His.Parametros.ArchivoIni archivo = new ArchivoIni(Environment.CurrentDirectory + "\\his3000.ini");
                     archivo.IniReadValue("Usuario", "usr");
@@ -175,55 +175,74 @@ namespace TarifariosUI
 
                     }
 
-            }
-            Sesion.TipoAcceso = His.Entidades.Acceso.DIRECTO;
+                }
+                Sesion.TipoAcceso = His.Entidades.Acceso.DIRECTO;
 
-            //txtFecha.Text = "FECHA: " + DateTime.Now.ToString("D");
+                //txtFecha.Text = "FECHA: " + DateTime.Now.ToString("D");
 
-            //timHora.Start();
-            //Sesion.codUsuario=1;
-            if (Sesion.codUsuario != 0)
-            {
-                USUARIOS usuario = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
-                List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(usuario.ID_USUARIO);
-
-                if (perfilUsuario != null)
+                //timHora.Start();
+                //Sesion.codUsuario=1;
+                if (Sesion.codUsuario != 0)
                 {
-                    foreach (var Perfil in perfilUsuario)
+                    USUARIOS usuario = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
+                    List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(usuario.ID_USUARIO);
+
+                    if (perfilUsuario != null)
                     {
-                        if (perfilUsuario != null)
-                            NegAccesoOpciones.asignarAccesosPorPerfil(Perfil.ID_PERFIL);
-                        else
+                        foreach (var Perfil in perfilUsuario)
                         {
-                            System.Windows.MessageBox.Show("No se asignado un perfil al usuario", "error");
-                            this.Close();
+                            if (perfilUsuario != null)
+                                NegAccesoOpciones.asignarAccesosPorPerfil(Perfil.ID_PERFIL);
+                            else
+                            {
+                                System.Windows.MessageBox.Show("No se asignado un perfil al usuario", "error");
+                                this.Close();
+                            }
                         }
                     }
+
+                    //archivoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Ayuda;
+                    archivoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Administracion;
+                    tipoEmpresaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.TipoEmpresa;
+                    aseguradorasToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.AseguradoraEmpresa;
+                    conveniosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.Convenio;
+                    estructuraEspToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.EstructuraEspecialidades;
+                    tarifarioToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.Tarifario;
+                    procedimientosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Procedimiento;
+
+                    honorariosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.MenuTarifario;
+                    creacionDeHonorariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CreacionHonorarios;
+                    consultaDeHonorariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaHonorario;
+
+                    preciosYPorcentajesConveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.PreciosProcentajes;
+                    tipoDeCostosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.TipoCosto;
+                    catalogoCostosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CatalogoCosto;
+                    conveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Convenios;
+                    preciosPorConveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.PreciosConvenios;
+
+                    reportesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Reporte;
+                    honorariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Honorario;
+                    empresasYAseguradorasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.EmpresaAseguradora;
+
+                    ventanaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Ventas;
+                    mosaicoHorizontalToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.MosaicoHorizaontal;
+                    mosaicoVerticalToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.MosaicoVertical;
+                    cascadaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Cascada;
+                    organizarIconosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.OrganizarIcono;
+
+                    ayudaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.Ayuda;
+                    acercaDeToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.AcercaDe;
                 }
 
-                tipoEmpresaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaTipoEmpresa;
-                aseguradorasToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaAseguradorasEmpresas;
-                conveniosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaConveniosProcedimientos;
-                estructuraEspToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaEstructuraEspecialidades;
-                tarifarioToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaTarifario;
-                procedimientosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaProcedimientos;
-                creacionDeHonorariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaCreacionHonorarios;
-                reportesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.ConsultaReportes;
-                tipoDeCostosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CreacionTipoCatologo;
-                catalogoCostosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CreacionCatologo;
-                conveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CreacionConvenio;
-                preciosPorConveniosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloTarifario.CreacionPrecioConvenio;
+                EMPRESA empresa = NegEmpresa.RecuperaEmpresa();
+
+                //txtEmpresa.Text = "Empresa " + string.Format("{0} ", empresa.EMP_NOMBRE);
+
             }
-
-            EMPRESA empresa = NegEmpresa.RecuperaEmpresa();
-
-            //txtEmpresa.Text = "Empresa " + string.Format("{0} ", empresa.EMP_NOMBRE);
-
-              }
-             catch (Exception err)
-             {
-                 System.Windows.Forms.MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
+            catch (Exception err)
+            {
+                System.Windows.Forms.MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -241,25 +260,25 @@ namespace TarifariosUI
         {
             frmAdministrarTarifas ventana = new frmAdministrarTarifas();
             ventana.MdiParent = this;
-            ventana.Show(); 
- 
+            ventana.Show();
+
         }
 
         private void tipoDeCostosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCatalogosCostosTipo form = new frmCatalogosCostosTipo();
-            form.MdiParent = this; 
-            form.Show(); 
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void catlogoCostosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_CatlogoCostos form = new frm_CatlogoCostos();
             form.MdiParent = this;
-            form.Show(); 
+            form.Show();
         }
 
-       
+
         //private void conveniosToolStripMenuItem_Click_1(object sender, EventArgs e)
         //{
         //    frm_CategoriasConvenios form = new frm_CategoriasConvenios();
@@ -271,7 +290,7 @@ namespace TarifariosUI
         private void preciosPorConveniosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_PreciosConvenios form = new frm_PreciosConvenios();
-            form.MdiParent  = this;
+            form.MdiParent = this;
             form.Show();
         }
 
@@ -284,21 +303,21 @@ namespace TarifariosUI
         {
             frm_CatlogoCostos form = new frm_CatlogoCostos();
             form.MdiParent = this;
-            form.Show(); 
+            form.Show();
         }
 
         private void conveniosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             FrmCategoriasConvenios form = new FrmCategoriasConvenios();
             form.MdiParent = this;
-            form.Show(); 
+            form.Show();
         }
 
         private void consultaDeHonorariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaHonorarios form = new ConsultaHonorarios();
             form.MdiParent = this;
-            form.Show(); 
+            form.Show();
         }
 
         //private void preciosPorConveniosToolStripMenuItem_Click(object sender, EventArgs e)

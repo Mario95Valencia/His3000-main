@@ -716,12 +716,13 @@
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(65, 24);
             this.helpMenu.Text = "Ay&uda";
+            this.helpMenu.Visible = false;
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.contentsToolStripMenuItem.Text = "&Contenido";
             // 
             // indexToolStripMenuItem
@@ -729,7 +730,7 @@
             this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
             this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.indexToolStripMenuItem.Text = "&Índice";
             // 
             // searchToolStripMenuItem
@@ -737,18 +738,18 @@
             this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.searchToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(215, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(225, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
             // ultraFormManager1
@@ -765,7 +766,7 @@
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
-            this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.Name = "_MDI_Honorarios_UltraFormManager_Dock_Area_Left";
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 519);
             // 
@@ -778,7 +779,7 @@
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1208, 34);
-            this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.Name = "_MDI_Honorarios_UltraFormManager_Dock_Area_Right";
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 519);
             // 
@@ -790,7 +791,7 @@
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.Name = "_MDI_Honorarios_UltraFormManager_Dock_Area_Top";
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1212, 34);
             // 
@@ -802,7 +803,7 @@
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 553);
-            this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.Name = "_MDI_Honorarios_UltraFormManager_Dock_Area_Bottom";
             this._MDI_Honorarios_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1212, 0);
             // 
@@ -833,7 +834,7 @@
             this.ultraStatusBarTarifario.BorderStyle = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.BorderStylePanel = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 553);
-            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4);
             this.ultraStatusBarTarifario.Name = "ultraStatusBarTarifario";
             appearance1.TextVAlignAsString = "Middle";
             this.ultraStatusBarTarifario.PanelAppearance = appearance1;
@@ -893,7 +894,7 @@
             this.Controls.Add(this.ultraStatusBarTarifario);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDI_Honorarios";
             this.Text = "Módulo de Honorarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

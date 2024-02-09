@@ -205,14 +205,6 @@ namespace CuentaPaciente
 
         private void InicializarForma()
         {
-      
-                facturacionToolStripMenuItem.Enabled = false;      
-                btnDetalleCuenta.Enabled = false;
-                estadosCuentaToolStripMenuItem.Enabled = false;
-                gEToolStripMenuItem.Enabled = false;
-                consolidarAtencionesToolStripMenuItem.Enabled = false;
-                atencionesIESSToolStripMenuItem.Enabled = false;
-
             //DeshabilitarMenu();
             //cargo usuario
             if (Sesion.codUsuario == 0)
@@ -291,6 +283,45 @@ namespace CuentaPaciente
 
             txtEmpresa.Text = "Empresa " + string.Format("{0} ", empresa.EMP_NOMBRE);
 
+            if (Sesion.codUsuario != 0)
+            {
+                USUARIOS usuario1 = NegUsuarios.RecuperaUsuario(Sesion.codUsuario);
+                List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(usuario1.ID_USUARIO);
+
+                if (perfilUsuario != null)
+                {
+                    foreach (var Perfil in perfilUsuario)
+                    {
+                        if (perfilUsuario != null)
+                            NegAccesoOpciones.asignarAccesosPorPerfil(Perfil.ID_PERFIL);
+                        else
+                        {
+                            //System.Windows.MessageBox.Show("No se asignado un perfil al usuario", "error");
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            facturacionToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.Facturacion;
+            btnNuevoFactura.Enabled = His.Parametros.AccesosModuloCuentaPaciente.NuevaFactura;
+
+            auditoriaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.DivisionCuentas;
+            revisionCuentasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.RevisionCuentas;
+
+            informesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.Informe;
+            cierreDeTurnoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.CierreTurno;
+            detalleCambiosCuentasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.CambioCuenta;
+            detalleValoresCuentasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.ValoresCuenta;
+            exploradorAuditoriaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.ExpAuditoria;
+
+            garantiasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.Garantias;
+            nuevaGarantiaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.NuevaGarantia;
+            preautorizacionToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.PreAutorizacion;
+            reporteToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.Reporte;
+
+            btnDetalleCuenta.Enabled = His.Parametros.AccesosModuloCuentaPaciente.Auditoria;
+            consolidarAtencionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.DetalleAtencion;
+            estadosCuentaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloCuentaPaciente.EstadoCuenta;
 
         }
 
@@ -301,28 +332,28 @@ namespace CuentaPaciente
                 this.Close();
                 return;
             }
-            string departamento;
-            try
-            {
-                departamento = Convert.ToString(His.Entidades.Clases.Sesion.codDepartamento);
-                if (departamento == "15")
-                {
-                    btnDetalleCuenta.Enabled = false;
-                    informesToolStripMenuItem.Enabled = false;
-                    auditoriaToolStripMenuItem.Enabled = false;
-                }
-                else
-                {
-                    btnDetalleCuenta.Enabled = true;
-                    informesToolStripMenuItem.Enabled = true;
-                    auditoriaToolStripMenuItem.Enabled = true;
-                }
-            }
-            catch (Exception)
-            {
+            //string departamento; // Mario // se comenta por que empieza a trabajar por accesos // 06/11/2023
+            //try
+            //{
+            //    departamento = Convert.ToString(His.Entidades.Clases.Sesion.codDepartamento);
+            //    if (departamento == "15")
+            //    {
+            //        btnDetalleCuenta.Enabled = false;
+            //        informesToolStripMenuItem.Enabled = false;
+            //        auditoriaToolStripMenuItem.Enabled = false;
+            //    }
+            //    else
+            //    {
+            //        btnDetalleCuenta.Enabled = true;
+            //        informesToolStripMenuItem.Enabled = true;
+            //        auditoriaToolStripMenuItem.Enabled = true;
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
             //this.BackgroundImage = Recursos.Archivo.logoEmpresa;
             //this.Icon = Recursos.Archivo.IconoTarifario;
         }

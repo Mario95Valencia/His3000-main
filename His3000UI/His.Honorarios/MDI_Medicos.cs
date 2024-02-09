@@ -58,7 +58,7 @@ namespace His.Honorarios
         private void smnu_salir_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.Exit();
+            //Application.Exit();
         }
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -85,7 +85,7 @@ namespace His.Honorarios
         }
         private void MDI_Honorarios_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void MDI_Honorarios_Load(object sender, EventArgs e)
@@ -176,6 +176,17 @@ namespace His.Honorarios
                     }
                 }
             }
+            exploradorToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.explorador;
+            certificadoMédicoToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.explCertificadoMedico;
+            recetaMédicaToolStripMenuItem1.Enabled = His.Parametros.AccesoModuloMedicos.explRecetaMedica;
+            historiasClinicasToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.ExpHc;
+            certificadoDeAsistenciaToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.ExpCertificadoAsistencia;
+
+            toolStripMenuItem1.Enabled = His.Parametros.AccesoModuloMedicos.Medicos;
+            certificadoMedicoIESSToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.certificadoCovid;
+            certificadosToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.CertGeneral;
+            certificadoDePresentacionToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.CertAsistencia;
+            recetaMédicaToolStripMenuItem.Enabled = His.Parametros.AccesoModuloMedicos.certificadoRrecetaMedica;
         }
         #endregion
 

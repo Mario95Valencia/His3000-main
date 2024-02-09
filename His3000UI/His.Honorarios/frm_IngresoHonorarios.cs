@@ -3719,33 +3719,37 @@ namespace His.Honorarios
             List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(Sesion.codUsuario);
             foreach (var item in perfilUsuario)
             {
-                if (item.ID_PERFIL == 24)
+                List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 2);
+                foreach (var items in accop)
                 {
-                    //Verificar si ya no esta generado el asiento
-                    foreach (UltraGridRow i in ultraGrid.Rows)
+                    if (items.ID_ACCESO == 22210)// se cambia del perfil  24 a opcion 22210// Mario Valencia 22/01/2023 // cambio en seguridades.
                     {
-                        if (!NegHonorariosMedicos.AsientoGenerado(Convert.ToInt64(i.Cells["COD"].Value)))//valida si no tiene honorarios que no han sido generados el asiento
+                        //Verificar si ya no esta generado el asiento
+                        foreach (UltraGridRow i in ultraGrid.Rows)
                         {
-                            btnGuardar.Enabled = true;
-                            btnImprimir.Enabled = true;
-                            lblFechaAsiento.Visible = true;
-                            dtpFechaAsiento.Visible = true;
-                            btnEliminar.Enabled = true;
-                            break;
-                        }
-                        else
-                        {
-                            btnGuardar.Enabled = false; //encontro que todos han sido generados el asiento asi que bloqueo el boton.
-                            btnImprimir.Enabled = true;
-                            lblFechaAsiento.Visible = false;
-                            dtpFechaAsiento.Visible = false;
-                            btnEliminar.Enabled = true;
+                            if (!NegHonorariosMedicos.AsientoGenerado(Convert.ToInt64(i.Cells["COD"].Value)))//valida si no tiene honorarios que no han sido generados el asiento
+                            {
+                                btnGuardar.Enabled = true;
+                                btnImprimir.Enabled = true;
+                                lblFechaAsiento.Visible = true;
+                                dtpFechaAsiento.Visible = true;
+                                btnEliminar.Enabled = true;
+                                break;
+                            }
+                            else
+                            {
+                                btnGuardar.Enabled = false; //encontro que todos han sido generados el asiento asi que bloqueo el boton.
+                                btnImprimir.Enabled = true;
+                                lblFechaAsiento.Visible = false;
+                                dtpFechaAsiento.Visible = false;
+                                btnEliminar.Enabled = true;
+                            }
                         }
                     }
-                }
-                if (item.ID_PERFIL == 27)
-                {
-                    chkComision.Visible = true;
+                    if (items.ID_ACCESO == 22220)
+                    {
+                        chkComision.Visible = true;
+                    }
                 }
             }
         }

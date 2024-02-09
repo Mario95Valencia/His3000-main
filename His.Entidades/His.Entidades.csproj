@@ -97,7 +97,6 @@
     <Compile Include="DtoAgendados.cs" />
     <Compile Include="DtoAnamnesis.cs" />
     <Compile Include="DtoAnamnesis_DA.cs" />
-    <Compile Include="DTOArea.cs" />
     <Compile Include="DtoAtencionDatosAdicionales.cs" />
     <Compile Include="DtoAtenciones.cs" />
     <Compile Include="DtoAtencionesIng.cs" />
@@ -154,6 +153,7 @@
     <Compile Include="DtoPacienteReceta.cs" />
     <Compile Include="DtoPacientes.cs" />
     <Compile Include="DTOPacientesAtencion.cs" />
+    <Compile Include="DtoPacientesAud.cs" />
     <Compile Include="DtoPacientesEmergencia.cs" />
     <Compile Include="DtoPacientesImagen.cs" />
     <Compile Include="DtoPacientesInfo.cs" />

@@ -47,7 +47,7 @@ namespace His.Negocio
         public static DataTable RecuperarProductosListaSP_Farmacia(int Opcion, string Filtro, int Division, int Bodega, Int32 CodigoEmpresa, Int32 CodigoConvenio)
         {
             return new DatProducto().RecuperarProductosListaSP_Farmacia(Opcion, Filtro, Division, Bodega, CodigoEmpresa, CodigoConvenio);
-        }        
+        }
 
         public static List<PRODUCTO> RecuperarProductosLista()
         {

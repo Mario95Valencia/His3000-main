@@ -685,7 +685,7 @@
             this.ultraTabPageControl15.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl15.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl15.Name = "ultraTabPageControl15";
-            this.ultraTabPageControl15.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl15.Size = new System.Drawing.Size(1278, 534);
             // 
             // ultraGroupBox8
             // 
@@ -1160,7 +1160,7 @@
             this.ultraTabPageControl10.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl10.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl10.Name = "ultraTabPageControl10";
-            this.ultraTabPageControl10.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl10.Size = new System.Drawing.Size(1278, 534);
             // 
             // grpDosTresCuatro
             // 
@@ -1171,7 +1171,7 @@
             this.grpDosTresCuatro.Location = new System.Drawing.Point(0, 0);
             this.grpDosTresCuatro.Margin = new System.Windows.Forms.Padding(4);
             this.grpDosTresCuatro.Name = "grpDosTresCuatro";
-            this.grpDosTresCuatro.Size = new System.Drawing.Size(1174, 419);
+            this.grpDosTresCuatro.Size = new System.Drawing.Size(1278, 534);
             this.grpDosTresCuatro.TabIndex = 42;
             this.grpDosTresCuatro.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -1197,7 +1197,7 @@
             this.gpb_Accidentes.Margin = new System.Windows.Forms.Padding(4);
             this.gpb_Accidentes.Name = "gpb_Accidentes";
             this.gpb_Accidentes.Padding = new System.Windows.Forms.Padding(4);
-            this.gpb_Accidentes.Size = new System.Drawing.Size(1168, 257);
+            this.gpb_Accidentes.Size = new System.Drawing.Size(1272, 257);
             this.gpb_Accidentes.TabIndex = 42;
             this.gpb_Accidentes.TabStop = false;
             this.gpb_Accidentes.Text = "3. ACCIDENTE, VIOLENCIA, INTOXICACIÓN, ENVENENAMIENTO O QUEMADURA";
@@ -1215,7 +1215,7 @@
             this.txt_ObservacionAccidente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ObservacionAccidente.Multiline = true;
             this.txt_ObservacionAccidente.Name = "txt_ObservacionAccidente";
-            this.txt_ObservacionAccidente.Size = new System.Drawing.Size(1121, 160);
+            this.txt_ObservacionAccidente.Size = new System.Drawing.Size(1225, 157);
             this.txt_ObservacionAccidente.SpellChecker = this.ultraSpellCheckerEvolucion;
             this.txt_ObservacionAccidente.TabIndex = 54;
             // 
@@ -1366,7 +1366,7 @@
             this.groupBox24.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox24.Size = new System.Drawing.Size(1148, 158);
+            this.groupBox24.Size = new System.Drawing.Size(1252, 158);
             this.groupBox24.TabIndex = 1;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "4. ANTECEDENTES PERSONALES Y FAMILIARES";
@@ -1385,7 +1385,7 @@
             this.dtg_antec_personales.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_antec_personales.Name = "dtg_antec_personales";
             this.dtg_antec_personales.RowHeadersWidth = 62;
-            this.dtg_antec_personales.Size = new System.Drawing.Size(1140, 134);
+            this.dtg_antec_personales.Size = new System.Drawing.Size(1244, 134);
             this.dtg_antec_personales.TabIndex = 16;
             this.dtg_antec_personales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_antec_personales_IsCurrentRowDirty);
             this.dtg_antec_personales.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtg_antec_personales_KeyUp);
@@ -1434,7 +1434,7 @@
             this.txt_GrupoS.Margin = new System.Windows.Forms.Padding(4);
             this.txt_GrupoS.Name = "txt_GrupoS";
             this.txt_GrupoS.Padding = new System.Windows.Forms.Padding(4);
-            this.txt_GrupoS.Size = new System.Drawing.Size(1168, 100);
+            this.txt_GrupoS.Size = new System.Drawing.Size(1272, 100);
             this.txt_GrupoS.TabIndex = 0;
             this.txt_GrupoS.TabStop = false;
             this.txt_GrupoS.Text = "2. INICIO DE ATENCION Y MOTIVO";
@@ -1592,7 +1592,7 @@
             this.ultraTabPageControl11.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl11.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl11.Name = "ultraTabPageControl11";
-            this.ultraTabPageControl11.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl11.Size = new System.Drawing.Size(1278, 534);
             // 
             // grpCincoSeis
             // 
@@ -1602,7 +1602,7 @@
             this.grpCincoSeis.Location = new System.Drawing.Point(0, 0);
             this.grpCincoSeis.Margin = new System.Windows.Forms.Padding(4);
             this.grpCincoSeis.Name = "grpCincoSeis";
-            this.grpCincoSeis.Size = new System.Drawing.Size(1174, 419);
+            this.grpCincoSeis.Size = new System.Drawing.Size(1278, 534);
             this.grpCincoSeis.TabIndex = 3;
             this.grpCincoSeis.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -1653,7 +1653,7 @@
             this.groupBox34.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox34.Name = "groupBox34";
             this.groupBox34.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox34.Size = new System.Drawing.Size(1168, 278);
+            this.groupBox34.Size = new System.Drawing.Size(1272, 278);
             this.groupBox34.TabIndex = 0;
             this.groupBox34.TabStop = false;
             this.groupBox34.Text = "6. SIGNOS VITALES, MEDICIONES Y VALORES";
@@ -2331,7 +2331,7 @@
             this.groupBox26.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox26.Size = new System.Drawing.Size(1168, 151);
+            this.groupBox26.Size = new System.Drawing.Size(1272, 151);
             this.groupBox26.TabIndex = 0;
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "5. ENFERMEDADES ACTUAL Y REVISION DE SISTEMAS";
@@ -2351,7 +2351,7 @@
             this.txt_EnfermedadActual.Multiline = true;
             this.txt_EnfermedadActual.Name = "txt_EnfermedadActual";
             this.txt_EnfermedadActual.Scrollbars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_EnfermedadActual.Size = new System.Drawing.Size(1134, 122);
+            this.txt_EnfermedadActual.Size = new System.Drawing.Size(1238, 119);
             this.txt_EnfermedadActual.SpellChecker = this.ultraSpellCheckerEvolucion;
             this.txt_EnfermedadActual.TabIndex = 17;
             // 
@@ -2417,7 +2417,7 @@
             this.ultraTabPageControl12.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl12.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl12.Name = "ultraTabPageControl12";
-            this.ultraTabPageControl12.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl12.Size = new System.Drawing.Size(1278, 534);
             // 
             // grpSieteOchoNueve
             // 
@@ -2428,7 +2428,7 @@
             this.grpSieteOchoNueve.Location = new System.Drawing.Point(0, 0);
             this.grpSieteOchoNueve.Margin = new System.Windows.Forms.Padding(4);
             this.grpSieteOchoNueve.Name = "grpSieteOchoNueve";
-            this.grpSieteOchoNueve.Size = new System.Drawing.Size(1174, 419);
+            this.grpSieteOchoNueve.Size = new System.Drawing.Size(1278, 534);
             this.grpSieteOchoNueve.TabIndex = 4;
             this.grpSieteOchoNueve.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -2444,7 +2444,7 @@
             this.groupBox27.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox27.Size = new System.Drawing.Size(1168, 190);
+            this.groupBox27.Size = new System.Drawing.Size(1272, 190);
             this.groupBox27.TabIndex = 4;
             this.groupBox27.TabStop = false;
             this.groupBox27.Text = "7. EXAMEN FISICO Y DIAGNOSTICO";
@@ -2466,7 +2466,7 @@
             this.dtg_ExamenFisico.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_ExamenFisico.Name = "dtg_ExamenFisico";
             this.dtg_ExamenFisico.RowHeadersWidth = 62;
-            this.dtg_ExamenFisico.Size = new System.Drawing.Size(901, 150);
+            this.dtg_ExamenFisico.Size = new System.Drawing.Size(1005, 150);
             this.dtg_ExamenFisico.TabIndex = 37;
             this.dtg_ExamenFisico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ExamenFisico_CellContentClick);
             this.dtg_ExamenFisico.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ExamenFisico_CellValueChanged);
@@ -2585,7 +2585,7 @@
             this.gpb_Obstetrica.Margin = new System.Windows.Forms.Padding(4);
             this.gpb_Obstetrica.Name = "gpb_Obstetrica";
             this.gpb_Obstetrica.Padding = new System.Windows.Forms.Padding(4);
-            this.gpb_Obstetrica.Size = new System.Drawing.Size(1164, 257);
+            this.gpb_Obstetrica.Size = new System.Drawing.Size(1268, 257);
             this.gpb_Obstetrica.TabIndex = 3;
             this.gpb_Obstetrica.TabStop = false;
             this.gpb_Obstetrica.Text = "9. EMERGENCIA OBSTÉTRICA";
@@ -2610,7 +2610,7 @@
             this.txt_EmergenciaObt.MaxLength = 150;
             this.txt_EmergenciaObt.Multiline = true;
             this.txt_EmergenciaObt.Name = "txt_EmergenciaObt";
-            this.txt_EmergenciaObt.Size = new System.Drawing.Size(876, 56);
+            this.txt_EmergenciaObt.Size = new System.Drawing.Size(980, 56);
             this.txt_EmergenciaObt.TabIndex = 55;
             // 
             // txt_Contracciones
@@ -3003,7 +3003,7 @@
             this.gpb_Localizacion.Margin = new System.Windows.Forms.Padding(4);
             this.gpb_Localizacion.Name = "gpb_Localizacion";
             this.gpb_Localizacion.Padding = new System.Windows.Forms.Padding(4);
-            this.gpb_Localizacion.Size = new System.Drawing.Size(1164, 138);
+            this.gpb_Localizacion.Size = new System.Drawing.Size(1268, 138);
             this.gpb_Localizacion.TabIndex = 2;
             this.gpb_Localizacion.TabStop = false;
             this.gpb_Localizacion.Text = "8. LOCALIZACIÓN DE LESIONES";
@@ -3073,7 +3073,7 @@
             this.ultraTabPageControl13.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl13.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl13.Name = "ultraTabPageControl13";
-            this.ultraTabPageControl13.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl13.Size = new System.Drawing.Size(1278, 534);
             // 
             // grpDiezOnceDoce
             // 
@@ -3084,7 +3084,7 @@
             this.grpDiezOnceDoce.Location = new System.Drawing.Point(0, 0);
             this.grpDiezOnceDoce.Margin = new System.Windows.Forms.Padding(4);
             this.grpDiezOnceDoce.Name = "grpDiezOnceDoce";
-            this.grpDiezOnceDoce.Size = new System.Drawing.Size(1174, 419);
+            this.grpDiezOnceDoce.Size = new System.Drawing.Size(1278, 534);
             this.grpDiezOnceDoce.TabIndex = 2;
             this.grpDiezOnceDoce.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -3099,7 +3099,7 @@
             this.groupBox30.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox30.Name = "groupBox30";
             this.groupBox30.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox30.Size = new System.Drawing.Size(1168, 202);
+            this.groupBox30.Size = new System.Drawing.Size(1272, 202);
             this.groupBox30.TabIndex = 4;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "11. DIAGNÓSTICO DE INGRESO";
@@ -3144,7 +3144,7 @@
             this.dtg_DiagnosticosI.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_DiagnosticosI.Name = "dtg_DiagnosticosI";
             this.dtg_DiagnosticosI.RowHeadersWidth = 62;
-            this.dtg_DiagnosticosI.Size = new System.Drawing.Size(644, 161);
+            this.dtg_DiagnosticosI.Size = new System.Drawing.Size(748, 161);
             this.dtg_DiagnosticosI.TabIndex = 57;
             this.dtg_DiagnosticosI.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DiagnosticosI_CellContentClick);
             this.dtg_DiagnosticosI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtg_DiagnosticosI_KeyUp);
@@ -3199,7 +3199,7 @@
             this.groupBox35.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox35.Name = "groupBox35";
             this.groupBox35.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox35.Size = new System.Drawing.Size(1160, 180);
+            this.groupBox35.Size = new System.Drawing.Size(1264, 180);
             this.groupBox35.TabIndex = 3;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "12. DIAGNÓSTICO DE ALTA";
@@ -3222,7 +3222,7 @@
             this.dtg_DiagnosticosAlta.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_DiagnosticosAlta.Name = "dtg_DiagnosticosAlta";
             this.dtg_DiagnosticosAlta.RowHeadersWidth = 62;
-            this.dtg_DiagnosticosAlta.Size = new System.Drawing.Size(794, 145);
+            this.dtg_DiagnosticosAlta.Size = new System.Drawing.Size(898, 145);
             this.dtg_DiagnosticosAlta.TabIndex = 58;
             this.dtg_DiagnosticosAlta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DiagnosticosAlta_CellContentClick);
             this.dtg_DiagnosticosAlta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtg_DiagnosticosAlta_KeyUp);
@@ -3288,7 +3288,7 @@
             this.groupBox31.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox31.Name = "groupBox31";
             this.groupBox31.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox31.Size = new System.Drawing.Size(1168, 215);
+            this.groupBox31.Size = new System.Drawing.Size(1272, 215);
             this.groupBox31.TabIndex = 0;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "10. SOLICITUD DE EXÁMENES";
@@ -3307,7 +3307,7 @@
             this.dgv_ExamenesS.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_ExamenesS.Name = "dgv_ExamenesS";
             this.dgv_ExamenesS.RowHeadersWidth = 62;
-            this.dgv_ExamenesS.Size = new System.Drawing.Size(1160, 191);
+            this.dgv_ExamenesS.Size = new System.Drawing.Size(1264, 191);
             this.dgv_ExamenesS.TabIndex = 56;
             this.dgv_ExamenesS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ExamenesS_CellDoubleClick);
             this.dgv_ExamenesS.SelectionChanged += new System.EventHandler(this.dgv_ExamenesS_SelectionChanged);
@@ -3343,7 +3343,7 @@
             this.ultraTabPageControl14.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl14.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl14.Name = "ultraTabPageControl14";
-            this.ultraTabPageControl14.Size = new System.Drawing.Size(1260, 579);
+            this.ultraTabPageControl14.Size = new System.Drawing.Size(1278, 534);
             // 
             // grpTrceCatorce
             // 
@@ -3355,7 +3355,7 @@
             this.grpTrceCatorce.Location = new System.Drawing.Point(0, 0);
             this.grpTrceCatorce.Margin = new System.Windows.Forms.Padding(4);
             this.grpTrceCatorce.Name = "grpTrceCatorce";
-            this.grpTrceCatorce.Size = new System.Drawing.Size(1260, 579);
+            this.grpTrceCatorce.Size = new System.Drawing.Size(1278, 534);
             this.grpTrceCatorce.TabIndex = 3;
             this.grpTrceCatorce.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -3375,7 +3375,7 @@
             this.groupBox36.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox36.Name = "groupBox36";
             this.groupBox36.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox36.Size = new System.Drawing.Size(1254, 261);
+            this.groupBox36.Size = new System.Drawing.Size(1272, 261);
             this.groupBox36.TabIndex = 3;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "14. ALTA";
@@ -3622,7 +3622,7 @@
             this.groupBox32.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox32.Name = "groupBox32";
             this.groupBox32.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox32.Size = new System.Drawing.Size(1080, 74);
+            this.groupBox32.Size = new System.Drawing.Size(1098, 74);
             this.groupBox32.TabIndex = 1;
             this.groupBox32.TabStop = false;
             // 
@@ -3721,7 +3721,7 @@
             this.groupBox33.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox33.Name = "groupBox33";
             this.groupBox33.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox33.Size = new System.Drawing.Size(1254, 186);
+            this.groupBox33.Size = new System.Drawing.Size(1272, 186);
             this.groupBox33.TabIndex = 0;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "13. PLAN DE TRATAMIENTO";
@@ -6070,7 +6070,7 @@
             this.ultraGroupBoxPaciente.Location = new System.Drawing.Point(4, 70);
             this.ultraGroupBoxPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.ultraGroupBoxPaciente.Name = "ultraGroupBoxPaciente";
-            this.ultraGroupBoxPaciente.Size = new System.Drawing.Size(1262, 82);
+            this.ultraGroupBoxPaciente.Size = new System.Drawing.Size(1280, 82);
             this.ultraGroupBoxPaciente.TabIndex = 29;
             this.ultraGroupBoxPaciente.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -6247,7 +6247,7 @@
             this.pantab1.Margin = new System.Windows.Forms.Padding(4);
             this.pantab1.Name = "pantab1";
             this.pantab1.SharedControlsPage = this.ultraTabSharedControlsPage3;
-            this.pantab1.Size = new System.Drawing.Size(1262, 603);
+            this.pantab1.Size = new System.Drawing.Size(1280, 558);
             this.pantab1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Office2007Ribbon;
             appearance8.BackColor = System.Drawing.Color.White;
             this.pantab1.TabHeaderAreaAppearance = appearance8;
@@ -6285,7 +6285,7 @@
             this.ultraTabSharedControlsPage3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage3.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabSharedControlsPage3.Name = "ultraTabSharedControlsPage3";
-            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(1260, 579);
+            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(1278, 534);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Left
             // 
@@ -6298,7 +6298,7 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Left";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 721);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 676);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Right
             // 
@@ -6308,10 +6308,10 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1266, 34);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1284, 34);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Right";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 721);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 676);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Top
             // 
@@ -6323,7 +6323,7 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Top";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1270, 34);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1288, 34);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Bottom
             // 
@@ -6333,10 +6333,10 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 4;
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 755);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 710);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Bottom";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1270, 4);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1288, 4);
             // 
             // tabulador
             // 
@@ -6449,7 +6449,7 @@
             this.chb_ViaAereaL.Location = new System.Drawing.Point(4, 34);
             this.chb_ViaAereaL.Name = "chb_ViaAereaL";
             this.chb_ViaAereaL.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.chb_ViaAereaL.Size = new System.Drawing.Size(1262, 36);
+            this.chb_ViaAereaL.Size = new System.Drawing.Size(1280, 36);
             this.chb_ViaAereaL.TabIndex = 30;
             this.chb_ViaAereaL.Text = "toolStrip1";
             // 
@@ -6719,7 +6719,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1270, 759);
+            this.ClientSize = new System.Drawing.Size(1288, 714);
             this.Controls.Add(this.pantab1);
             this.Controls.Add(this.ultraGroupBoxPaciente);
             this.Controls.Add(this.chb_ViaAereaL);

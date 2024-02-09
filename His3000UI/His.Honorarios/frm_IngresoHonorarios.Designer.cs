@@ -1729,7 +1729,7 @@
             // 
             this.dtpCaducidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCaducidad.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpCaducidad.Location = new System.Drawing.Point(722, 98);
+            this.dtpCaducidad.Location = new System.Drawing.Point(735, 98);
             this.dtpCaducidad.Margin = new System.Windows.Forms.Padding(4);
             this.dtpCaducidad.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dtpCaducidad.Name = "dtpCaducidad";
@@ -1742,7 +1742,7 @@
             this.lblCaducidad.AutoSize = true;
             this.lblCaducidad.BackColor = System.Drawing.Color.Transparent;
             this.lblCaducidad.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaducidad.Location = new System.Drawing.Point(645, 101);
+            this.lblCaducidad.Location = new System.Drawing.Point(658, 101);
             this.lblCaducidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaducidad.Name = "lblCaducidad";
             this.lblCaducidad.Size = new System.Drawing.Size(72, 17);
@@ -1842,7 +1842,7 @@
             this.txtObservacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtObservacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtObservacion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacion.Location = new System.Drawing.Point(530, 144);
+            this.txtObservacion.Location = new System.Drawing.Point(543, 144);
             this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
@@ -1877,7 +1877,7 @@
             // txtLote
             // 
             this.txtLote.BeepOnError = true;
-            this.txtLote.Location = new System.Drawing.Point(530, 121);
+            this.txtLote.Location = new System.Drawing.Point(543, 121);
             this.txtLote.Margin = new System.Windows.Forms.Padding(4);
             this.txtLote.Mask = "0000000000";
             this.txtLote.Name = "txtLote";
@@ -2035,7 +2035,7 @@
             this.txtAutSri.BackColor = System.Drawing.Color.White;
             this.txtAutSri.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAutSri.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAutSri.Location = new System.Drawing.Point(530, 71);
+            this.txtAutSri.Location = new System.Drawing.Point(543, 71);
             this.txtAutSri.Margin = new System.Windows.Forms.Padding(4);
             this.txtAutSri.MaxLength = 49;
             this.txtAutSri.Name = "txtAutSri";
@@ -2050,7 +2050,7 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(443, 75);
+            this.label20.Location = new System.Drawing.Point(435, 75);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(107, 17);
@@ -2102,7 +2102,7 @@
             // 
             this.dateTimePickerFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFecha.Location = new System.Drawing.Point(530, 98);
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(543, 98);
             this.dateTimePickerFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFecha.MaxDate = new System.DateTime(9000, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerFecha.Name = "dateTimePickerFecha";
@@ -2125,7 +2125,7 @@
             // 
             // txt_codigoFormaspago
             // 
-            this.txt_codigoFormaspago.Location = new System.Drawing.Point(777, 206);
+            this.txt_codigoFormaspago.Location = new System.Drawing.Point(790, 206);
             this.txt_codigoFormaspago.Margin = new System.Windows.Forms.Padding(4);
             this.txt_codigoFormaspago.Name = "txt_codigoFormaspago";
             this.txt_codigoFormaspago.Size = new System.Drawing.Size(54, 22);
@@ -2138,7 +2138,7 @@
             // 
             this.txt_nombre_pagos.BackColor = System.Drawing.Color.White;
             this.txt_nombre_pagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_nombre_pagos.Location = new System.Drawing.Point(546, 206);
+            this.txt_nombre_pagos.Location = new System.Drawing.Point(559, 206);
             this.txt_nombre_pagos.Margin = new System.Windows.Forms.Padding(4);
             this.txt_nombre_pagos.Name = "txt_nombre_pagos";
             this.txt_nombre_pagos.ReadOnly = true;

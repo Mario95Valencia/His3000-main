@@ -1402,7 +1402,7 @@ namespace His.Formulario
                 protocolo = NegProtocoloOperatorio.recuperarProtocolo(Convert.ToInt32(ate_codigo));
                 if (protocolo != null)
                 {
-                    //txtprocedimiento.Text = protocolo.PROT_POSTOPERATORIO; // Se comenta para que ya no rescate los postoperatorio del frm Protocolo Operatorio solicitaso sistemas Pasteur // Mario Valencia //06-12-2023 
+                    //txtprocedimiento.Text = protocolo.PROT_POSTOPERATORIO;  // Se comenta para que ya no rescate los postoperatorio del frm//Protocolo Operatorio // Mario Valencia //06-12-2023 
                 }
             }
         }

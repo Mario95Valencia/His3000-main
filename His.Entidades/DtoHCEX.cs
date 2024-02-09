@@ -9,6 +9,5 @@ namespace His.Entidades
     {
         public string COD_PRODUCTO { get; set; }
         public string DESCRIPCION { get; set; }
-
     }
 }

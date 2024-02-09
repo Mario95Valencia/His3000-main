@@ -7,52 +7,90 @@ namespace His.Parametros
 {
     public static class AccesosModuloAdmision
     {
+        //Se cambia por completo la estrucura para manejar seguridades // Mario Valencia // 30/10/2023
         #region Variables
 
-        private static bool exploradorPacientes = false;
-        private static bool formulariosHCU = false;
+        private static bool archivo = false;
+        private static bool check = false;
+        private static bool formulario = false;
+        private static bool salir = false;
         private static bool admision = false;
-        private static bool mantenimiento = false;
-        private static bool infMorbimortalidad = false;
-        private static bool detalleAtencion = false;
-        private static bool formulariosAtencion = false;
-        private static bool agregarFormulariosAtencion = false;
-        private static bool microfilmsAtencion = false;
-        private static bool historiaAtencion = false;
-        private static bool ingresarFormulario = false;
-        private static bool editarFormulario = false;
-        private static bool eliminarFormulario = false;
-        private static bool ingresarPaciente = false;
-        private static bool ingresarAtencion = false;
-        private static bool editarPaciente = false;
-        private static bool eliminarPaciente = false;
-        private static bool admisionEmergencia = false;
-
+        private static bool admEmergenciaM = false;
+        private static bool admEmergencia = false;
+        private static bool serviciosExternos = false;
+        private static bool preIngreso = false;
+        private static bool estadistica = false;
+        private static bool controlHc = false;
+        private static bool explorador = false;
+        private static bool pacientes = false;
+        private static bool atenciones = false;
+        private static bool cuentasFacturar = false;
+        private static bool habitaciones = false;
+        private static bool hc = false;
+        private static bool rubros = false;
+        private static bool expProcediminetos = false;
+        private static bool expProcRubros = false;
+        private static bool reportes = false;
+        private static bool garantias = false;
+        private static bool inec = false;
+        private static bool censoDiario = false;
+        private static bool censoSe = false;
+        private static bool solicitudHc = false;
+        private static bool cierreTurno = false;
+        private static bool rangoEdades = false;
+        private static bool defunciones = false;
+        private static bool rucCi = false;
+        private static bool laboratorio = false;
+        private static bool tarifario = false;
         #endregion
 
         #region Metodos get y set
 
-        public static bool ExploradorPacientes
+        public static bool Archivo
         {
             get
             {
-                return exploradorPacientes;
+                return archivo;
             }
             set
             {
-                exploradorPacientes = value;
+                archivo = value;
             }
         }
 
-        public static bool FormulariosHCU
+        public static bool Check
         {
             get
             {
-                return formulariosHCU;
+                return check;
             }
             set
             {
-                formulariosHCU = value;
+                check = value;
+            }
+        }
+
+        public static bool Formulario
+        {
+            get
+            {
+                return formulario;
+            }
+            set
+            {
+                formulario = value;
+            }
+        }
+
+        public static bool Salir
+        {
+            get
+            {
+                return salir;
+            }
+            set
+            {
+                salir = value;
             }
         }
 
@@ -66,185 +104,233 @@ namespace His.Parametros
             {
                 admision = value;
             }
+
         }
 
-        public static bool Mantenimiento
+        public static bool AdmEmergenciaM
         {
             get
             {
-                return mantenimiento;
+                return admEmergenciaM;
             }
             set
             {
-                mantenimiento = value;
+                admEmergenciaM = value;
             }
+
         }
 
-        public static bool InfMorbimortalidad
+        public static bool AdmEmergencia
         {
             get
             {
-                return infMorbimortalidad;
+                return admEmergencia;
             }
             set
             {
-                infMorbimortalidad = value;
+                admEmergencia = value;
             }
 
         }
 
-        public static bool DetalleAtencion
+        public static bool ServiciosExtermos
         {
             get
             {
-                return detalleAtencion;
+                return serviciosExternos;
             }
             set
             {
-                detalleAtencion = value;
+                serviciosExternos = value;
             }
 
         }
 
-        public static bool FormulariosAtencion
+        public static bool PreIngreso
         {
             get
             {
-                return formulariosAtencion;
+                return preIngreso;
             }
             set
             {
-                formulariosAtencion = value;
+                preIngreso = value;
             }
-
         }
 
-        public static bool AgregarFormulariosAtencion
+        public static bool Estadistica
         {
             get
             {
-                return agregarFormulariosAtencion;
+                return estadistica;
             }
             set
             {
-                agregarFormulariosAtencion = value;
+                estadistica = value;
             }
-
         }
 
-        public static bool MicrofilmsAtencion
+        public static bool ControlHc
         {
             get
             {
-                return microfilmsAtencion;
+                return controlHc;
             }
             set
             {
-                microfilmsAtencion = value;
+                controlHc = value;
             }
         }
 
-        public static bool HistoriaAtencion
+        public static bool Explorador
         {
             get
             {
-                return historiaAtencion;
+                return explorador;
             }
             set
             {
-                historiaAtencion = value;
+                explorador = value;
             }
         }
 
-        public static bool IngresarFormulario
+        public static bool Pacientes
         {
             get
             {
-                return ingresarFormulario;
+                return pacientes;
             }
             set
             {
-                ingresarFormulario = value;
+                pacientes = value;
             }
         }
 
-        public static bool EditarFormulario
+        public static bool Atenciones
         {
             get
             {
-                return editarFormulario;
+                return atenciones;
             }
             set
             {
-                editarFormulario = value;
+                atenciones = value;
             }
         }
 
-        public static bool EliminarFormulario
+        public static bool CuentaFacturada
         {
             get
             {
-                return eliminarFormulario;
+                return cuentasFacturar;
             }
             set
             {
-                eliminarFormulario = value;
+                cuentasFacturar = value;
             }
         }
 
-        public static bool IngresarPaciente
+        public static bool Habitaciones
         {
             get
             {
-                return ingresarPaciente;
+                return habitaciones;
             }
             set
             {
-                ingresarPaciente = value;
+                habitaciones = value;
             }
         }
 
-        public static bool IngresarAtencion
+        public static bool Hc
         {
             get
             {
-                return ingresarAtencion;
+                return hc;
             }
             set
             {
-                ingresarAtencion = value;
+                hc = value;
             }
         }
 
-        public static bool EditarPaciente
+        public static bool Rubros
         {
-            get
-            {
-                return editarPaciente;
-            }
-            set
-            {
-                editarPaciente = value;
-            }
+            get { return rubros; }
+            set { rubros = value; }
+        }
+        public static bool ExplProcedimientos
+        {
+            get { return expProcediminetos; }
+            set { expProcediminetos = value; }
+        }
+        public static bool ExpProcRubros
+        {
+            get { return expProcRubros; }
+            set { expProcRubros = value; }
+        }
+        public static bool Reportes
+        {
+            get { return reportes; }
+            set { reportes = value; }
+        }
+        public static bool Garantias
+        {
+            get { return garantias; }
+            set { garantias = value; }
+        }
+        public static bool Inec
+        {
+            get { return inec; }
+            set { inec = value; }
+        }
+        public static bool CensoDiario
+        {
+            get { return censoDiario; }
+            set { censoDiario = value; }
+        }
+        public static bool CensoSxe
+        {
+            get { return censoSe; }
+            set { censoSe = value; }
+        }
+        public static bool SolicitudHc
+        {
+            get { return solicitudHc; }
+            set { solicitudHc = value; }
+        }
+        public static bool CierreTurno
+        {
+            get { return cierreTurno; }
+            set { cierreTurno = value; }
+        }
+        public static bool RangoEdades
+        {
+            get { return rangoEdades; }
+            set { rangoEdades = value; }
+        }
+        public static bool Defunciones
+        {
+            get { return defunciones; }
+            set { defunciones = value; }
+        }
+        public static bool RucCi
+        {
+            get { return rucCi; }
+            set { rucCi = value; }
+        }
+        public static bool Laboratorio
+        {
+            get { return laboratorio; }
+            set { laboratorio = value; }
+        }
+        public static bool Tarifario
+        {
+            get { return tarifario; }
+            set { tarifario = value; }
         }
 
-        public static bool EliminarPaciente
-        {
-            get
-            {
-                return eliminarPaciente;
-            }
-            set
-            {
-                eliminarPaciente = value;
-            }
-        }
 
-        public static bool AdmisionEmergencia
-        {
-            get { return admisionEmergencia; }
-            set { admisionEmergencia = value; }
-        }
 
         #endregion
     }

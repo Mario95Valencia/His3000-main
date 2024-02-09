@@ -142,18 +142,52 @@ namespace His.Admision
                         }
                     }
                 }
-
-                smnu_formularioshcu.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
-                mnu_Explorador.Enabled = His.Parametros.AccesosModuloAdmision.ExploradorPacientes;
+                //Se cambia para utilizar nuevos parametros para seguridades //Mario Valencia // 30/10/2023
+                //smnu_formularioshcu.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
+                //mnu_Explorador.Enabled = His.Parametros.AccesosModuloAdmision.ExploradorPacientes;
+                //mnu_admision.Enabled = His.Parametros.AccesosModuloAdmision.Admision;
+                //mnu_admisionEmergencia.Enabled = His.Parametros.AccesosModuloAdmision.AdmisionEmergencia;   
+                ////mnuEmergencias.Enabled = His.Parametros.AccesosModuloAdmision.Mantenimiento;
+                //mnu_informacionmorbimortalidad.Enabled = His.Parametros.AccesosModuloAdmision.InfMorbimortalidad;
+                //formulariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
+                mnu_archivo.Enabled = His.Parametros.AccesosModuloAdmision.Archivo;
+                checkListHCToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Check;
+                smnu_formularioshcu.Enabled = His.Parametros.AccesosModuloAdmision.Formulario;
+                smnu_salir.Enabled = His.Parametros.AccesosModuloAdmision.Salir;
                 mnu_admision.Enabled = His.Parametros.AccesosModuloAdmision.Admision;
-                mnu_admisionEmergencia.Enabled = His.Parametros.AccesosModuloAdmision.AdmisionEmergencia;   
-                //mnuEmergencias.Enabled = His.Parametros.AccesosModuloAdmision.Mantenimiento;
-                mnu_informacionmorbimortalidad.Enabled = His.Parametros.AccesosModuloAdmision.InfMorbimortalidad;
-                formulariosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.FormulariosHCU;
+                mnu_admisionEmergencia.Enabled = His.Parametros.AccesosModuloAdmision.AdmEmergenciaM;
+                admisiónEmergenciaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.AdmEmergencia;
+                procedimientosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.ServiciosExtermos;
+                preAdmisiónToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.PreIngreso;
+                estadisticaToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Estadistica;
+                controlHistoriasCliniasCheckListToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.ControlHc;
+                mnu_Explorador.Enabled = His.Parametros.AccesosModuloAdmision.Explorador;
+                pacientesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Pacientes;
+                atencionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Atenciones;
+                cuentasPorFacturarToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.CuentaFacturada;
+                habitacionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Habitaciones;
+                formulariosToolStripMenuItem1.Enabled = His.Parametros.AccesosModuloAdmision.Hc;
+                rubrosToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Rubros;
+                exploradorProcedimientoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.ExplProcedimientos;
+                exploradorDeRubrosProcedimientoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.ExpProcRubros;
+                reportesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Reportes;
+                mnu_informacionmorbimortalidad.Enabled = His.Parametros.AccesosModuloAdmision.Laboratorio;
+                tarifarioIESSToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Tarifario;
+                garantiasToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Garantias;
+                iNENToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Inec;
+                censoDiarioToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.CensoDiario;
+                censoDiarioSxEToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.CensoSxe;
+                solicitudDeHCToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.SolicitudHc;
+                cierreDeTurnoToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.CierreTurno;
+                rangoDeEdadesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.RangoEdades;
+                defuncionesToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.Defunciones;
+                rUCCIToolStripMenuItem.Enabled = His.Parametros.AccesosModuloAdmision.RucCi;
+
                 ultraStatusBarTarifario.Panels["empresa"].Text = Sesion.nomEmpresa;
                 ultraStatusBarTarifario.Panels["usuario"].Text = Sesion.nomUsuario;
-                if (NegParametros.ParametroAdmisionAcceso())
-                    ValidacionUsuario(perfilUsuario);
+                //Se comenta para utilizar nuevos parametros para seguridades //Mario Valencia // 30/10/2023
+                //if (NegParametros.ParametroAdmisionAcceso())
+                //    ValidacionUsuario(perfilUsuario);
                 //if (usuario.NOMBRES == usuario.APELLIDOS)
                 //{
                 //    txtNombres.Text = "Usr. " + string.Format("{0} ",
@@ -170,7 +204,7 @@ namespace His.Admision
             //EMPRESA empresa = NegEmpresa.RecuperaEmpresa();
 
             //txtEmpresa.Text = "Empresa " + string.Format("{0} ", empresa.EMP_NOMBRE);
-           // this.ultraStatusBarTarifario.Panels.Add("Usuario", Text)="adasd";
+            // this.ultraStatusBarTarifario.Panels.Add("Usuario", Text)="adasd";
 
         }
         public void ValidacionUsuario(List<PERFILES> perfiles)

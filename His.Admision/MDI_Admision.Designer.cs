@@ -133,7 +133,7 @@
             this.menuStrip.Location = new System.Drawing.Point(4, 34);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1204, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1204, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -145,39 +145,39 @@
             this.toolStripSeparator1,
             this.smnu_salir});
             this.mnu_archivo.Name = "mnu_archivo";
-            this.mnu_archivo.Size = new System.Drawing.Size(73, 24);
+            this.mnu_archivo.Size = new System.Drawing.Size(73, 26);
             this.mnu_archivo.Text = "Archivo";
             // 
             // checkListHCToolStripMenuItem
             // 
             this.checkListHCToolStripMenuItem.Name = "checkListHCToolStripMenuItem";
-            this.checkListHCToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.checkListHCToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.checkListHCToolStripMenuItem.Text = "CheckList HC";
             this.checkListHCToolStripMenuItem.Click += new System.EventHandler(this.checkListHCToolStripMenuItem_Click);
             // 
             // smnu_formularioshcu
             // 
             this.smnu_formularioshcu.Name = "smnu_formularioshcu";
-            this.smnu_formularioshcu.Size = new System.Drawing.Size(204, 26);
+            this.smnu_formularioshcu.Size = new System.Drawing.Size(224, 26);
             this.smnu_formularioshcu.Text = "Formularios HCU";
             this.smnu_formularioshcu.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // smnu_salir
             // 
             this.smnu_salir.Name = "smnu_salir";
-            this.smnu_salir.Size = new System.Drawing.Size(204, 26);
+            this.smnu_salir.Size = new System.Drawing.Size(224, 26);
             this.smnu_salir.Text = "Salir";
             this.smnu_salir.Click += new System.EventHandler(this.smnu_salir_Click);
             // 
             // mnu_admision
             // 
             this.mnu_admision.Name = "mnu_admision";
-            this.mnu_admision.Size = new System.Drawing.Size(86, 24);
+            this.mnu_admision.Size = new System.Drawing.Size(86, 26);
             this.mnu_admision.Text = "Admisión";
             this.mnu_admision.Click += new System.EventHandler(this.mnu_admision_Click);
             // 
@@ -188,7 +188,7 @@
             this.procedimientosToolStripMenuItem,
             this.preAdmisiónToolStripMenuItem});
             this.mnu_admisionEmergencia.Name = "mnu_admisionEmergencia";
-            this.mnu_admisionEmergencia.Size = new System.Drawing.Size(168, 24);
+            this.mnu_admisionEmergencia.Size = new System.Drawing.Size(168, 26);
             this.mnu_admisionEmergencia.Text = "Admisión Emergencia";
             this.mnu_admisionEmergencia.Click += new System.EventHandler(this.admisiónEmergenciaToolStripMenuItem_Click);
             // 
@@ -218,7 +218,7 @@
             this.estadisticaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.controlHistoriasCliniasCheckListToolStripMenuItem});
             this.estadisticaToolStripMenuItem.Name = "estadisticaToolStripMenuItem";
-            this.estadisticaToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.estadisticaToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.estadisticaToolStripMenuItem.Text = "Estadistica";
             // 
             // controlHistoriasCliniasCheckListToolStripMenuItem
@@ -242,7 +242,7 @@
             this.exploradorProcedimientoToolStripMenuItem,
             this.exploradorDeRubrosProcedimientoToolStripMenuItem});
             this.mnu_Explorador.Name = "mnu_Explorador";
-            this.mnu_Explorador.Size = new System.Drawing.Size(96, 24);
+            this.mnu_Explorador.Size = new System.Drawing.Size(96, 26);
             this.mnu_Explorador.Text = "Explorador";
             this.mnu_Explorador.Click += new System.EventHandler(this.exploradorToolStripMenuItem_Click);
             // 
@@ -325,7 +325,7 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.mnu_garantias.Name = "mnu_garantias";
-            this.mnu_garantias.Size = new System.Drawing.Size(85, 24);
+            this.mnu_garantias.Size = new System.Drawing.Size(85, 26);
             this.mnu_garantias.Text = "Garantias";
             this.mnu_garantias.Visible = false;
             // 
@@ -365,7 +365,7 @@
             this.defuncionesToolStripMenuItem,
             this.rUCCIToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // garantiasToolStripMenuItem
@@ -451,7 +451,7 @@
             this.laboratorioClinicoToolStripMenuItem,
             this.odontologiaToolStripMenuItem});
             this.formulariosToolStripMenuItem.Name = "formulariosToolStripMenuItem";
-            this.formulariosToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
+            this.formulariosToolStripMenuItem.Size = new System.Drawing.Size(101, 26);
             this.formulariosToolStripMenuItem.Text = "Formularios";
             this.formulariosToolStripMenuItem.Visible = false;
             // 
@@ -502,21 +502,22 @@
             this.mnu_informacionmorbimortalidad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tarifarioIESSToolStripMenuItem});
             this.mnu_informacionmorbimortalidad.Name = "mnu_informacionmorbimortalidad";
-            this.mnu_informacionmorbimortalidad.Size = new System.Drawing.Size(101, 24);
+            this.mnu_informacionmorbimortalidad.Size = new System.Drawing.Size(101, 26);
             this.mnu_informacionmorbimortalidad.Text = "Laboratorio";
             // 
             // tarifarioIESSToolStripMenuItem
             // 
             this.tarifarioIESSToolStripMenuItem.Name = "tarifarioIESSToolStripMenuItem";
-            this.tarifarioIESSToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.tarifarioIESSToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tarifarioIESSToolStripMenuItem.Text = "Tarifario IESS";
             this.tarifarioIESSToolStripMenuItem.Click += new System.EventHandler(this.tarifarioIESSToolStripMenuItem_Click);
             // 
             // helpMenu
             // 
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(65, 24);
+            this.helpMenu.Size = new System.Drawing.Size(65, 26);
             this.helpMenu.Text = "Ay&uda";
+            this.helpMenu.Visible = false;
             // 
             // ultraFormManager1
             // 
@@ -532,7 +533,7 @@
             this._MDI_Admision_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
             this._MDI_Admision_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
             this._MDI_Admision_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
-            this._MDI_Admision_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Admision_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Admision_UltraFormManager_Dock_Area_Left.Name = "_MDI_Admision_UltraFormManager_Dock_Area_Left";
             this._MDI_Admision_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 519);
             // 
@@ -545,7 +546,7 @@
             this._MDI_Admision_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._MDI_Admision_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
             this._MDI_Admision_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1208, 34);
-            this._MDI_Admision_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Admision_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Admision_UltraFormManager_Dock_Area_Right.Name = "_MDI_Admision_UltraFormManager_Dock_Area_Right";
             this._MDI_Admision_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 519);
             // 
@@ -557,7 +558,7 @@
             this._MDI_Admision_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDI_Admision_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._MDI_Admision_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._MDI_Admision_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Admision_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Admision_UltraFormManager_Dock_Area_Top.Name = "_MDI_Admision_UltraFormManager_Dock_Area_Top";
             this._MDI_Admision_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1212, 34);
             // 
@@ -569,7 +570,7 @@
             this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 553);
-            this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.Name = "_MDI_Admision_UltraFormManager_Dock_Area_Bottom";
             this._MDI_Admision_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1212, 0);
             // 
@@ -583,7 +584,7 @@
             this.ultraStatusBarTarifario.BorderStyle = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.BorderStylePanel = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 553);
-            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4);
             this.ultraStatusBarTarifario.Name = "ultraStatusBarTarifario";
             appearance2.TextVAlignAsString = "Middle";
             this.ultraStatusBarTarifario.PanelAppearance = appearance2;
@@ -714,7 +715,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDI_Admision";
             this.Text = "Pacientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

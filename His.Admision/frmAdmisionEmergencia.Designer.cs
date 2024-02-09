@@ -3573,7 +3573,7 @@
             this.btn_DeshReIng.Name = "btn_DeshReIng";
             this.btn_DeshReIng.Size = new System.Drawing.Size(179, 28);
             this.btn_DeshReIng.TabIndex = 313;
-            this.btn_DeshReIng.Text = "Deshabilitar Re Consulta";
+            this.btn_DeshReIng.Text = "Deshabilitar Re Ingreso";
             this.btn_DeshReIng.UseVisualStyleBackColor = true;
             this.btn_DeshReIng.Visible = false;
             this.btn_DeshReIng.Click += new System.EventHandler(this.btn_DeshReIng_Click);
@@ -3586,7 +3586,7 @@
             this.btn_Subsecuente.Name = "btn_Subsecuente";
             this.btn_Subsecuente.Size = new System.Drawing.Size(179, 28);
             this.btn_Subsecuente.TabIndex = 312;
-            this.btn_Subsecuente.Text = "Atención de Re Consulta";
+            this.btn_Subsecuente.Text = "Atención de Re Ingreso";
             this.btn_Subsecuente.UseVisualStyleBackColor = true;
             this.btn_Subsecuente.Visible = false;
             this.btn_Subsecuente.Click += new System.EventHandler(this.btn_Subsecuente_Click);

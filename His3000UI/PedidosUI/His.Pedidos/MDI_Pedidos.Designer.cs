@@ -90,10 +90,10 @@
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.button1);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 25);
-            this.ultraTabPageControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 21);
+            this.ultraTabPageControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
-            this.ultraTabPageControl1.Size = new System.Drawing.Size(1358, 139);
+            this.ultraTabPageControl1.Size = new System.Drawing.Size(1208, 110);
             // 
             // button1
             // 
@@ -104,10 +104,10 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::His.Pedidos.Properties.Resources.BOOrderItem_32x32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(10, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(9, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 109);
+            this.button1.Size = new System.Drawing.Size(100, 87);
             this.button1.TabIndex = 0;
             this.button1.Text = "Control de Despacho";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -117,7 +117,6 @@
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(223)))), ((int)(((byte)(245)))));
-            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_archivo,
@@ -125,10 +124,10 @@
             this.herramientasToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(5, 40);
+            this.menuStrip.Location = new System.Drawing.Point(4, 34);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1360, 36);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1210, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -138,13 +137,14 @@
             this.smnu_salir,
             this.nuevoToolStripMenuItem});
             this.mnu_archivo.Name = "mnu_archivo";
-            this.mnu_archivo.Size = new System.Drawing.Size(88, 32);
+            this.mnu_archivo.Size = new System.Drawing.Size(73, 24);
             this.mnu_archivo.Text = "Archivo";
+            this.mnu_archivo.Visible = false;
             // 
             // smnu_salir
             // 
             this.smnu_salir.Name = "smnu_salir";
-            this.smnu_salir.Size = new System.Drawing.Size(166, 34);
+            this.smnu_salir.Size = new System.Drawing.Size(224, 26);
             this.smnu_salir.Text = "Salir";
             this.smnu_salir.Click += new System.EventHandler(this.smnu_salir_Click);
             // 
@@ -154,20 +154,20 @@
             this.areasDeDistribucionToolStripMenuItem,
             this.estacionesDePedidosToolStripMenuItem});
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(166, 34);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // areasDeDistribucionToolStripMenuItem
             // 
             this.areasDeDistribucionToolStripMenuItem.Name = "areasDeDistribucionToolStripMenuItem";
-            this.areasDeDistribucionToolStripMenuItem.Size = new System.Drawing.Size(289, 34);
+            this.areasDeDistribucionToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.areasDeDistribucionToolStripMenuItem.Text = "Areas de Distribucion";
             this.areasDeDistribucionToolStripMenuItem.Click += new System.EventHandler(this.areasDeDistribucionToolStripMenuItem_Click);
             // 
             // estacionesDePedidosToolStripMenuItem
             // 
             this.estacionesDePedidosToolStripMenuItem.Name = "estacionesDePedidosToolStripMenuItem";
-            this.estacionesDePedidosToolStripMenuItem.Size = new System.Drawing.Size(289, 34);
+            this.estacionesDePedidosToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.estacionesDePedidosToolStripMenuItem.Text = "Estaciones de Pedidos";
             this.estacionesDePedidosToolStripMenuItem.Click += new System.EventHandler(this.estacionesDePedidosToolStripMenuItem_Click);
             // 
@@ -177,20 +177,21 @@
             this.asignarUsuarioToolStripMenuItem,
             this.asignarProductoToolStripMenuItem});
             this.areasDeDistribucionToolStripMenuItem1.Name = "areasDeDistribucionToolStripMenuItem1";
-            this.areasDeDistribucionToolStripMenuItem1.Size = new System.Drawing.Size(197, 32);
+            this.areasDeDistribucionToolStripMenuItem1.Size = new System.Drawing.Size(165, 24);
             this.areasDeDistribucionToolStripMenuItem1.Text = "Areas de Distribucion";
+            this.areasDeDistribucionToolStripMenuItem1.Visible = false;
             // 
             // asignarUsuarioToolStripMenuItem
             // 
             this.asignarUsuarioToolStripMenuItem.Name = "asignarUsuarioToolStripMenuItem";
-            this.asignarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(252, 34);
+            this.asignarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.asignarUsuarioToolStripMenuItem.Text = "Asignar Usuario";
             this.asignarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.asignarUsuarioToolStripMenuItem_Click);
             // 
             // asignarProductoToolStripMenuItem
             // 
             this.asignarProductoToolStripMenuItem.Name = "asignarProductoToolStripMenuItem";
-            this.asignarProductoToolStripMenuItem.Size = new System.Drawing.Size(252, 34);
+            this.asignarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.asignarProductoToolStripMenuItem.Text = "Asignar Producto";
             this.asignarProductoToolStripMenuItem.Click += new System.EventHandler(this.asignarProductoToolStripMenuItem_Click);
             // 
@@ -202,35 +203,35 @@
             this.monitoreoDeDevolucionesToolStripMenuItem,
             this.monitoreoDePedidosToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(133, 32);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
             // 
             // controlDeDespachoToolStripMenuItem
             // 
             this.controlDeDespachoToolStripMenuItem.Image = global::His.Pedidos.Properties.Resources.BOOrderItem_16x16;
             this.controlDeDespachoToolStripMenuItem.Name = "controlDeDespachoToolStripMenuItem";
-            this.controlDeDespachoToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.controlDeDespachoToolStripMenuItem.Size = new System.Drawing.Size(280, 30);
             this.controlDeDespachoToolStripMenuItem.Text = "Control de Despacho";
             this.controlDeDespachoToolStripMenuItem.Click += new System.EventHandler(this.controlDeDespachoToolStripMenuItem_Click);
             // 
             // exploradorDePedidosToolStripMenuItem
             // 
             this.exploradorDePedidosToolStripMenuItem.Name = "exploradorDePedidosToolStripMenuItem";
-            this.exploradorDePedidosToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.exploradorDePedidosToolStripMenuItem.Size = new System.Drawing.Size(280, 30);
             this.exploradorDePedidosToolStripMenuItem.Text = "Explorador de Pedidos";
             this.exploradorDePedidosToolStripMenuItem.Click += new System.EventHandler(this.exploradorDePedidosToolStripMenuItem_Click);
             // 
             // monitoreoDeDevolucionesToolStripMenuItem
             // 
             this.monitoreoDeDevolucionesToolStripMenuItem.Name = "monitoreoDeDevolucionesToolStripMenuItem";
-            this.monitoreoDeDevolucionesToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.monitoreoDeDevolucionesToolStripMenuItem.Size = new System.Drawing.Size(280, 30);
             this.monitoreoDeDevolucionesToolStripMenuItem.Text = "Monitoreo de Devoluciones";
             this.monitoreoDeDevolucionesToolStripMenuItem.Click += new System.EventHandler(this.monitoreoDeDevolucionesToolStripMenuItem_Click);
             // 
             // monitoreoDePedidosToolStripMenuItem
             // 
             this.monitoreoDePedidosToolStripMenuItem.Name = "monitoreoDePedidosToolStripMenuItem";
-            this.monitoreoDePedidosToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.monitoreoDePedidosToolStripMenuItem.Size = new System.Drawing.Size(280, 30);
             this.monitoreoDePedidosToolStripMenuItem.Text = "Monitoreo de Pedidos";
             this.monitoreoDePedidosToolStripMenuItem.Click += new System.EventHandler(this.monitoreoDePedidosToolStripMenuItem_Click);
             // 
@@ -239,13 +240,13 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaPedidosToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(98, 32);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // consultaPedidosToolStripMenuItem
             // 
             this.consultaPedidosToolStripMenuItem.Name = "consultaPedidosToolStripMenuItem";
-            this.consultaPedidosToolStripMenuItem.Size = new System.Drawing.Size(251, 34);
+            this.consultaPedidosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.consultaPedidosToolStripMenuItem.Text = "Consulta Pedidos";
             this.consultaPedidosToolStripMenuItem.Click += new System.EventHandler(this.consultaPedidosToolStripMenuItem_Click);
             // 
@@ -258,14 +259,15 @@
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(79, 32);
+            this.helpMenu.Size = new System.Drawing.Size(65, 24);
             this.helpMenu.Text = "Ay&uda";
+            this.helpMenu.Visible = false;
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.contentsToolStripMenuItem.Text = "&Contenido";
             // 
             // indexToolStripMenuItem
@@ -273,7 +275,7 @@
             this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
             this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.indexToolStripMenuItem.Text = "&Índice";
             // 
             // searchToolStripMenuItem
@@ -281,18 +283,18 @@
             this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.searchToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(264, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(225, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
             // ultraFormManager1
@@ -307,11 +309,11 @@
             this._MDIPedidos_UltraFormManager_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Left;
             this._MDIPedidos_UltraFormManager_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDIPedidos_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
-            this._MDIPedidos_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 5;
-            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 40);
-            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
+            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._MDIPedidos_UltraFormManager_Dock_Area_Left.Name = "_MDIPedidos_UltraFormManager_Dock_Area_Left";
-            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(5, 652);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 519);
             // 
             // _MDIPedidos_UltraFormManager_Dock_Area_Right
             // 
@@ -320,11 +322,11 @@
             this._MDIPedidos_UltraFormManager_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Right;
             this._MDIPedidos_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDIPedidos_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
-            this._MDIPedidos_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 5;
-            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1365, 40);
-            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
+            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1214, 34);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._MDIPedidos_UltraFormManager_Dock_Area_Right.Name = "_MDIPedidos_UltraFormManager_Dock_Area_Right";
-            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(5, 652);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 519);
             // 
             // _MDIPedidos_UltraFormManager_Dock_Area_Top
             // 
@@ -334,9 +336,9 @@
             this._MDIPedidos_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDIPedidos_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._MDIPedidos_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._MDIPedidos_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._MDIPedidos_UltraFormManager_Dock_Area_Top.Name = "_MDIPedidos_UltraFormManager_Dock_Area_Top";
-            this._MDIPedidos_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1370, 40);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1218, 34);
             // 
             // _MDIPedidos_UltraFormManager_Dock_Area_Bottom
             // 
@@ -345,10 +347,10 @@
             this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Bottom;
             this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
-            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 692);
-            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 553);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Name = "_MDIPedidos_UltraFormManager_Dock_Area_Bottom";
-            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1370, 0);
+            this._MDIPedidos_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1218, 0);
             // 
             // ultraStatusBarTarifario
             // 
@@ -359,8 +361,8 @@
             this.ultraStatusBarTarifario.Appearance = appearance8;
             this.ultraStatusBarTarifario.BorderStyle = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.BorderStylePanel = Infragistics.Win.UIElementBorderStyle.WindowsVista;
-            this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 692);
-            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 553);
+            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultraStatusBarTarifario.Name = "ultraStatusBarTarifario";
             appearance1.TextVAlignAsString = "Middle";
             this.ultraStatusBarTarifario.PanelAppearance = appearance1;
@@ -402,7 +404,7 @@
             ultraStatusPanel3,
             ultraStatusPanel4,
             ultraStatusPanel5});
-            this.ultraStatusBarTarifario.Size = new System.Drawing.Size(1370, 57);
+            this.ultraStatusBarTarifario.Size = new System.Drawing.Size(1218, 46);
             this.ultraStatusBarTarifario.TabIndex = 31;
             this.ultraStatusBarTarifario.Text = "ultraStatusBarTarifario";
             this.ultraStatusBarTarifario.ViewStyle = Infragistics.Win.UltraWinStatusBar.ViewStyle.Office2007;
@@ -413,11 +415,11 @@
             this.ultraTabControl1.Controls.Add(this.ultraTabSharedControlsPage1);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl1);
             this.ultraTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ultraTabControl1.Location = new System.Drawing.Point(5, 76);
-            this.ultraTabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ultraTabControl1.Location = new System.Drawing.Point(4, 62);
+            this.ultraTabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultraTabControl1.Name = "ultraTabControl1";
             this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.ultraTabControl1.Size = new System.Drawing.Size(1360, 165);
+            this.ultraTabControl1.Size = new System.Drawing.Size(1210, 132);
             this.ultraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Excel;
             this.ultraTabControl1.TabIndex = 75;
             appearance6.FontData.BoldAsString = "True";
@@ -438,24 +440,24 @@
             // ultraTabSharedControlsPage1
             // 
             this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabSharedControlsPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ultraTabSharedControlsPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(1358, 139);
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(1208, 110);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(780, 952);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.progressBar1.Location = new System.Drawing.Point(693, 762);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(250, 35);
+            this.progressBar1.Size = new System.Drawing.Size(222, 28);
             this.progressBar1.TabIndex = 81;
             this.progressBar1.Visible = false;
             // 
             // MDIPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1218, 599);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.ultraTabControl1);
             this.Controls.Add(this.menuStrip);
@@ -468,7 +470,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MDIPedidos";
             this.Text = "Módulo de Pedidos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

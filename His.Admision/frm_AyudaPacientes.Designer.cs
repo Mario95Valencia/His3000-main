@@ -86,7 +86,7 @@
             this.panel.ClientArea.Controls.Add(this.ultraGroupBox1);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(4, 33);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
             scrollBarLook1.ViewStyle = Infragistics.Win.UltraWinScrollBar.ScrollBarViewStyle.Office2007;
             this.panel.ScrollBarLook = scrollBarLook1;
@@ -153,7 +153,7 @@
             this.grid.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grid.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grid.Location = new System.Drawing.Point(4, 81);
-            this.grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grid.Margin = new System.Windows.Forms.Padding(4);
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(758, 282);
             this.grid.TabIndex = 3;
@@ -171,7 +171,7 @@
             appearance3.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             this.btnActualizar.Appearance = appearance3;
             this.btnActualizar.Location = new System.Drawing.Point(711, 39);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(43, 34);
             this.btnActualizar.TabIndex = 2;
@@ -193,7 +193,7 @@
             appearance2.FontData.BoldAsString = "True";
             this.ultraGroupBox1.HeaderAppearance = appearance2;
             this.ultraGroupBox1.Location = new System.Drawing.Point(16, 5);
-            this.ultraGroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraGroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraGroupBox1.Name = "ultraGroupBox1";
             this.ultraGroupBox1.Size = new System.Drawing.Size(682, 74);
             this.ultraGroupBox1.TabIndex = 0;
@@ -202,7 +202,7 @@
             // ultraLabel4
             // 
             this.ultraLabel4.Location = new System.Drawing.Point(8, 22);
-            this.ultraLabel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraLabel4.Margin = new System.Windows.Forms.Padding(4);
             this.ultraLabel4.Name = "ultraLabel4";
             this.ultraLabel4.Size = new System.Drawing.Size(61, 15);
             this.ultraLabel4.TabIndex = 7;
@@ -212,7 +212,7 @@
             // 
             this.cb_numFilas.FormattingEnabled = true;
             this.cb_numFilas.Location = new System.Drawing.Point(8, 39);
-            this.cb_numFilas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_numFilas.Margin = new System.Windows.Forms.Padding(4);
             this.cb_numFilas.Name = "cb_numFilas";
             this.cb_numFilas.Size = new System.Drawing.Size(95, 25);
             this.cb_numFilas.TabIndex = 6;
@@ -223,7 +223,7 @@
             // 
             this.ultraLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ultraLabel3.Location = new System.Drawing.Point(556, 22);
-            this.ultraLabel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraLabel3.Margin = new System.Windows.Forms.Padding(4);
             this.ultraLabel3.Name = "ultraLabel3";
             this.ultraLabel3.Size = new System.Drawing.Size(120, 15);
             this.ultraLabel3.TabIndex = 5;
@@ -233,7 +233,7 @@
             // 
             this.txt_busqCi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_busqCi.Location = new System.Drawing.Point(556, 39);
-            this.txt_busqCi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_busqCi.Margin = new System.Windows.Forms.Padding(4);
             this.txt_busqCi.Name = "txt_busqCi";
             this.txt_busqCi.Size = new System.Drawing.Size(120, 25);
             this.txt_busqCi.TabIndex = 2;
@@ -242,7 +242,7 @@
             // ultraLabel2
             // 
             this.ultraLabel2.Location = new System.Drawing.Point(227, 22);
-            this.ultraLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraLabel2.Margin = new System.Windows.Forms.Padding(4);
             this.ultraLabel2.Name = "ultraLabel2";
             this.ultraLabel2.Size = new System.Drawing.Size(139, 15);
             this.ultraLabel2.TabIndex = 3;
@@ -254,7 +254,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_busqNom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txt_busqNom.Location = new System.Drawing.Point(225, 39);
-            this.txt_busqNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_busqNom.Margin = new System.Windows.Forms.Padding(4);
             this.txt_busqNom.Name = "txt_busqNom";
             this.txt_busqNom.Size = new System.Drawing.Size(331, 25);
             this.txt_busqNom.TabIndex = 1;
@@ -263,7 +263,7 @@
             // ultraLabel1
             // 
             this.ultraLabel1.Location = new System.Drawing.Point(105, 22);
-            this.ultraLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ultraLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.ultraLabel1.Name = "ultraLabel1";
             this.ultraLabel1.Size = new System.Drawing.Size(120, 15);
             this.ultraLabel1.TabIndex = 1;
@@ -272,7 +272,7 @@
             // txt_busqHist
             // 
             this.txt_busqHist.Location = new System.Drawing.Point(105, 39);
-            this.txt_busqHist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_busqHist.Margin = new System.Windows.Forms.Padding(4);
             this.txt_busqHist.Name = "txt_busqHist";
             this.txt_busqHist.Size = new System.Drawing.Size(120, 25);
             this.txt_busqHist.TabIndex = 0;
@@ -291,7 +291,7 @@
             this._frm_Ayudas_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._frm_Ayudas_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_Ayudas_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Ayudas_UltraFormManager_Dock_Area_Top.Name = "_frm_Ayudas_UltraFormManager_Dock_Area_Top";
             this._frm_Ayudas_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(775, 33);
             // 
@@ -304,7 +304,7 @@
             this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 4;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 400);
-            this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.Name = "_frm_Ayudas_UltraFormManager_Dock_Area_Bottom";
             this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(775, 4);
             // 
@@ -317,7 +317,7 @@
             this._frm_Ayudas_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 33);
-            this._frm_Ayudas_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_Ayudas_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Ayudas_UltraFormManager_Dock_Area_Left.Name = "_frm_Ayudas_UltraFormManager_Dock_Area_Left";
             this._frm_Ayudas_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 367);
             // 
@@ -330,7 +330,7 @@
             this._frm_Ayudas_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
             this._frm_Ayudas_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(771, 33);
-            this._frm_Ayudas_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._frm_Ayudas_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Ayudas_UltraFormManager_Dock_Area_Right.Name = "_frm_Ayudas_UltraFormManager_Dock_Area_Right";
             this._frm_Ayudas_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 367);
             // 
@@ -344,7 +344,7 @@
             this.Controls.Add(this._frm_Ayudas_UltraFormManager_Dock_Area_Right);
             this.Controls.Add(this._frm_Ayudas_UltraFormManager_Dock_Area_Top);
             this.Controls.Add(this._frm_Ayudas_UltraFormManager_Dock_Area_Bottom);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_AyudaPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayuda";

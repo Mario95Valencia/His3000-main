@@ -86,25 +86,44 @@ namespace His.Formulario
             string estado = atenciones.EstadoCuenta(Convert.ToString(codigoAtencion));
             List<PERFILES> perfilUsuario = new NegPerfil().RecuperarPerfil(His.Entidades.Clases.Sesion.codUsuario);
 
+            //if (estado != "1")
+            //{
+            //    foreach (var item in perfilUsuario)
+            //    {
+            //        if (item.ID_PERFIL == 31) //validara con codigo
+            //        {
+            //            if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+            //            {
+            //                _valido = true;
+            //                break;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
+            //            {
+            //                _valido = true;
+            //                break;
+            //            }
+            //        }
+            //    }
+            //    if (!_valido)
+            //        Bloquear();
+            //}
             if (estado != "1")
             {
                 foreach (var item in perfilUsuario)
                 {
-                    if (item.ID_PERFIL == 31) //validara con codigo
+                    List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(item.ID_PERFIL, 4);
+                    foreach (var items in accop)
                     {
-                        if (item.DESCRIPCION.Contains("HCS")) //valida contra la descripcion
+                        if (items.ID_ACCESO == 45000) // Mario Valencia 21/12/2023 // cambio en seguridades.
                         {
                             _valido = true;
                             break;
                         }
-                    }
-                    else
-                    {
-                        if (item.DESCRIPCION.Contains("HCS")) //solo valida contra la descripcion
-                        {
+                        else
                             _valido = true;
-                            break;
-                        }
                     }
                 }
                 if (!_valido)

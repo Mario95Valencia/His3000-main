@@ -159,7 +159,7 @@ namespace His.Datos
         /// </summary>
         /// <param name="codAtencion"></param>
         /// <returns>Retorna la lista de cuentas del paciente según la atención</returns>
-        public List<CUENTAS_PACIENTES> RecuperarCuenta(int codAtencion)
+        public List<CUENTAS_PACIENTES> RecuperarCuenta(Int64 codAtencion)
         {
             try
             {

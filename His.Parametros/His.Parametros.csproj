@@ -60,10 +60,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoModuloMedicos.cs" />
+    <Compile Include="AccesoModuloPedidosEspeciales.cs" />
     <Compile Include="AccesosModuloAcceso.cs" />
     <Compile Include="AccesosModuloAdmision.cs" />
+    <Compile Include="AccesosModuloConsultaExterna.cs" />
+    <Compile Include="AccesosModuloCuentaPaciente.cs" />
+    <Compile Include="AccesosModuloEmergencia.cs" />
     <Compile Include="AccesosModuloHonorarios.cs" />
     <Compile Include="AccesosModuloMantenimiento.cs" />
+    <Compile Include="AccesosModuloPedidos.cs" />
     <Compile Include="AccesosModuloTarifario.cs" />
     <Compile Include="AdmisionParametros.cs" />
     <Compile Include="ArchivoIni.cs" />

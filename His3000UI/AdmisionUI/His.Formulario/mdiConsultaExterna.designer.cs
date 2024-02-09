@@ -79,8 +79,9 @@
             this.P_Central.Controls.Add(this.P_Barra);
             this.P_Central.Dock = System.Windows.Forms.DockStyle.Fill;
             this.P_Central.Location = new System.Drawing.Point(0, 0);
+            this.P_Central.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Central.Name = "P_Central";
-            this.P_Central.Size = new System.Drawing.Size(888, 512);
+            this.P_Central.Size = new System.Drawing.Size(1184, 630);
             this.P_Central.TabIndex = 0;
             // 
             // P_Formularios
@@ -88,9 +89,10 @@
             this.P_Formularios.BackColor = System.Drawing.Color.Black;
             this.P_Formularios.Controls.Add(this.pictureBox1);
             this.P_Formularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.P_Formularios.Location = new System.Drawing.Point(250, 23);
+            this.P_Formularios.Location = new System.Drawing.Point(333, 28);
+            this.P_Formularios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Formularios.Name = "P_Formularios";
-            this.P_Formularios.Size = new System.Drawing.Size(638, 489);
+            this.P_Formularios.Size = new System.Drawing.Size(851, 602);
             this.P_Formularios.TabIndex = 2;
             // 
             // pictureBox1
@@ -99,8 +101,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(638, 489);
+            this.pictureBox1.Size = new System.Drawing.Size(851, 602);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -116,9 +119,10 @@
             this.P_Menu.Controls.Add(this.btnAgenda);
             this.P_Menu.Controls.Add(this.P_Login);
             this.P_Menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.P_Menu.Location = new System.Drawing.Point(0, 23);
+            this.P_Menu.Location = new System.Drawing.Point(0, 28);
+            this.P_Menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Menu.Name = "P_Menu";
-            this.P_Menu.Size = new System.Drawing.Size(250, 489);
+            this.P_Menu.Size = new System.Drawing.Size(333, 602);
             this.P_Menu.TabIndex = 1;
             // 
             // btnSalir
@@ -134,10 +138,11 @@
             this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(0, 416);
+            this.btnSalir.Location = new System.Drawing.Point(0, 511);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnSalir.Size = new System.Drawing.Size(233, 40);
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
+            this.btnSalir.Size = new System.Drawing.Size(312, 49);
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Tag = "";
             this.btnSalir.Text = "SALIR DEL MÓDULO";
@@ -158,9 +163,10 @@
             this.P_Inventario.Controls.Add(this.btnTriaje);
             this.P_Inventario.Controls.Add(this.btnAdmisionCE);
             this.P_Inventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.P_Inventario.Location = new System.Drawing.Point(0, 141);
+            this.P_Inventario.Location = new System.Drawing.Point(0, 173);
+            this.P_Inventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Inventario.Name = "P_Inventario";
-            this.P_Inventario.Size = new System.Drawing.Size(233, 275);
+            this.P_Inventario.Size = new System.Drawing.Size(312, 338);
             this.P_Inventario.TabIndex = 1;
             // 
             // button2
@@ -174,11 +180,11 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 240);
+            this.button2.Location = new System.Drawing.Point(0, 296);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(233, 30);
+            this.button2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(312, 37);
             this.button2.TabIndex = 23;
             this.button2.Text = "EXPLORADOR DE RECETA";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -196,11 +202,11 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 210);
+            this.button1.Location = new System.Drawing.Point(0, 259);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 30);
+            this.button1.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(312, 37);
             this.button1.TabIndex = 22;
             this.button1.Text = "EXPLORADOR DE CERTIFICADO";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,11 +224,11 @@
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.Location = new System.Drawing.Point(0, 180);
+            this.btnReportes.Location = new System.Drawing.Point(0, 222);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(0);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(233, 30);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(312, 37);
             this.btnReportes.TabIndex = 21;
             this.btnReportes.Text = "EXPLORADOR CONSULTA EXTERNA";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,11 +246,11 @@
             this.btnFacturaCE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.btnFacturaCE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFacturaCE.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturaCE.Location = new System.Drawing.Point(0, 150);
+            this.btnFacturaCE.Location = new System.Drawing.Point(0, 185);
             this.btnFacturaCE.Margin = new System.Windows.Forms.Padding(0);
             this.btnFacturaCE.Name = "btnFacturaCE";
-            this.btnFacturaCE.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnFacturaCE.Size = new System.Drawing.Size(233, 30);
+            this.btnFacturaCE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnFacturaCE.Size = new System.Drawing.Size(312, 37);
             this.btnFacturaCE.TabIndex = 20;
             this.btnFacturaCE.Text = "FACTURACIÓN";
             this.btnFacturaCE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,11 +268,11 @@
             this.btnConsultaEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.btnConsultaEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultaEx.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultaEx.Location = new System.Drawing.Point(0, 120);
+            this.btnConsultaEx.Location = new System.Drawing.Point(0, 148);
             this.btnConsultaEx.Margin = new System.Windows.Forms.Padding(0);
             this.btnConsultaEx.Name = "btnConsultaEx";
-            this.btnConsultaEx.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnConsultaEx.Size = new System.Drawing.Size(233, 30);
+            this.btnConsultaEx.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnConsultaEx.Size = new System.Drawing.Size(312, 37);
             this.btnConsultaEx.TabIndex = 19;
             this.btnConsultaEx.Text = "CONSULTA";
             this.btnConsultaEx.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,11 +290,11 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 90);
+            this.button3.Location = new System.Drawing.Point(0, 111);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(233, 30);
+            this.button3.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(312, 37);
             this.button3.TabIndex = 18;
             this.button3.Text = "HABITACIONES";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,11 +312,11 @@
             this.btnIngresaOrden.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.btnIngresaOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresaOrden.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresaOrden.Location = new System.Drawing.Point(0, 60);
+            this.btnIngresaOrden.Location = new System.Drawing.Point(0, 74);
             this.btnIngresaOrden.Margin = new System.Windows.Forms.Padding(0);
             this.btnIngresaOrden.Name = "btnIngresaOrden";
-            this.btnIngresaOrden.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnIngresaOrden.Size = new System.Drawing.Size(233, 30);
+            this.btnIngresaOrden.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnIngresaOrden.Size = new System.Drawing.Size(312, 37);
             this.btnIngresaOrden.TabIndex = 17;
             this.btnIngresaOrden.Text = "SIGNOS VITALES";
             this.btnIngresaOrden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,11 +334,11 @@
             this.btnTriaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.btnTriaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTriaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTriaje.Location = new System.Drawing.Point(0, 30);
+            this.btnTriaje.Location = new System.Drawing.Point(0, 37);
             this.btnTriaje.Margin = new System.Windows.Forms.Padding(0);
             this.btnTriaje.Name = "btnTriaje";
-            this.btnTriaje.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnTriaje.Size = new System.Drawing.Size(233, 30);
+            this.btnTriaje.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnTriaje.Size = new System.Drawing.Size(312, 37);
             this.btnTriaje.TabIndex = 16;
             this.btnTriaje.Text = "TRIAJE Y SIGNOS VITALES";
             this.btnTriaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -353,8 +359,8 @@
             this.btnAdmisionCE.Location = new System.Drawing.Point(0, 0);
             this.btnAdmisionCE.Margin = new System.Windows.Forms.Padding(0);
             this.btnAdmisionCE.Name = "btnAdmisionCE";
-            this.btnAdmisionCE.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnAdmisionCE.Size = new System.Drawing.Size(233, 30);
+            this.btnAdmisionCE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnAdmisionCE.Size = new System.Drawing.Size(312, 37);
             this.btnAdmisionCE.TabIndex = 15;
             this.btnAdmisionCE.Text = "ADMISION PACIENTE";
             this.btnAdmisionCE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -374,9 +380,10 @@
             this.btnConsultaExterna.ForeColor = System.Drawing.Color.Transparent;
             this.btnConsultaExterna.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaExterna.Image")));
             this.btnConsultaExterna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaExterna.Location = new System.Drawing.Point(0, 101);
+            this.btnConsultaExterna.Location = new System.Drawing.Point(0, 124);
+            this.btnConsultaExterna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConsultaExterna.Name = "btnConsultaExterna";
-            this.btnConsultaExterna.Size = new System.Drawing.Size(233, 40);
+            this.btnConsultaExterna.Size = new System.Drawing.Size(312, 49);
             this.btnConsultaExterna.TabIndex = 2;
             this.btnConsultaExterna.Tag = "";
             this.btnConsultaExterna.Text = "Consulta Externa";
@@ -389,9 +396,10 @@
             this.P_Cliente.Controls.Add(this.button4);
             this.P_Cliente.Controls.Add(this.btnAgendaConsulta);
             this.P_Cliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.P_Cliente.Location = new System.Drawing.Point(0, 40);
+            this.P_Cliente.Location = new System.Drawing.Point(0, 49);
+            this.P_Cliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Cliente.Name = "P_Cliente";
-            this.P_Cliente.Size = new System.Drawing.Size(233, 61);
+            this.P_Cliente.Size = new System.Drawing.Size(312, 75);
             this.P_Cliente.TabIndex = 1;
             // 
             // button4
@@ -405,11 +413,11 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(126)))), ((int)(((byte)(233)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(0, 30);
+            this.button4.Location = new System.Drawing.Point(0, 37);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(233, 30);
+            this.button4.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(312, 37);
             this.button4.TabIndex = 5;
             this.button4.Text = "EXPLORADOR DE CITAS MEDICAS";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -430,8 +438,8 @@
             this.btnAgendaConsulta.Location = new System.Drawing.Point(0, 0);
             this.btnAgendaConsulta.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgendaConsulta.Name = "btnAgendaConsulta";
-            this.btnAgendaConsulta.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btnAgendaConsulta.Size = new System.Drawing.Size(233, 30);
+            this.btnAgendaConsulta.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnAgendaConsulta.Size = new System.Drawing.Size(312, 37);
             this.btnAgendaConsulta.TabIndex = 4;
             this.btnAgendaConsulta.Text = "AGENDAMIENTO PACIENTE";
             this.btnAgendaConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -452,8 +460,9 @@
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgenda.Location = new System.Drawing.Point(0, 0);
+            this.btnAgenda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Size = new System.Drawing.Size(233, 40);
+            this.btnAgenda.Size = new System.Drawing.Size(312, 49);
             this.btnAgenda.TabIndex = 0;
             this.btnAgenda.Tag = "";
             this.btnAgenda.Text = "Agenda";
@@ -470,9 +479,10 @@
             this.P_Login.Controls.Add(this.lblDepartamento);
             this.P_Login.Controls.Add(this.lblUsuario);
             this.P_Login.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.P_Login.Location = new System.Drawing.Point(0, 456);
+            this.P_Login.Location = new System.Drawing.Point(0, 560);
+            this.P_Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Login.Name = "P_Login";
-            this.P_Login.Size = new System.Drawing.Size(233, 100);
+            this.P_Login.Size = new System.Drawing.Size(312, 123);
             this.P_Login.TabIndex = 1;
             // 
             // label1
@@ -480,18 +490,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
-            this.label1.Location = new System.Drawing.Point(61, 5);
+            this.label1.Location = new System.Drawing.Point(81, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 29);
+            this.label1.Size = new System.Drawing.Size(150, 38);
             this.label1.TabIndex = 14;
             this.label1.Text = "USUARIO";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 18);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 22);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 70);
+            this.pictureBox2.Size = new System.Drawing.Size(83, 86);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
@@ -501,9 +513,10 @@
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Comic Sans MS", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartamento.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblDepartamento.Location = new System.Drawing.Point(60, 41);
+            this.lblDepartamento.Location = new System.Drawing.Point(80, 50);
+            this.lblDepartamento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(112, 18);
+            this.lblDepartamento.Size = new System.Drawing.Size(136, 22);
             this.lblDepartamento.TabIndex = 12;
             this.lblDepartamento.Text = "DEPARTAMENTO";
             // 
@@ -512,9 +525,10 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Comic Sans MS", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblUsuario.Location = new System.Drawing.Point(60, 65);
+            this.lblUsuario.Location = new System.Drawing.Point(80, 80);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(63, 18);
+            this.lblUsuario.Size = new System.Drawing.Size(75, 22);
             this.lblUsuario.TabIndex = 13;
             this.lblUsuario.Text = "NOMBRE";
             // 
@@ -526,8 +540,9 @@
             this.P_Barra.Controls.Add(this.btnMaximiza);
             this.P_Barra.Dock = System.Windows.Forms.DockStyle.Top;
             this.P_Barra.Location = new System.Drawing.Point(0, 0);
+            this.P_Barra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.P_Barra.Name = "P_Barra";
-            this.P_Barra.Size = new System.Drawing.Size(888, 23);
+            this.P_Barra.Size = new System.Drawing.Size(1184, 28);
             this.P_Barra.TabIndex = 0;
             this.P_Barra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.P_Barra_MouseMove);
             // 
@@ -536,7 +551,8 @@
             this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNormal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNormal.Image = ((System.Drawing.Image)(resources.GetObject("btnNormal.Image")));
-            this.btnNormal.Location = new System.Drawing.Point(869, 3);
+            this.btnNormal.Location = new System.Drawing.Point(1159, 4);
+            this.btnNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNormal.Name = "btnNormal";
             this.btnNormal.Size = new System.Drawing.Size(16, 16);
             this.btnNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -550,7 +566,8 @@
             this.btnMinizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinizar.Image")));
-            this.btnMinizar.Location = new System.Drawing.Point(845, 3);
+            this.btnMinizar.Location = new System.Drawing.Point(1127, 4);
+            this.btnMinizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMinizar.Name = "btnMinizar";
             this.btnMinizar.Size = new System.Drawing.Size(16, 16);
             this.btnMinizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -563,9 +580,10 @@
             this.btnMaximiza.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximiza.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximiza.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximiza.Image")));
-            this.btnMaximiza.Location = new System.Drawing.Point(869, 3);
+            this.btnMaximiza.Location = new System.Drawing.Point(1159, 4);
+            this.btnMaximiza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximiza.Name = "btnMaximiza";
-            this.btnMaximiza.Size = new System.Drawing.Size(16, 16);
+            this.btnMaximiza.Size = new System.Drawing.Size(21, 20);
             this.btnMaximiza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMaximiza.TabIndex = 3;
             this.btnMaximiza.TabStop = false;
@@ -573,14 +591,15 @@
             // 
             // mdiConsultaExterna
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(888, 512);
+            this.ClientSize = new System.Drawing.Size(1184, 630);
             this.Controls.Add(this.P_Central);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(650, 472);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(867, 581);
             this.Name = "mdiConsultaExterna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mdiConsultaExterna";

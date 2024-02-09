@@ -24,7 +24,7 @@ namespace TarifariosUI
         public frmAdministrarConvenios()
         {
             InitializeComponent();
-            menu.Enabled = His.Parametros.AccesosModuloTarifario.ConveniosCRUD;
+            //menu.Enabled = His.Parametros.AccesosModuloTarifario.ConveniosCRUD;
             conexion = new HIS3000BDEntities(ConexionEntidades.ConexionEDM); 
             cargarFiltros();
         }

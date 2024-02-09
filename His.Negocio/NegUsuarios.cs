@@ -38,7 +38,7 @@ namespace His.Negocio
             return new DatUsuarios().BuscaUsuario(nomusuario);
 
         }
-        public static DataTable cargarAreaAsignada()
+        public static List<ARE_ASIGNADA> cargarAreaAsignada()
         {
             return new DatUsuarios().cargarAreaAsignada();
         }
@@ -93,9 +93,9 @@ namespace His.Negocio
         {
             new DatUsuarios().ActualizarUsuario(usuario);
         }
-        public static void EliminarUsuario(USUARIOS usuario)
+        public static bool EliminarUsuario(Int64 id_usuario)
         {
-            new DatUsuarios().EliminarUsuario(usuario);
+            return new DatUsuarios().EliminarUsuario(id_usuario);
         }
         public static Int16 RecuperaMaximoUsuario()
         {
@@ -161,7 +161,7 @@ namespace His.Negocio
         {
             return new DatUsuarios().AreaAsignada(ID_USUARIO);
         }
-        public static USUARIOS RecuperaUsuario(Int32 codusu)
+        public static USUARIOS RecuperaUsuario(Int64 codusu)
         {
             return new DatUsuarios().RecuperaUsuario(codusu);
         }
@@ -310,11 +310,11 @@ namespace His.Negocio
         {
             return new DatUsuarios().RecuperarUsuarioActual(id_usuario);
         }
-        public static DataTable ConsultaDepartamento(int dep)
+        public static DEPARTAMENTOS ConsultaDepartamento(int dep)
         {
             return new DatUsuarios().ConsultaDepartamento(dep);
         }
-        public static DataTable ConsultaArea(int area)
+        public static ARE_ASIGNADA ConsultaArea(int area)
         {
             return new DatUsuarios().ConsultaArea(area);
         }
@@ -343,7 +343,7 @@ namespace His.Negocio
         {
             return new DatUsuarios().UsuariosSic();
         }
-        public static DataTable ModuloSic()
+        public static List<DtoModulo> ModuloSic()
         {
             return new DatUsuarios().ModuloSic();
         }
@@ -351,7 +351,7 @@ namespace His.Negocio
         {
             return new DatUsuarios().UsuariosCG();
         }
-        public static DataTable ModuloCG()
+        public static List<DtoModulo> ModuloCG()
         {
             return new DatUsuarios().ModuloCG();
         }
@@ -399,7 +399,26 @@ namespace His.Negocio
         {
             return new DatUsuarios().ListaSic();
         }
-
+        public static DataTable opcionesXModuloSic(Int64 codmod)
+        {
+            return new DatUsuarios().opcionesXModuloSic(codmod);
+        }
+        public static DataTable opcionesXModuloCg(Int64 codmod)
+        {
+            return new DatUsuarios().opcionesXModuloCg(codmod);
+        }
+        public static DataTable usuarioXCedulaCg(string cedula)
+        {
+            return new DatUsuarios().usuarioXCedulaCg(cedula);
+        }
+        public static DataTable usuarioXCedulaSic(string cedula)
+        {
+            return new DatUsuarios().usuarioXCedulaSic(cedula);
+        }
+        public static List<object> RecuperaListaUsuario()
+        {
+            return new DatUsuarios().RecuperaListaUsuario();
+        }
     }
 
 }

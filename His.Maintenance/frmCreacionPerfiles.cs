@@ -10,6 +10,7 @@ using His.Negocio;
 using His.Entidades;
 using Infragistics.Win.UltraWinGrid;
 using Core.Entidades;
+using System.Threading;
 
 namespace His.Maintenance
 {
@@ -38,6 +39,9 @@ namespace His.Maintenance
         bool nuevoModuloSic = false;
         bool nuevoPerfilCg = false;
         bool nuevoModuloCG = false;
+        Int32 lineaHis;
+        Int32 lineaSic;
+        Int32 lineaCg;
         public frmCreacionPerfiles()
         {
             InitializeComponent();
@@ -139,6 +143,8 @@ namespace His.Maintenance
             id_perfil = NegMaintenance.maxPerfil();
             perfil.ID_PERFIL = id_perfil;
             perfil.DESCRIPCION = txtPerfil.Text;
+            NegMaintenance.crearPerfilSic(txtPerfil.Text);
+            NegUsuarios.crearPerfilesCg(txtPerfil.Text);
             if (NegMaintenance.creaPerfil(perfil))
             {
                 MessageBox.Show("Datos guardados con exito.", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -153,6 +159,8 @@ namespace His.Maintenance
         }
         public void editaPerfil()
         {
+            NegMaintenance.editarPerfilSic(id_perfil, txtPerfil.Text);
+            NegUsuarios.editarPerfilCg(id_perfil, txtPerfil.Text);
             if (NegMaintenance.editarPerfil(id_perfil, txtPerfil.Text))
             {
                 MessageBox.Show("Datos editados con exito.", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -411,51 +419,51 @@ namespace His.Maintenance
         }
         private void ultraGridAccesos_CellChange(object sender, CellEventArgs e)
         {
-            try
-            {
-                bool estado;
-                if (bool.TryParse(e.Cell.Value.ToString(), out estado))
-                {
-                    foreach (var item in ultraGridAccesos.Rows)
-                    {
-                        if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
-                        {
-                            if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
-                            {
-                                PERFILES perfil = new PERFILES();
-                                perfil = NegPerfil.RecuperaPerfil(id_perfil);
-                                ACCESO_OPCIONES acceso = new ACCESO_OPCIONES();
-                                acceso = NegAccesoOpciones.RecuperaAccesosOpciones(Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString()));
+            //try
+            //{
+            //    bool estado;
+            //    if (bool.TryParse(e.Cell.Value.ToString(), out estado))
+            //    {
+            //        foreach (var item in ultraGridAccesos.Rows)
+            //        {
+            //            if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+            //            {
+            //                if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
+            //                {
+            //                    PERFILES perfil = new PERFILES();
+            //                    perfil = NegPerfil.RecuperaPerfil(id_perfil);
+            //                    ACCESO_OPCIONES acceso = new ACCESO_OPCIONES();
+            //                    acceso = NegAccesoOpciones.RecuperaAccesosOpciones(Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString()));
 
-                                peracc = new PERFILES_ACCESOS();
-                                peracc.PERFILESReference.EntityKey = perfil.EntityKey;
-                                peracc.ID_PERFIL = id_perfil;
-                                peracc.ACCESO_OPCIONESReference.EntityKey = acceso.EntityKey;
-                                peracc.ID_ACCESO = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
-                                if (!NegMaintenance.agregarAcceso(peracc))
-                                {
-                                    MessageBox.Show("No se ha podido crear el acceso ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+            //                    peracc = new PERFILES_ACCESOS();
+            //                    peracc.PERFILESReference.EntityKey = perfil.EntityKey;
+            //                    peracc.ID_PERFIL = id_perfil;
+            //                    peracc.ACCESO_OPCIONESReference.EntityKey = acceso.EntityKey;
+            //                    peracc.ID_ACCESO = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+            //                    if (!NegMaintenance.agregarAcceso(peracc))
+            //                    {
+            //                        MessageBox.Show("No se ha podido crear el acceso ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //                    }
 
-                                ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
-                                listarPerfiles();
-                            }
-                            else
-                            {
-                                List<PERFILES_ACCESOS> acOriginal = NegPerfilesAcceso.ListaPerfilesAccesos().Where(p => p.ID_PERFIL == id_perfil && p.ACCESO_OPCIONES.ID_ACCESO == Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString())).ToList().ClonarEntidad();
-                                NegPerfilesAcceso.EliminaListaPerfilesAccesos(acOriginal, acOriginal);
-                                ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
-                                listarPerfiles();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
+            //                    ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
+            //                    listarPerfiles();
+            //                }
+            //                else
+            //                {
+            //                    List<PERFILES_ACCESOS> acOriginal = NegPerfilesAcceso.ListaPerfilesAccesos().Where(p => p.ID_PERFIL == id_perfil && p.ACCESO_OPCIONES.ID_ACCESO == Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString())).ToList().ClonarEntidad();
+            //                    NegPerfilesAcceso.EliminaListaPerfilesAccesos(acOriginal, acOriginal);
+            //                    ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
+            //                    listarPerfiles();
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                //throw;
-            }
+            //    //throw;
+            //}
 
         }
         #endregion
@@ -487,12 +495,20 @@ namespace His.Maintenance
                 crearPerfil();
                 listarPerfiles();
                 limpiarGrid();
+                CargaPerfilesSic();
+                limpiarGridSic();
+                CargaPerfilesCg();
+                limpiarGridCg();
             }
             else if (editarPerfil)
             {
                 editaPerfil();
                 listarPerfiles();
                 limpiarGrid();
+                CargaPerfilesSic();
+                limpiarGridSic();
+                CargaPerfilesCg();
+                limpiarGridCg();
             }
             else if (nuevoModulo)
             {
@@ -541,12 +557,51 @@ namespace His.Maintenance
                 {
                     try
                     {
+                        ultraGridAccesos.DataSource = null;
                         ultraGridModulo.DataSource = NegModulo.ListaModulo();
                         //perfil = NegMaintenance.buscaPerfiles(Convert.ToInt16(e.Cell.Row.Cells["Codigo"].Value.ToString()));
                         //cmbAcceso.Value = e.Cell.Row.Cells["ID_Acceso"].Value.ToString();
                         //txtPerfil.Text = perfil.DESCRIPCION.ToString();
                         id_perfil = Convert.ToInt16(e.Cell.Row.Cells["Codigo"].Value.ToString());
-                        ultraGridAccesos.DataSource = null;
+
+                        Int32 fila = 0;
+                        foreach (UltraGridRow ugrow in ultraGridModulo.Rows)
+                        {
+                            try
+                            {
+                                List<ACCESO_OPCIONES> opc1 = new List<ACCESO_OPCIONES>();
+                                List<ACCESO_OPCIONES> opc2 = new List<ACCESO_OPCIONES>();
+                                if (Convert.ToInt32(ugrow.Cells["ID"].Value) == 14)
+                                {
+                                    opc1 = NegAccesoOpciones.accesosXModulo(5).Where(x => x.ID_ACCESO == 5).ToList();
+                                    opc2 = NegAccesoOpciones.accesosXPerfil(5, id_perfil).Where(x => x.ID_ACCESO == 5).ToList();
+                                }
+                                else
+                                {
+                                    opc1 = NegAccesoOpciones.accesosXModulo(Convert.ToInt32(ugrow.Cells["ID"].Value));
+                                    opc2 = NegAccesoOpciones.accesosXPerfil(Convert.ToInt32(ugrow.Cells["ID"].Value), id_perfil);
+                                }
+                                if (opc2.Count > 0)
+                                {
+                                    ultraGridModulo.Rows[fila].Appearance.BackColor = ObtenerVerdePastel();
+                                    ultraGridModulo.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                else
+                                {
+                                    ultraGridModulo.Rows[fila].Appearance.BackColor = Color.White;
+                                    ultraGridModulo.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                if (opc1.Count == opc2.Count)
+                                {
+                                    ultraGridModulo.Rows[fila].Cells["TODO"].Value = true;
+                                }
+                                fila++;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -556,25 +611,34 @@ namespace His.Maintenance
                 }
             }
         }
+        private Color ObtenerVerdePastel()
+        {
+            // Puedes ajustar estos valores para obtener el tono deseado
+            int rojo = 144;
+            int verde = 238;
+            int azul = 144;
+
+            return Color.FromArgb(rojo, verde, azul);
+        }
 
         private void ultraGridModulo_DoubleClickCell_1(object sender, DoubleClickCellEventArgs e)
         {
-            foreach (UltraGridRow item in ultraGridModulo.Rows)
-            {
-                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
-                {
-                    try
-                    {
-                        ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_perfil);
-                        id_modulo = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                        //throw;
-                    }
-                }
-            }
+            //foreach (UltraGridRow item in ultraGridModulo.Rows)
+            //{
+            //    if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+            //    {
+            //        try
+            //        {
+            //            ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_perfil);
+            //            id_modulo = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex.Message);
+            //            //throw;
+            //        }
+            //    }
+            //}
         }
 
         private void ultraGridAccesos_CellChange_1(object sender, CellEventArgs e)
@@ -582,18 +646,19 @@ namespace His.Maintenance
             try
             {
                 bool estado;
+
                 if (bool.TryParse(e.Cell.Value.ToString(), out estado))
                 {
                     foreach (var item in ultraGridAccesos.Rows)
                     {
                         if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
                         {
+                            Int64 celdabuscada = Convert.ToInt64(item.Cells["ID"].Value);
+                            Int32 id_acceso = verificarModulo(id_modulo);
                             if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
                             {
-                                PERFILES perfil = new PERFILES();
-                                perfil = NegPerfil.RecuperaPerfil(id_perfil);
-                                ACCESO_OPCIONES acceso = new ACCESO_OPCIONES();
-                                acceso = NegAccesoOpciones.RecuperaAccesosOpciones(Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString()));
+                                PERFILES perfil = NegPerfil.RecuperaPerfil(id_perfil);
+                                ACCESO_OPCIONES acceso = NegAccesoOpciones.RecuperaAccesosOpciones(Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString()));
 
                                 peracc = new PERFILES_ACCESOS();
                                 peracc.PERFILESReference.EntityKey = perfil.EntityKey;
@@ -604,20 +669,77 @@ namespace His.Maintenance
                                 {
                                     MessageBox.Show("No se ha podido crear el acceso ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
+                                MensajeGuardarConPausa("Acceso Guardado");
+                                List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(id_perfil, id_modulo);
+                                if (accop.Count > 0)
+                                {
+                                    PERFILES_ACCESOS pacc = NegAccesoOpciones.accesosModulosXperfiles(id_perfil, id_acceso);
+                                    if (pacc == null)
+                                    {
+                                        peracc = new PERFILES_ACCESOS();
+                                        peracc.PERFILESReference.EntityKey = perfil.EntityKey;
+                                        peracc.ID_PERFIL = id_perfil;
+                                        peracc.ACCESO_OPCIONESReference.EntityKey = acceso.EntityKey;
+                                        peracc.ID_ACCESO = id_acceso;
+                                        if (!NegMaintenance.agregarAcceso(peracc))
+                                        {
+                                            MessageBox.Show("No se ha podido crear el acceso al modulo ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+                                    }
 
-                                ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
-                                listarPerfiles();
+                                }
+                                UltraGrid senderGrid = ultraGridModulo;
+                                if (lineaHis >= 0 && lineaHis < senderGrid.Rows.Count)
+                                {
+                                    UltraGridRow selectedRow = senderGrid.Rows[lineaHis];
+                                    UltraGridCell selectedCell = selectedRow.Cells[1]; // Celda específica que deseas simular
+                                    ultraGridModulo_ClickCell(senderGrid, new ClickCellEventArgs(selectedCell));
+
+                                }
+                                //ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
+                                foreach (UltraGridRow fila in ultraGridAccesos.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
+                                //listarPerfiles();
                             }
                             else
                             {
                                 List<PERFILES_ACCESOS> acOriginal = NegPerfilesAcceso.ListaPerfilesAccesos().Where(p => p.ID_PERFIL == id_perfil && p.ACCESO_OPCIONES.ID_ACCESO == Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString())).ToList().ClonarEntidad();
                                 NegPerfilesAcceso.EliminaListaPerfilesAccesos(acOriginal, acOriginal);
                                 ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
-                                listarPerfiles();
+                                foreach (UltraGridRow fila in ultraGridAccesos.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
+                                ultraGridModulo.Rows[lineaHis].Cells["TODO"].Value = false;
+                                MensajeGuardarConPausa("Acceso Eliminado");
+                                ///listarPerfiles();
+                                List<ACCESO_OPCIONES> accop = NegUtilitarios.ListaAccesoOpcionesPorPerfil(id_perfil, id_modulo);
+                                if (accop.Count <= 0)
+                                {
+                                    if (!NegPerfilesAcceso.EliminarPerfiAcceso(id_perfil, id_acceso))
+                                    {
+                                        MessageBox.Show("No se ha podido eliminar el acceso al Modulo ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
                             }
                         }
                     }
+
                 }
+
             }
             catch (Exception ex)
             {
@@ -663,6 +785,8 @@ namespace His.Maintenance
                         NegPerfilesAcceso.EliminaListaPerfilesAccesos(acOriginal, acOriginal);
                         List<USUARIOS_PERFILES> upOriginal = NegUsuarios.ListaUsuarioPerfiles().Where(p => p.ID_PERFIL == id_perfil).ToList().ClonarEntidad();
                         NegUsuarios.EliminaUsuarioPerfiles(upOriginal, upOriginal);
+                        NegMaintenance.eliminarPerfilSic(id_perfil);
+                        NegUsuarios.eliminarPerfilCg(id_perfil);
                         if (NegMaintenance.eliminarPerfil(id_perfil))
                         {
                             MessageBox.Show("Datos Eliminados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -765,6 +889,34 @@ namespace His.Maintenance
                         ultraGridAccesosSic.DataSource = null;
                         ultraGridModuloSic.DataSource = NegUsuarios.ModuloSic();
                         id_PerfilSic = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+                        Int32 fila = 0;
+                        foreach (UltraGridRow ugrow in ultraGridModuloSic.Rows)
+                        {
+                            try
+                            {
+                                DataTable opc1 = NegAccesoOpciones.accesosXModuloSic(Convert.ToInt32(ugrow.Cells["ID"].Value));
+                                DataTable opc2 = NegAccesoOpciones.accesosXPerfilSic(Convert.ToInt32(ugrow.Cells["ID"].Value), id_PerfilSic);
+                                if (opc1.Rows.Count == opc2.Rows.Count)
+                                {
+                                    ultraGridModuloSic.Rows[fila].Cells["TODO"].Value = true;
+                                }
+                                if (opc2.Rows.Count > 0)
+                                {
+                                    ultraGridModuloSic.Rows[fila].Appearance.BackColor = ObtenerVerdePastel();
+                                    ultraGridModuloSic.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                else
+                                {
+                                    ultraGridModuloSic.Rows[fila].Appearance.BackColor = Color.White;
+                                    ultraGridModuloSic.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                fila++;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -777,23 +929,23 @@ namespace His.Maintenance
 
         private void ultraGridModuloSic_DoubleClickCell(object sender, DoubleClickCellEventArgs e)
         {
-            foreach (UltraGridRow item in ultraGridModuloSic.Rows)
-            {
-                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
-                {
-                    try
-                    {
-                        ultraGridAccesosSic.DataSource = null;
-                        ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilSic);
-                        id_moduloSic = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                        //throw;
-                    }
-                }
-            }
+            //foreach (UltraGridRow item in ultraGridModuloSic.Rows)
+            //{
+            //    if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+            //    {
+            //        try
+            //        {
+            //            ultraGridAccesosSic.DataSource = null;
+            //            ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilSic);
+            //            id_moduloSic = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex.Message);
+            //            //throw;
+            //        }
+            //    }
+            //}
         }
         private void nuevoPerfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -878,14 +1030,33 @@ namespace His.Maintenance
                     {
                         if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
                         {
+                            Int64 celdabuscada = Convert.ToInt64(item.Cells["ID"].Value);
                             if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
                             {
 
                                 if (!NegUsuarios.CrearPerfilSic(id_PerfilSic, Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), "S", " "))
                                 {
-                                    //MessageBox.Show("No se ha podido crear el acceso ", "Sic-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("No se ha podido crear el acceso ", "Sic-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(id_moduloSic, id_PerfilSic);
+                                MensajeGuardarConPausaSic("Acceso Modificado");
+                                UltraGrid senderGrid = ultraGridModuloSic;
+                                if (lineaSic >= 0 && lineaSic < senderGrid.Rows.Count)
+                                {
+                                    UltraGridRow selectedRow = senderGrid.Rows[lineaSic];
+                                    UltraGridCell selectedCell = selectedRow.Cells[1]; // Celda específica que deseas simular
+                                    ultraGridModuloSic_ClickCell(senderGrid, new ClickCellEventArgs(selectedCell));
+
+                                }
+                                //ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(id_moduloSic, id_PerfilSic);
+                                foreach (UltraGridRow fila in ultraGridAccesosSic.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
                             }
                             else
                             {
@@ -893,7 +1064,18 @@ namespace His.Maintenance
                                 {
                                     MessageBox.Show("No se ha podido crear el acceso ", "Sic-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
+                                MensajeGuardarConPausaSic("Acceso Modificado");
                                 ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(id_moduloSic, id_PerfilSic);
+                                ultraGridModuloSic.Rows[lineaSic].Cells["TODO"].Value = false;
+                                foreach (UltraGridRow fila in ultraGridAccesosSic.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
                             }
                         }
                     }
@@ -901,7 +1083,7 @@ namespace His.Maintenance
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
                 //throw;
             }
         }
@@ -1021,7 +1203,7 @@ namespace His.Maintenance
                     resultado = MessageBox.Show("Desea eliminar los Datos?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
-                       
+
                         if (NegMaintenance.eliminarPerfilSic(id_PerfilSic))
                         {
                             MessageBox.Show("Datos Eliminados Correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1066,6 +1248,34 @@ namespace His.Maintenance
                         ultraGridAccesosCg.DataSource = null;
                         ultraGridModuloCg.DataSource = NegUsuarios.ModuloCG();
                         id_PerfilCg = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+                        Int32 fila = 0;
+                        foreach (UltraGridRow ugrow in ultraGridModuloCg.Rows)
+                        {
+                            try
+                            {
+                                DataTable opc1 = NegAccesoOpciones.accesosXModuloCg(Convert.ToInt32(ugrow.Cells["ID"].Value));
+                                DataTable opc2 = NegAccesoOpciones.accesosXPerfilCg(Convert.ToInt32(ugrow.Cells["ID"].Value), id_PerfilCg);
+                                if (opc1.Rows.Count == opc2.Rows.Count)
+                                {
+                                    ultraGridModuloCg.Rows[fila].Cells["TODO"].Value = true;
+                                }
+                                if (opc2.Rows.Count > 0)
+                                {
+                                    ultraGridModuloCg.Rows[fila].Appearance.BackColor = ObtenerVerdePastel();
+                                    ultraGridModuloCg.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                else
+                                {
+                                    ultraGridModuloCg.Rows[fila].Appearance.BackColor = Color.White;
+                                    ultraGridModuloCg.Rows[fila].Appearance.ForeColor = Color.Black;
+                                }
+                                fila++;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -1078,62 +1288,28 @@ namespace His.Maintenance
 
         private void ultraGridModuloCg_DoubleClickCell(object sender, DoubleClickCellEventArgs e)
         {
-            foreach (UltraGridRow item in ultraGridModuloCg.Rows)
-            {
-                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
-                {
-                    try
-                    {
-                        ultraGridAccesosCg.DataSource = null;
-                        ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilCg);
-                        id_moduloCg = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                        //throw;
-                    }
-                }
-            }
+            //foreach (UltraGridRow item in ultraGridModuloCg.Rows)
+            //{
+            //    if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+            //    {
+            //        try
+            //        {
+            //            ultraGridAccesosCg.DataSource = null;
+            //            ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilCg);
+            //            id_moduloCg = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex.Message);
+            //            //throw;
+            //        }
+            //    }
+            //}
         }
 
         private void ultraGridAccesosCg_ClickCell(object sender, ClickCellEventArgs e)
         {
-            try
-            {
-                bool estado;
-                if (bool.TryParse(e.Cell.Value.ToString(), out estado))
-                {
-                    foreach (var item in ultraGridAccesosCg.Rows)
-                    {
-                        if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
-                        {
-                            if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
-                            {
 
-                                if (!NegUsuarios.CrearPerfilCg(id_PerfilCg, Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), "S", " "))
-                                {
-                                    MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                                ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
-                            }
-                            else
-                            {
-                                if (!NegUsuarios.CrearPerfilCg(id_PerfilCg, Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), "N", " "))
-                                {
-                                    MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                                ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                //throw;
-            }
         }
         private void btnNuevoCG_Click(object sender, EventArgs e)
         {
@@ -1151,7 +1327,7 @@ namespace His.Maintenance
                     CargaPerfilesCg();
                     limpiarGridCg();
                 }
-                 else if (nuevoModuloCG)
+                else if (nuevoModuloCG)
                 {
                     if (!NegUsuarios.crearModuloCg(txtNuevoCg.Text))
                     {
@@ -1185,7 +1361,7 @@ namespace His.Maintenance
                 CancelarCg();
             }
 
-            
+
 
 
         }
@@ -1392,23 +1568,23 @@ namespace His.Maintenance
 
         private void ultraGridModulo_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridBand bandUno = ultraGridModulo.DisplayLayout.Bands[0];
+            //UltraGridBand bandUno = ultraGridModulo.DisplayLayout.Bands[0];
 
-            ultraGridModulo.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
-            //grid.DisplayLayout.GroupByBox.Prompt = "Arrastrar la columna que desea agrupar";
-            ultraGridModulo.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
-            ultraGridModulo.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
-            bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
+            //ultraGridModulo.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            ////grid.DisplayLayout.GroupByBox.Prompt = "Arrastrar la columna que desea agrupar";
+            //ultraGridModulo.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
+            //ultraGridModulo.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
+            //bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
 
-            bandUno.Override.CellClickAction = CellClickAction.RowSelect;
-            bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
+            //bandUno.Override.CellClickAction = CellClickAction.RowSelect;
+            //bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
 
-            ultraGridModulo.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
-            ultraGridModulo.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
-            ultraGridModulo.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
+            //ultraGridModulo.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            //ultraGridModulo.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
+            //ultraGridModulo.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
 
             e.Layout.PerformAutoResizeColumns(true, PerformAutoSizeType.AllRowsInBand);
-            ultraGridModulo.DisplayLayout.Bands[0].Columns["TODO"].Hidden = true;
+            // ultraGridModulo.DisplayLayout.Bands[0].Columns["TODO"].Hidden = true;
         }
 
         private void ultraGridAccesos_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -1452,21 +1628,22 @@ namespace His.Maintenance
 
         private void ultraGridModuloSic_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridBand bandUno = ultraGridModuloSic.DisplayLayout.Bands[0];
+            //UltraGridBand bandUno = ultraGridModuloSic.DisplayLayout.Bands[0];
 
-            ultraGridModuloSic.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
-            ultraGridModuloSic.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
-            ultraGridModuloSic.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
-            bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
+            //ultraGridModuloSic.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            //ultraGridModuloSic.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
+            //ultraGridModuloSic.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
+            //bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
 
-            bandUno.Override.CellClickAction = CellClickAction.RowSelect;
-            bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
+            //bandUno.Override.CellClickAction = CellClickAction.RowSelect;
+            //bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
 
-            ultraGridModuloSic.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
-            ultraGridModuloSic.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
-            ultraGridModuloSic.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
+            //ultraGridModuloSic.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            //ultraGridModuloSic.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
+            //ultraGridModuloSic.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
 
             e.Layout.PerformAutoResizeColumns(true, PerformAutoSizeType.AllRowsInBand);
+
         }
 
         private void ultraGridAccesosSic_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -1510,19 +1687,19 @@ namespace His.Maintenance
 
         private void ultraGridModuloCg_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridBand bandUno = ultraGridModuloCg.DisplayLayout.Bands[0];
+            //UltraGridBand bandUno = ultraGridModuloCg.DisplayLayout.Bands[0];
 
-            ultraGridModuloCg.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
-            ultraGridModuloCg.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
-            ultraGridModuloCg.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
-            bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
+            //ultraGridModuloCg.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            //ultraGridModuloCg.DisplayLayout.Override.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButton;
+            //ultraGridModuloCg.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
+            //bandUno.Override.HeaderAppearance.TextHAlign = Infragistics.Win.HAlign.Center;
 
-            bandUno.Override.CellClickAction = CellClickAction.RowSelect;
-            bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
+            //bandUno.Override.CellClickAction = CellClickAction.RowSelect;
+            //bandUno.Override.CellDisplayStyle = CellDisplayStyle.PlainText;
 
-            ultraGridModuloCg.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
-            ultraGridModuloCg.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
-            ultraGridModuloCg.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
+            //ultraGridModuloCg.DisplayLayout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            //ultraGridModuloCg.DisplayLayout.Override.RowSizing = RowSizing.AutoFree;
+            //ultraGridModuloCg.DisplayLayout.Override.RowSizingArea = RowSizingArea.EntireRow;
             e.Layout.PerformAutoResizeColumns(true, PerformAutoSizeType.AllRowsInBand);
         }
 
@@ -1566,6 +1743,583 @@ namespace His.Maintenance
                 MessageBox.Show("Debe elegir un Perfil.", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void ultraGridModulo_CellChange(object sender, CellEventArgs e)
+        {
+            foreach (var item in ultraGridModulo.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    if (!Convert.ToBoolean(item.Cells["TODO"].Value.ToString()))
+                    {
+
+
+
+                        NegPerfil.borrarPerfiles(id_perfil, id_modulo);
+
+
+
+                        if (id_modulo == Convert.ToInt32(item.Cells["ID"].Value))
+                        {
+
+                            guardarAccesosCompletos(id_modulo); // se cambia el proceso para que sea mas rapido la consulta // Mario Valencia // 15-01-2023
+                            MensajeGuardarConPausa("Accesos Guardados");
+                            ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
+                            //UltraGridBand band = ultraGridAccesos.DisplayLayout.Bands[0];
+
+                            //UltraGridColumn checkBoxColumn = band.Columns["TIENE_ACCESO"];
+
+
+                            //foreach (UltraGridRow row in band.GetRowEnumerator(GridRowType.DataRow))
+                            //{
+                            //    row.Cells[checkBoxColumn].Value = false;
+
+                            //}
+                            //foreach (UltraGridRow accesoRow in ultraGridAccesos.Rows)
+                            //{
+                            //    ultraGridAccesos_CellChange_1(ultraGridAccesos, new CellEventArgs(accesoRow.Cells[checkBoxColumn]));
+                            //}
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe elegir un Módulo.", "HIS3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                    else
+                    {
+                        Int32 id_acceso = verificarModulo(id_modulo);
+                        NegPerfil.borrarPerfiles(id_perfil, id_modulo);
+                        MensajeGuardarConPausa("Accesos Eliminados");
+
+                        if (!NegPerfilesAcceso.EliminarPerfiAcceso(id_perfil, id_acceso))
+                        {
+                            MessageBox.Show("No se ha podido eliminar el acceso al modulo ", "His-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ultraGridAccesos.DataSource = null;
+                        ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(id_modulo, id_perfil);
+                        //  listarPerfiles();
+
+
+
+                    }
+
+                    int fila;
+                    UltraGridCell activeCell = ultraGridModulo.ActiveCell;
+
+                    if (activeCell != null)
+                    {
+                        // Aquí puedes trabajar con la celda activa
+                        fila = activeCell.Row.Index;
+                        // Otra lógica que necesites
+                    }
+                    else
+                    {
+                        fila = 0;
+                    }
+
+
+                    ultraGridModulo.ActiveCell = ultraGridModulo.Rows[fila].Cells["ID"];
+
+
+                }
+
+            }
+
+        }
+
+        private void ultraGridModulo_ClickCell(object sender, ClickCellEventArgs e)
+        {
+
+            int sumaHis = 0;
+            lineaHis = ultraGridModulo.ActiveRow.Index;
+            foreach (UltraGridRow item in ultraGridModulo.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    try
+                    {
+                        if (Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()) == 14)
+                        {
+                            ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(5, id_perfil).Where(x => x.ID == 5).ToList();
+                            id_modulo = 5;
+                        }
+                        else
+                            ultraGridAccesos.DataSource = NegAccesoOpciones.ListarAccesoOpcionesXmodulo(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_perfil);
+
+                        id_modulo = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+
+                        foreach (UltraGridRow fila in ultraGridAccesos.Rows)
+                        {
+
+                            if (fila.Cells["TIENE_ACCESO"].Value != DBNull.Value && (bool)fila.Cells["TIENE_ACCESO"].Value)
+                            {
+                                sumaHis = sumaHis + 1;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        //throw;
+                    }
+                }
+            }
+            if (sumaHis == ultraGridAccesos.Rows.Count)
+            {
+                ultraGridModulo.Rows[lineaHis].Cells["TODO"].Value = true;
+            }
+        }
+
+        private void ultraGridModuloSic_ClickCell(object sender, ClickCellEventArgs e)
+        {
+            Int32 sumaSic = 0;
+            lineaSic = ultraGridModuloSic.ActiveRow.Index;
+            foreach (UltraGridRow item in ultraGridModuloSic.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    try
+                    {
+                        // ultraGridAccesosSic.DataSource = null;
+                        ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilSic);
+                        id_moduloSic = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+
+                        foreach (UltraGridRow fila in ultraGridAccesosSic.Rows)
+                        {
+
+                            if (fila.Cells["TIENE_ACCESO"].Value != DBNull.Value && (bool)fila.Cells["TIENE_ACCESO"].Value)
+                            {
+                                sumaSic = sumaSic + 1;
+
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        //throw;
+                    }
+                }
+            }
+            if (sumaSic == ultraGridAccesosSic.Rows.Count)
+            {
+                ultraGridModuloSic.Rows[lineaSic].Cells["TODO"].Value = true;
+            }
+            else
+            {
+                ultraGridModuloSic.Rows[lineaSic].Cells["TODO"].Value = false;
+            }
+
+        }
+
+        private void ultraGridModuloSic_CellChange(object sender, CellEventArgs e)
+        {
+            foreach (var item in ultraGridModuloSic.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    if (!Convert.ToBoolean(item.Cells["TODO"].Value.ToString()))
+                    {
+
+
+
+                        NegPerfil.BorraPerfilesSic(id_PerfilSic, id_moduloSic);
+
+
+
+                        if (id_moduloSic == Convert.ToInt32(item.Cells["ID"].Value))
+                        {
+                            DataTable opciones = NegUsuarios.opcionesXModuloSic(id_moduloSic);
+                            foreach (DataRow row in opciones.Rows)
+                            {
+                                NegUsuarios.CrearPerfilSic(id_PerfilSic, Convert.ToInt64(row["codopc"].ToString()), "S", row["codmod"].ToString());// se cambia el proceso para que sea mas rapido la consulta // Mario Valencia // 15-01-2023
+                            }
+                            MensajeGuardarConPausaSic("Accesos Guardados");
+                            ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(id_moduloSic, id_PerfilSic);
+
+                            //UltraGridBand band = ultraGridAccesosSic.DisplayLayout.Bands[0];
+
+                            //UltraGridColumn checkBoxColumn = band.Columns["TIENE_ACCESO"];
+
+
+                            //foreach (UltraGridRow row in band.GetRowEnumerator(GridRowType.DataRow))
+                            //{
+                            //    row.Cells[checkBoxColumn].Value = false;
+
+                            //}
+                            //foreach (UltraGridRow accesoRow in ultraGridAccesosSic.Rows)
+                            //{
+                            //    ultraGridAccesosSic_CellChange(ultraGridAccesosSic, new CellEventArgs(accesoRow.Cells[checkBoxColumn]));
+                            //}
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe elegir un Módulo.", "SIC3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                    else
+                    {
+                        NegPerfil.BorraPerfilesSic(id_PerfilSic, id_moduloSic);
+                        ultraGridAccesosSic.DataSource = null;
+                        ultraGridAccesosSic.DataSource = NegUsuarios.BuscaPerfilesSic(id_moduloSic, id_PerfilSic);
+
+
+
+                    }
+
+                    int fila;
+                    UltraGridCell activeCell = ultraGridModuloSic.ActiveCell;
+
+                    if (activeCell != null)
+                    {
+                        // Aquí puedes trabajar con la celda activa
+                        fila = activeCell.Row.Index;
+                        // Otra lógica que necesites
+                    }
+                    else
+                    {
+                        fila = 0;
+                    }
+
+
+                    ultraGridModuloSic.ActiveCell = ultraGridModuloSic.Rows[fila].Cells["ID"];
+
+
+                }
+
+            }
+        }
+
+        private void ultraGridModuloCg_ClickCell(object sender, ClickCellEventArgs e)
+        {
+            int sumaCg = 0;
+            lineaCg = ultraGridModuloCg.ActiveRow.Index;
+            foreach (UltraGridRow item in ultraGridModuloCg.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    try
+                    {
+                        // ultraGridAccesosCg.DataSource = null;
+                        ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), id_PerfilCg);
+                        id_moduloCg = Convert.ToInt32(e.Cell.Row.Cells["ID"].Value.ToString());
+                        foreach (UltraGridRow fila in ultraGridAccesosCg.Rows)
+                        {
+
+                            if (fila.Cells["TIENE_ACCESO"].Value != DBNull.Value && (bool)fila.Cells["TIENE_ACCESO"].Value)
+                            {
+                                sumaCg = sumaCg + 1;
+
+                            }
+
+
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        //throw;
+                    }
+                }
+            }
+            if (sumaCg == ultraGridAccesosCg.Rows.Count)
+            {
+                ultraGridModuloCg.Rows[lineaCg].Cells["TODO"].Value = true;
+            }
+            else
+            {
+                ultraGridModuloCg.Rows[lineaCg].Cells["TODO"].Value = false;
+            }
+        }
+
+        private void ultraGridModuloCg_CellChange(object sender, CellEventArgs e)
+        {
+            foreach (var item in ultraGridModuloCg.Rows)
+            {
+                if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                {
+                    if (!Convert.ToBoolean(item.Cells["TODO"].Value.ToString()))
+                    {
+
+
+
+                        NegPerfil.BorraPerfilesCg(id_PerfilCg, id_moduloCg);
+
+
+
+                        if (id_moduloCg == Convert.ToInt32(item.Cells["ID"].Value))
+                        {
+                            DataTable opciones = NegUsuarios.opcionesXModuloCg(id_moduloCg);
+                            foreach (DataRow row in opciones.Rows)
+                            {
+                                NegUsuarios.CrearPerfilCg(id_PerfilCg, Convert.ToInt64(row["codopc"].ToString()), "S", row["codmod"].ToString());// se cambia el proceso para que sea mas rapido la consulta // Mario Valencia // 15-01-2023
+                            }
+                            MensajeGuardarConPausaCG("Accesos Guardados");
+                            ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
+                            //UltraGridBand band = ultraGridAccesosCg.DisplayLayout.Bands[0];
+
+                            //UltraGridColumn checkBoxColumn = band.Columns["TIENE_ACCESO"];
+
+
+                            //foreach (UltraGridRow row in band.GetRowEnumerator(GridRowType.DataRow))
+                            //{
+                            //    row.Cells[checkBoxColumn].Value = false;
+
+                            //}
+
+                            //foreach (UltraGridRow accesoRow in ultraGridAccesosCg.Rows)
+                            //{
+                            //    ultraGridAccesosCg_CellChange(ultraGridAccesosCg, new CellEventArgs(accesoRow.Cells[checkBoxColumn]));
+                            //}
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe elegir un Módulo.", "CG3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                    else
+                    {
+                        NegPerfil.BorraPerfilesCg(id_PerfilCg, id_moduloCg);
+                        ultraGridAccesosCg.DataSource = null;
+                        ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
+                        ultraGridModuloCg.Rows[lineaCg].Cells["TODO"].Value = false;
+
+
+                    }
+
+                    int fila;
+                    UltraGridCell activeCell = ultraGridModuloCg.ActiveCell;
+
+                    if (activeCell != null)
+                    {
+                        // Aquí puedes trabajar con la celda activa
+                        fila = activeCell.Row.Index;
+                        // Otra lógica que necesites
+                    }
+                    else
+                    {
+                        fila = 0;
+                    }
+
+
+                    ultraGridModuloCg.ActiveCell = ultraGridModuloCg.Rows[fila].Cells["ID"];
+
+
+                }
+
+            }
+        }
+
+        private void ultraGridAccesosCg_CellChange(object sender, CellEventArgs e)
+        {
+            try
+            {
+                bool estado;
+                if (bool.TryParse(e.Cell.Value.ToString(), out estado))
+                {
+                    foreach (var item in ultraGridAccesosCg.Rows)
+                    {
+                        if (item.Cells["ID"].Value.ToString() == e.Cell.Row.Cells["ID"].Value.ToString())
+                        {
+                            Int64 celdabuscada = Convert.ToInt64(item.Cells["ID"].Value);
+                            if (!Convert.ToBoolean(item.Cells["TIENE_ACCESO"].Value.ToString()))
+                            {
+
+                                if (!NegUsuarios.CrearPerfilCg(id_PerfilCg, Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), "S", " "))
+                                {
+                                    MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                MensajeGuardarConPausaCG("Acceso Modificado");
+                                //ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
+                                UltraGrid senderGrid = ultraGridModuloCg;
+                                if (lineaCg >= 0 && lineaCg < senderGrid.Rows.Count)
+                                {
+                                    UltraGridRow selectedRow = senderGrid.Rows[lineaCg];
+                                    UltraGridCell selectedCell = selectedRow.Cells[1]; // Celda específica que deseas simular
+                                    ultraGridModuloCg_ClickCell(senderGrid, new ClickCellEventArgs(selectedCell));
+                                }
+                                foreach (UltraGridRow fila in ultraGridAccesosCg.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (!NegUsuarios.CrearPerfilCg(id_PerfilCg, Convert.ToInt64(e.Cell.Row.Cells["ID"].Value.ToString()), "N", " "))
+                                {
+                                    MessageBox.Show("No se ha podido crear el acceso ", "Cg-3000", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                MensajeGuardarConPausaCG("Acceso Modificado");
+                                ultraGridAccesosCg.DataSource = NegUsuarios.BuscaPerfilesCg(id_moduloCg, id_PerfilCg);
+                                ultraGridModuloCg.Rows[lineaCg].Cells["TODO"].Value = false;
+                                foreach (UltraGridRow fila in ultraGridAccesosCg.Rows)
+                                {
+                                    if (fila.Cells["ID"].Value != null && Convert.ToInt32(fila.Cells["ID"].Value) == celdabuscada)
+                                    {
+                                        // Activar la fila encontrada
+                                        fila.Activate();
+                                        break; // Romper el bucle después de encontrar la primera coincidencia
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+            }
+
+        }
+        private void MensajeGuardarConPausa(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+
+            // Iniciar un hilo para la pausa en segundo plano
+            Thread thread = new Thread(() =>
+            {
+                // Pausa de 3 segundos
+                Thread.Sleep(2000);
+
+                // Limpiar el texto después de la pausa
+                lblMensaje.Invoke((MethodInvoker)delegate
+                {
+                    lblMensaje.Text = "";
+                });
+            });
+
+            // Iniciar el hilo
+            thread.Start();
+        }
+        private void MensajeGuardarConPausaSic(string mensaje)
+        {
+            lblMensajeSic.Text = mensaje;
+
+            // Iniciar un hilo para la pausa en segundo plano
+            Thread thread = new Thread(() =>
+            {
+                // Pausa de 3 segundos
+                Thread.Sleep(2000);
+
+                // Limpiar el texto después de la pausa
+                lblMensajeSic.Invoke((MethodInvoker)delegate
+                {
+                    lblMensajeSic.Text = "";
+                });
+            });
+
+            // Iniciar el hilo
+            thread.Start();
+        }
+        private void MensajeGuardarConPausaCG(string mensaje)
+        {
+            lblMensajeCg.Text = mensaje;
+
+            // Iniciar un hilo para la pausa en segundo plano
+            Thread thread = new Thread(() =>
+            {
+                // Pausa de 3 segundos
+                Thread.Sleep(2000);
+
+                // Limpiar el texto después de la pausa
+                lblMensajeCg.Invoke((MethodInvoker)delegate
+                {
+                    lblMensajeCg.Text = "";
+                });
+            });
+
+            // Iniciar el hilo
+            thread.Start();
+        }
+        private void guardarAccesosCompletos(Int32 id_modulo)
+        {
+            Int32 id_acceso = verificarModulo(id_modulo);
+
+            PERFILES perfil = NegPerfil.RecuperaPerfil(id_perfil);
+            ACCESO_OPCIONES acceso = NegAccesoOpciones.RecuperaAccesosOpciones(id_acceso);
+
+            PERFILES_ACCESOS pacc = NegAccesoOpciones.accesosModulosXperfiles(id_perfil, id_acceso);
+            if (pacc == null)
+            {
+                peracc = new PERFILES_ACCESOS();
+                peracc.PERFILESReference.EntityKey = perfil.EntityKey;
+                peracc.ID_PERFIL = id_perfil;
+                peracc.ACCESO_OPCIONESReference.EntityKey = acceso.EntityKey;
+                peracc.ID_ACCESO = id_acceso;
+                if (NegMaintenance.agregarAcceso(peracc))
+                {
+                    List<ACCESO_OPCIONES> accopc = NegAccesoOpciones.RecuperaAccesosOpcionesXmodulo(id_modulo).ClonarEntidad();
+                    if (!NegPerfilesAcceso.crearPerfilesAccessoXlista(accopc, id_perfil))
+                        MessageBox.Show("No se ha podido agregar los acceso", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                List<ACCESO_OPCIONES> accopc = NegAccesoOpciones.RecuperaAccesosOpcionesXmodulo(id_modulo).ClonarEntidad();
+                if (!NegPerfilesAcceso.crearPerfilesAccessoXlista(accopc, id_perfil))
+                    MessageBox.Show("No se ha podido agregar los acceso", "His3000", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void guardarAccesosCompletosSic(Int32 id_modulo)
+        {
+
+        }
+        private Int32 verificarModulo(Int64 id_modulo)
+        {
+            Int32 id_acceso = 0;
+            switch (id_modulo)
+            {
+                case 1:
+                    id_acceso = 1;
+                    break;
+                case 2:
+                    id_acceso = 2;
+                    break;
+                case 3:
+                    id_acceso = 4;
+                    break;
+                case 6:
+                    id_acceso = 3;
+                    break;
+                case 7:
+                    id_acceso = 8;
+                    break;
+                case 8:
+                    id_acceso = 7;
+                    break;
+                case 9:
+                    id_acceso = 9;
+                    break;
+                case 10:
+                    id_acceso = 10;
+                    break;
+                case 11:
+                    id_acceso = 11;
+                    break;
+                case 12:
+                    id_acceso = 6;
+                    break;
+                default:
+                    id_acceso = 5;
+                    break;
+            }
+            return id_acceso;
         }
     }
 }

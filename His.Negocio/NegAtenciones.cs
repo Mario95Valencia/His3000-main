@@ -32,6 +32,7 @@ namespace His.Negocio
         {
             new DatAtenciones().atencionDA_save(pda);
         }
+
         public static DtoAtencionDatosAdicionales atencionDA_find(int pda)
         {
             return new DatAtenciones().atencionDA_find(pda);

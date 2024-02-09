@@ -135,6 +135,7 @@
     <Compile Include="NegHcEmergenciaReferido.cs" />
     <Compile Include="NegHcEmergenciaSubsintomas.cs" />
     <Compile Include="NegHcEmergenciaTratamiento.cs" />
+    <Compile Include="NegHonorarioAutomatico.cs" />
     <Compile Include="NegHonorarioExplorador.cs" />
     <Compile Include="NegHonorarios.cs" />
     <Compile Include="NegHonorariosMedicos.cs" />

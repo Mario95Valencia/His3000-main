@@ -639,12 +639,12 @@ namespace His.Datos
                 var sv = (from s in db.HC_SIGNOS_VITALES
                           join sd in db.HC_SIGNOS_DATOS_ADICIONALES on s.SV_CODIGO equals sd.SV_CODIGO
                           where s.ATE_CODIGO == ATE_CODIGO && s.SV_HOJA == SV_HOJA
-                          select new { s, sd }).OrderBy(y => y.sd.SVD_HORA).OrderBy(x => x.s.SV_FECHA).ToList();
+                          select new { s, sd }).OrderBy(x => x.s.SV_FECHA).OrderBy(y => y.sd.SVD_HORA).ToList();
 
                 var sv1 = (from s in db.HC_SIGNOS_VITALES
                            join sd in db.HC_SIGNOS_DATOS_ADICIONALES on s.SV_CODIGO equals sd.SV_CODIGO
                            where s.ATE_CODIGO == ATE_CODIGO && s.SV_HOJA == SV_HOJA
-                           select new { s, sd }).OrderBy(y => y.sd.SVD_HORA).OrderBy(x => x.s.SV_FECHA).FirstOrDefault();
+                           select new { s, sd }).OrderBy(x => x.s.SV_FECHA).OrderBy(y => y.sd.SVD_HORA).FirstOrDefault();
 
                 if (sv1.sd.SVD_HORA != h1.TimeOfDay || sv1.sd.SVD_HORA != h2.TimeOfDay)
                 {
@@ -909,7 +909,6 @@ namespace His.Datos
                 }
                 return lsv;
             }
-
         }
     }
 }

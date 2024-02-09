@@ -98,47 +98,52 @@
             // _frmMainTarifarioUnpinnedTabAreaLeft
             // 
             this._frmMainTarifarioUnpinnedTabAreaLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this._frmMainTarifarioUnpinnedTabAreaLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._frmMainTarifarioUnpinnedTabAreaLeft.Location = new System.Drawing.Point(4, 51);
+            this._frmMainTarifarioUnpinnedTabAreaLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._frmMainTarifarioUnpinnedTabAreaLeft.Location = new System.Drawing.Point(4, 61);
+            this._frmMainTarifarioUnpinnedTabAreaLeft.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifarioUnpinnedTabAreaLeft.Name = "_frmMainTarifarioUnpinnedTabAreaLeft";
             this._frmMainTarifarioUnpinnedTabAreaLeft.Owner = this.ultraDockManager1;
-            this._frmMainTarifarioUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 367);
+            this._frmMainTarifarioUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 453);
             this._frmMainTarifarioUnpinnedTabAreaLeft.TabIndex = 14;
             // 
             // _frmMainTarifarioUnpinnedTabAreaRight
             // 
             this._frmMainTarifarioUnpinnedTabAreaRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this._frmMainTarifarioUnpinnedTabAreaRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._frmMainTarifarioUnpinnedTabAreaRight.Location = new System.Drawing.Point(833, 51);
+            this._frmMainTarifarioUnpinnedTabAreaRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._frmMainTarifarioUnpinnedTabAreaRight.Location = new System.Drawing.Point(1112, 61);
+            this._frmMainTarifarioUnpinnedTabAreaRight.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifarioUnpinnedTabAreaRight.Name = "_frmMainTarifarioUnpinnedTabAreaRight";
             this._frmMainTarifarioUnpinnedTabAreaRight.Owner = this.ultraDockManager1;
-            this._frmMainTarifarioUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 367);
+            this._frmMainTarifarioUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 453);
             this._frmMainTarifarioUnpinnedTabAreaRight.TabIndex = 15;
             // 
             // _frmMainTarifarioUnpinnedTabAreaTop
             // 
             this._frmMainTarifarioUnpinnedTabAreaTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this._frmMainTarifarioUnpinnedTabAreaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._frmMainTarifarioUnpinnedTabAreaTop.Location = new System.Drawing.Point(4, 51);
+            this._frmMainTarifarioUnpinnedTabAreaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._frmMainTarifarioUnpinnedTabAreaTop.Location = new System.Drawing.Point(4, 61);
+            this._frmMainTarifarioUnpinnedTabAreaTop.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifarioUnpinnedTabAreaTop.Name = "_frmMainTarifarioUnpinnedTabAreaTop";
             this._frmMainTarifarioUnpinnedTabAreaTop.Owner = this.ultraDockManager1;
-            this._frmMainTarifarioUnpinnedTabAreaTop.Size = new System.Drawing.Size(829, 0);
+            this._frmMainTarifarioUnpinnedTabAreaTop.Size = new System.Drawing.Size(1108, 0);
             this._frmMainTarifarioUnpinnedTabAreaTop.TabIndex = 16;
             // 
             // _frmMainTarifarioUnpinnedTabAreaBottom
             // 
             this._frmMainTarifarioUnpinnedTabAreaBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._frmMainTarifarioUnpinnedTabAreaBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._frmMainTarifarioUnpinnedTabAreaBottom.Location = new System.Drawing.Point(4, 418);
+            this._frmMainTarifarioUnpinnedTabAreaBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._frmMainTarifarioUnpinnedTabAreaBottom.Location = new System.Drawing.Point(4, 514);
+            this._frmMainTarifarioUnpinnedTabAreaBottom.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifarioUnpinnedTabAreaBottom.Name = "_frmMainTarifarioUnpinnedTabAreaBottom";
             this._frmMainTarifarioUnpinnedTabAreaBottom.Owner = this.ultraDockManager1;
-            this._frmMainTarifarioUnpinnedTabAreaBottom.Size = new System.Drawing.Size(829, 0);
+            this._frmMainTarifarioUnpinnedTabAreaBottom.Size = new System.Drawing.Size(1108, 0);
             this._frmMainTarifarioUnpinnedTabAreaBottom.TabIndex = 17;
             // 
             // _frmMainTarifarioAutoHideControl
             // 
-            this._frmMainTarifarioAutoHideControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._frmMainTarifarioAutoHideControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._frmMainTarifarioAutoHideControl.Location = new System.Drawing.Point(0, 0);
+            this._frmMainTarifarioAutoHideControl.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifarioAutoHideControl.Name = "_frmMainTarifarioAutoHideControl";
             this._frmMainTarifarioAutoHideControl.Owner = this.ultraDockManager1;
             this._frmMainTarifarioAutoHideControl.Size = new System.Drawing.Size(0, 0);
@@ -178,9 +183,10 @@
             this._frmMainTarifario_UltraFormManager_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 4;
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 27);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 33);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Name = "_frmMainTarifario_UltraFormManager_Dock_Area_Left";
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 391);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 481);
             // 
             // _frmMainTarifario_UltraFormManager_Dock_Area_Right
             // 
@@ -190,9 +196,10 @@
             this._frmMainTarifario_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(833, 27);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1112, 33);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Name = "_frmMainTarifario_UltraFormManager_Dock_Area_Right";
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 391);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 481);
             // 
             // _frmMainTarifario_UltraFormManager_Dock_Area_Top
             // 
@@ -202,8 +209,9 @@
             this._frmMainTarifario_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifario_UltraFormManager_Dock_Area_Top.Name = "_frmMainTarifario_UltraFormManager_Dock_Area_Top";
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(837, 27);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1116, 33);
             // 
             // _frmMainTarifario_UltraFormManager_Dock_Area_Bottom
             // 
@@ -212,9 +220,10 @@
             this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Bottom;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 418);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 514);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Name = "_frmMainTarifario_UltraFormManager_Dock_Area_Bottom";
-            this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(837, 0);
+            this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1116, 0);
             // 
             // ultraStatusBarTarifario
             // 
@@ -223,7 +232,8 @@
             this.ultraStatusBarTarifario.Appearance = appearance7;
             this.ultraStatusBarTarifario.BorderStyle = Infragistics.Win.UIElementBorderStyle.WindowsVista;
             this.ultraStatusBarTarifario.BorderStylePanel = Infragistics.Win.UIElementBorderStyle.WindowsVista;
-            this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 418);
+            this.ultraStatusBarTarifario.Location = new System.Drawing.Point(0, 514);
+            this.ultraStatusBarTarifario.Margin = new System.Windows.Forms.Padding(4);
             this.ultraStatusBarTarifario.Name = "ultraStatusBarTarifario";
             appearance1.TextVAlignAsString = "Middle";
             this.ultraStatusBarTarifario.PanelAppearance = appearance1;
@@ -262,7 +272,7 @@
             ultraStatusPanel3,
             ultraStatusPanel4,
             ultraStatusPanel5});
-            this.ultraStatusBarTarifario.Size = new System.Drawing.Size(837, 37);
+            this.ultraStatusBarTarifario.Size = new System.Drawing.Size(1116, 46);
             this.ultraStatusBarTarifario.TabIndex = 30;
             this.ultraStatusBarTarifario.Text = "ultraStatusBarTarifario";
             this.ultraStatusBarTarifario.ViewStyle = Infragistics.Win.UltraWinStatusBar.ViewStyle.Office2007;
@@ -272,13 +282,14 @@
             this.archivoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem1.Name = "archivoToolStripMenuItem1";
-            this.archivoToolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
             this.archivoToolStripMenuItem1.Text = "Archivo";
+            this.archivoToolStripMenuItem1.Visible = false;
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -292,48 +303,48 @@
             this.tarifarioToolStripMenuItem1,
             this.procedimientosToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.archivoToolStripMenuItem.Text = "Administración";
             // 
             // tipoEmpresaToolStripMenuItem
             // 
             this.tipoEmpresaToolStripMenuItem.Name = "tipoEmpresaToolStripMenuItem";
-            this.tipoEmpresaToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.tipoEmpresaToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.tipoEmpresaToolStripMenuItem.Text = "Tipo Empresa";
             this.tipoEmpresaToolStripMenuItem.Click += new System.EventHandler(this.tipoEmpresaToolStripMenuItem_Click);
             // 
             // aseguradorasToolStripMenuItem1
             // 
             this.aseguradorasToolStripMenuItem1.Name = "aseguradorasToolStripMenuItem1";
-            this.aseguradorasToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.aseguradorasToolStripMenuItem1.Size = new System.Drawing.Size(261, 26);
             this.aseguradorasToolStripMenuItem1.Text = "Aseguradoras y Empresas";
             this.aseguradorasToolStripMenuItem1.Click += new System.EventHandler(this.aseguradorasToolStripMenuItem_Click);
             // 
             // conveniosToolStripMenuItem1
             // 
             this.conveniosToolStripMenuItem1.Name = "conveniosToolStripMenuItem1";
-            this.conveniosToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.conveniosToolStripMenuItem1.Size = new System.Drawing.Size(261, 26);
             this.conveniosToolStripMenuItem1.Text = "Convenios";
             this.conveniosToolStripMenuItem1.Click += new System.EventHandler(this.conveniosToolStripMenuItem1_Click);
             // 
             // estructuraEspToolStripMenuItem
             // 
             this.estructuraEspToolStripMenuItem.Name = "estructuraEspToolStripMenuItem";
-            this.estructuraEspToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.estructuraEspToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.estructuraEspToolStripMenuItem.Text = "Estructura Especialidades";
             this.estructuraEspToolStripMenuItem.Visible = false;
             // 
             // tarifarioToolStripMenuItem1
             // 
             this.tarifarioToolStripMenuItem1.Name = "tarifarioToolStripMenuItem1";
-            this.tarifarioToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.tarifarioToolStripMenuItem1.Size = new System.Drawing.Size(261, 26);
             this.tarifarioToolStripMenuItem1.Text = "Tarifarios";
             this.tarifarioToolStripMenuItem1.Click += new System.EventHandler(this.tarifarioToolStripMenuItem1_Click);
             // 
             // procedimientosToolStripMenuItem
             // 
             this.procedimientosToolStripMenuItem.Name = "procedimientosToolStripMenuItem";
-            this.procedimientosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.procedimientosToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.procedimientosToolStripMenuItem.Text = "Procedimientos";
             this.procedimientosToolStripMenuItem.Click += new System.EventHandler(this.procedimientosToolStripMenuItem_Click);
             // 
@@ -343,20 +354,20 @@
             this.creacionDeHonorariosToolStripMenuItem,
             this.consultaDeHonorariosToolStripMenuItem});
             this.honorariosToolStripMenuItem1.Name = "honorariosToolStripMenuItem1";
-            this.honorariosToolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
+            this.honorariosToolStripMenuItem1.Size = new System.Drawing.Size(77, 24);
             this.honorariosToolStripMenuItem1.Text = "Tarifario";
             // 
             // creacionDeHonorariosToolStripMenuItem
             // 
             this.creacionDeHonorariosToolStripMenuItem.Name = "creacionDeHonorariosToolStripMenuItem";
-            this.creacionDeHonorariosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.creacionDeHonorariosToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
             this.creacionDeHonorariosToolStripMenuItem.Text = "Creación de honorarios";
             this.creacionDeHonorariosToolStripMenuItem.Click += new System.EventHandler(this.creacionDeHonorariosToolStripMenuItem1_Click);
             // 
             // consultaDeHonorariosToolStripMenuItem
             // 
             this.consultaDeHonorariosToolStripMenuItem.Name = "consultaDeHonorariosToolStripMenuItem";
-            this.consultaDeHonorariosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.consultaDeHonorariosToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
             this.consultaDeHonorariosToolStripMenuItem.Text = "Consulta de honorarios";
             this.consultaDeHonorariosToolStripMenuItem.Click += new System.EventHandler(this.consultaDeHonorariosToolStripMenuItem_Click);
             // 
@@ -366,13 +377,13 @@
             this.honorariosToolStripMenuItem,
             this.empresasYAseguradorasToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // honorariosToolStripMenuItem
             // 
             this.honorariosToolStripMenuItem.Name = "honorariosToolStripMenuItem";
-            this.honorariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.honorariosToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.honorariosToolStripMenuItem.Text = "Honorarios";
             this.honorariosToolStripMenuItem.Visible = false;
             this.honorariosToolStripMenuItem.Click += new System.EventHandler(this.honorariosToolStripMenuItem_Click);
@@ -380,7 +391,7 @@
             // empresasYAseguradorasToolStripMenuItem
             // 
             this.empresasYAseguradorasToolStripMenuItem.Name = "empresasYAseguradorasToolStripMenuItem";
-            this.empresasYAseguradorasToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.empresasYAseguradorasToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.empresasYAseguradorasToolStripMenuItem.Text = "Empresas y Aseguradoras";
             this.empresasYAseguradorasToolStripMenuItem.Click += new System.EventHandler(this.empresasYAseguradorasToolStripMenuItem_Click);
             // 
@@ -392,31 +403,32 @@
             this.cascadaToolStripMenuItem,
             this.organizarIconosToolStripMenuItem});
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
-            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.ventanaToolStripMenuItem.Text = "Ventana";
+            this.ventanaToolStripMenuItem.Visible = false;
             // 
             // mosaicoHorizontalToolStripMenuItem
             // 
             this.mosaicoHorizontalToolStripMenuItem.Name = "mosaicoHorizontalToolStripMenuItem";
-            this.mosaicoHorizontalToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.mosaicoHorizontalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.mosaicoHorizontalToolStripMenuItem.Text = "Mosaico Horizontal";
             // 
             // mosaicoVerticalToolStripMenuItem
             // 
             this.mosaicoVerticalToolStripMenuItem.Name = "mosaicoVerticalToolStripMenuItem";
-            this.mosaicoVerticalToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.mosaicoVerticalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.mosaicoVerticalToolStripMenuItem.Text = "Mosaico Vertical";
             // 
             // cascadaToolStripMenuItem
             // 
             this.cascadaToolStripMenuItem.Name = "cascadaToolStripMenuItem";
-            this.cascadaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.cascadaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cascadaToolStripMenuItem.Text = "Cascada";
             // 
             // organizarIconosToolStripMenuItem
             // 
             this.organizarIconosToolStripMenuItem.Name = "organizarIconosToolStripMenuItem";
-            this.organizarIconosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.organizarIconosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.organizarIconosToolStripMenuItem.Text = "Organizar iconos";
             // 
             // ayudaToolStripMenuItem
@@ -424,19 +436,21 @@
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acercaDeToolStripMenuItem});
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.ayudaToolStripMenuItem.Visible = false;
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca  de.";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(223)))), ((int)(((byte)(245)))));
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem1,
             this.archivoToolStripMenuItem,
@@ -445,9 +459,9 @@
             this.reportesToolStripMenuItem,
             this.ventanaToolStripMenuItem,
             this.ayudaToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(4, 27);
+            this.menuStrip.Location = new System.Drawing.Point(4, 33);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1108, 28);
             this.menuStrip.TabIndex = 19;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -459,42 +473,42 @@
             this.conveniosToolStripMenuItem,
             this.preciosPorConveniosToolStripMenuItem});
             this.preciosYPorcentajesConveniosToolStripMenuItem.Name = "preciosYPorcentajesConveniosToolStripMenuItem";
-            this.preciosYPorcentajesConveniosToolStripMenuItem.Size = new System.Drawing.Size(189, 20);
+            this.preciosYPorcentajesConveniosToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.preciosYPorcentajesConveniosToolStripMenuItem.Text = "Precios y Porcentajes Convenios";
             // 
             // tipoDeCostosToolStripMenuItem
             // 
             this.tipoDeCostosToolStripMenuItem.Name = "tipoDeCostosToolStripMenuItem";
-            this.tipoDeCostosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.tipoDeCostosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.tipoDeCostosToolStripMenuItem.Text = "Tipo De Costos";
             this.tipoDeCostosToolStripMenuItem.Click += new System.EventHandler(this.tipoDeCostosToolStripMenuItem_Click);
             // 
             // catalogoCostosToolStripMenuItem
             // 
             this.catalogoCostosToolStripMenuItem.Name = "catalogoCostosToolStripMenuItem";
-            this.catalogoCostosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.catalogoCostosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.catalogoCostosToolStripMenuItem.Text = "Catalogo Costos";
             this.catalogoCostosToolStripMenuItem.Click += new System.EventHandler(this.catalogoCostosToolStripMenuItem_Click);
             // 
             // conveniosToolStripMenuItem
             // 
             this.conveniosToolStripMenuItem.Name = "conveniosToolStripMenuItem";
-            this.conveniosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.conveniosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.conveniosToolStripMenuItem.Text = "Convenios";
             this.conveniosToolStripMenuItem.Click += new System.EventHandler(this.conveniosToolStripMenuItem_Click_1);
             // 
             // preciosPorConveniosToolStripMenuItem
             // 
             this.preciosPorConveniosToolStripMenuItem.Name = "preciosPorConveniosToolStripMenuItem";
-            this.preciosPorConveniosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.preciosPorConveniosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.preciosPorConveniosToolStripMenuItem.Text = "Precios Por Convenios";
             this.preciosPorConveniosToolStripMenuItem.Click += new System.EventHandler(this.preciosPorConveniosToolStripMenuItem_Click);
             // 
             // frmMainTarifario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 455);
+            this.ClientSize = new System.Drawing.Size(1116, 560);
             this.Controls.Add(this._frmMainTarifarioAutoHideControl);
             this.Controls.Add(this._frmMainTarifarioUnpinnedTabAreaBottom);
             this.Controls.Add(this._frmMainTarifarioUnpinnedTabAreaTop);
@@ -507,6 +521,7 @@
             this.Controls.Add(this._frmMainTarifario_UltraFormManager_Dock_Area_Bottom);
             this.Controls.Add(this.ultraStatusBarTarifario);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainTarifario";
             this.Text = "Tarifario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

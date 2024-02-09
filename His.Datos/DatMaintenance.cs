@@ -1352,6 +1352,16 @@ namespace His.Datos
                 BaseContextoDatos obj = new BaseContextoDatos();
                 connection = obj.ConectarBd();
                 connection.Open();
+                command = new SqlCommand("update Sic3000..SeguridadUsuarioOpciones set staopc = 'N' where codusu in (select codusu from Sic3000..SeguridadesUsuarioGrupo where codgru = " + codgru + ") ", connection);
+                command.CommandType = CommandType.Text;
+                reader = command.ExecuteReader();
+                connection.Close();
+                connection.Open();
+                command = new SqlCommand("delete from Sic3000..SeguridadesUsuarioGrupo where codgru = " + codgru, connection);
+                command.CommandType = CommandType.Text;
+                reader = command.ExecuteReader();
+                connection.Close();
+                connection.Open();
                 command = new SqlCommand("delete from Sic3000..SeguridadGrupoOpciones where codgru = " + codgru, connection);
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
@@ -1450,7 +1460,7 @@ namespace His.Datos
                 //throw;
             }
         }
-        public List<DtoConsultasWeb> consultasWeb(DateTime desde,DateTime hasta)
+        public List<DtoConsultasWeb> consultasWeb(DateTime desde, DateTime hasta)
         {
             List<DtoConsultasWeb> cw = new List<DtoConsultasWeb>();
             using (var db = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
@@ -1459,7 +1469,7 @@ namespace His.Datos
                           join u in db.USUARIOS on c.usuario equals u.ID_USUARIO
                           join n in db.NIVEL_PISO_MAQUINA on c.ip equals n.IP_MAQUINA
                           where c.fechaConsulta > desde && c.fechaConsulta < hasta
-                          select new { c,u,n}).ToList();
+                          select new { c, u, n }).ToList();
                 foreach (var item in cn)
                 {
                     DtoConsultasWeb cb = new DtoConsultasWeb();
@@ -1490,9 +1500,9 @@ namespace His.Datos
                 Console.WriteLine(ex.Message);
             }
             Sqlcmd = new SqlCommand("select fechaConsulta as 'FECHA',U.APELLIDOS+' '+U.NOMBRES AS 'USUARIO',C.tipoConsulta AS 'TIPO CONSULTA',C.ip AS 'IP MAQUINA',N.NIV_DESCRIPCION AS 'DESCRIPCION' from His3000..CONTROL_CONSULTA c \n" +
-"inner join  His3000..NIVEL_PISO_MAQUINA n on c.ip = n.IP_MAQUINA \n"+
-"inner join His3000..USUARIOS u on c.usuario = u.ID_USUARIO \n"+
-"WHERE C.fechaConsulta BETWEEN '"+desde+"' AND '"+hasta+"'", Sqlcon);
+"inner join  His3000..NIVEL_PISO_MAQUINA n on c.ip = n.IP_MAQUINA \n" +
+"inner join His3000..USUARIOS u on c.usuario = u.ID_USUARIO \n" +
+"WHERE C.fechaConsulta BETWEEN '" + desde + "' AND '" + hasta + "'", Sqlcon);
             Sqlcmd.CommandType = CommandType.Text;
             Sqldap = new SqlDataAdapter();
             Sqlcmd.CommandTimeout = 180;
