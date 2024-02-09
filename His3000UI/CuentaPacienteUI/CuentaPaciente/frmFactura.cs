@@ -5062,7 +5062,7 @@ namespace CuentaPaciente
                     else
                     {
                         /*impresion*/
-                        PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(68);
+                        PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(68);  // se aumenta por parametro para impresion con valores y sin valores // Mario Valencia // 04-01-2024
                         frmImpresionPedidos frmPedidos = new frmImpresionPedidos(Pedido, ar.PEA_CODIGO, 1, Convert.ToInt32(pd.PAD_VALOR));
                         frmPedidos.Show();
                     }

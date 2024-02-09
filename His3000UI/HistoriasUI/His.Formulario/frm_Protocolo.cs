@@ -1761,14 +1761,28 @@ namespace His.Formulario
         private void btnAnest_Click(object sender, EventArgs e)
         {
             List<MEDICOS> listaMedicos;
+            PARAMETROS_DETALLE pd = NegParametros.RecuperaPorCodigo(69); // se cambia por parametro para poder cunplir requerimiento Integral me muestre solo Anestesiologos // Mario Valencia // 04-01-2024
+            if (pd.PAD_VALOR.Trim() == "1")
+            {
+                listaMedicos = NegMedicos.listaMedicosIncTipoMedicoXEsp(102);
+                frm_AyudaMedicos ayuda = new frm_AyudaMedicos(listaMedicos, "MEDICOS", "CODIGO");
+                //ayuda.campoPadre = txt;
+                ayuda.ShowDialog();
+                string cadena = txtAnestesista.Text;
+                if (ayuda.campoPadre.Text != string.Empty)
+                    txtAnestesista.Text = cargarMedico(Convert.ToInt32(ayuda.campoPadre.Text.ToString()), cadena);
+            }
+            else
+            {
+                listaMedicos = NegMedicos.listaMedicosIncTipoMedico();
+                frm_AyudaMedicos ayuda = new frm_AyudaMedicos(listaMedicos, "MEDICOS", "CODIGO");
+                //ayuda.campoPadre = txt;
+                ayuda.ShowDialog();
+                string cadena = txtAnestesista.Text;
+                if (ayuda.campoPadre.Text != string.Empty)
+                    txtAnestesista.Text = cargarMedico(Convert.ToInt32(ayuda.campoPadre.Text.ToString()), cadena);
 
-            listaMedicos = NegMedicos.listaMedicosIncTipoMedico();
-            frm_AyudaMedicos ayuda = new frm_AyudaMedicos(listaMedicos, "MEDICOS", "CODIGO");
-            //ayuda.campoPadre = txt;
-            ayuda.ShowDialog();
-            string cadena = txtAnestesista.Text;
-            if (ayuda.campoPadre.Text != string.Empty)
-                txtAnestesista.Text = cargarMedico(Convert.ToInt32(ayuda.campoPadre.Text.ToString()), cadena);
+            }
         }
 
         private void btnTAyudante_Click(object sender, EventArgs e)

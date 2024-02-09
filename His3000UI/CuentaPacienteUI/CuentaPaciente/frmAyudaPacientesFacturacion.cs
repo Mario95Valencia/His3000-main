@@ -56,7 +56,9 @@ namespace CuentaPaciente
         {
             InitializeComponent();
             cb_numFilas.SelectedIndex = 0;
+            cb_numFilas.Text = "100";
             Buscar();
+            cb_numFilas.Text = "1000";
         }
 
         private void Buscar()

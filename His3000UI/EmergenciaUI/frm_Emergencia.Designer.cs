@@ -1157,7 +1157,7 @@
             // ultraTabPageControl10
             // 
             this.ultraTabPageControl10.Controls.Add(this.grpDosTresCuatro);
-            this.ultraTabPageControl10.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl10.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl10.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl10.Name = "ultraTabPageControl10";
             this.ultraTabPageControl10.Size = new System.Drawing.Size(1174, 419);
@@ -1215,7 +1215,7 @@
             this.txt_ObservacionAccidente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ObservacionAccidente.Multiline = true;
             this.txt_ObservacionAccidente.Name = "txt_ObservacionAccidente";
-            this.txt_ObservacionAccidente.Size = new System.Drawing.Size(1121, 157);
+            this.txt_ObservacionAccidente.Size = new System.Drawing.Size(1121, 160);
             this.txt_ObservacionAccidente.SpellChecker = this.ultraSpellCheckerEvolucion;
             this.txt_ObservacionAccidente.TabIndex = 54;
             // 
@@ -2351,7 +2351,7 @@
             this.txt_EnfermedadActual.Multiline = true;
             this.txt_EnfermedadActual.Name = "txt_EnfermedadActual";
             this.txt_EnfermedadActual.Scrollbars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_EnfermedadActual.Size = new System.Drawing.Size(1134, 119);
+            this.txt_EnfermedadActual.Size = new System.Drawing.Size(1134, 122);
             this.txt_EnfermedadActual.SpellChecker = this.ultraSpellCheckerEvolucion;
             this.txt_EnfermedadActual.TabIndex = 17;
             // 
@@ -3340,10 +3340,10 @@
             // ultraTabPageControl14
             // 
             this.ultraTabPageControl14.Controls.Add(this.grpTrceCatorce);
-            this.ultraTabPageControl14.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl14.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl14.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabPageControl14.Name = "ultraTabPageControl14";
-            this.ultraTabPageControl14.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabPageControl14.Size = new System.Drawing.Size(1260, 579);
             // 
             // grpTrceCatorce
             // 
@@ -3355,7 +3355,7 @@
             this.grpTrceCatorce.Location = new System.Drawing.Point(0, 0);
             this.grpTrceCatorce.Margin = new System.Windows.Forms.Padding(4);
             this.grpTrceCatorce.Name = "grpTrceCatorce";
-            this.grpTrceCatorce.Size = new System.Drawing.Size(1174, 419);
+            this.grpTrceCatorce.Size = new System.Drawing.Size(1260, 579);
             this.grpTrceCatorce.TabIndex = 3;
             this.grpTrceCatorce.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -3375,7 +3375,7 @@
             this.groupBox36.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox36.Name = "groupBox36";
             this.groupBox36.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox36.Size = new System.Drawing.Size(1168, 261);
+            this.groupBox36.Size = new System.Drawing.Size(1254, 261);
             this.groupBox36.TabIndex = 3;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "14. ALTA";
@@ -3622,7 +3622,7 @@
             this.groupBox32.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox32.Name = "groupBox32";
             this.groupBox32.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox32.Size = new System.Drawing.Size(994, 74);
+            this.groupBox32.Size = new System.Drawing.Size(1080, 74);
             this.groupBox32.TabIndex = 1;
             this.groupBox32.TabStop = false;
             // 
@@ -3654,6 +3654,7 @@
             this.txt_CodMSPE.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CodMSPE.MaxLength = 8;
             this.txt_CodMSPE.Name = "txt_CodMSPE";
+            this.txt_CodMSPE.ReadOnly = true;
             this.txt_CodMSPE.Size = new System.Drawing.Size(183, 23);
             this.txt_CodMSPE.TabIndex = 12;
             this.txt_CodMSPE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodMSPE_KeyPress);
@@ -3674,6 +3675,7 @@
             this.txt_profesionalEmergencia.Margin = new System.Windows.Forms.Padding(4);
             this.txt_profesionalEmergencia.MaxLength = 100;
             this.txt_profesionalEmergencia.Name = "txt_profesionalEmergencia";
+            this.txt_profesionalEmergencia.ReadOnly = true;
             this.txt_profesionalEmergencia.Size = new System.Drawing.Size(579, 23);
             this.txt_profesionalEmergencia.TabIndex = 11;
             this.txt_profesionalEmergencia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_profesionalEmergencia_KeyUp);
@@ -3719,7 +3721,7 @@
             this.groupBox33.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox33.Name = "groupBox33";
             this.groupBox33.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox33.Size = new System.Drawing.Size(1168, 186);
+            this.groupBox33.Size = new System.Drawing.Size(1254, 186);
             this.groupBox33.TabIndex = 0;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "13. PLAN DE TRATAMIENTO";
@@ -3838,7 +3840,7 @@
             this.cb_acceso.FormattingEnabled = true;
             this.cb_acceso.Location = new System.Drawing.Point(15, 24);
             this.cb_acceso.Name = "cb_acceso";
-            this.cb_acceso.Size = new System.Drawing.Size(276, 25);
+            this.cb_acceso.Size = new System.Drawing.Size(276, 24);
             this.cb_acceso.TabIndex = 113;
             // 
             // groupBox3
@@ -4071,7 +4073,7 @@
             this.cb_tratamiento.FormattingEnabled = true;
             this.cb_tratamiento.Location = new System.Drawing.Point(507, 161);
             this.cb_tratamiento.Name = "cb_tratamiento";
-            this.cb_tratamiento.Size = new System.Drawing.Size(284, 25);
+            this.cb_tratamiento.Size = new System.Drawing.Size(284, 24);
             this.cb_tratamiento.TabIndex = 112;
             // 
             // label14
@@ -4090,7 +4092,7 @@
             this.cb_formaLlegada.FormattingEnabled = true;
             this.cb_formaLlegada.Location = new System.Drawing.Point(507, 137);
             this.cb_formaLlegada.Name = "cb_formaLlegada";
-            this.cb_formaLlegada.Size = new System.Drawing.Size(284, 25);
+            this.cb_formaLlegada.Size = new System.Drawing.Size(284, 24);
             this.cb_formaLlegada.TabIndex = 110;
             // 
             // label13
@@ -4109,7 +4111,7 @@
             this.cb_medico.FormattingEnabled = true;
             this.cb_medico.Location = new System.Drawing.Point(507, 111);
             this.cb_medico.Name = "cb_medico";
-            this.cb_medico.Size = new System.Drawing.Size(284, 25);
+            this.cb_medico.Size = new System.Drawing.Size(284, 24);
             this.cb_medico.TabIndex = 108;
             // 
             // label12
@@ -4128,7 +4130,7 @@
             this.cb_aseguradoras.FormattingEnabled = true;
             this.cb_aseguradoras.Location = new System.Drawing.Point(507, 88);
             this.cb_aseguradoras.Name = "cb_aseguradoras";
-            this.cb_aseguradoras.Size = new System.Drawing.Size(284, 25);
+            this.cb_aseguradoras.Size = new System.Drawing.Size(284, 24);
             this.cb_aseguradoras.TabIndex = 106;
             // 
             // txt_telefono2
@@ -4288,7 +4290,7 @@
             this.cb_estadoCivil.FormattingEnabled = true;
             this.cb_estadoCivil.Location = new System.Drawing.Point(101, 111);
             this.cb_estadoCivil.Name = "cb_estadoCivil";
-            this.cb_estadoCivil.Size = new System.Drawing.Size(171, 25);
+            this.cb_estadoCivil.Size = new System.Drawing.Size(171, 24);
             this.cb_estadoCivil.TabIndex = 19;
             // 
             // txt_etnia
@@ -4464,7 +4466,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(179, 31);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 25);
+            this.comboBox2.Size = new System.Drawing.Size(187, 24);
             this.comboBox2.TabIndex = 5;
             // 
             // label21
@@ -4683,7 +4685,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(87, 53);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(307, 25);
+            this.comboBox1.Size = new System.Drawing.Size(307, 24);
             this.comboBox1.TabIndex = 3;
             // 
             // button1
@@ -4812,7 +4814,7 @@
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(310, 19);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(100, 25);
+            this.comboBox7.Size = new System.Drawing.Size(100, 24);
             this.comboBox7.TabIndex = 12;
             // 
             // radioButton6
@@ -4885,7 +4887,7 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(315, 45);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(82, 25);
+            this.comboBox6.Size = new System.Drawing.Size(82, 24);
             this.comboBox6.TabIndex = 11;
             // 
             // textBox11
@@ -5297,7 +5299,7 @@
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(160, 111);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(216, 25);
+            this.comboBox5.Size = new System.Drawing.Size(216, 24);
             this.comboBox5.TabIndex = 10;
             // 
             // comboBox4
@@ -5305,7 +5307,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(160, 82);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(216, 25);
+            this.comboBox4.Size = new System.Drawing.Size(216, 24);
             this.comboBox4.TabIndex = 9;
             // 
             // comboBox3
@@ -5313,7 +5315,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(160, 53);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(216, 25);
+            this.comboBox3.Size = new System.Drawing.Size(216, 24);
             this.comboBox3.TabIndex = 8;
             // 
             // button6
@@ -5410,7 +5412,7 @@
             this.comboBox10.FormattingEnabled = true;
             this.comboBox10.Location = new System.Drawing.Point(111, 129);
             this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(216, 25);
+            this.comboBox10.Size = new System.Drawing.Size(216, 24);
             this.comboBox10.TabIndex = 8;
             // 
             // radioButton20
@@ -5606,7 +5608,7 @@
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.Location = new System.Drawing.Point(105, 109);
             this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(311, 25);
+            this.comboBox9.Size = new System.Drawing.Size(311, 24);
             this.comboBox9.TabIndex = 10;
             // 
             // comboBox8
@@ -5614,7 +5616,7 @@
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.Location = new System.Drawing.Point(105, 84);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(311, 25);
+            this.comboBox8.Size = new System.Drawing.Size(311, 24);
             this.comboBox8.TabIndex = 9;
             // 
             // label57
@@ -5973,7 +5975,7 @@
             this.cb_especialidades.FormattingEnabled = true;
             this.cb_especialidades.Location = new System.Drawing.Point(113, 37);
             this.cb_especialidades.Name = "cb_especialidades";
-            this.cb_especialidades.Size = new System.Drawing.Size(121, 25);
+            this.cb_especialidades.Size = new System.Drawing.Size(121, 24);
             this.cb_especialidades.TabIndex = 1;
             // 
             // label58
@@ -6068,7 +6070,7 @@
             this.ultraGroupBoxPaciente.Location = new System.Drawing.Point(4, 70);
             this.ultraGroupBoxPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.ultraGroupBoxPaciente.Name = "ultraGroupBoxPaciente";
-            this.ultraGroupBoxPaciente.Size = new System.Drawing.Size(1176, 82);
+            this.ultraGroupBoxPaciente.Size = new System.Drawing.Size(1262, 82);
             this.ultraGroupBoxPaciente.TabIndex = 29;
             this.ultraGroupBoxPaciente.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007;
             // 
@@ -6245,7 +6247,7 @@
             this.pantab1.Margin = new System.Windows.Forms.Padding(4);
             this.pantab1.Name = "pantab1";
             this.pantab1.SharedControlsPage = this.ultraTabSharedControlsPage3;
-            this.pantab1.Size = new System.Drawing.Size(1176, 443);
+            this.pantab1.Size = new System.Drawing.Size(1262, 603);
             this.pantab1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Office2007Ribbon;
             appearance8.BackColor = System.Drawing.Color.White;
             this.pantab1.TabHeaderAreaAppearance = appearance8;
@@ -6283,7 +6285,7 @@
             this.ultraTabSharedControlsPage3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage3.Margin = new System.Windows.Forms.Padding(4);
             this.ultraTabSharedControlsPage3.Name = "ultraTabSharedControlsPage3";
-            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(1174, 419);
+            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(1260, 579);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Left
             // 
@@ -6296,7 +6298,7 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 34);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Left";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 561);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(4, 721);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Right
             // 
@@ -6306,10 +6308,10 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 4;
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1180, 34);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(1266, 34);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Right";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 561);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(4, 721);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Top
             // 
@@ -6321,7 +6323,7 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Top";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1184, 34);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(1270, 34);
             // 
             // _frm_Emergencia_UltraFormManager_Dock_Area_Bottom
             // 
@@ -6331,10 +6333,10 @@
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 4;
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 595);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 755);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Margin = new System.Windows.Forms.Padding(4);
             this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Name = "_frm_Emergencia_UltraFormManager_Dock_Area_Bottom";
-            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1184, 4);
+            this._frm_Emergencia_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(1270, 4);
             // 
             // tabulador
             // 
@@ -6447,7 +6449,7 @@
             this.chb_ViaAereaL.Location = new System.Drawing.Point(4, 34);
             this.chb_ViaAereaL.Name = "chb_ViaAereaL";
             this.chb_ViaAereaL.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.chb_ViaAereaL.Size = new System.Drawing.Size(1176, 36);
+            this.chb_ViaAereaL.Size = new System.Drawing.Size(1262, 36);
             this.chb_ViaAereaL.TabIndex = 30;
             this.chb_ViaAereaL.Text = "toolStrip1";
             // 
@@ -6717,7 +6719,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1184, 599);
+            this.ClientSize = new System.Drawing.Size(1270, 759);
             this.Controls.Add(this.pantab1);
             this.Controls.Add(this.ultraGroupBoxPaciente);
             this.Controls.Add(this.chb_ViaAereaL);

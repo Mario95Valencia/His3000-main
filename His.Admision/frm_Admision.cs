@@ -9561,15 +9561,41 @@ namespace His.Admision
             if (!rbn_h.Checked)
                 xgenero = "FEMENINO";
 
-            var now = DateTime.Now;
-            var birthday = dtp_fecnac.Value;
-            var yearsOld = now - birthday;
+            //var now = DateTime.Now; // Se comenta calcula la edad de forma incorrecta // Mario Valencia // 2024-01-11
+            //var birthday = dtp_fecnac.Value;
+            //var yearsOld = now - birthday;
 
-            int years = (int)(yearsOld.TotalDays / 365.25);
-            int months = (int)(((yearsOld.TotalDays / 365.25) - years) * 12);
+            //int years = (int)(yearsOld.TotalDays / 365.25);
+            //int months = (int)(((yearsOld.TotalDays / 365.25) - years) * 12);
 
-            TimeSpan age = now - birthday;
-            DateTime totalTime = new DateTime(age.Ticks);
+            //TimeSpan age = now - birthday;
+            //DateTime totalTime = new DateTime(age.Ticks);
+
+            if (dtp_fecnac.Value.Date == DateTime.Now.Date)// calculo de edad // Mario Valencia // 2024-01-11
+                return;
+            DateTime actual = DateTime.Now.Date;
+            if (ultimaAtencion != null)
+                actual = Convert.ToDateTime(ultimaAtencion.ATE_FECHA);
+            DateTime nacido = dtp_fecnac.Value;
+
+            int edadAnos = actual.Year - nacido.Year;
+            if (actual.Month < nacido.Month || (actual.Month == nacido.Month && actual.Day < nacido.Day))
+                edadAnos--;
+
+            int edadMeses = actual.Month - nacido.Month;
+            if (actual.Day < nacido.Day)
+                edadMeses--;
+            if (edadMeses < 0)
+                edadMeses += 12;
+
+            int diaActual = actual.Day;
+            int diaCumple = nacido.Day;
+            int diasDiferencia = diaActual - diaCumple;
+            if (diasDiferencia < 0)
+            {
+                //edadMeses -= 1;
+                diasDiferencia += DateTime.DaysInMonth(actual.Year, actual.Month);
+            }
 
             #region BRAZZALETES
             DSBarCode BC = new DSBarCode();
@@ -9580,7 +9606,7 @@ namespace His.Admision
             Brazzalete["Barras"] = txt_cedula.Text.Trim();
             Brazzalete["Empresa"] = Sesion.nomEmpresa;
             Brazzalete["Paciente"] = "PAC.: " + txt_apellido1.Text + ' ' + txt_apellido2.Text + ' ' + txt_nombre1.Text + ' ' + txt_nombre2.Text;
-            Brazzalete["Edad"] = "EDAD: " + years + " AÑOS, " + months + " MESES, " + totalTime.Day + " DIAS";
+            Brazzalete["Edad"] = "EDAD: " + edadAnos + " AÑOS, " + edadMeses + " MESES, " + diasDiferencia + " DIAS";
             Brazzalete["Sexo"] = "SEXO: " + xgenero + " - HAB.: " + txt_habitacion.Text.ToString().Trim();
             Brazzalete["HC"] = " - HC : " + txt_historiaclinica.Text.Trim();
             Brazzalete["Identificacion"] = "CEDULA:" + txt_cedula.Text.Trim();
@@ -9613,7 +9639,7 @@ namespace His.Admision
             using (StreamWriter sw = File.AppendText(rutaCompleta))         //se crea el archivo
             {
                 sw.WriteLine(txt_apellido1.Text + ' ' + txt_apellido2.Text + ' ' + txt_nombre1.Text + ' ' + txt_nombre2.Text);
-                sw.WriteLine("EDAD:" + years + " AÑOS, " + months + " MESES, " + totalTime.Day + " DIAS");
+                sw.WriteLine("EDAD:" + edadAnos + " AÑOS, " + edadMeses + " MESES, " + diasDiferencia+ " DIAS"); // se cambian a nuevas variables
                 sw.WriteLine("GENERO: " + xgenero + "  HAB.:" + txt_habitacion.Text.ToString().Trim());
                 sw.WriteLine("HC : " + txt_historiaclinica.Text.Trim() + " CEDULA:" + txt_cedula.Text.Trim());
                 sw.WriteLine("INGRESO : " + dateTimeFecIngreso.Value.ToString());

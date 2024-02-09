@@ -23,6 +23,8 @@ namespace His.Entidades
         public DateTime fecha_entrega_documento { get; set; }
         public int id_usuario { get; set; }
         public int id_usuario_revierte { get; set; }
+        public string nac_etnica { get; set; }
+        public string pueblo { get; set; }
 
     }
 }

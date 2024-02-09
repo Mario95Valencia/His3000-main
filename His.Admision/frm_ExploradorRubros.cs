@@ -78,7 +78,7 @@ namespace His.Admision
             try
             {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Filter = "excel files (*.xls)|*.xls";
+                saveFileDialog1.Filter = "excel files (*.xlsx)|*.xlsx";
                 saveFileDialog1.FilterIndex = 2;
                 saveFileDialog1.RestoreDirectory = true;
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)

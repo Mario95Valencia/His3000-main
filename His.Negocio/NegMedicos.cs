@@ -368,6 +368,10 @@ namespace His.Negocio
         {
             return new DatMedicos().TipoMoviemientoSic(codcue);
         }
+        public static List<MEDICOS> listaMedicosIncTipoMedicoXEsp(Int64 esp_codigo)
+        {
+            return new DatMedicos().listaMedicosIncTipoMedicoXEsp(esp_codigo);
+        }
     }
 
 

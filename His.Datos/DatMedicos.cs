@@ -1627,5 +1627,21 @@ namespace His.Datos
             connection.Close();
             return cuenta;
         }
+        public List<MEDICOS> listaMedicosIncTipoMedicoXEsp(Int64 esp_codigo)
+        {
+            try
+            {
+                using (var contexto = new HIS3000BDEntities(ConexionEntidades.ConexionEDM))
+                {
+                    List<MEDICOS> medicos = new List<MEDICOS>();
+                    medicos = contexto.MEDICOS.Include("TIPO_MEDICO").Include("ESPECIALIDADES_MEDICAS").Where(m => m.MED_ESTADO == true && m.ESPECIALIDADES_MEDICAS.ESP_CODIGO == esp_codigo).ToList();
+                    return medicos;
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+        }
     }
 }

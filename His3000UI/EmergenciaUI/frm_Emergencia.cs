@@ -1894,25 +1894,25 @@ namespace His.Emergencia
         {
             HabilitarBotones(false, false, false, false, true, false, false, false);
             // Traduzco los mensajes al espa¤ol en la ventana de correcci¢n ortogr fica
-            //Infragistics.Shared.ResourceCustomizer rc = new Infragistics.Shared.ResourceCustomizer();
+            Infragistics.Shared.ResourceCustomizer rc = new Infragistics.Shared.ResourceCustomizer();
 
             ////rc = Infragistics.Win.UltraWinSpellChecker.Resources.Customizer;
-            //rc.SetCustomizedString("LS_SpellCheckForm", "Ortograf¡a");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btChange", "&Cambiar");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btChangeAll", "Cam&biar Todas");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btClose_1", "Cancelar");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btClose_2", "Cerrar");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreAll", "Omitir toda&s");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreOnce_1", "Om&itir una vez");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreOnce_2", "&Reanudar");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btAddToDictionary", "Ag&regar");
-            //rc.SetCustomizedString("LS_SpellCheckForm_btUndo", "&Deshacer");
-            //rc.SetCustomizedString("LS_SpellCheckForm_lbErrorsFound", "Se han encontrado errores");
-            //rc.SetCustomizedString("LS_SpellCheckForm_lbChangeTo", "Cambiar a:");
-            //rc.SetCustomizedString("LS_SpellCheckForm_lbSuggestions", "Sugerencias:");
+            rc.SetCustomizedString("LS_SpellCheckForm", "Ortograf¡a");
+            rc.SetCustomizedString("LS_SpellCheckForm_btChange", "&Cambiar");
+            rc.SetCustomizedString("LS_SpellCheckForm_btChangeAll", "Cam&biar Todas");
+            rc.SetCustomizedString("LS_SpellCheckForm_btClose_1", "Cancelar");
+            rc.SetCustomizedString("LS_SpellCheckForm_btClose_2", "Cerrar");
+            rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreAll", "Omitir toda&s");
+            rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreOnce_1", "Om&itir una vez");
+            rc.SetCustomizedString("LS_SpellCheckForm_btIgnoreOnce_2", "&Reanudar");
+            rc.SetCustomizedString("LS_SpellCheckForm_btAddToDictionary", "Ag&regar");
+            rc.SetCustomizedString("LS_SpellCheckForm_btUndo", "&Deshacer");
+            rc.SetCustomizedString("LS_SpellCheckForm_lbErrorsFound", "Se han encontrado errores");
+            rc.SetCustomizedString("LS_SpellCheckForm_lbChangeTo", "Cambiar a:");
+            rc.SetCustomizedString("LS_SpellCheckForm_lbSuggestions", "Sugerencias:");
 
             //cargo el diccionario
-            //ultraSpellCheckerEvolucion.Dictionary = Application.StartupPath + "\\Recursos\\es-spanish-v2-whole.dict";
+            ultraSpellCheckerEvolucion.Dictionary = Application.StartupPath + "\\Recursos\\es-spanish-v2-whole.dict";
             try
             {
                 if (mostrarInfPaciente == true)
